@@ -53,16 +53,17 @@
 }
 
 .bottom-nav a {
-  font-size: 1.125rem;
+  font-size: 1.75rem;
   font-weight: 500;
   color: var(--color-text-main);
-  transition: transform var(--transition-fast), color var(--transition-fast);
+  transition: transform var(--transition-normal), color var(--transition-fast), padding-left var(--transition-normal);
   display: inline-block;
   transform-origin: left;
+  letter-spacing: -0.02em;
 }
 
 .bottom-nav a:hover {
-  transform: translateX(8px);
+  padding-left: 1rem;
   color: var(--color-text-muted);
 }
 
