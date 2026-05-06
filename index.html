@@ -4,154 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guilherme Marques | Design & Front-End Web Development</title>
-    <meta name="description" content="Especialista em criar websites corporativos limpos, rápidos e orientados a resultados. Ajudo empresas a destacarem-se no digital.">
     
-    <!-- CSS Core -->
     <link rel="stylesheet" href="assets/css/fonts.css">
     <link rel="stylesheet" href="assets/css/variables.css">
     <link rel="stylesheet" href="assets/css/global.css">
     <link rel="stylesheet" href="assets/css/animations.css">
-    <link rel="stylesheet" href="assets/css/components.css">
     <link rel="stylesheet" href="assets/css/home.css">
+    <link rel="stylesheet" href="assets/css/components.css">
 </head>
-<body>
+<body style="overflow-x: hidden;">
 
-    <!-- Header -->
-    <header class="site-header">
-        <div class="container header-inner">
+    <!-- Split Hero Container -->
+    <main class="split-hero-container fade-up is-visible">
+        
+        <!-- Left Side: Content & Navigation -->
+        <div class="split-left">
             <a href="index.html" class="brand-logo">GM.</a>
             
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="index.html" class="active link-underline">Início</a></li>
-                    <li><a href="sobre/index.html" class="link-underline">Sobre Mim</a></li>
-                    <li><a href="servicos/index.html" class="link-underline">Serviços</a></li>
-                    <li><a href="projetos/index.html" class="link-underline">Projetos</a></li>
-                    <li><a href="contacto/index.html" class="link-underline">Contacto</a></li>
-                </ul>
+            <div class="hero-text-wrapper fade-up is-visible" style="transition-delay: 0.2s;">
+                <h1 class="hero-title">Crafting digital<br>experiences.</h1>
+                <p class="hero-desc">Front-End architecture and pristine UI/UX design for corporate brands. Minimalist approach, maximalist results.</p>
+            </div>
+            
+            <nav class="bottom-nav fade-up is-visible" style="transition-delay: 0.4s;">
+                <a href="sobre/index.html">/ About</a>
+                <a href="projetos/index.html">/ Projects</a>
+                <a href="servicos/index.html">/ Services</a>
+                <a href="contacto/index.html">/ Contact</a>
             </nav>
-
-            <button class="mobile-menu-toggle" aria-label="Menu" aria-expanded="false">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
         </div>
-    </header>
-
-    <main>
-        <!-- Hero Section -->
-        <section class="hero-section container">
-            <div class="hero-content fade-up">
-                <span class="hero-subtitle">Engenharia Front-End & UX/UI</span>
-                <h1 class="hero-title">Elevo marcas através de experiências digitais imersivas.</h1>
-                <p class="hero-desc">Desenvolvo websites de alta performance, com design minimalista e corporativo, focados em gerar valor e confiança para a sua empresa.</p>
-                <div class="hero-actions">
-                    <a href="projetos/index.html" class="btn btn-primary">
-                        Ver Projetos
-                        <svg class="icon-draw" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
-                    </a>
-                    <a href="contacto/index.html" class="btn btn-outline">Falar Comigo</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Serviços Resumo -->
-        <section class="section container stagger-container">
-            <div class="fade-up">
-                <h2>Como ajudo empresas</h2>
-                <p>Soluções tecnológicas focadas em performance e design.</p>
-            </div>
-            
-            <div class="services-grid">
-                <div class="service-card hover-elevate fade-up">
-                    <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
-                    <h3>UX/UI Design</h3>
-                    <p>Interfaces limpas, intuitivas e perfeitamente ajustadas ao seu público-alvo e regras de negócio corporativas.</p>
-                </div>
-                <div class="service-card hover-elevate fade-up">
-                    <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 17l6-6-6-6M12 19h8"></path></svg>
-                    <h3>Front-End Moderno</h3>
-                    <p>Código otimizado, sem dependências desnecessárias, focado em velocidade extrema e SEO técnico de topo.</p>
-                </div>
-                <div class="service-card hover-elevate fade-up">
-                    <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
-                    <h3>Websites & Dashboards</h3>
-                    <p>Desenvolvimento de plataformas sólidas para operações informativas B2B e painéis de controlo de alta complexidade.</p>
-                </div>
-            </div>
-            
-            <div class="fade-up" style="margin-top: 3rem; text-align: center;">
-                <a href="servicos/index.html" class="link-underline" style="font-weight: 500; color: var(--color-primary);">Explorar todos os serviços →</a>
-            </div>
-        </section>
-
-        <!-- Projetos Resumo -->
-        <section class="section container stagger-container" style="background-color: var(--color-bg-alt); margin-left: calc(-50vw + 50%); width: 100vw; padding-left: max(1.5rem, calc(50vw - 600px)); padding-right: max(1.5rem, calc(50vw - 600px));">
-            <div class="fade-up">
-                <h2>Trabalho Recente</h2>
-            </div>
-            
-            <div class="projects-grid">
-                <a href="projetos/index.html" class="project-card hover-elevate fade-up">
-                    <div class="project-img"></div>
-                    <div class="project-info">
-                        <div class="project-tags">Website Corporativo</div>
-                        <h3>Fintech Dashboard UI</h3>
-                        <p>Interface minimalista para análise de dados empresariais e tracking financeiro B2B.</p>
-                    </div>
-                </a>
-                <a href="projetos/index.html" class="project-card hover-elevate fade-up">
-                    <div class="project-img"></div>
-                    <div class="project-info">
-                        <div class="project-tags">E-commerce / Front-End</div>
-                        <h3>Plataforma Imobiliária Premium</h3>
-                        <p>Plataforma para agência de luxo com alta otimização de imagens e navegação fluida.</p>
-                    </div>
-                </a>
-            </div>
-        </section>
         
-        <!-- Call to Action -->
-        <section class="section container fade-up" style="text-align: center; max-width: 600px;">
-            <h2 style="margin-bottom: 1rem;">Pronto para elevar a sua presença digital?</h2>
-            <p style="margin-bottom: 2rem;">Vamos discutir como o seu negócio pode beneficiar de um website de alta performance desenhado à medida.</p>
-            <a href="contacto/index.html" class="btn btn-primary" style="padding: 1rem 2rem;">Iniciar Projeto</a>
-        </section>
+        <!-- Right Side: Image & Floating Card -->
+        <div class="split-right">
+            <!-- Background Image -->
+            <img src="assets/img/hero-split.png" alt="Workspace Concept" class="split-bg-image">
+            
+            <!-- Glassmorphism Floating Card -->
+            <div class="floating-card-wrapper fade-up is-visible" style="transition-delay: 0.6s;">
+                <div class="floating-card">
+                    <img src="assets/img/card-thumb.png" alt="Corporate Dashboard UI" class="fc-image">
+                    <div class="fc-content">
+                        <h3 class="fc-title">Recent Work</h3>
+                        <p class="fc-desc">Explore handpicked corporate solutions focusing on data visualization and seamless user flows.</p>
+                        <a href="projetos/index.html" class="btn btn-dark">Explore More</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pagination Dots -->
+            <div class="pagination-dots">
+                <div class="dot active"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        </div>
+
     </main>
 
-    <!-- Footer -->
-    <footer class="site-footer">
-        <div class="container footer-inner">
-            <div>
-                <a href="index.html" class="brand-logo" style="margin-bottom: 1rem; display: block;">GM.</a>
-                <p style="max-width: 300px;">Desenvolvimento Front-End & Web Design premium para empresas.</p>
-            </div>
-            <div style="display: flex; gap: 3rem;">
-                <div>
-                    <h4 style="margin-bottom: 1rem;">Navegação</h4>
-                    <ul style="display: flex; flex-direction: column; gap: 0.5rem;">
-                        <li><a href="sobre/index.html" class="link-underline">Sobre Mim</a></li>
-                        <li><a href="projetos/index.html" class="link-underline">Projetos</a></li>
-                        <li><a href="servicos/index.html" class="link-underline">Serviços</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 style="margin-bottom: 1rem;">Social</h4>
-                    <ul style="display: flex; flex-direction: column; gap: 0.5rem;">
-                        <li><a href="#" class="link-underline">LinkedIn</a></li>
-                        <li><a href="#" class="link-underline">GitHub</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <p class="footer-copy">© 2026 Guilherme Marques. Todos os direitos reservados.</p>
-        </div>
-    </footer>
-
-    <!-- Scripts -->
     <script src="assets/js/animations.js"></script>
-    <script src="assets/js/main.js"></script>
 </body>
 </html>

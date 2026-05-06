@@ -1,9 +1,16 @@
 /* assets/css/animations.css */
 
+/* Floating animation for hero visual */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
 /* Fade Up Micro-animation */
 .fade-up {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(30px);
   transition: opacity var(--transition-slow), transform var(--transition-slow);
 }
 
@@ -14,7 +21,7 @@
 
 /* Staggered Children Fade */
 .stagger-container .fade-up {
-  transition-delay: calc(var(--stagger-index, 0) * 0.1s);
+  transition-delay: calc(var(--stagger-index, 0) * 0.15s);
 }
 
 /* Link Underline Hover */
@@ -29,7 +36,7 @@
   width: 100%;
   transform: scaleX(0);
   height: 2px;
-  bottom: 0;
+  bottom: -2px;
   left: 0;
   background-color: var(--color-primary);
   transform-origin: bottom right;
@@ -41,22 +48,11 @@
   transform-origin: bottom left;
 }
 
-/* Card Hover Elevate */
-.hover-elevate {
-  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
-}
-
-.hover-elevate:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
-}
-
 /* SVG Icon Hover Draw */
 .icon-draw {
   transition: transform var(--transition-fast), color var(--transition-fast);
 }
 
-.icon-button:hover .icon-draw {
+.btn:hover .icon-draw {
   transform: translateX(4px);
-  color: var(--color-primary);
 }
