@@ -47,32 +47,10 @@
             </nav>
         </div>
 
-        <!-- Right Side: Image & Floating Card -->
+        <!-- Right Side: Image Only -->
         <div class="split-right">
             <!-- Background Image -->
             <img src="assets/img/hero-split.png" alt="Workspace Concept" class="split-bg-image">
-
-            <!-- Glassmorphism Floating Card -->
-            <div class="floating-card-wrapper fade-up is-visible" style="transition-delay: 0.6s;">
-                <div class="floating-card">
-                    <img src="assets/img/card-thumb.png" alt="Corporate Dashboard UI" class="fc-image">
-                    <div class="fc-content">
-                        <h3 class="fc-title">Trabalho Recente</h3>
-                        <p class="fc-desc">Explore soluções corporativas focadas em visualização de dados e fluxos de
-                            utilizador fluidos.</p>
-                        <a href="projetos/index.html" class="btn btn-dark"
-                            style="display: inline-flex; align-items: center; gap: 0.5rem;">
-                            Explorar Projetos
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"
-                                viewBox="0 0 256 256" class="icon-draw" style="transform-origin: center;">
-                                <path
-                                    d="M 144 256 L 27.598 256 L 144 139.598 Z M 256 207.5 L 200 256 L 200 56 L 0 56 L 48 0 L 256 0 Z M 0 204.402 L 0 112 L 92.402 112 Z"
-                                    fill="currentColor"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
 
             <!-- Pagination Dots -->
             <div class="pagination-dots">
@@ -83,6 +61,24 @@
             </div>
         </div>
 
+        <!-- Centered Floating Card -->
+        <div class="floating-card-positioner">
+            <div class="floating-card-wrapper fade-up is-visible" style="transition-delay: 0.6s;">
+                <div class="floating-card">
+                    <img src="assets/img/card-thumb.png" alt="Corporate Dashboard UI" class="fc-image">
+                    <div class="fc-content">
+                        <h3 class="fc-title">Trabalho Recente</h3>
+                        <p class="fc-desc">Explore soluções corporativas focadas em visualização de dados e fluxos de utilizador fluidos.</p>
+                        <a href="projetos/index.html" class="btn btn-dark" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                            Explorar Projetos
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 256 256" class="icon-draw" style="transform-origin: center;">
+                                <path d="M 144 256 L 27.598 256 L 144 139.598 Z M 256 207.5 L 200 256 L 200 56 L 0 56 L 48 0 L 256 0 Z M 0 204.402 L 0 112 L 92.402 112 Z" fill="currentColor"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <script src="assets/js/animations.js"></script>

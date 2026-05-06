@@ -6,6 +6,7 @@
   height: 100vh;
   width: 100%;
   overflow: hidden;
+  position: relative;
 }
 
 /* Left Pane */
@@ -86,12 +87,17 @@
 }
 
 /* Floating Card Overlay */
-.floating-card-wrapper {
+.floating-card-positioner {
   position: absolute;
   bottom: 3rem;
-  left: -4rem; /* overlaps the left pane slightly for depth */
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 10;
   width: 420px;
+}
+
+.floating-card-wrapper {
+  width: 100%;
 }
 
 .floating-card {
