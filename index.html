@@ -47,17 +47,29 @@
             </nav>
         </div>
 
-        <!-- Right Side: Image Only -->
+        <!-- Right Side: Interactive Carousel -->
         <div class="split-right">
-            <!-- Background Image -->
-            <img src="assets/img/hero-split.png" alt="Workspace Concept" class="split-bg-image">
+            <div class="carousel-container">
+                <img src="assets/img/hero-split.png" alt="Workspace Concept" class="carousel-slide active">
+                <img src="assets/img/hero-2.png" alt="Architectural Model" class="carousel-slide">
+                <img src="assets/img/hero-3.png" alt="Abstract Glass" class="carousel-slide">
+                <img src="assets/img/hero-4.png" alt="Luxury Interior" class="carousel-slide">
+            </div>
+
+            <!-- Navigation Arrows -->
+            <button class="carousel-nav prev" aria-label="Anterior">
+                <svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><path d="M164.24,203.76a6,6,0,1,1-8.48,8.48l-80-80a6,6,0,0,1,0-8.48l80-80a6,6,0,0,1,8.48,8.48L92.49,128Z"></path></svg>
+            </button>
+            <button class="carousel-nav next" aria-label="Próximo">
+                <svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><path d="M180.24,132.24l-80,80a6,6,0,0,1-8.48-8.48L167.51,128,91.76,52.24a6,6,0,0,1,8.48-8.48l80,80A6,6,0,0,1,180.24,132.24Z"></path></svg>
+            </button>
 
             <!-- Pagination Dots -->
             <div class="pagination-dots">
-                <div class="dot active"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
+                <div class="dot active" data-index="0"></div>
+                <div class="dot" data-index="1"></div>
+                <div class="dot" data-index="2"></div>
+                <div class="dot" data-index="3"></div>
             </div>
         </div>
 
@@ -84,6 +96,7 @@
     </main>
 
     <script src="assets/js/animations.js"></script>
+    <script src="assets/js/hero-carousel.js"></script>
 </body>
 
 </html>

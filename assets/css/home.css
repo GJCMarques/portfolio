@@ -77,22 +77,13 @@
   position: relative;
 }
 
-.split-bg-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
 /* Floating Card Overlay */
 .floating-card-positioner {
   position: absolute;
   bottom: 3rem;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 10;
+  z-index: 20; /* Above carousel images */
   width: 420px;
 }
 
@@ -208,32 +199,94 @@
   transform: translateY(-2px) scale(0.98);
 }
 
-.btn-dark:active {
-  transform: translateY(-2px) scale(0.98);
+/* Carousel System */
+.carousel-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.carousel-slide.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+/* Navigation Arrows */
+.carousel-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  padding: 1.5rem;
+  mix-blend-mode: difference;
+  transition: transform 0.3s var(--transition-normal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-nav svg {
+  width: 32px;
+  height: 32px;
+  fill: #fff;
+}
+
+.carousel-nav.prev {
+  left: 1rem;
+}
+
+.carousel-nav.next {
+  right: 1rem;
+}
+
+.carousel-nav:hover {
+  transform: translateY(-50%) scale(1.15);
 }
 
 /* Pagination Dots */
 .pagination-dots {
   position: absolute;
-  bottom: 2rem;
+  bottom: 2.5rem;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 0.5rem;
-  z-index: 10;
+  gap: 0.75rem;
+  z-index: 25; /* Above everything */
 }
 
 .dot {
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.4);
-  transition: all var(--transition-fast);
+  background-color: rgba(255, 255, 255, 0.3);
+  transition: all var(--transition-normal);
+  cursor: pointer;
+}
+
+.dot:hover {
+  background-color: rgba(255, 255, 255, 0.6);
 }
 
 .dot.active {
   background-color: #fff;
-  transform: scale(1.5);
+  transform: scale(1.4);
 }
 
 @media (max-width: 1024px) {
