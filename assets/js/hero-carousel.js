@@ -50,13 +50,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Auto-advance every 6 seconds
-    let autoPlay = setInterval(showNext, 6000);
+    // Auto-advance every 10 seconds
+    let autoPlay = setInterval(showNext, 10000);
 
     // Pause auto-play on interaction
     const container = document.querySelector('.split-right');
     container.addEventListener('mouseenter', () => clearInterval(autoPlay));
     container.addEventListener('mouseleave', () => {
-        autoPlay = setInterval(showNext, 6000);
+        autoPlay = setInterval(showNext, 10000);
     });
 });
