@@ -1,0 +1,62 @@
+/* assets/css/animations.css */
+
+/* Fade Up Micro-animation */
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+.fade-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered Children Fade */
+.stagger-container .fade-up {
+  transition-delay: calc(var(--stagger-index, 0) * 0.1s);
+}
+
+/* Link Underline Hover */
+.link-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--color-primary);
+  transform-origin: bottom right;
+  transition: transform var(--transition-normal);
+}
+
+.link-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Card Hover Elevate */
+.hover-elevate {
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.hover-elevate:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* SVG Icon Hover Draw */
+.icon-draw {
+  transition: transform var(--transition-fast), color var(--transition-fast);
+}
+
+.icon-button:hover .icon-draw {
+  transform: translateX(4px);
+  color: var(--color-primary);
+}

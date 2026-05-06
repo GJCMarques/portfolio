@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | Guilherme Marques</title>
+    
+    <link rel="stylesheet" href="../assets/css/fonts.css">
+    <link rel="stylesheet" href="../assets/css/variables.css">
+    <link rel="stylesheet" href="../assets/css/global.css">
+    <link rel="stylesheet" href="../assets/css/animations.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="../index.html" class="brand-logo">GM.</a>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../index.html" class="link-underline">Início</a></li>
+                    <li><a href="../sobre/index.html" class="link-underline">Sobre Mim</a></li>
+                    <li><a href="../servicos/index.html" class="link-underline">Serviços</a></li>
+                    <li><a href="../projetos/index.html" class="link-underline">Projetos</a></li>
+                    <li><a href="index.html" class="active link-underline">Contacto</a></li>
+                </ul>
+            </nav>
+
+            <button class="mobile-menu-toggle" aria-label="Menu" aria-expanded="false">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main style="padding-top: var(--header-height); min-height: 80vh;">
+        <section class="section container fade-up">
+            <div style="max-width: 600px;">
+                <h1 style="margin-bottom: 1rem;">Vamos Trabalhar Juntos.</h1>
+                <p style="margin-bottom: 3rem;">A minha agenda está aberta a novos projetos corporativos. Preencha o formulário ou contacte-me diretamente por email para iniciarmos a discussão da arquitetura do seu próximo website.</p>
+                
+                <div style="display: grid; gap: 2rem;">
+                    <div>
+                        <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Email</h3>
+                        <a href="mailto:hello@empresa.com" class="link-underline" style="color: var(--color-primary); font-weight: 500;">hello@guilhermemarques.com</a>
+                    </div>
+                    <div>
+                        <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Sede Operacional</h3>
+                        <p>Portugal (Remote worldwide)</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Formulário Mockup (Layout Base) -->
+            <form style="margin-top: 4rem; max-width: 600px; display: flex; flex-direction: column; gap: 1.5rem; background: var(--color-bg-card); padding: 2.5rem; border: 1px solid var(--color-border); border-radius: var(--radius-lg);" class="fade-up">
+                <div>
+                    <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Nome Completo</label>
+                    <input type="text" placeholder="O seu nome..." style="width: 100%; padding: 0.75rem; border: 1px solid var(--color-border); border-radius: var(--radius-sm); outline: none;">
+                </div>
+                <div>
+                    <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Email Corporativo</label>
+                    <input type="email" placeholder="email@sua-empresa.com" style="width: 100%; padding: 0.75rem; border: 1px solid var(--color-border); border-radius: var(--radius-sm); outline: none;">
+                </div>
+                <div>
+                    <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Detalhes do Projeto</label>
+                    <textarea rows="4" placeholder="Como o posso ajudar a escalar digitalmente..." style="width: 100%; padding: 0.75rem; border: 1px solid var(--color-border); border-radius: var(--radius-sm); outline: none; resize: vertical;"></textarea>
+                </div>
+                <button type="button" class="btn btn-primary" style="margin-top: 1rem; width: 100%;">Enviar Mensagem</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="site-footer" style="margin-top: auto;">
+        <div class="container footer-inner">
+            <div>
+                <a href="../index.html" class="brand-logo" style="margin-bottom: 1rem; display: block;">GM.</a>
+                <p style="max-width: 300px;">Desenvolvimento Front-End & Web Design premium para empresas.</p>
+            </div>
+        </div>
+        <div class="container">
+            <p class="footer-copy">© 2026 Guilherme Marques. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/animations.js"></script>
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>
