@@ -24,6 +24,22 @@
   box-shadow: var(--shadow-md);
 }
 
+.btn-dark {
+  background-color: #1A1A18;
+  color: #FFFFFF;
+  border-radius: 100px;
+  padding: 1rem 2.5rem;
+  border: none;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-dark:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
 .btn-outline {
   background-color: transparent;
   color: var(--color-text-main);
