@@ -325,7 +325,7 @@
 }
 
 .label-text {
-  font-size: 1rem; /* More subtle, editorial size */
+  font-size: 18px; /* Increased as requested */
   font-weight: 600;
   letter-spacing: 0.2em; /* Wide, architectural spacing */
   text-transform: uppercase;
@@ -380,7 +380,7 @@
 }
 
 
-/* Premium Hover Button */
+/* Premium Hover Button Refined */
 .intro-link-premium {
   display: inline-flex;
   align-items: center;
@@ -391,33 +391,80 @@
   text-transform: uppercase;
   color: var(--color-text-main);
   text-decoration: none;
+  position: relative;
+}
+
+.intro-link-premium .link-text {
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.intro-link-premium .link-text::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--color-text-main);
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.intro-link-premium:hover .link-text::after {
+  width: 100%;
 }
 
 .intro-link-premium .link-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   border: 1px solid var(--color-border);
-  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  background-color: transparent;
+  position: relative; /* Essential to anchor the absolute icons */
+  overflow: hidden; /* Essential to clip the roll effect */
 }
 
-.intro-link-premium svg {
-  width: 18px;
-  height: 18px;
+.icon-inner {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 104px; /* 52px * 2 */
+  height: 100%; /* Fill the 52px height of parent */
+  transform: translateX(-52px);
   transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.icon-slide {
+  width: 52px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.arrow-icon {
+  width: 20px;
+  height: 20px;
+  display: block; /* Avoid inline spacing issues */
+  stroke: currentColor;
 }
 
 .intro-link-premium:hover .link-icon {
   background-color: var(--color-text-main);
   color: var(--color-bg-main);
   border-color: var(--color-text-main);
+  transform: scale(1.05);
 }
 
-.intro-link-premium:hover svg {
-  transform: translate(4px, -4px);
+.intro-link-premium:hover .icon-inner {
+  transform: translateX(0); /* Roll para a direita */
 }
 
 @media (max-width: 1024px) {
