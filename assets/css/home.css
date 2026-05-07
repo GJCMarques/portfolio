@@ -420,6 +420,74 @@
   /* Roll para a direita */
 }
 
+/* Milestones Section */
+.intro-milestones {
+  margin-top: 6rem;
+  padding-top: 3rem;
+  border-top: 1px solid rgba(26, 26, 24, 0.1);
+  display: flex;
+  align-items: flex-start;
+  gap: 4rem;
+}
+
+.milestone-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text-main);
+  flex: 0 0 150px;
+  opacity: 0.8;
+}
+
+.milestones-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.milestone-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.milestone-number {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 700;
+  color: var(--color-text-main);
+  line-height: 1;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.04em;
+}
+
+.milestone-text {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text-main);
+  opacity: 0.5;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 768px) {
+  .intro-milestones {
+    flex-direction: column;
+    gap: 2.5rem;
+    margin-top: 4rem;
+    padding-top: 2rem;
+  }
+  
+  .milestone-label {
+    flex: none;
+  }
+  
+  .milestones-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
 /* Featured Projects Section */
 .featured-projects-section {
   background-color: var(--color-bg-main);
