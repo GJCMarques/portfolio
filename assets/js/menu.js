@@ -6,14 +6,30 @@ document.addEventListener('DOMContentLoaded', () => {
     const drawer = document.getElementById('sideDrawer');
     
     if (trigger && drawer) {
+        // Get scrollbar width for compensation
+        const getScrollbarWidth = () => {
+            return window.innerWidth - document.documentElement.clientWidth;
+        };
+
         // Toggle Menu
         const toggleMenu = () => {
-            document.body.classList.toggle('nav-active');
-            const isActive = document.body.classList.contains('nav-active');
-            trigger.setAttribute('aria-expanded', isActive);
+            const isActive = !document.body.classList.contains('nav-active');
+            const scrollWidth = getScrollbarWidth();
             
-            // Lock scroll
-            document.body.style.overflow = isActive ? 'hidden' : '';
+            if (isActive) {
+                document.body.classList.add('nav-active');
+                document.body.style.overflow = 'hidden';
+                document.body.style.paddingRight = `${scrollWidth}px`;
+                // Compensate fixed elements
+                trigger.style.marginRight = `${scrollWidth}px`;
+            } else {
+                document.body.classList.remove('nav-active');
+                document.body.style.overflow = '';
+                document.body.style.paddingRight = '';
+                trigger.style.marginRight = '';
+            }
+            
+            trigger.setAttribute('aria-expanded', isActive);
         };
 
         trigger.addEventListener('click', toggleMenu);
@@ -32,6 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
             link.addEventListener('click', () => {
                 document.body.classList.remove('nav-active');
                 document.body.style.overflow = '';
+                document.body.style.paddingRight = '';
+                trigger.style.marginRight = '';
                 trigger.setAttribute('aria-expanded', 'false');
             });
         });
