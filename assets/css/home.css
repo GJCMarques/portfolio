@@ -516,10 +516,11 @@
 }
 
 .projects-subheading {
-  font-size: 1.125rem;
-  line-height: 1.6;
+  font-size: 20px;
+  line-height: 1.6; /* Resulta em 32px */
+  letter-spacing: -0.2px;
   color: var(--color-text-muted);
-  max-width: 450px;
+  max-width: 550px;
 }
 
 .projects-list {
