@@ -80,6 +80,19 @@
   transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
+/* Size Variations */
+.btn-xl {
+  padding: 1.25rem 3.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.btn-xl .icon-draw {
+  width: 22px;
+  height: 22px;
+}
+
 .btn-outline {
   background-color: transparent;
   color: var(--color-text-main);
