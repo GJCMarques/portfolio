@@ -8,31 +8,71 @@
     <link rel="stylesheet" href="../assets/css/fonts.css">
     <link rel="stylesheet" href="../assets/css/variables.css">
     <link rel="stylesheet" href="../assets/css/global.css">
+    <link rel="stylesheet" href="../assets/css/menu.css">
     <link rel="stylesheet" href="../assets/css/animations.css">
     <link rel="stylesheet" href="../assets/css/components.css">
 </head>
-<body>
-    <header class="site-header">
-        <div class="container header-inner">
-            <a href="../index.html" class="brand-logo">GM.</a>
-            
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="../index.html" class="link-underline">Início</a></li>
-                    <li><a href="../sobre/index.html" class="link-underline">Sobre Mim</a></li>
-                    <li><a href="../servicos/index.html" class="link-underline">Serviços</a></li>
-                    <li><a href="../projetos/index.html" class="link-underline">Projetos</a></li>
-                    <li><a href="index.html" class="active link-underline">Contacto</a></li>
-                </ul>
-            </nav>
-
-            <button class="mobile-menu-toggle" aria-label="Menu" aria-expanded="false">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
+<body style="overflow-x: hidden;">
+    <!-- New High-End Menu Trigger -->
+    <button id="menuTrigger" class="menu-trigger" aria-label="Toggle Menu" aria-expanded="false">
+        <div class="trigger-icon">
+            <div class="trigger-line top"></div>
+            <div class="trigger-line bottom"></div>
         </div>
-    </header>
+    </button>
+
+    <!-- Side Drawer Overlay -->
+    <div id="drawerOverlay" class="drawer-overlay"></div>
+
+    <!-- Side Drawer Menu -->
+    <aside id="sideDrawer" class="side-drawer" role="dialog" aria-modal="true" aria-label="Menu Principal">
+        <nav class="drawer-nav">
+            <ul class="drawer-list">
+                <li class="drawer-item">
+                    <a href="../index.html" class="drawer-link"><span class="item-num">01</span> INÍCIO <span class="arrow">→</span></a>
+                </li>
+                <li class="drawer-item">
+                    <a href="../projetos/index.html" class="drawer-link"><span class="item-num">02</span> TRABALHOS <span class="arrow">→</span></a>
+                </li>
+                <li class="drawer-item">
+                    <a href="../sobre/index.html" class="drawer-link"><span class="item-num">03</span> SOBRE <span class="arrow">→</span></a>
+                </li>
+                <li class="drawer-item">
+                    <a href="../servicos/index.html" class="drawer-link"><span class="item-num">04</span> SERVIÇOS <span class="arrow">→</span></a>
+                </li>
+                <li class="drawer-item">
+                    <a href="index.html" class="drawer-link active"><span class="item-num">05</span> CONTACTO <span class="arrow">→</span></a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="drawer-footer">
+            <div class="drawer-contact">
+                <h4>Vamos Conversar?</h4>
+                <a href="mailto:guilherme.jcmarques@gmail.com">guilherme.jcmarques@gmail.com</a>
+            </div>
+            <div class="drawer-social">
+                <a href="https://linkedin.com/in/guilhermemarques" target="_blank" aria-label="LinkedIn">
+                    <img src="../assets/img/linkedin.svg" alt="LinkedIn">
+                </a>
+                <a href="https://github.com/GJCMarques" target="_blank" aria-label="GitHub">
+                    <img src="../assets/img/github.svg" alt="GitHub">
+                </a>
+                <a href="https://dribbble.com" target="_blank" aria-label="Dribbble">
+                    <img src="../assets/img/dribbble.svg" alt="Dribbble">
+                </a>
+            </div>
+        </div>
+    </aside>
+
+    <a href="../index.html" class="brand-logo-fixed" aria-label="Home">
+        <div class="logo-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="none" viewBox="0 0 256 256">
+                <path d="M 144 256 L 27.598 256 L 144 139.598 Z M 256 207.5 L 200 256 L 200 56 L 0 56 L 48 0 L 256 0 Z M 0 204.402 L 0 112 L 92.402 112 Z" fill="currentColor"></path>
+            </svg>
+        </div>
+        <span class="brand-name">Guilherme Marques</span>
+    </a>
 
     <main style="padding-top: var(--header-height); min-height: 80vh;">
         <section class="section container fade-up">
@@ -84,6 +124,7 @@
     </footer>
 
     <script src="../assets/js/animations.js"></script>
+    <script src="../assets/js/menu.js"></script>
     <script src="../assets/js/main.js"></script>
 </body>
 </html>
