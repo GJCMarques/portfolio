@@ -367,15 +367,13 @@
 }
 
 .intro-statement {
-  font-size: clamp(2.5rem, 4.5vw, 4rem);
-  /* Sleek scale */
-  line-height: 1.1;
+  font-size: 64px;
+  line-height: 70.4px; /* 1.1 ratio */
+  letter-spacing: -2.6px;
+  color: #1A1A18;
   font-weight: 600;
-  /* Sophisticated weight */
-  color: var(--color-text-main);
-  letter-spacing: -0.04em;
   margin: 0;
-  max-width: 100%;
+  margin-bottom: 2rem;
 }
 
 .intro-description {
@@ -508,9 +506,11 @@
 }
 
 .projects-heading {
-  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-size: 64px;
+  line-height: 70.4px; /* 1.1 ratio */
+  letter-spacing: -2.6px;
+  color: #1A1A18;
   font-weight: 600;
-  letter-spacing: -0.04em;
   text-transform: uppercase;
   max-width: 50%;
 }
