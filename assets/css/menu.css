@@ -130,7 +130,7 @@ body.nav-active .drawer-overlay {
 
 .drawer-link {
   display: inline-flex;
-  flex-direction: column; /* Number above or aligned */
+  flex-direction: column;
   font-size: clamp(2.5rem, 4.5vw, 4rem);
   font-weight: 800;
   color: #fff;
@@ -138,6 +138,7 @@ body.nav-active .drawer-overlay {
   text-transform: uppercase;
   letter-spacing: -0.04em;
   line-height: 1.1;
+  position: relative;
   transform: translateY(100%);
   transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
 }
@@ -155,24 +156,27 @@ body.nav-active .drawer-link {
   font-weight: 600;
 }
 
-/* Link Hover */
+/* Arrow Alignment Fix */
 .drawer-link span.arrow {
-  font-size: 0.7em;
+  position: absolute;
+  top: calc(50% + 0.45rem); /* Adjust based on numbering height */
+  left: 100%;
+  margin-left: 1.5rem;
+  font-size: 0.6em;
   opacity: 0;
-  transform: translateX(-30px);
+  transform: translateY(-50%) translateX(-30px);
   transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   color: #fff;
-  position: absolute;
-  right: -50px;
+  pointer-events: none;
 }
 
 .drawer-link:hover {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .drawer-link:hover span.arrow {
   opacity: 1;
-  transform: translateX(0);
+  transform: translateY(-50%) translateX(0);
 }
 
 /* Footer Info */
