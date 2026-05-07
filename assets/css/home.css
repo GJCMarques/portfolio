@@ -307,8 +307,7 @@
 /* About Intro Section (Premium Editorial) */
 .about-intro-section {
   background-color: var(--color-bg-main);
-  padding: 10rem 0;
-  /* Vertical breathing room, container handles lateral */
+  padding: 150px 0 100px 0;
   border-top: 1px solid var(--color-border);
 }
 
@@ -485,8 +484,7 @@
 /* Featured Projects Section */
 .featured-projects-section {
   background-color: var(--color-bg-main);
-  padding: 10rem 0;
-  border-top: 1px solid var(--color-border);
+  padding: 100px 0;
 }
 
 .container-large {
