@@ -1,0 +1,241 @@
+/* assets/css/menu.css */
+
+/* --- THE TOGGLE BUTTON --- */
+.menu-trigger {
+  position: fixed;
+  top: 2.5rem;
+  right: 2.5rem;
+  z-index: 2000;
+  width: 60px;
+  height: 60px;
+  background-color: var(--color-text-main, #1a1a1a);
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease;
+  overflow: hidden;
+}
+
+.menu-trigger:hover {
+  transform: scale(1.1);
+  background-color: #000;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+}
+
+.trigger-icon {
+  position: relative;
+  width: 24px;
+  height: 12px;
+}
+
+.trigger-line {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.trigger-line.top {
+  top: 0;
+}
+
+.trigger-line.bottom {
+  bottom: 0;
+}
+
+/* Toggle Active State */
+body.nav-active .menu-trigger {
+  background-color: #fff;
+}
+
+body.nav-active .trigger-line {
+  background-color: #000;
+}
+
+body.nav-active .trigger-line.top {
+  transform: translateY(5px) rotate(45deg);
+}
+
+body.nav-active .trigger-line.bottom {
+  transform: translateY(-5px) rotate(-45deg);
+}
+
+
+/* --- THE SIDE DRAWER (MENU) --- */
+.side-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 500px;
+  max-width: 100vw;
+  height: 100vh;
+  background-color: #000; /* Pure Black for Drawer */
+  z-index: 1500;
+  transform: translateX(100%);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  padding: 8rem 4rem 4rem 4rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+body.nav-active .side-drawer {
+  transform: translateX(0);
+}
+
+/* Background Overlay */
+.drawer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 1400;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.6s ease;
+}
+
+body.nav-active .drawer-overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Nav Links */
+.drawer-nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.drawer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.drawer-item {
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+.drawer-link {
+  display: inline-flex;
+  align-items: center;
+  font-size: clamp(2.5rem, 4vw, 4.5rem);
+  font-weight: 800;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: -0.04em;
+  transform: translateY(100%);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+}
+
+body.nav-active .drawer-link {
+  transform: translateY(0);
+}
+
+/* Staggered entrance */
+body.nav-active .drawer-item:nth-child(1) .drawer-link { transition-delay: 0.1s; }
+body.nav-active .drawer-item:nth-child(2) .drawer-link { transition-delay: 0.15s; }
+body.nav-active .drawer-item:nth-child(3) .drawer-link { transition-delay: 0.2s; }
+body.nav-active .drawer-item:nth-child(4) .drawer-link { transition-delay: 0.25s; }
+body.nav-active .drawer-item:nth-child(5) .drawer-link { transition-delay: 0.3s; }
+
+/* Link Hover */
+.drawer-link span.arrow {
+  font-size: 0.7em;
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  color: #fff;
+  margin-left: 1.5rem;
+}
+
+.drawer-link:hover {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.drawer-link:hover span.arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Footer Info */
+.drawer-footer {
+  margin-top: auto;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s;
+}
+
+body.nav-active .drawer-footer {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.drawer-contact h4 {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.75rem;
+}
+
+.drawer-contact a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: opacity 0.3s ease;
+}
+
+.drawer-contact a:hover {
+  opacity: 0.6;
+}
+
+.drawer-social {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.drawer-social a {
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: opacity 0.3s ease;
+}
+
+.drawer-social a:hover {
+  opacity: 0.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .side-drawer {
+    width: 100%;
+    padding: 6rem 2rem 2rem 2rem;
+  }
+  .menu-trigger {
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 50px;
+    height: 50px;
+  }
+}
