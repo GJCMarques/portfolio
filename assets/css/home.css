@@ -307,14 +307,16 @@
 /* About Intro Section (Premium Editorial) */
 .about-intro-section {
   background-color: var(--color-bg-main);
-  padding: 10rem 0; /* Vertical breathing room, container handles lateral */
+  padding: 10rem 0;
+  /* Vertical breathing room, container handles lateral */
   border-top: 1px solid var(--color-border);
 }
 
 .intro-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 6rem; /* Clean, wide separation between columns */
+  gap: 6rem;
+  /* Clean, wide separation between columns */
   align-items: start;
 }
 
@@ -325,11 +327,14 @@
 }
 
 .label-text {
-  font-size: 18px; /* Increased as requested */
+  font-size: 18px;
+  /* Increased as requested */
   font-weight: 600;
-  letter-spacing: 0.2em; /* Wide, architectural spacing */
+  letter-spacing: 0.2em;
+  /* Wide, architectural spacing */
   text-transform: uppercase;
-  color: var(--color-text-muted); /* Softer color for hierarchy */
+  color: var(--color-text-muted);
+  /* Softer color for hierarchy */
   line-height: 1;
 }
 
@@ -338,7 +343,8 @@
   max-width: 100%;
   margin-top: 4rem;
   overflow: hidden;
-  border-radius: 12px; /* Increased slightly for a modern touch */
+  border-radius: 12px;
+  /* Increased slightly for a modern touch */
 }
 
 .intro-img-horizontal {
@@ -361,9 +367,11 @@
 }
 
 .intro-statement {
-  font-size: clamp(2.5rem, 4.5vw, 4rem); /* Sleek scale */
+  font-size: clamp(2.5rem, 4.5vw, 4rem);
+  /* Sleek scale */
   line-height: 1.1;
-  font-weight: 600; /* Sophisticated weight */
+  font-weight: 600;
+  /* Sophisticated weight */
   color: var(--color-text-main);
   letter-spacing: -0.04em;
   margin: 0;
@@ -372,9 +380,12 @@
 
 .intro-description {
   font-size: 20px;
-  line-height: 1.6; /* Resulta em 32px (20 * 1.6) */
-  letter-spacing: -0.2px; /* Corrected subtle spacing */
-  color: #666663; /* Specific gray requested */
+  line-height: 1.6;
+  /* Resulta em 32px (20 * 1.6) */
+  letter-spacing: -0.2px;
+  /* Corrected subtle spacing */
+  color: #666663;
+  /* Specific gray requested */
   max-width: 540px;
   margin: 0;
 }
@@ -424,8 +435,10 @@
   border: 1px solid var(--color-border);
   transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   background-color: transparent;
-  position: relative; /* Essential to anchor the absolute icons */
-  overflow: hidden; /* Essential to clip the roll effect */
+  position: relative;
+  /* Essential to anchor the absolute icons */
+  overflow: hidden;
+  /* Essential to clip the roll effect */
 }
 
 .icon-inner {
@@ -433,8 +446,10 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 104px; /* 52px * 2 */
-  height: 100%; /* Fill the 52px height of parent */
+  width: 104px;
+  /* 52px * 2 */
+  height: 100%;
+  /* Fill the 52px height of parent */
   transform: translateX(-52px);
   transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   pointer-events: none;
@@ -452,7 +467,8 @@
 .arrow-icon {
   width: 20px;
   height: 20px;
-  display: block; /* Avoid inline spacing issues */
+  display: block;
+  /* Avoid inline spacing issues */
   stroke: currentColor;
 }
 
@@ -464,7 +480,8 @@
 }
 
 .intro-link-premium:hover .icon-inner {
-  transform: translateX(0); /* Roll para a direita */
+  transform: translateX(0);
+  /* Roll para a direita */
 }
 
 /* Featured Projects Section */
@@ -526,7 +543,8 @@
   width: 100%;
   overflow: hidden;
   border-radius: 8px;
-  background-color: #f0f0f0; /* Fallback for image loading */
+  background-color: #f0f0f0;
+  /* Fallback for image loading */
 }
 
 .project-img {
@@ -575,7 +593,8 @@
 .detail-block {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem; /* Increased for better breathing room */
+  gap: 0.75rem;
+  /* Increased for better breathing room */
 }
 
 .detail-label {
@@ -589,9 +608,11 @@
 
 .detail-value {
   font-size: 1rem;
-  line-height: 1.6; /* Better for descriptions */
+  line-height: 1.6;
+  /* Better for descriptions */
   color: var(--color-text-main);
-  max-width: 400px; /* Controlled width for description readability */
+  max-width: 400px;
+  /* Controlled width for description readability */
 }
 
 .project-link-btn {
@@ -610,16 +631,20 @@
 }
 
 .btn-text {
+  display: inline-block;
+  /* Essential for correct pseudo-element positioning */
   position: relative;
 }
 
 .btn-text::after {
   content: "";
   position: absolute;
-  bottom: -4px;
+  bottom: -2px;
+  /* Closer to the text for a sharper look */
   left: 0;
   width: 100%;
-  height: 1.5px;
+  height: 1px;
+  /* Slight boost to match SVG stroke weight visually */
   background-color: var(--color-text-main);
   transform: scaleX(0);
   transform-origin: right;
@@ -646,21 +671,22 @@
     flex-direction: column;
     gap: 2rem;
   }
-  
+
   .projects-heading {
     max-width: 100%;
   }
-  
+
   .project-row {
     flex-direction: column;
     gap: 3rem;
     padding: 3rem 0;
   }
-  
-  .project-img-col, .project-content-col {
+
+  .project-img-col,
+  .project-content-col {
     width: 100%;
   }
-  
+
   .project-details-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
