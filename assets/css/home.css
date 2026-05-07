@@ -531,6 +531,7 @@
   gap: 6rem;
   padding: 4rem 0;
   border-bottom: 1px solid var(--color-border);
+  align-items: center; /* Balanced vertical centering */
 }
 
 .project-img-col {
@@ -543,12 +544,11 @@
   overflow: hidden;
   border-radius: 8px;
   background-color: #f0f0f0;
-  /* Fallback for image loading */
 }
 
 .project-img {
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 3 / 2; /* The classic 35mm/Leica ratio - elegant and dynamic */
   object-fit: cover;
   transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
