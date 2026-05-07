@@ -669,6 +669,69 @@
   gap: 1.5rem;
 }
 
+/* Projects Section Footer */
+.projects-section-footer {
+  text-align: center;
+  padding: 10rem 0 2rem; /* Substantial top padding for separation */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.footer-cta-title {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  color: #1A1A18;
+  font-weight: 500;
+  max-width: 700px;
+}
+
+.projects-footer-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-text-main);
+  transition: gap 0.4s ease;
+  position: relative;
+  padding-bottom: 12px;
+  text-decoration: none;
+}
+
+.projects-footer-btn::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--color-text-main);
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.projects-footer-btn:hover::after {
+  width: 100%;
+}
+
+.projects-footer-btn svg {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.4s ease;
+}
+
+.projects-footer-btn:hover {
+  gap: 1.5rem;
+}
+
+.projects-footer-btn:hover svg {
+  transform: translateX(5px);
+}
+
 @media (max-width: 1024px) {
   .projects-header {
     flex-direction: column;
