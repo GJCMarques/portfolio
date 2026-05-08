@@ -876,8 +876,13 @@
 
 .projects-section-footer .btn-wrapper:hover .btn-dark {
   color: #FFFFFF;
+  background-color: #000000; /* Sync background to prevent white bleed */
   border: 0 !important;
   box-shadow: none;
+}
+
+.projects-section-footer .btn-dark {
+  -webkit-mask-image: -webkit-radial-gradient(white, black); /* Force clean clip */
 }
 
 .projects-section-footer .btn-wrapper:hover .btn-dark::before {
