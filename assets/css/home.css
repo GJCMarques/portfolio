@@ -1033,7 +1033,7 @@
 .contact-home-section {
   padding: 12rem 0;
   background-color: var(--color-bg-main);
-  border-top: 1px solid rgba(26, 26, 24, 0.05);
+  border-top: none; /* Removed divisor */
 }
 
 .intro-grid.is-inverted {
@@ -1057,9 +1057,9 @@
   }
 }
 
-/* Footer: Rounded Card System */
+/* Footer: Rounded Card System (Hero-Mirror Style) */
 .site-footer {
-  padding: 4rem 0 2rem 0;
+  padding: 0 0 2rem 0; /* Tightened top to blend with previous section */
   background-color: var(--color-bg-main);
 }
 
@@ -1067,10 +1067,13 @@
   background-color: var(--color-text-main);
   color: var(--color-bg-main);
   border-radius: 40px;
-  padding: 5rem;
+  padding: 8rem 5rem; /* More substantial padding to match Hero impact */
+  margin: 0 auto;
+  width: 96vw; /* Almost full width as requested */
+  max-width: 1800px;
   display: flex;
   flex-direction: column;
-  gap: 5rem;
+  gap: 8rem;
 }
 
 .footer-grid {
