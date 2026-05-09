@@ -1028,4 +1028,32 @@
     height: 350px;
   }
 }
+
+/* Contact Home Section */
+.contact-home-section {
+  padding: 12rem 0;
+  background-color: var(--color-bg-main);
+  border-top: 1px solid rgba(26, 26, 24, 0.05);
+}
+
+.intro-grid.is-inverted {
+  grid-template-columns: 1.6fr 1fr;
+}
+
+.intro-grid.is-inverted .intro-label-col {
+  align-items: flex-end;
+}
+
+@media (max-width: 1024px) {
+  .contact-home-section {
+    padding: 6rem 0;
+  }
+  .intro-grid.is-inverted {
+    grid-template-columns: 1fr;
+  }
+  .intro-grid.is-inverted .intro-label-col {
+    align-items: flex-start;
+    order: -1; /* Keep label on top on mobile */
+  }
+}
 
