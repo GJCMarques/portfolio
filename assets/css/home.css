@@ -1029,85 +1029,79 @@
   }
 }
 
-/* Contact Home Section - Dual Layout */
+/* Contact Home Section - Dual Layout Elite */
 .contact-home-section {
-  padding: 12rem 0;
+  padding: 10rem 0;
   background-color: var(--color-bg-main);
+  position: relative;
+  overflow: hidden;
 }
 
 .contact-dual-layout {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Symmetrical split for better balance with portrait */
+  grid-template-columns: 1fr 1fr;
   gap: 8rem;
   align-items: center;
 }
 
+.contact-content-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.section-marker {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-text-muted);
+}
+
+.contact-home-section .intro-statement {
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  margin: 0;
+  color: var(--color-text-main);
+}
+
+.contact-home-section .intro-description {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  max-width: 480px;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
 .contact-visual-col {
   display: flex;
-  justify-content: center; /* Ensures the portrait video is poised in the center */
+  justify-content: center;
 }
 
 .contact-video-container {
   position: relative;
-  overflow: hidden;
+  width: 100%;
+  max-width: 480px;
+  aspect-ratio: 2/3;
   border-radius: 40px;
+  overflow: hidden;
   background-color: #000;
-  box-shadow: 0 40px 100px -20px rgba(0,0,0,0.4);
-  height: 680px; /* Refined vertical presence */
-  aspect-ratio: 2/3; /* Correct portrait proportions */
+  box-shadow: 0 40px 100px -20px rgba(0,0,0,0.35);
 }
 
-.contact-img {
+.contact-video {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 1.8s cubic-bezier(0.16, 1, 0.3, 1);
-  filter: grayscale(0.05) contrast(1.05);
 }
 
-.contact-image-container:hover .contact-img {
-  transform: scale(1.05);
-}
-
-.contact-label-overlay {
+.video-vignette {
   position: absolute;
-  top: 2rem;
-  right: 2rem;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  padding: 0.5rem 1rem;
-  border-radius: var(--radius-full);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.contact-label-overlay .label-text {
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #fff;
-}
-
-/* Logo CTA Special Icon */
-.link-icon.logo-cta .icon-inner {
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
-}
-
-.intro-link-premium:hover .link-icon.logo-cta .icon-inner {
-  transform: translateY(-50%) rotate(45deg);
-}
-
-@media (max-width: 1024px) {
-  .contact-dual-layout {
-    grid-template-columns: 1fr;
-    gap: 4rem;
-  }
-  
-  .contact-visual-col {
-    order: -1;
-  }
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.3) 100%);
+  pointer-events: none;
 }
 
 
