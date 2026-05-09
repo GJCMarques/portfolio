@@ -1090,12 +1090,12 @@
 }
 
 .footer-logo svg {
-  width: 50px; /* Reduced as requested */
-  height: 50px;
+  width: 65px; /* Increased as requested */
+  height: 65px;
 }
 
 .footer-brand-name {
-  font-size: 1.5rem; /* Reduced as requested */
+  font-size: 1.85rem; /* Increased as requested */
   font-weight: 700;
   letter-spacing: -0.04em;
 }
