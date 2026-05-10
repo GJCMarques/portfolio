@@ -67,14 +67,16 @@
     margin-top: 4rem;
 }
 
-.hero-visual-wrapper img {
+.hero-visual-wrapper img,
+.hero-visual-wrapper video {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 1.5s var(--transition-slow);
 }
 
-.hero-visual-wrapper:hover img {
+.hero-visual-wrapper:hover img,
+.hero-visual-wrapper:hover video {
     transform: scale(1.05);
 }
 
