@@ -101,13 +101,26 @@
   bottom: 0;
 }
 
+/* Adaptive Dark Mode State (Triggered by JS IntersectionObserver) */
+.menu-trigger.is-over-dark {
+  background-color: #FFFFFF;
+}
+
+.menu-trigger.is-over-dark .trigger-line {
+  background-color: #000000;
+}
+
+.menu-trigger.is-over-dark:hover {
+  background-color: #f0f0f0;
+}
+
 /* Toggle Active State */
 body.nav-active .menu-trigger {
-  background-color: #fff;
+  background-color: #fff !important; /* Force white when drawer is open */
 }
 
 body.nav-active .trigger-line {
-  background-color: #000;
+  background-color: #000 !important; /* Force black lines when drawer is open */
 }
 
 body.nav-active .trigger-line.top {
