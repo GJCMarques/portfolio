@@ -1037,8 +1037,8 @@
 
 .contact-dual-layout {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10rem; /* Expanded gap for generous luxury whitespace */
+  grid-template-columns: 1fr auto; /* Force the second column to wrap the image exactly */
+  gap: 6rem; /* Definitive gap between text and the image itself */
   align-items: center;
 }
 
@@ -1064,27 +1064,26 @@
   letter-spacing: -0.04em;
   margin: 0;
   color: var(--color-text-main);
-  max-width: 700px; /* More space to the right */
+  max-width: 850px; /* More space to the right */
 }
 
 .contact-home-section .intro-description {
   font-size: 1.25rem;
   line-height: 1.6;
-  max-width: 650px; /* Expanded for better flow */
+  max-width: 700px; /* Expanded for better flow */
   color: var(--color-text-muted);
   margin: 0;
 }
 
 .contact-visual-col {
-  display: flex;
-  justify-content: flex-end; /* Still aligned to the right margin limit */
+  /* No more flex-end needed here; grid column is 'auto' and wraps the content */
+  width: fit-content;
 }
 
 .contact-video-container {
   position: relative;
-  width: 100%;
-  max-width: 480px;
-  height: 600px; /* Reduced to standard vertical size */
+  width: 480px; /* Fixed standard width */
+  height: 600px; 
   aspect-ratio: 2/3;
   border-radius: 40px;
   overflow: hidden;
