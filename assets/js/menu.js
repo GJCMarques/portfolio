@@ -66,7 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if (darkSections.length > 0) {
             const updateTriggerColor = () => {
-                // If nav is active, it's already forced to white in CSS
                 if (document.body.classList.contains('nav-active')) return;
 
                 const triggerRect = trigger.getBoundingClientRect();
@@ -76,8 +75,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 darkSections.forEach(section => {
                     const rect = section.getBoundingClientRect();
-                    // Check if the center of the button is within the section vertical bounds
-                    if (triggerCenterY >= rect.top && triggerCenterY <= rect.bottom) {
+                    // Dividers are 100px high and extend outside the section
+                    const darkTop = rect.top - 100;
+                    const darkBottom = rect.bottom + 100;
+
+                    if (triggerCenterY >= darkTop && triggerCenterY <= darkBottom) {
                         isOverDark = true;
                     }
                 });
@@ -89,10 +91,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             };
 
-            // Run on scroll, resize and initial load
             window.addEventListener('scroll', updateTriggerColor, { passive: true });
             window.addEventListener('resize', updateTriggerColor);
-            updateTriggerColor(); // Initial check
+            updateTriggerColor();
         }
     }
 });
