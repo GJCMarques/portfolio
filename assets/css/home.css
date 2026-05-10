@@ -1009,6 +1009,11 @@
   color: #FFFFFF;
 }
 
+.services-home-section.is-dark .intro-link-premium .link-text::after {
+  background-color: #FFFFFF;
+  height: 1px; /* Precise architectural height */
+}
+
 .services-home-section.is-dark .intro-link-premium .link-icon {
   border-color: rgba(255, 255, 255, 0.2);
 }
