@@ -39,9 +39,8 @@
 
 /* --- CONTACT HERO SECTION --- */
 .contact-hero {
-    padding: 14rem 4.5rem 6rem;
+    padding: 12rem 4.5rem 4rem;
     background-color: var(--color-bg-main);
-    border-bottom: 1px solid var(--color-border);
 }
 
 .hero-content-inner {
@@ -49,22 +48,15 @@
     margin: 0 auto;
 }
 
-.contact-eyebrow {
-    font-size: 0.875rem;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    color: var(--color-text-muted);
-    text-transform: uppercase;
-    margin-bottom: 2rem;
-    display: block;
-}
+/* Eyebrow removed for cleaner look */
 
 .contact-title {
-    font-size: clamp(3.5rem, 8vw, 6rem);
-    line-height: 1;
+    font-size: 88px;
+    line-height: 96.8px;
     font-weight: 600;
-    letter-spacing: -0.04em;
-    margin-bottom: 3rem;
+    letter-spacing: -3.5px;
+    margin-bottom: 4rem;
+    display: block;
 }
 
 .hero-visual-wrapper {
@@ -253,7 +245,9 @@
 
 @media (max-width: 768px) {
     .contact-title {
-        font-size: 3.5rem;
+        font-size: 48px;
+        line-height: 52.8px;
+        letter-spacing: -1.5px;
     }
     
     .form-col {
