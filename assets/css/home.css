@@ -491,7 +491,7 @@
 /* Featured Projects Section */
 .featured-projects-section {
   background-color: var(--color-bg-main);
-  padding: 100px 0;
+  padding: 100px 0 150px;
 }
 
 .container-large {
@@ -880,12 +880,16 @@
   }
 }
 
-/* Services Home Section - Split Card Grid Layout */
-.services-home-section {
-  padding: 100px 0;
-  background-color: var(--color-bg-main);
+/* Services Home Section - Dark Theme & Shape Dividers */
+.services-home-section.is-dark {
+  background-color: #1A1A18; /* Deep rich black */
+  color: #FFFFFF;
+  position: relative;
+  padding: 50px 0;
+  z-index: 10;
 }
 
+/* Base Layout Structure (Restored) */
 .services-split-layout-cards {
   display: grid;
   grid-template-columns: 1fr 1.6fr;
@@ -916,35 +920,13 @@
 
 .service-card-block {
   padding: 3rem;
-  background-color: #FDFDFC;
   border-radius: var(--radius-lg);
-  border: 1px solid rgba(26, 26, 24, 0.06);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
-}
-
-.service-card-block.dark-theme {
-  background-color: var(--color-text-main);
-  color: var(--color-bg-main);
-  border: none;
-}
-
-.service-card-block.dark-theme h3,
-.service-card-block.dark-theme p {
-  color: inherit;
-}
-
-.service-card-block:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.04);
-}
-
-.service-card-block.dark-theme:hover {
-  box-shadow: 0 20px 40px rgba(26,26,24,0.15);
 }
 
 .s-card-icon {
@@ -954,11 +936,6 @@
 .s-card-icon svg {
   width: 32px;
   height: 32px;
-  stroke: var(--color-primary);
-}
-
-.service-card-block.dark-theme .s-card-icon svg {
-  stroke: var(--color-bg-main);
 }
 
 .s-card-content {
@@ -972,36 +949,94 @@
   font-weight: 600;
   margin-bottom: 0.75rem;
   letter-spacing: -0.02em;
-  color: inherit; /* Ensure it inherits from the card theme */
 }
 
 .s-card-desc {
   font-size: 1rem;
   line-height: 1.6;
-  opacity: 0.7;
-  max-width: 95%;
 }
 
-/* Services Intro Visual (Left Side) */
-.services-intro-visual {
+/* Shape Dividers Configuration */
+.section-divider-top,
+.section-divider-bottom {
+  position: absolute;
+  left: 0;
   width: 100%;
-  border-radius: var(--radius-lg);
   overflow: hidden;
-  margin-top: 3rem;
-  background-color: #000;
+  line-height: 0;
+  pointer-events: none;
 }
 
-.services-intro-img {
-  width: 100%;
-  height: 550px;
-  object-fit: cover;
-  opacity: 0.85;
-  transition: transform 2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+.section-divider-top {
+  top: -99px;
+  z-index: 1;
+  transform: rotate(180deg);
+  color: #1A1A18;
 }
 
-.services-intro-visual:hover .services-intro-img {
-  transform: scale(1.08);
-  opacity: 1;
+.section-divider-bottom {
+  bottom: -99px;
+  z-index: 1;
+  color: #1A1A18;
+}
+
+.section-divider-top svg,
+.section-divider-bottom svg {
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 100px;
+}
+
+/* Typography Overrides for Dark Section */
+.services-home-section.is-dark .projects-heading,
+.services-home-section.is-dark .projects-subheading {
+  color: #FFFFFF;
+}
+
+.services-home-section.is-dark .projects-subheading strong {
+  color: #FFFFFF;
+  border-bottom: 2px solid var(--color-border);
+}
+
+.services-home-section.is-dark .intro-link-premium {
+  color: #FFFFFF;
+}
+
+.services-home-section.is-dark .intro-link-premium .link-icon {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.services-home-section.is-dark .intro-link-premium:hover .link-icon {
+  background-color: #FFFFFF;
+  color: #1A1A18;
+  border-color: #FFFFFF;
+}
+
+/* Card Adjustments for Dark Theme */
+.services-home-section.is-dark .service-card-block {
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #FFFFFF;
+  backdrop-filter: blur(10px);
+}
+
+.services-home-section.is-dark .service-card-block:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-10px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+}
+
+.services-home-section.is-dark .s-card-title {
+  color: #FFFFFF;
+}
+
+.services-home-section.is-dark .s-card-desc {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.services-home-section.is-dark .s-card-icon svg {
+  stroke: #FFFFFF;
 }
 
 @media (max-width: 1024px) {
@@ -1022,15 +1057,11 @@
   .service-card-block {
     padding: 2.5rem;
   }
-  
-  .services-intro-img {
-    height: 350px;
-  }
 }
 
 /* Contact Home Section - Dual Layout Elite */
 .contact-home-section {
-  padding: 100px 0;
+  padding: 150px 0 100px;
   background-color: var(--color-bg-main);
 }
 
