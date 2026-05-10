@@ -306,7 +306,8 @@
 
 .intro-statement {
   font-size: 64px;
-  line-height: 70.4px; /* 1.1 ratio */
+  line-height: 70.4px;
+  /* 1.1 ratio */
   letter-spacing: -2.6px;
   color: #1A1A18;
   font-weight: 600;
@@ -477,11 +478,11 @@
     margin-top: 4rem;
     padding-top: 2rem;
   }
-  
+
   .milestone-label {
     flex: none;
   }
-  
+
   .milestones-grid {
     grid-template-columns: 1fr;
     gap: 3rem;
@@ -512,7 +513,8 @@
 
 .projects-heading {
   font-size: 64px;
-  line-height: 70.4px; /* 1.1 ratio */
+  line-height: 70.4px;
+  /* 1.1 ratio */
   letter-spacing: -2.6px;
   color: #1A1A18;
   font-weight: 600;
@@ -522,7 +524,8 @@
 
 .projects-subheading {
   font-size: 20px;
-  line-height: 1.6; /* Resulta em 32px */
+  line-height: 1.6;
+  /* Resulta em 32px */
   letter-spacing: -0.2px;
   color: var(--color-text-muted);
   max-width: 550px;
@@ -538,7 +541,19 @@
   gap: 6rem;
   padding: 4rem 0;
   border-bottom: 1px solid var(--color-border);
-  align-items: center; /* Balanced vertical centering */
+  align-items: center;
+  /* Balanced vertical centering */
+}
+
+.project-row.is-reversed {
+  flex-direction: row-reverse;
+}
+
+@media (max-width: 1024px) {
+  .project-row.is-reversed {
+    flex-direction: column;
+    /* Standard stack on mobile */
+  }
 }
 
 .project-img-col {
@@ -555,7 +570,8 @@
 
 .project-img {
   width: 100%;
-  aspect-ratio: 3 / 2; /* The classic 35mm/Leica ratio - elegant and dynamic */
+  aspect-ratio: 3 / 2;
+  /* The classic 35mm/Leica ratio - elegant and dynamic */
   object-fit: cover;
   transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -641,7 +657,8 @@
   transition: gap 0.4s ease;
   width: max-content;
   position: relative;
-  padding-bottom: 8px; /* Space for the underline */
+  padding-bottom: 8px;
+  /* Space for the underline */
 }
 
 /* Global underline for text + arrow */
@@ -651,7 +668,8 @@
   bottom: 0;
   left: 0;
   width: 0;
-  height: 1px; /* Minimalist 1px thickness */
+  height: 1px;
+  /* Minimalist 1px thickness */
   background-color: var(--color-text-main);
   transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -679,7 +697,8 @@
 /* Projects Section Footer */
 .projects-section-footer {
   text-align: center;
-  padding: 6rem 0 2rem; /* Reduced for better flow */
+  padding: 6rem 0 2rem;
+  /* Reduced for better flow */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -688,7 +707,8 @@
 
 .projects-section-footer {
   text-align: center;
-  padding: 50px 0 0; /* Removed 32px bottom padding */
+  padding: 50px 0 0;
+  /* Removed 32px bottom padding */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -711,7 +731,8 @@
   color: #1A1A18;
   font-weight: 500;
   max-width: 800px;
-  margin-bottom: 2.5rem; /* Reduced margin */
+  margin-bottom: 2.5rem;
+  /* Reduced margin */
 }
 
 /* Premium Brand CTA Button */
@@ -811,11 +832,13 @@
   z-index: 0;
 }
 
-.bg-video-full, .bg-img-full {
+.bg-video-full,
+.bg-img-full {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.6; /* Slight transparency for direct contrast */
+  opacity: 0.6;
+  /* Slight transparency for direct contrast */
 }
 
 .footer-cta-content {
@@ -830,7 +853,8 @@
   letter-spacing: -0.05em;
   margin: 1.5rem 0 3rem;
   font-weight: 700;
-  color: #FFFFFF; /* Force White */
+  color: #FFFFFF;
+  /* Force White */
 }
 
 .footer-eyebrow {
@@ -838,8 +862,10 @@
   text-transform: uppercase;
   letter-spacing: 0.25em;
   font-weight: 700;
-  color: #FFFFFF; /* Force White */
-  opacity: 1; /* Remove any transparency */
+  color: #FFFFFF;
+  /* Force White */
+  opacity: 1;
+  /* Remove any transparency */
 }
 
 /* Button override for white context */
@@ -860,13 +886,15 @@
 
 .projects-section-footer .btn-wrapper:hover .btn-dark {
   color: #FFFFFF;
-  background-color: #000000; /* Sync background to prevent white bleed */
+  background-color: #000000;
+  /* Sync background to prevent white bleed */
   border: 0 !important;
   box-shadow: none;
 }
 
 .projects-section-footer .btn-dark {
-  -webkit-mask-image: -webkit-radial-gradient(white, black); /* Force clean clip */
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  /* Force clean clip */
 }
 
 .projects-section-footer .btn-wrapper:hover .btn-dark::before {
@@ -882,7 +910,8 @@
 
 /* Services Home Section - Dark Theme & Shape Dividers */
 .services-home-section.is-dark {
-  background-color: #1A1A18; /* Deep rich black */
+  background-color: #1A1A18;
+  /* Deep rich black */
   color: #FFFFFF;
   position: relative;
   padding: 50px 0;
@@ -970,7 +999,8 @@
 .section-divider-top {
   top: -99px;
   z-index: 1;
-  transform: rotate(180deg) scaleX(-1); /* Invert horizontally while keeping rotation */
+  transform: rotate(180deg) scaleX(-1);
+  /* Invert horizontally while keeping rotation */
   color: #1A1A18;
 }
 
@@ -978,7 +1008,8 @@
   bottom: -99px;
   z-index: 1;
   color: #1A1A18;
-  transform: scaleX(-1); /* Horizontal inversion */
+  transform: scaleX(-1);
+  /* Horizontal inversion */
 }
 
 .section-divider-top svg,
@@ -1012,7 +1043,8 @@
 
 .services-home-section.is-dark .intro-link-premium .link-text::after {
   background-color: #FFFFFF;
-  height: 1px; /* Precise architectural height */
+  height: 1px;
+  /* Precise architectural height */
 }
 
 .services-home-section.is-dark .intro-link-premium .link-icon {
@@ -1057,7 +1089,7 @@
     grid-template-columns: 1fr;
     gap: 4rem;
   }
-  
+
   .services-intro-col {
     position: static;
   }
@@ -1066,7 +1098,7 @@
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-  
+
   .service-card-block {
     padding: 2.5rem;
   }
@@ -1080,9 +1112,12 @@
 
 .contact-dual-layout {
   display: grid;
-  grid-template-columns: 1fr auto; /* Second column exactly the size of the image */
-  gap: 6rem; /* Definitive gap between text and the image itself */
-  align-items: center; /* Centered for standard editorial balance */
+  grid-template-columns: 1fr auto;
+  /* Second column exactly the size of the image */
+  gap: 6rem;
+  /* Definitive gap between text and the image itself */
+  align-items: center;
+  /* Centered for standard editorial balance */
 }
 
 .contact-content-col {
@@ -1095,7 +1130,8 @@
 .contact-btns-group {
   display: flex;
   flex-wrap: wrap;
-  gap: 4rem; /* Expanded gap for luxury editorial whitespace */
+  gap: 4rem;
+  /* Expanded gap for luxury editorial whitespace */
   align-items: center;
 }
 
@@ -1110,32 +1146,36 @@
   background-color: var(--color-text-main);
   color: #fff;
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .section-marker {
   display: block;
   font-size: 18px;
-  font-weight: 600; /* Outfit Semi-bold */
+  font-weight: 600;
+  /* Outfit Semi-bold */
   text-transform: uppercase;
   letter-spacing: 3.6px;
-  line-height: 18px; /* Height synchronized to font-size */
+  line-height: 18px;
+  /* Height synchronized to font-size */
   color: var(--color-text-muted);
 }
 
 .contact-home-section .intro-statement {
-  font-size: clamp(3rem, 5vw, 4.5rem); 
+  font-size: clamp(3rem, 5vw, 4.5rem);
   line-height: 1.1;
   letter-spacing: -0.04em;
   margin: 0;
   color: var(--color-text-main);
-  max-width: 850px; /* More space to the right */
+  max-width: 850px;
+  /* More space to the right */
 }
 
 .contact-home-section .intro-description {
   font-size: 1.25rem;
   line-height: 1.6;
-  max-width: 700px; /* Expanded for better flow */
+  max-width: 700px;
+  /* Expanded for better flow */
   color: var(--color-text-muted);
   margin: 0;
 }
@@ -1147,14 +1187,16 @@
 
 .contact-video-container {
   position: relative;
-  width: 480px; /* Fixed standard width */
-  height: 780px; /* Monumental vertical expansion */
+  width: 480px;
+  /* Fixed standard width */
+  height: 780px;
+  /* Monumental vertical expansion */
   border-radius: 40px;
   overflow: hidden;
   background-color: transparent;
-  box-shadow: 0 40px 100px -20px rgba(0,0,0,0.3);
+  box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.3);
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  
+
   /* Stable Clipping Fixes (Resolves grey/rectangular corner bug) */
   isolation: isolate;
   -webkit-mask-image: -webkit-radial-gradient(white, black);
@@ -1175,9 +1217,6 @@
 .video-vignette {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.3) 100%);
+  background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
   pointer-events: none;
 }
-
-
-
