@@ -220,6 +220,11 @@
     position: relative;
     border-bottom: 1px solid var(--color-border);
     padding-bottom: 0.75rem;
+    transition: border-color 0.2s ease;
+}
+
+.form-group:focus-within {
+    border-color: var(--color-text-main);
 }
 
 .form-label {
@@ -228,7 +233,7 @@
     left: 0;
     font-size: 1.125rem;
     color: var(--color-text-muted);
-    transition: all 0.4s var(--transition-normal);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     pointer-events: none;
     text-transform: uppercase;
     font-weight: 600;
