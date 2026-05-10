@@ -13,7 +13,8 @@
     top: 0;
     left: 0;
     width: 100%;
-    padding: 4rem 4.5rem; /* Horizontal 4.5rem to match landing page left padding */
+    padding: 4rem 4.5rem;
+    /* Horizontal 4.5rem to match landing page left padding */
     z-index: 100;
     display: flex;
     justify-content: space-between;
@@ -67,6 +68,8 @@
     letter-spacing: 3.6px;
     text-transform: uppercase;
     color: var(--color-text-muted);
+    margin-left: 10px;
+    /* Margin specifically for the text */
 }
 
 .contact-title {
@@ -75,6 +78,8 @@
     font-weight: 600;
     letter-spacing: -3.5px;
     margin: 0;
+    margin-right: 10px;
+    /* Margin specifically for the text */
     color: var(--color-text-main);
 }
 
@@ -101,7 +106,6 @@
 
 /* --- CONTACT MAIN SECTION --- */
 .contact-main-section {
-    padding: 8rem 4.5rem;
     background-color: var(--color-bg-main);
 }
 
@@ -195,8 +199,8 @@
 }
 
 /* Label Animation */
-.form-input:focus + .form-label,
-.form-input:not(:placeholder-shown) + .form-label {
+.form-input:focus+.form-label,
+.form-input:not(:placeholder-shown)+.form-label {
     top: -1.5rem;
     font-size: 0.8rem;
     color: var(--color-text-main);
@@ -231,7 +235,7 @@
 .submit-btn-premium:hover {
     background-color: #000;
     transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
 .btn-icon {
@@ -258,25 +262,25 @@
         align-items: flex-start;
         gap: 1rem;
     }
-    
+
     .editorial-right {
         text-align: left;
     }
-    
+
     .contact-title {
         font-size: 48px;
         line-height: 52.8px;
         letter-spacing: -1.5px;
     }
-    
+
     .contact-hero {
         padding: 12rem 2.5rem 4rem;
     }
-    
+
     .contact-main-section {
         padding: 6rem 2.5rem;
     }
-    
+
     .header-top {
         padding: 2.5rem;
     }
@@ -288,11 +292,11 @@
         line-height: 52.8px;
         letter-spacing: -1.5px;
     }
-    
+
     .form-col {
         padding: 2.5rem;
     }
-    
+
     .hero-visual-wrapper {
         height: 40vh;
     }
