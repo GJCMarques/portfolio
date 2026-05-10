@@ -970,7 +970,7 @@
 .section-divider-top {
   top: -99px;
   z-index: 1;
-  transform: rotate(180deg);
+  transform: rotate(180deg) scaleX(-1); /* Invert horizontally while keeping rotation */
   color: #1A1A18;
 }
 
@@ -978,6 +978,7 @@
   bottom: -99px;
   z-index: 1;
   color: #1A1A18;
+  transform: scaleX(-1); /* Horizontal inversion */
 }
 
 .section-divider-top svg,
