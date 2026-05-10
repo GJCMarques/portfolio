@@ -1037,9 +1037,9 @@
 
 .contact-dual-layout {
   display: grid;
-  grid-template-columns: 1fr auto; /* Force the second column to wrap the image exactly */
+  grid-template-columns: 1fr auto; /* Second column exactly the size of the image */
   gap: 6rem; /* Definitive gap between text and the image itself */
-  align-items: center;
+  align-items: center; /* Centered for standard editorial balance */
 }
 
 .contact-content-col {
@@ -1076,15 +1076,14 @@
 }
 
 .contact-visual-col {
-  /* No more flex-end needed here; grid column is 'auto' and wraps the content */
+  /* Div now has the exact same width as the image thanks to grid-template-columns: 1fr auto */
   width: fit-content;
 }
 
 .contact-video-container {
   position: relative;
   width: 480px; /* Fixed standard width */
-  height: 600px; 
-  aspect-ratio: 2/3;
+  height: 780px; /* Monumental vertical expansion */
   border-radius: 40px;
   overflow: hidden;
   background-color: #000;
@@ -1093,7 +1092,7 @@
 }
 
 .contact-video-container:hover {
-  transform: translateY(-10px);
+  transform: translateY(-15px);
 }
 
 .contact-video {
