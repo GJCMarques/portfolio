@@ -1031,28 +1031,27 @@
 
 /* Contact Home Section - Dual Layout Elite */
 .contact-home-section {
-  padding: 10rem 0;
+  padding: 8rem 0; /* Standardized to match other sections */
   background-color: var(--color-bg-main);
-  position: relative;
-  overflow: hidden;
 }
 
 .contact-dual-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 8rem;
+  gap: 10rem; /* Expanded gap for generous luxury whitespace */
   align-items: center;
 }
 
 .contact-content-col {
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  gap: 3rem;
+  align-items: flex-start; /* Keeping left alignment but allowing more width */
 }
 
 .section-marker {
   display: block;
-  font-size: 0.875rem;
+  font-size: 0.85rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.2em;
@@ -1060,35 +1059,42 @@
 }
 
 .contact-home-section .intro-statement {
-  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-size: clamp(3rem, 5vw, 4.5rem); 
   line-height: 1.1;
   letter-spacing: -0.04em;
   margin: 0;
   color: var(--color-text-main);
+  max-width: 700px; /* More space to the right */
 }
 
 .contact-home-section .intro-description {
   font-size: 1.25rem;
   line-height: 1.6;
-  max-width: 480px;
+  max-width: 650px; /* Expanded for better flow */
   color: var(--color-text-muted);
   margin: 0;
 }
 
 .contact-visual-col {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end; /* Still aligned to the right margin limit */
 }
 
 .contact-video-container {
   position: relative;
   width: 100%;
   max-width: 480px;
+  height: 600px; /* Reduced to standard vertical size */
   aspect-ratio: 2/3;
   border-radius: 40px;
   overflow: hidden;
   background-color: #000;
-  box-shadow: 0 40px 100px -20px rgba(0,0,0,0.35);
+  box-shadow: 0 40px 100px -20px rgba(0,0,0,0.3);
+  transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.contact-video-container:hover {
+  transform: translateY(-10px);
 }
 
 .contact-video {
