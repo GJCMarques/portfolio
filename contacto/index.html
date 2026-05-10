@@ -5,17 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto | Guilherme Marques</title>
-
+    <link rel="icon" type="image/svg+xml" href="../assets/img/logo.svg">
+    
     <link rel="stylesheet" href="../assets/css/fonts.css">
     <link rel="stylesheet" href="../assets/css/variables.css">
     <link rel="stylesheet" href="../assets/css/global.css">
     <link rel="stylesheet" href="../assets/css/menu.css">
     <link rel="stylesheet" href="../assets/css/animations.css">
+    <link rel="stylesheet" href="../assets/css/contacto.css">
     <link rel="stylesheet" href="../assets/css/components.css">
 </head>
 
 <body style="overflow-x: hidden;">
-    <!-- New High-End Menu Trigger -->
+
+    <!-- Menu Trigger (STAYS FIXED) -->
     <button id="menuTrigger" class="menu-trigger" aria-label="Toggle Menu" aria-expanded="false">
         <div class="trigger-icon">
             <div class="trigger-line top"></div>
@@ -31,25 +34,19 @@
         <nav class="drawer-nav">
             <ul class="drawer-list">
                 <li class="drawer-item">
-                    <a href="../index.html" class="drawer-link"><span class="item-num">01</span> INÍCIO <span
-                            class="arrow">→</span></a>
+                    <a href="../index.html" class="drawer-link"><span class="item-num">01</span> INÍCIO <span class="arrow">→</span></a>
                 </li>
                 <li class="drawer-item">
-                    <a href="../sobre/index.html" class="drawer-link"><span class="item-num">02</span> SOBRE <span
-                            class="arrow">→</span></a>
+                    <a href="../sobre/index.html" class="drawer-link"><span class="item-num">02</span> SOBRE <span class="arrow">→</span></a>
                 </li>
                 <li class="drawer-item">
-                    <a href="../projetos/index.html" class="drawer-link"><span class="item-num">03</span> PROJETOS <span
-                            class="arrow">→</span></a>
+                    <a href="../projetos/index.html" class="drawer-link"><span class="item-num">03</span> PROJETOS <span class="arrow">→</span></a>
                 </li>
                 <li class="drawer-item">
-                    <a href="../servicos/index.html" class="drawer-link"><span class="item-num">04</span> SERVIÇOS <span
-                            class="arrow">→</span></a>
+                    <a href="../servicos/index.html" class="drawer-link"><span class="item-num">04</span> SERVIÇOS <span class="arrow">→</span></a>
                 </li>
                 <li class="drawer-item">
-                    <a href="../contacto/index.html" class="drawer-link active"><span class="item-num">05</span>
-                        CONTACTO
-                        <span class="arrow">→</span></a>
+                    <a href="index.html" class="drawer-link active"><span class="item-num">05</span> CONTACTO <span class="arrow">→</span></a>
                 </li>
             </ul>
         </nav>
@@ -66,141 +63,149 @@
                 <a href="https://github.com/GJCMarques" target="_blank" aria-label="GitHub">
                     <img src="../assets/img/github.svg" alt="GitHub">
                 </a>
-                <a href="https://dribbble.com" target="_blank" aria-label="Dribbble">
-                    <img src="../assets/img/dribbble.svg" alt="Dribbble">
+                <a href="#" target="_blank" aria-label="Instagram">
+                    <img src="../assets/img/instagram.svg" alt="Instagram">
                 </a>
             </div>
         </div>
     </aside>
 
-    <a href="../index.html" class="brand-logo-fixed" aria-label="Home">
-        <div class="logo-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="none" viewBox="0 0 256 256">
-                <path
-                    d="M 144 256 L 27.598 256 L 144 139.598 Z M 256 207.5 L 200 256 L 200 56 L 0 56 L 48 0 L 256 0 Z M 0 204.402 L 0 112 L 92.402 112 Z"
-                    fill="currentColor"></path>
-            </svg>
-        </div>
-        <span class="brand-name">Guilherme Marques</span>
-    </a>
-
-    <main style="padding-top: var(--header-height); min-height: 80vh;">
-        <section class="section container fade-up">
-            <div style="max-width: 600px;">
-                <h1 style="margin-bottom: 1rem;">Vamos Trabalhar Juntos.</h1>
-                <p style="margin-bottom: 3rem;">A minha agenda está aberta a novos projetos corporativos. Preencha o
-                    formulário ou contacte-me diretamente por email para iniciarmos a discussão da arquitetura do seu
-                    próximo website.</p>
-
-                <div style="display: grid; gap: 2rem;">
-                    <div>
-                        <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Email</h3>
-                        <a href="mailto:hello@empresa.com" class="link-underline"
-                            style="color: var(--color-primary); font-weight: 500;">hello@guilhermemarques.com</a>
-                    </div>
-                    <div>
-                        <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Sede Operacional</h3>
-                        <p>Portugal (Remote worldwide)</p>
-                    </div>
+    <div class="contact-page-wrapper">
+        <!-- Header (SCROLLS AWAY - STATICO/ABSOLUTO) -->
+        <header class="header-top fade-up">
+            <a href="../index.html" class="brand-logo" aria-label="Home">
+                <div class="logo-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="none" viewBox="0 0 256 256">
+                        <path d="M 144 256 L 27.598 256 L 144 139.598 Z M 256 207.5 L 200 256 L 200 56 L 0 56 L 48 0 L 256 0 Z M 0 204.402 L 0 112 L 92.402 112 Z" fill="currentColor"></path>
+                    </svg>
                 </div>
+                <span class="brand-name">Guilherme Marques</span>
+            </a>
+        </header>
+
+        <main class="contact-split-hero">
+            <!-- Left Side: Cinematic Visual -->
+            <div class="contact-left-visual">
+                <img src="../assets/img/contact-hero.png" alt="Minimalist Studio Architecture" class="fade-in">
+                <div class="contact-visual-overlay"></div>
             </div>
 
-            <!-- Formulário Mockup (Layout Base) -->
-            <form
-                style="margin-top: 4rem; max-width: 600px; display: flex; flex-direction: column; gap: 1.5rem; background: var(--color-bg-card); padding: 2.5rem; border: 1px solid var(--color-border); border-radius: var(--radius-lg);"
-                class="fade-up">
-                <div>
-                    <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Nome Completo</label>
-                    <input type="text" placeholder="O seu nome..."
-                        style="width: 100%; padding: 0.75rem; border: 1px solid var(--color-border); border-radius: var(--radius-sm); outline: none;">
-                </div>
-                <div>
-                    <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Email Corporativo</label>
-                    <input type="email" placeholder="email@sua-empresa.com"
-                        style="width: 100%; padding: 0.75rem; border: 1px solid var(--color-border); border-radius: var(--radius-sm); outline: none;">
-                </div>
-                <div>
-                    <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Detalhes do Projeto</label>
-                    <textarea rows="4" placeholder="Como o posso ajudar a escalar digitalmente..."
-                        style="width: 100%; padding: 0.75rem; border: 1px solid var(--color-border); border-radius: var(--radius-sm); outline: none; resize: vertical;"></textarea>
-                </div>
-                <button type="button" class="btn btn-primary" style="margin-top: 1rem; width: 100%;">Enviar
-                    Mensagem</button>
-            </form>
-        </section>
-    </main>
+            <!-- Right Side: Contact Content & Form -->
+            <div class="contact-right-content">
+                <div class="content-inner">
+                    <span class="contact-eyebrow fade-up" style="transition-delay: 0.1s;">05 / Contacto</span>
+                    <h1 class="contact-title fade-up" style="transition-delay: 0.2s;">Vamos criar algo<br>memorável?</h1>
+                    <p class="contact-description fade-up" style="transition-delay: 0.3s;">
+                        Estou disponível para novos projetos, colaborações criativas ou apenas para trocar ideias sobre design e tecnologia. Preencha o formulário ou use os canais diretos abaixo.
+                    </p>
 
-    <!-- Footer Section: Rounded Card Style -->
-    <footer class="site-footer section">
-        <div class="footer-card fade-up">
-            <div class="footer-grid">
-                <!-- Left: Brand & Statement -->
-                <div class="footer-brand-col">
-                    <div class="footer-logo">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="65" height="65" fill="none"
-                            viewBox="0 0 256 256">
-                            <path
-                                d="M 144 256 L 27.598 256 L 144 139.598 Z M 256 207.5 L 200 256 L 200 56 L 0 56 L 48 0 L 256 0 Z M 0 204.402 L 0 112 L 92.402 112 Z"
-                                fill="currentColor"></path>
-                        </svg>
-                        <span class="footer-brand-name">Guilherme Marques</span>
-                    </div>
-                    <h2 class="footer-statement">A transformar ideias em<br>experiências digitais de topo!!</h2>
-                </div>
+                    <form class="premium-form fade-up" style="transition-delay: 0.4s;" action="#" method="POST">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" class="form-input" placeholder=" " required>
+                            <label for="name" class="form-label">Nome Completo</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" class="form-input" placeholder=" " required>
+                            <label for="email" class="form-label">Email Corporativo</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" class="form-input" placeholder=" ">
+                            <label for="subject" class="form-label">Assunto</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" class="form-input form-textarea" placeholder=" " required></textarea>
+                            <label for="message" class="form-label">A sua Mensagem</label>
+                        </div>
+                        
+                        <div class="form-footer">
+                            <button type="submit" class="submit-btn-premium">
+                                Enviar Mensagem
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </form>
 
-                <!-- Right: Info Groups -->
-                <div class="footer-links-col">
-                    <div class="footer-info-group">
-                        <span class="info-label">Contacto</span>
-                        <a href="mailto:guilherme.jcmarques@gmail.com"
-                            class="info-link underline-premium">guilherme.jcmarques@gmail.com</a>
-                    </div>
-                    <div class="footer-info-group">
-                        <span class="info-label">Redes Sociais</span>
-                        <div class="social-links-premium">
-                            <a href="https://linkedin.com/in/guilhermemarques" target="_blank" class="social-btn">
-                                <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-                                <span class="social-text">LinkedIn</span>
-                            </a>
-                            <a href="https://github.com/GJCMarques" target="_blank" class="social-btn">
-                                <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                                <span class="social-text">GitHub</span>
-                            </a>
-                            <a href="#" target="_blank" class="social-btn">
-                                <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                                <span class="social-text">Instagram</span>
-                            </a>
+                    <!-- Direct Info -->
+                    <div class="contact-info-grid fade-up" style="transition-delay: 0.5s;">
+                        <div class="info-item">
+                            <h4>Email</h4>
+                            <a href="mailto:guilherme.jcmarques@gmail.com">guilherme.jcmarques@gmail.com</a>
+                        </div>
+                        <div class="info-item">
+                            <h4>Redes</h4>
+                            <div style="display: flex; gap: 1.5rem; margin-top: 0.5rem;">
+                                <a href="https://linkedin.com/in/guilhermemarques" target="_blank">LinkedIn</a>
+                                <a href="https://github.com/GJCMarques" target="_blank">GitHub</a>
+                            </div>
                         </div>
                     </div>
-                    <div class="footer-info-group">
-                        <button class="back-to-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Voltar ao topo">
-                            <span class="btn-text">Voltar ao Topo</span>
-                            <div class="btn-icon-circle">
-                                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer Section -->
+        <footer class="site-footer section" style="background-color: var(--color-bg-main);">
+            <div class="footer-card fade-up">
+                <div class="footer-grid">
+                    <div class="footer-brand-col">
+                        <div class="footer-logo">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="65" height="65" fill="none" viewBox="0 0 256 256">
+                                <path d="M 144 256 L 27.598 256 L 144 139.598 Z M 256 207.5 L 200 256 L 200 56 L 0 56 L 48 0 L 256 0 Z M 0 204.402 L 0 112 L 92.402 112 Z" fill="currentColor"></path>
+                            </svg>
+                            <span class="footer-brand-name">Guilherme Marques</span>
+                        </div>
+                        <h2 class="footer-statement">A transformar ideias em<br>experiências digitais de topo!!</h2>
+                    </div>
+
+                    <div class="footer-links-col">
+                        <div class="footer-info-group">
+                            <span class="info-label">Contacto</span>
+                            <a href="mailto:guilherme.jcmarques@gmail.com" class="info-link underline-premium">guilherme.jcmarques@gmail.com</a>
+                        </div>
+                        <div class="footer-info-group">
+                            <span class="info-label">Redes Sociais</span>
+                            <div class="social-links-premium">
+                                <a href="https://linkedin.com/in/guilhermemarques" target="_blank" class="social-btn">
+                                    <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="1.5" fill="none"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                                    <span class="social-text">LinkedIn</span>
+                                </a>
+                                <a href="https://github.com/GJCMarques" target="_blank" class="social-btn">
+                                    <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="1.5" fill="none"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                    <span class="social-text">GitHub</span>
+                                </a>
                             </div>
-                        </button>
+                        </div>
+                        <div class="footer-info-group">
+                            <button class="back-to-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                                <span class="btn-text">Voltar ao Topo</span>
+                                <div class="btn-icon-circle">
+                                    <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2.5" fill="none"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+                                </div>
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="footer-bottom">
-                <div class="footer-copyright">
-                    © 2026 Guilherme Marques. Todos os direitos reservados.
+                <div class="footer-bottom">
+                    <div class="footer-copyright">
+                        © 2026 Guilherme Marques. Todos os direitos reservados.
+                    </div>
+                    <nav class="footer-nav">
+                        <a href="../index.html" class="underline-premium">Início</a>
+                        <a href="../sobre/index.html" class="underline-premium">Sobre</a>
+                        <a href="../projetos/index.html" class="underline-premium">Projetos</a>
+                        <a href="../servicos/index.html" class="underline-premium">Serviços</a>
+                        <a href="index.html" class="active underline-premium">Contacto</a>
+                    </nav>
                 </div>
-                <nav class="footer-nav">
-                    <a href="../index.html" class="underline-premium">Início</a>
-                    <a href="../sobre/index.html" class="underline-premium">Sobre</a>
-                    <a href="../projetos/index.html" class="underline-premium">Projetos</a>
-                    <a href="../servicos/index.html" class="underline-premium">Serviços</a>
-                    <a href="index.html" class="active underline-premium">Contacto</a>
-                </nav>
             </div>
-        </div>
-    </footer>
+        </footer>
+    </div>
 
     <script src="../assets/js/animations.js"></script>
     <script src="../assets/js/menu.js"></script>
-    <script src="../assets/js/main.js"></script>
 </body>
 
 </html>

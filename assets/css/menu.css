@@ -37,7 +37,7 @@
 }
 
 .brand-logo-fixed {
-  position: fixed;
+  position: absolute;
   top: 4rem;
   left: 4.5rem;
   z-index: 1000;
