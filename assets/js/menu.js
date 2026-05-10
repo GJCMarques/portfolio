@@ -61,34 +61,38 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Adaptive Trigger Color Logic (Intersection Observer)
+        // Adaptive Trigger Color Logic (Scroll-based for absolute precision)
         const darkSections = document.querySelectorAll('.is-dark');
         
         if (darkSections.length > 0) {
-            const observerOptions = {
-                // Check if dark section is in the top 100px of viewport (where button lives)
-                rootMargin: '-64px 0px -90% 0px',
-                threshold: 0
-            };
+            const updateTriggerColor = () => {
+                // If nav is active, it's already forced to white in CSS
+                if (document.body.classList.contains('nav-active')) return;
 
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        trigger.classList.add('is-over-dark');
-                    } else {
-                        // Check if ANY other dark section is still intersecting
-                        const anyDarkVisible = Array.from(darkSections).some(section => {
-                            const rect = section.getBoundingClientRect();
-                            return rect.top <= 100 && rect.bottom >= 64;
-                        });
-                        if (!anyDarkVisible) {
-                            trigger.classList.remove('is-over-dark');
-                        }
+                const triggerRect = trigger.getBoundingClientRect();
+                const triggerCenterY = triggerRect.top + (triggerRect.height / 2);
+                
+                let isOverDark = false;
+                
+                darkSections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    // Check if the center of the button is within the section vertical bounds
+                    if (triggerCenterY >= rect.top && triggerCenterY <= rect.bottom) {
+                        isOverDark = true;
                     }
                 });
-            }, observerOptions);
+                
+                if (isOverDark) {
+                    trigger.classList.add('is-over-dark');
+                } else {
+                    trigger.classList.remove('is-over-dark');
+                }
+            };
 
-            darkSections.forEach(section => observer.observe(section));
+            // Run on scroll, resize and initial load
+            window.addEventListener('scroll', updateTriggerColor, { passive: true });
+            window.addEventListener('resize', updateTriggerColor);
+            updateTriggerColor(); // Initial check
         }
     }
 });
