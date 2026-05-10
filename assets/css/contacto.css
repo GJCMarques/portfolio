@@ -13,28 +13,21 @@
     top: 0;
     left: 0;
     width: 100%;
-    padding: 3rem 4.5rem;
+    padding: 4rem 4.5rem; /* Horizontal 4.5rem to match landing page left padding */
     z-index: 100;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     pointer-events: none;
 }
 
 .header-top .brand-logo {
     pointer-events: auto;
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.05em;
     color: var(--color-text-main);
     transition: transform var(--transition-medium);
-}
-
-.header-top .brand-name {
-    font-family: var(--font-primary);
-    font-size: 1.75rem;
-    font-weight: 700;
-    letter-spacing: -0.04em;
 }
 
 /* --- CONTACT HERO SECTION --- */
