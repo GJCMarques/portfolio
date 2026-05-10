@@ -988,7 +988,14 @@
 }
 
 /* Typography Overrides for Dark Section */
-.services-home-section.is-dark .projects-heading,
+.services-home-section.is-dark .projects-heading {
+  font-size: 64px;
+  line-height: 70.4px;
+  letter-spacing: -2.6px;
+  color: #FFFFFF;
+  margin-bottom: 0.5rem;
+}
+
 .services-home-section.is-dark .projects-subheading {
   color: #FFFFFF;
 }
