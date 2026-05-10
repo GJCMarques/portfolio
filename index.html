@@ -139,26 +139,24 @@
             </div>
         </div>
 
-        <!-- Centered Floating Card -->
+        <!-- Centered Floating Card (Dynamic Status) -->
         <div class="floating-card-positioner">
             <div class="floating-card-wrapper fade-up is-visible" style="transition-delay: 0.6s;">
-                <div class="floating-card">
-                    <img src="assets/img/card-thumb.png" alt="Corporate Dashboard UI" class="fc-image">
-                    <div class="fc-content">
-                        <h3 class="fc-title">Arquitetura Digital</h3>
-                        <p class="fc-desc">Soluções que equilibram a precisão técnica com uma estética editorial de
-                            elite. Focado em performance e interfaces de alta fidelidade.</p>
-                        <div class="btn-wrapper">
-                            <a href="projetos/index.html" class="btn btn-dark"
-                                style="display: inline-flex; align-items: center; gap: 0.5rem;">
-                                Explorar Projetos
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"
-                                    viewBox="0 0 256 256" class="icon-draw" style="transform-origin: center;">
-                                    <path
-                                        d="M 144 256 L 27.598 256 L 144 139.598 Z M 256 207.5 L 200 256 L 200 56 L 0 56 L 48 0 L 256 0 Z M 0 204.402 L 0 112 L 92.402 112 Z"
-                                        fill="currentColor"></path>
-                                </svg>
-                            </a>
+                <div class="floating-card dynamic-status-card">
+                    <div class="status-header">
+                        <span class="location">Porto, PT</span>
+                        <div class="clock-wrap">
+                            <span class="live-dot"></span>
+                            <span class="current-time" id="live-clock">00:00:00</span>
+                        </div>
+                    </div>
+                    <div class="status-body">
+                        <div class="status-icon-wrapper" id="status-icon">
+                            <!-- Icon will be injected by JS -->
+                        </div>
+                        <div class="status-info">
+                            <h3 class="status-title" id="status-title">A carregar...</h3>
+                            <p class="status-msg" id="status-message">A preparar o café para o dia.</p>
                         </div>
                     </div>
                 </div>
@@ -690,6 +688,7 @@
 
     <script src="assets/js/animations.js"></script>
     <script src="assets/js/hero-carousel.js"></script>
+    <script src="assets/js/dynamic-status.js"></script>
     <script src="assets/js/menu.js"></script>
 </body>
 
