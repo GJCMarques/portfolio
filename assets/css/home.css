@@ -1002,7 +1002,7 @@
 
 .services-home-section.is-dark .projects-subheading strong {
   color: #FFFFFF;
-  border-bottom: 2px solid var(--color-border);
+  font-weight: 700;
 }
 
 .services-home-section.is-dark .intro-link-premium {
