@@ -882,7 +882,7 @@
 
 /* Services Home Section - Split Card Grid Layout */
 .services-home-section {
-  padding: 10rem 0;
+  padding: 100px 0;
   background-color: var(--color-bg-main);
 }
 
@@ -1030,7 +1030,7 @@
 
 /* Contact Home Section - Dual Layout Elite */
 .contact-home-section {
-  padding: 8rem 0; /* Standardized to match other sections */
+  padding: 100px 0;
   background-color: var(--color-bg-main);
 }
 
