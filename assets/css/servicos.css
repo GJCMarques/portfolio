@@ -23,171 +23,239 @@
     pointer-events: auto;
 }
 
-/* --- SERVICES INTRO SECTION --- */
-.services-intro {
-    padding: 12rem 4.5rem 6rem;
+/* =========================================
+   PART 1: CONTACT-STYLE HERO
+========================================= */
+.servicos-hero {
+    padding: 12rem 4.5rem 4rem;
+    background-color: var(--color-bg-main);
+}
+
+.hero-content-inner {
     max-width: var(--max-width);
     margin: 0 auto;
 }
 
-.services-main-title {
-    font-size: clamp(3rem, 8vw, 96px);
-    line-height: 0.95;
-    font-weight: 600;
-    letter-spacing: -0.05em;
-    color: var(--color-text-main);
-    margin-bottom: 2.5rem;
-}
-
-.services-sub-info {
-    max-width: 600px;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: var(--color-text-muted);
-}
-
-/* --- EXPANDABLE VISUAL SERVICE LIST --- */
-.services-list-container {
-    padding: 0 4.5rem 10rem;
-    max-width: var(--max-width);
-    margin: 0 auto;
+.hero-editorial-row {
     display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.service-card-row {
-    position: relative;
-    width: 100%;
-    height: 38vh; /* Base height */
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    display: flex;
-    align-items: center;
     justify-content: space-between;
-    padding: 0 5rem;
-    text-decoration: none;
-    color: #FFFFFF !important; /* Strictly white text */
-    transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.service-card-row:hover {
-    height: 52vh; /* EXPANSION ON HOVER */
-    transform: translateY(-5px);
-    border-color: rgba(255, 255, 255, 0.3);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
-}
-
-/* Background Image & Filter */
-.service-card-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-}
-
-.service-card-bg img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(0.4) contrast(1.1); /* Dark filter for contrast */
-    transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.service-card-row:hover .service-card-bg img {
-    transform: scale(1.05);
-    filter: brightness(0.6) contrast(1.1); /* Brighter on hover to "see better" */
-}
-
-/* Content Inside */
-.service-card-content {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-}
-
-.title-group {
-    display: flex;
     align-items: baseline;
+    width: 100%;
+    margin-bottom: 4rem;
     gap: 2rem;
 }
 
-.service-num {
+.editorial-left {
+    flex: 1;
+}
+
+.editorial-right {
+    flex: 2;
+    text-align: right;
+}
+
+.editorial-marker {
     font-family: 'Outfit', sans-serif;
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: rgba(255, 255, 255, 0.5);
-    margin: 0;
-}
-
-.service-card-title {
-    font-size: clamp(2.5rem, 5.5vw, 72px);
+    font-size: 18px;
+    line-height: 18px;
     font-weight: 600;
-    letter-spacing: -0.04em;
-    margin: 0;
-    color: #FFFFFF; /* WHITE TEXT */
+    letter-spacing: 3.6px;
     text-transform: uppercase;
-    transition: transform 0.5s ease;
+    color: var(--color-text-muted);
+    margin-left: 10px;
 }
 
-.service-card-row:hover .service-card-title {
-    transform: translateX(10px);
+.servicos-title {
+    font-size: clamp(3.5rem, 6vw, 88px);
+    line-height: 1.1;
+    font-weight: 600;
+    letter-spacing: -3.5px;
+    margin: 0;
+    margin-right: 10px;
+    color: var(--color-text-main);
 }
 
-.service-card-arrow {
-    width: 65px;
-    height: 65px;
-    border: 1.5px solid rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
+.hero-visual-wrapper {
+    width: 100%;
+    height: 60vh;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    margin-top: 4rem;
+}
+
+.hero-visual-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.75) contrast(1.1);
+}
+
+
+
+/* =========================================
+   PART 2: MINIMALIST SERVICES LIST
+========================================= */
+.services-minimal-section {
+    padding: 10rem 4.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.minimal-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.minimal-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3.5rem 0;
+    border-bottom: 1px solid var(--color-border);
+    text-decoration: none;
+    color: var(--color-text-main);
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.minimal-row:first-child {
+    border-top: 1px solid var(--color-border);
+}
+
+.minimal-row:hover {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    background-color: var(--color-bg-card); /* slight highlight */
+    border-radius: var(--radius-sm);
+    border-bottom-color: transparent; /* hides the line when highlighted */
+    transform: scale(1.01);
+}
+
+/* Left side: Num + Thumb + Title */
+.ms-left {
     display: flex;
     align-items: center;
-    justify-content: center;
-    color: #FFFFFF;
-    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    gap: 3rem;
 }
 
-.service-card-row:hover .service-card-arrow {
-    background-color: #FFFFFF;
-    color: #000000;
-    border-color: #FFFFFF;
-    transform: rotate(-45deg);
+.ms-num {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    width: 40px;
+}
+
+.ms-thumb {
+    width: 100px;
+    height: 100px;
+    border-radius: 16px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.ms-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(0.5);
+    transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.minimal-row:hover .ms-thumb img {
+    filter: grayscale(0);
+    transform: scale(1.1);
+}
+
+.ms-title {
+    font-size: clamp(2rem, 4vw, 56px);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    margin: 0;
+}
+
+/* Right side: Arrow icon */
+.ms-right {
+    display: flex;
+    align-items: center;
+}
+
+.ms-icon {
+    width: 60px;
+    height: 60px;
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.4s ease;
+}
+
+.minimal-row:hover .ms-icon {
+    background-color: var(--color-text-main);
+    color: var(--color-bg-main);
+    border-color: var(--color-text-main);
+    transform: rotate(45deg);
 }
 
 /* Responsive */
 @media (max-width: 1024px) {
-    .services-intro, .services-list-container {
-        padding-left: 2.5rem;
-        padding-right: 2.5rem;
+    .hero-bento-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 300px 150px;
     }
-
-    .service-card-row {
-        height: 30vh;
-        padding: 0 3rem;
+    
+    .bento-main-text {
+        grid-column: 1 / -1;
+        grid-row: 1 / 2;
+        padding: 3rem;
+    }
+    
+    .bento-visual {
+        grid-column: 1 / -1;
+        grid-row: 2 / 3;
+    }
+    
+    .bento-action {
+        grid-column: 1 / -1;
+        grid-row: 3 / 4;
+        flex-direction: row;
+    }
+    
+    .services-minimal-section {
+        padding: 6rem 2.5rem;
     }
 }
 
 @media (max-width: 768px) {
-    .service-card-row {
-        height: 280px;
+    .servicos-hero {
+        padding: 8rem 2.5rem 2rem;
+        height: auto; /* Let it flow on mobile */
+        min-height: 100vh;
     }
-    
-    .service-card-title {
-        font-size: 2.2rem;
-    }
-    
-    .title-group {
+
+    .minimal-row {
         flex-direction: column;
-        gap: 0.5rem;
+        align-items: flex-start;
+        gap: 2rem;
+        padding: 2.5rem 0;
     }
     
-    .service-card-arrow {
-        width: 50px;
-        height: 50px;
+    .minimal-row:hover {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .ms-left {
+        gap: 1.5rem;
+        flex-wrap: wrap;
+    }
+    
+    .ms-title {
+        width: 100%; /* force break */
+    }
+    
+    .ms-icon {
+        align-self: flex-end;
     }
 }
