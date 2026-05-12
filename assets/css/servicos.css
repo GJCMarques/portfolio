@@ -228,8 +228,6 @@
 
 .accordion-item.active .accordion-icon {
     transform: rotate(45deg);
-    color: var(--color-primary);
-    border-color: var(--color-primary);
 }
 
 .content-inner {
