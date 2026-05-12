@@ -262,7 +262,7 @@
 .bento-item.process-card .bento-title { color: var(--color-bg-main); }
 
 /* =========================================
-   PART 2: WORK PROCESS (MINIMALIST)
+   PART 2: WORK PROCESS (LANDING STYLE)
 ========================================= */
 .work-process-section {
     padding: 100px 4.5rem;
@@ -287,46 +287,60 @@
 .process-step {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    gap: 3rem;
-    padding: 5rem 4rem;
+    padding: 3.5rem;
     background-color: var(--color-bg-card);
     border-radius: var(--radius-lg);
     border: 1px solid var(--color-border);
-    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    cursor: default;
 }
 
 .process-step:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-md);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+    border-color: rgba(0, 0, 0, 0.1);
 }
 
 .step-header {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
 }
 
-.step-num {
-    font-family: 'Outfit', sans-serif;
-    font-size: 13px;
+.step-label {
+    font-size: 11px;
     font-weight: 700;
-    letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: var(--color-text-muted);
+    letter-spacing: 0.15em;
+    color: var(--color-text-main);
+    opacity: 0.4;
+    transition: opacity 0.3s ease;
+}
+
+.process-step:hover .step-label {
+    opacity: 0.7;
 }
 
 .step-title-row {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1.25rem;
 }
 
 .step-icon-box {
-    width: 24px;
-    height: 24px;
+    width: 32px;
+    height: 32px;
     color: var(--color-text-main);
     flex-shrink: 0;
+    opacity: 0.6;
+    transition: all 0.3s ease;
+}
+
+.process-step:hover .step-icon-box {
+    opacity: 1;
+    transform: scale(1.15);
+    color: var(--color-primary);
 }
 
 .step-icon-box svg {
@@ -336,20 +350,51 @@
 }
 
 .step-title {
-    font-family: 'Outfit', sans-serif;
-    font-size: 32px;
-    line-height: 1.2;
+    font-size: 28px;
     font-weight: 600;
     color: var(--color-text-main);
-    letter-spacing: -1px;
-    white-space: nowrap; /* Keep it in one line if space permits */
+    letter-spacing: -0.02em;
+    margin: 0;
+}
+
+.step-inner-divider {
+    height: 1px;
+    width: 100%;
+    background-color: var(--color-border);
+    opacity: 0.5;
+    margin-bottom: 2.5rem;
+    transition: all 0.3s ease;
+    transform-origin: left;
+}
+
+.process-step:hover .step-inner-divider {
+    background-color: var(--color-primary);
+    opacity: 1;
+    transform: scaleX(1.02);
 }
 
 .step-desc {
-    font-family: 'Outfit', sans-serif;
-    font-size: 18px;
+    font-size: 17px;
     line-height: 1.6;
     color: var(--color-text-muted);
+    margin: 0;
+    transition: color 0.3s ease;
+}
+
+.process-step:hover .step-desc {
+    color: var(--color-text-main);
+}
+
+@media (max-width: 1200px) {
+    .step-title { font-size: 24px; }
+    .process-step { padding: 2.5rem; }
+}
+
+@media (max-width: 1024px) {
+    .process-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
 }
 
 @media (max-width: 1200px) {
