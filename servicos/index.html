@@ -200,7 +200,7 @@
 
                 <div class="services-accordion">
                     <!-- Service 01 -->
-                    <div class="accordion-item fade-up">
+                    <div class="accordion-item fade-up active">
                         <div class="accordion-header">
                             <div class="header-left">
                                 <span class="service-num">01</span>
@@ -490,22 +490,21 @@
                 header.addEventListener('click', () => {
                     const isActive = item.classList.contains('active');
 
-                    // Close all other items
+                    // Se já estiver ativo, não fazemos nada (mantém sempre um aberto)
+                    if (isActive) return;
+
+                    // Fecha todos os outros
                     accordionItems.forEach(otherItem => {
-                        if (otherItem !== item) {
-                            otherItem.classList.remove('active');
-                        }
+                        otherItem.classList.remove('active');
                     });
 
-                    // Toggle current item
-                    item.classList.toggle('active');
+                    // Abre o item atual
+                    item.classList.add('active');
 
-                    // If we just opened it, scroll it into view slightly
-                    if (!isActive) {
-                        setTimeout(() => {
-                            item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                        }, 400);
-                    }
+                    // Scroll suave para o novo item aberto
+                    setTimeout(() => {
+                        item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }, 400);
                 });
             });
 
