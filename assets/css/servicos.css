@@ -103,6 +103,7 @@
         align-items: flex-start;
         text-align: left;
     }
+
     .hero-visual-wrapper {
         height: 50vh;
     }
@@ -242,9 +243,10 @@
 .content-inner {
     display: grid;
     grid-template-columns: 1.2fr 1fr;
-    gap: 6rem;
-    padding-top: 3rem;
-    align-items: center;
+    gap: 4rem;
+    padding: 2rem 0;
+    align-items: stretch;
+    /* Permite que a coluna da direita estique para centrar o conteúdo */
 }
 
 .content-visual {
@@ -289,6 +291,13 @@
     opacity: 1;
 }
 
+.content-text {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    /* Ocupa a altura total da coluna definida pela imagem */
+}
+
 .service-long-desc {
     font-family: 'Outfit', sans-serif;
     font-weight: 200;
@@ -296,11 +305,18 @@
     line-height: 1.6;
     letter-spacing: -0.2px;
     color: #4a4a47;
-    margin-bottom: 40px;
+    margin: 0;
+    flex: 1;
+    /* Ocupa todo o espaço disponível acima do toolkit */
+    display: flex;
+    align-items: center;
+    /* Centra o texto verticalmente nesse espaço */
     max-width: 90%;
 }
 
 .tech-stack-container {
+    padding-top: 40px;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -347,17 +363,19 @@
         grid-template-columns: 1fr;
         gap: 2.5rem;
     }
-    
+
     .content-visual {
         height: 300px;
     }
-    
+
     .header-right .service-category {
         display: none;
     }
 }
 
-.bento-item.process-card .bento-title { color: var(--color-bg-main); }
+.bento-item.process-card .bento-title {
+    color: var(--color-bg-main);
+}
 
 /* =========================================
    PART 2: WORK PROCESS (LANDING STYLE)
@@ -396,7 +414,8 @@
     transform: translateY(-8px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
     border-color: rgba(0, 0, 0, 0.1);
-    transition-delay: 0.1s !important; /* Delay uniforme para todos */
+    transition-delay: 0.1s !important;
+    /* Delay uniforme para todos */
 }
 
 .step-header {
@@ -488,8 +507,13 @@
 }
 
 @media (max-width: 1200px) {
-    .step-title { font-size: 24px; }
-    .process-step { padding: 2.5rem; }
+    .step-title {
+        font-size: 24px;
+    }
+
+    .process-step {
+        padding: 2.5rem;
+    }
 }
 
 @media (max-width: 1024px) {
@@ -511,13 +535,16 @@
         grid-template-columns: 1fr;
         gap: 2rem;
     }
+
     .process-step {
         padding: 4rem 3rem;
     }
 }
 
 @media (max-width: 1200px) {
-    .step-title { font-size: 32px; }
+    .step-title {
+        font-size: 32px;
+    }
 }
 
 @media (max-width: 1024px) {
@@ -525,6 +552,7 @@
         grid-template-columns: 1fr;
         gap: 2.5rem;
     }
+
     .process-step {
         min-height: auto;
         padding: 4rem 3rem;
@@ -542,11 +570,13 @@
         grid-template-columns: 1fr;
         grid-auto-rows: auto;
     }
+
     .bento-item {
         grid-column: span 1 !important;
         grid-row: span 1 !important;
         min-height: 400px;
     }
+
     .services-bento-section {
         padding: 4rem 2.5rem;
     }
