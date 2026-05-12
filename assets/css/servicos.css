@@ -281,11 +281,13 @@
 }
 
 .service-long-desc {
+    font-family: 'Outfit', sans-serif;
     font-size: 20px;
     line-height: 1.6;
-    color: var(--color-text-main);
+    letter-spacing: -0.2px;
+    color: var(--color-text-muted);
     margin: 0;
-    font-weight: 300;
+    max-width: 90%;
 }
 
 .tech-stack-container {
