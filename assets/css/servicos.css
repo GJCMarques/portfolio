@@ -266,13 +266,13 @@
 ========================================= */
 .work-process-section {
     padding: 12rem 4.5rem;
-    background-color: #FFFFFF;
+    background-color: var(--color-bg-main);
 }
 
 .process-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2.5rem; /* Independent spacing */
+    gap: 2.5rem;
     max-width: var(--max-width);
     margin: 6rem auto 0;
 }
@@ -282,15 +282,16 @@
     flex-direction: column;
     gap: 2.5rem;
     padding: 5rem 4rem;
-    background-color: var(--color-bg-alt); /* Consistent beige from site */
-    border-radius: var(--radius-lg); /* Rounded corners consistent with site */
+    background-color: var(--color-bg-card); /* White cards over warm background */
+    border-radius: var(--radius-lg);
     border: 1px solid var(--color-border);
-    transition: transform var(--transition-normal), background-color var(--transition-normal);
+    transition: transform var(--transition-normal), background-color var(--transition-normal), box-shadow var(--transition-normal);
 }
 
 .process-step:hover {
     transform: translateY(-10px);
-    background-color: var(--color-bg-main);
+    background-color: #FFFFFF;
+    box-shadow: var(--shadow-lg);
 }
 
 .step-header {
