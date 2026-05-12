@@ -309,8 +309,8 @@
 .toolkit-label {
     font-family: 'Outfit', sans-serif;
     font-weight: 600;
-    font-size: 18px;
-    line-height: 18px;
+    font-size: 16px;
+    line-height: 16px;
     letter-spacing: 3.6px;
     text-transform: uppercase;
     color: var(--color-text-muted);
@@ -319,7 +319,7 @@
 .tech-stack {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 16px 32px;
+    gap: 32px 32px;
     margin-top: 20px;
 }
 
