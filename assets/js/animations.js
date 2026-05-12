@@ -1,6 +1,15 @@
 /* assets/js/animations.js */
 
+// Force scroll to top on refresh and prevent browser jump
+if (history.scrollRestoration) {
+  history.scrollRestoration = 'manual';
+}
+
+window.scrollTo(0, 0);
+
 document.addEventListener('DOMContentLoaded', () => {
+  window.scrollTo(0, 0);
+
   const fadeElements = document.querySelectorAll('.fade-up');
   
   const fadeObserverOptions = {
