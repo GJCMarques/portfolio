@@ -292,7 +292,6 @@
     border-radius: var(--radius-lg);
     border: 1px solid var(--color-border);
     transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-    cursor: default;
 }
 
 .process-step:hover {
