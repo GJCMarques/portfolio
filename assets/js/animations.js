@@ -1,15 +1,18 @@
 /* assets/js/animations.js */
 
-// Force scroll to top on refresh and prevent browser jump
+// 1. Force manual scroll restoration to prevent browser jumping
 if (history.scrollRestoration) {
   history.scrollRestoration = 'manual';
 }
 
+// 2. Immediate reset
 window.scrollTo(0, 0);
 
 document.addEventListener('DOMContentLoaded', () => {
+  // 3. Reset when DOM is ready
   window.scrollTo(0, 0);
 
+  // Fade-up Animations Logic
   const fadeElements = document.querySelectorAll('.fade-up');
   
   const fadeObserverOptions = {
@@ -22,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('is-visible');
-        // Optional: stop observing once visible
         observer.unobserve(entry.target);
       }
     });
@@ -32,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fadeObserver.observe(el);
   });
   
-  // Stagger indices for container children
+  // Stagger Logic
   const staggerContainers = document.querySelectorAll('.stagger-container');
   staggerContainers.forEach(container => {
     const children = container.querySelectorAll('.fade-up');
@@ -40,4 +42,9 @@ document.addEventListener('DOMContentLoaded', () => {
       child.style.setProperty('--stagger-index', index);
     });
   });
+});
+
+// 4. Final reset when everything (images/videos) is fully loaded
+window.addEventListener('load', () => {
+  window.scrollTo(0, 0);
 });
