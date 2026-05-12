@@ -153,6 +153,15 @@
     padding-left: 1rem;
 }
 
+.accordion-item.active .accordion-header {
+    cursor: default;
+    padding-left: 0;
+}
+
+.accordion-item.active .accordion-header:hover {
+    padding-left: 0;
+}
+
 .header-left {
     display: flex;
     align-items: center;
