@@ -117,9 +117,7 @@
     transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.asymmetric-hero:hover .hero-video {
-    transform: scale(1.05);
-}
+/* No zoom on hover */
 
 
 
