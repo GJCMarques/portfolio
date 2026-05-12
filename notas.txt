@@ -13,3 +13,9 @@ Alem disso tambem sou tecnico informatica tendo trabalho nos SASUP servicos de a
 Por fim como estou alem agora tirando licenciatura mas na vertente empresarial tenho conhecimentos de gestao e gosto por gestao e por economia o que me fez gostar de fazer terminais bloomberg mas isto nao e um servico meu mas faco kinda gestao de redes sociais tenho conhecimento e entendo tambem de redes sociais, de algoritmos de publicidade para ajudar empresas nestas coisas. Basicamente coisas extras aos websites e tal. 
 
 Faco tambem consultoria para estas coisas todas mas especialmente mais para a parte tecnica de hardware como aconselhamento tecnico de equipamento informatico para empresas, o que comprar tendo em conta as necessidades das empresas tipo isso.
+
+
+
+divide o Web developmente em 2 accoridon 1 para Front end e outro para backend pois eu trabalho com muitas linguagens e frameworks tambem. HTML CSS JS PHP LARAVEL SQL MYSQL PHPMYADMIN MONGODB MARIADB NODE.JS NEXT.JS TYPESCRIPT REACT REACT.JS VUE GSAP FRAMER-MONTION Angular MONTION.JS PYTHON C#
+
+Estas coisas alem de saber usar outras ferramentas relacionadas com Dominios de websites e merdas do genero e tal. 
