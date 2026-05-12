@@ -24,7 +24,7 @@
 }
 
 /* =========================================
-   PART 1: CONTACT-STYLE HERO
+   PART 1: CONTACT-STYLE HERO (ASYMMETRIC)
 ========================================= */
 .servicos-hero {
     padding: 12rem 4.5rem 4rem;
@@ -36,22 +36,22 @@
     margin: 0 auto;
 }
 
-.hero-editorial-row {
+.asymmetric-hero {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
-    width: 100%;
-    margin-bottom: 4rem;
+    align-items: center;
+    gap: 4rem;
+}
+
+.hero-text-side {
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
     gap: 2rem;
 }
 
-.editorial-left {
-    flex: 1;
-}
-
-.editorial-right {
-    flex: 2;
-    text-align: right;
+.hero-image-side {
+    flex: 0.8;
 }
 
 .editorial-marker {
@@ -62,25 +62,34 @@
     letter-spacing: 3.6px;
     text-transform: uppercase;
     color: var(--color-text-muted);
-    margin-left: 10px;
 }
 
 .servicos-title {
-    font-size: clamp(3.5rem, 6vw, 88px);
-    line-height: 1.1;
+    font-family: 'Outfit', sans-serif;
+    font-size: 88px;
+    line-height: 96.8px;
     font-weight: 600;
     letter-spacing: -3.5px;
     margin: 0;
-    margin-right: 10px;
     color: var(--color-text-main);
 }
 
 .hero-visual-wrapper {
     width: 100%;
-    height: 60vh;
+    height: 70vh;
     overflow: hidden;
     border-radius: var(--radius-lg);
-    margin-top: 4rem;
+}
+
+@media (max-width: 1024px) {
+    .asymmetric-hero {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+    .hero-visual-wrapper {
+        height: 50vh;
+    }
 }
 
 .hero-visual-wrapper img {
