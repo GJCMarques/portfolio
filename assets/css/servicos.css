@@ -27,11 +27,12 @@
    PART 1: CONTACT-STYLE HERO (ASYMMETRIC)
 ========================================= */
 .servicos-hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 0 4.5rem;
+    min-height: 100vh;
+    padding: 12rem 4.5rem 4rem;
     background-color: var(--color-bg-main);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 .hero-content-inner {
