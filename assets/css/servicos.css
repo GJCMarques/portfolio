@@ -281,7 +281,7 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 2.5rem;
     max-width: var(--max-width);
-    margin: 6rem auto 0;
+    margin: 4.5rem auto 0;
 }
 
 .process-step {
