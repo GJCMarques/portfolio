@@ -826,7 +826,6 @@
     <script src="../assets/js/animations.js"></script>
     <script src="../assets/js/menu.js"></script>
 
-    <!-- Accordion Logic -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const accordionItems = document.querySelectorAll('.accordion-item');
@@ -849,14 +848,15 @@
                     item.classList.add('active');
 
                     // Scroll suave para o novo item aberto
+                    // Alterado para 'start' para garantir o autoajuste de posição (o 'nearest' falhava se já estivesse visível)
                     setTimeout(() => {
-                        item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                        item.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }, 400);
                 });
             });
 
             // Set first item active by default (optional, gives immediate visual context)
-            if (accordionItems.length > 0) {
+            if (accordionItems.length > 0 && !document.querySelector('.accordion-item.active')) {
                 accordionItems[0].classList.add('active');
             }
         });
