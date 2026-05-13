@@ -239,9 +239,7 @@
     transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.dir-project-item:hover .dir-thumb img {
-    transform: scale(1.05);
-}
+
 
 .projects-container.list-view .dir-info {
     flex: 1;
