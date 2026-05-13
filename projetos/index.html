@@ -137,25 +137,52 @@
                     </div>
 
                     <div class="filter-right">
-                        <!-- Type Filter -->
-                        <div class="filter-group">
-                            <button class="filter-pill active" data-filter="all">Todos</button>
-                            <button class="filter-pill" data-filter="real">Casos Reais</button>
-                            <button class="filter-pill" data-filter="pessoal">Pessoais</button>
+                        <!-- Type Dropdown -->
+                        <div class="custom-dropdown" data-filter-group="type">
+                            <button class="dropdown-trigger">
+                                <span class="dropdown-label">Tipo: Todos</span>
+                                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="1.5" fill="none"><path d="M6 9l6 6 6-6"/></svg>
+                            </button>
+                            <div class="dropdown-menu">
+                                <button class="dropdown-item active" data-value="all">Todos</button>
+                                <button class="dropdown-item" data-value="real">Caso Real</button>
+                                <button class="dropdown-item" data-value="pessoal">Pessoal</button>
+                            </div>
                         </div>
 
                         <div class="filter-divider"></div>
 
-                        <!-- Services Filter -->
-                        <div class="filter-group">
-                            <button class="filter-pill" data-filter="design">Design <span
-                                    class="sup-count">7</span></button>
-                            <button class="filter-pill" data-filter="frontend">Front End <span
-                                    class="sup-count">11</span></button>
-                            <button class="filter-pill" data-filter="fullstack">Full Stack <span
-                                    class="sup-count">3</span></button>
+                        <!-- Services Dropdown -->
+                        <div class="custom-dropdown" data-filter-group="service">
+                            <button class="dropdown-trigger">
+                                <span class="dropdown-label">Serviços: Todos</span>
+                                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="1.5" fill="none"><path d="M6 9l6 6 6-6"/></svg>
+                            </button>
+                            <div class="dropdown-menu">
+                                <button class="dropdown-item active" data-value="all">Todos</button>
+                                <button class="dropdown-item" data-value="design">Design</button>
+                                <button class="dropdown-item" data-value="frontend">Front End</button>
+                                <button class="dropdown-item" data-value="fullstack">Full Stack</button>
+                            </div>
                         </div>
 
+                        <div class="filter-divider"></div>
+
+                        <!-- Industry Dropdown -->
+                        <div class="custom-dropdown" data-filter-group="industry">
+                            <button class="dropdown-trigger">
+                                <span class="dropdown-label">Indústria: Todas</span>
+                                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="1.5" fill="none"><path d="M6 9l6 6 6-6"/></svg>
+                            </button>
+                            <div class="dropdown-menu">
+                                <button class="dropdown-item active" data-value="all">Todas</button>
+                                <button class="dropdown-item" data-value="financa">Finança</button>
+                                <button class="dropdown-item" data-value="imobiliario">Imobiliário</button>
+                                <button class="dropdown-item" data-value="moda">Moda & Loja</button>
+                                <button class="dropdown-item" data-value="agencia">Agência</button>
+                            </div>
+                        </div>
+                        
                         <div class="filter-divider"></div>
 
                         <!-- View Toggles -->
