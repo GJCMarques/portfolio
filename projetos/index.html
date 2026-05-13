@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="../assets/css/contacto.css">
     <link rel="stylesheet" href="../assets/css/home.css">
     <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/projetos.css">
 </head>
 
 <body style="overflow-x: hidden;">
@@ -123,217 +124,59 @@
             </div>
         </section>
 
-        <!-- Section Divider -->
-        <div class="hero-content-inner">
-            <hr class="section-divider">
-        </div>
-
         <!-- =========================================
-             PART 2: PROJECTS LIST
+             PART 2: PROJECTS DIRECTORY
         ========================================= -->
-        <section class="featured-projects-section section" id="projects" style="padding-top: 2rem;">
+        <section class="projects-directory-section section" id="directory" style="padding-top: 150px;">
             <div class="container-large">
-                <!-- Header -->
-                <div class="projects-header fade-up">
-                    <h2 class="projects-heading">01 / ESTUDOS DE CASO</h2>
-                    <p class="projects-subheading">Uma seleção de projetos pessoais e casos reais desenvolvidos com foco
-                        no rigor técnico, design funcional e resultados práticos para empresas e negócios.</p>
-                </div>
-
-                <!-- Projects List -->
-                <div class="projects-list">
-
-                    <!-- Project 1 -->
-                    <article class="project-row fade-up">
-                        <div class="project-img-col">
-                            <div class="project-img-wrapper">
-                                <img src="../assets/img/dashboard.png" alt="Fintech Dashboard" class="project-img">
-                            </div>
+                
+                <!-- Filter Bar -->
+                <div class="directory-filter-bar fade-up">
+                    <div class="filter-left">
+                        <h2 class="directory-title">Index <span class="count">(12)</span></h2>
+                    </div>
+                    
+                    <div class="filter-right">
+                        <!-- Type Filter -->
+                        <div class="filter-group">
+                            <button class="filter-pill active" data-filter="all">Todos</button>
+                            <button class="filter-pill" data-filter="real">Casos Reais</button>
+                            <button class="filter-pill" data-filter="pessoal">Pessoais</button>
                         </div>
-                        <div class="project-content-col">
-                            <div class="project-top-meta">
-                                <h3 class="project-title">Fintech Dashboard App</h3>
-                                <span class="project-date">10.2023 - 01.2024</span>
-                            </div>
-                            <div class="project-details-grid">
-                                <div class="detail-block">
-                                    <span class="detail-label">Tipo</span>
-                                    <span class="detail-value">Caso Real</span>
-                                </div>
-                                <div class="detail-block">
-                                    <span class="detail-label">Serviços</span>
-                                    <span class="detail-value">Full Stack & Design</span>
-                                </div>
-                                <div class="detail-block full-width">
-                                    <span class="detail-label">Descrição</span>
-                                    <span class="detail-value">Plataforma financeira focada em visualização de dados
-                                        complexos em tempo real, priorizando a clareza e rapidez de execução.</span>
-                                </div>
-                            </div>
-                            <a href="#" class="project-link-btn">
-                                <span class="btn-text">Ver Projeto</span>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M5 12h14M12 5l7 7-7 7" />
+                        
+                        <div class="filter-divider"></div>
+                        
+                        <!-- Services Filter -->
+                        <div class="filter-group">
+                            <button class="filter-pill" data-filter="design">Design <span class="sup-count">7</span></button>
+                            <button class="filter-pill" data-filter="dev">Development <span class="sup-count">11</span></button>
+                            <button class="filter-pill" data-filter="fullstack">Full Stack <span class="sup-count">3</span></button>
+                        </div>
+
+                        <!-- View Toggles -->
+                        <div class="view-toggles">
+                            <button class="view-btn active" data-view="list" aria-label="Vista em Linhas">
+                                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="4" y1="6" x2="20" y2="6"></line>
+                                    <line x1="4" y1="12" x2="20" y2="12"></line>
+                                    <line x1="4" y1="18" x2="20" y2="18"></line>
                                 </svg>
-                            </a>
-                        </div>
-                    </article>
-
-                    <!-- Project 2 -->
-                    <article class="project-row is-reversed fade-up">
-                        <div class="project-img-col">
-                            <div class="project-img-wrapper">
-                                <img src="../assets/img/real-estate.png" alt="Plataforma Imobiliária"
-                                    class="project-img">
-                            </div>
-                        </div>
-                        <div class="project-content-col">
-                            <div class="project-top-meta">
-                                <h3 class="project-title">Imobiliária Premium</h3>
-                                <span class="project-date">03.2024 - 05.2024</span>
-                            </div>
-                            <div class="project-details-grid">
-                                <div class="detail-block">
-                                    <span class="detail-label">Tipo</span>
-                                    <span class="detail-value">Caso Real</span>
-                                </div>
-                                <div class="detail-block">
-                                    <span class="detail-label">Serviços</span>
-                                    <span class="detail-value">Frontend & Design</span>
-                                </div>
-                                <div class="detail-block full-width">
-                                    <span class="detail-label">Descrição</span>
-                                    <span class="detail-value">Experiência de busca imobiliária de luxo, com foco em
-                                        tipografia arquitetural e navegação fluida para um público exigente.</span>
-                                </div>
-                            </div>
-                            <a href="#" class="project-link-btn">
-                                <span class="btn-text">Ver Projeto</span>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M5 12h14M12 5l7 7-7 7" />
+                            </button>
+                            <button class="view-btn" data-view="grid" aria-label="Vista em Grelha">
+                                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="4" y="4" width="6" height="6" rx="1"></rect>
+                                    <rect x="14" y="4" width="6" height="6" rx="1"></rect>
+                                    <rect x="14" y="14" width="6" height="6" rx="1"></rect>
+                                    <rect x="4" y="14" width="6" height="6" rx="1"></rect>
                                 </svg>
-                            </a>
-                        </div>
-                    </article>
-
-                    <!-- Project 3 -->
-                    <article class="project-row fade-up">
-                        <div class="project-img-col">
-                            <div class="project-img-wrapper">
-                                <img src="../assets/img/hero-3.png" alt="E-commerce Minimalista" class="project-img">
-                            </div>
-                        </div>
-                        <div class="project-content-col">
-                            <div class="project-top-meta">
-                                <h3 class="project-title">E-commerce "The Label"</h3>
-                                <span class="project-date">07.2024 - 09.2024</span>
-                            </div>
-                            <div class="project-details-grid">
-                                <div class="detail-block">
-                                    <span class="detail-label">Tipo</span>
-                                    <span class="detail-value">Projeto Pessoal</span>
-                                </div>
-                                <div class="detail-block">
-                                    <span class="detail-label">Serviços</span>
-                                    <span class="detail-value">Full Stack</span>
-                                </div>
-                                <div class="detail-block full-width">
-                                    <span class="detail-label">Descrição</span>
-                                    <span class="detail-value">Boutique online de alta performance com check-out
-                                        otimizado e micro-interações que elevam a percepção de valor da marca.</span>
-                                </div>
-                            </div>
-                            <a href="#" class="project-link-btn">
-                                <span class="btn-text">Ver Projeto</span>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M5 12h14M12 5l7 7-7 7" />
-                                </svg>
-                            </a>
-                        </div>
-                    </article>
-
-                    <!-- Project 4 -->
-                    <article class="project-row is-reversed fade-up">
-                        <div class="project-img-col">
-                            <div class="project-img-wrapper">
-                                <img src="../assets/img/hero-5.png" alt="Agência Criativa" class="project-img">
-                            </div>
-                        </div>
-                        <div class="project-content-col">
-                            <div class="project-top-meta">
-                                <h3 class="project-title">Identidade Agência</h3>
-                                <span class="project-date">10.2024 - Presente</span>
-                            </div>
-                            <div class="project-details-grid">
-                                <div class="detail-block">
-                                    <span class="detail-label">Tipo</span>
-                                    <span class="detail-value">Projeto Pessoal</span>
-                                </div>
-                                <div class="detail-block">
-                                    <span class="detail-label">Serviços</span>
-                                    <span class="detail-value">Design & Frontend</span>
-                                </div>
-                                <div class="detail-block full-width">
-                                    <span class="detail-label">Descrição</span>
-                                    <span class="detail-value">Website experimental com estética brutalista e animações
-                                        imersivas, desenhado para projetar autoridade criativa absoluta.</span>
-                                </div>
-                            </div>
-                            <a href="#" class="project-link-btn">
-                                <span class="btn-text">Ver Projeto</span>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M5 12h14M12 5l7 7-7 7" />
-                                </svg>
-                            </a>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA Section -->
-        <section class="contact-home-section section" id="contacto" style="padding-top: 0; padding-bottom: 5rem;">
-            <div class="container-large">
-                <div class="contact-dual-layout">
-                    <!-- Left: Content -->
-                    <div class="contact-content-col">
-                        <span class="section-marker fade-up">02 / Ready?</span>
-                        <h2 class="intro-statement fade-up" style="transition-delay: 0.1s;">
-                            Vamos construir algo incrível.
-                        </h2>
-                        <p class="intro-description fade-up" style="transition-delay: 0.2s;">
-                            Estou disponível para novos desafios, projetos e consultoria técnica. Vamos conversar sobre
-                            como posso ajudar a sua visão a ganhar vida no mundo digital com performance e design de
-                            topo.
-                        </p>
-                        <div class="intro-link-wrapper fade-up" style="transition-delay: 0.3s;">
-                            <div class="contact-btns-group">
-                                <div class="btn-wrapper">
-                                    <a href="../contacto/" class="btn btn-dark btn-xl">
-                                        Página de Contacto
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"
-                                            viewBox="0 0 256 256" class="icon-draw">
-                                            <path
-                                                d="M 144 256 L 27.598 256 L 144 139.598 Z M 256 207.5 L 200 256 L 200 56 L 0 56 L 48 0 L 256 0 Z M 0 204.402 L 0 112 L 92.402 112 Z"
-                                                fill="currentColor"></path>
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
+                            </button>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Right: Visual (Video) -->
-                    <div class="contact-visual-col fade-up" style="transition-delay: 0.4s;">
-                        <div class="contact-video-container">
-                            <video class="contact-video" autoplay loop muted playsinline
-                                poster="../assets/img/contact-portrait.png">
-                                <source src="../assets/videos/home/fundocontacto.mp4" type="video/mp4">
-                                O seu navegador não suporta vídeos.
-                            </video>
-                            <div class="video-vignette"></div>
-                        </div>
-                    </div>
+                <!-- Projects Container -->
+                <div class="projects-container list-view" id="projectsContainer">
+                    <!-- Cards will be populated here -->
                 </div>
             </div>
         </section>
