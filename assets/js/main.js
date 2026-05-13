@@ -45,4 +45,39 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+  
+  // View Toggle Logic (List vs Grid)
+  const viewBtns = document.querySelectorAll('.view-btn');
+  const projectsContainer = document.getElementById('projectsContainer');
+  
+  if (viewBtns.length > 0 && projectsContainer) {
+    viewBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Don't do anything if it's already active
+        if (btn.classList.contains('active')) return;
+        
+        // Remove active class from all
+        viewBtns.forEach(b => b.classList.remove('active'));
+        
+        // Add to clicked
+        btn.classList.add('active');
+        
+        // Determine intended view
+        const viewType = btn.getAttribute('data-view');
+        
+        // Quick fade out
+        projectsContainer.style.transition = 'opacity 0.2s ease-out';
+        projectsContainer.style.opacity = '0';
+        
+        setTimeout(() => {
+          // Swap classes
+          projectsContainer.classList.remove('list-view', 'grid-view');
+          projectsContainer.classList.add(`${viewType}-view`);
+          
+          // Fade back in
+          projectsContainer.style.opacity = '1';
+        }, 200);
+      });
+    });
+  }
 });
