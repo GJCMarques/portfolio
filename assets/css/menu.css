@@ -148,6 +148,7 @@ body.nav-active .trigger-line.bottom {
   flex-direction: column;
   padding: 6rem 4rem 4rem 5rem;
   border-left: 1px solid rgba(255, 255, 255, 0.05);
+  overflow-y: auto;
 }
 
 body.nav-active .side-drawer {
