@@ -135,3 +135,200 @@
         margin-left: auto; /* Push view toggles to right on mobile */
     }
 }
+
+/* =========================================
+   PROJECTS DIRECTORY LIST/GRID VIEWS
+========================================= */
+.projects-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* LIST VIEW (Default) */
+.projects-container.list-view .dir-project-item {
+    display: flex;
+    align-items: center;
+    padding: 2.5rem 1rem;
+    border-bottom: 1px solid var(--color-border);
+    text-decoration: none;
+    color: var(--color-text-main);
+    transition: all 0.3s ease;
+    gap: 2rem;
+}
+
+.projects-container.list-view .dir-project-item:first-child {
+    border-top: 1px solid var(--color-border);
+}
+
+.projects-container.list-view .dir-project-item:hover {
+    background-color: rgba(0,0,0,0.02);
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.projects-container.list-view .dir-thumb {
+    width: 140px;
+    height: 90px;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.dir-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.dir-project-item:hover .dir-thumb img {
+    transform: scale(1.05);
+}
+
+.projects-container.list-view .dir-info {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dir-title {
+    font-size: 2rem;
+    font-weight: 500;
+    margin: 0;
+    letter-spacing: -0.02em;
+}
+
+.projects-container.list-view .dir-meta {
+    display: flex;
+    gap: 0.5rem;
+    margin-right: 2rem;
+}
+
+.dir-tag {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.3rem 0.8rem;
+    border: 1px solid var(--color-border);
+    border-radius: 2rem;
+    color: var(--color-text-muted);
+}
+
+.dir-year {
+    font-family: var(--font-secondary);
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    width: 60px;
+    text-align: right;
+}
+
+.dir-action {
+    width: 40px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.dir-action svg {
+    width: 28px;
+    height: 28px;
+    transition: transform 0.3s ease;
+}
+
+.dir-project-item:hover .dir-action svg {
+    transform: translateX(5px) scale(1.1);
+}
+
+/* GRID VIEW */
+.projects-container.grid-view {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 4rem 2.5rem;
+    border: none;
+    padding-top: 1rem;
+}
+
+.projects-container.grid-view .dir-project-item {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: var(--color-text-main);
+    border: none;
+    padding: 0;
+    gap: 1.25rem;
+}
+
+.projects-container.grid-view .dir-project-item:hover {
+    background-color: transparent;
+    padding: 0;
+}
+
+.projects-container.grid-view .dir-thumb {
+    width: 100%;
+    height: 320px;
+    border-radius: var(--radius-md);
+    margin-bottom: 0;
+}
+
+.projects-container.grid-view .dir-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    width: 100%;
+}
+
+.projects-container.grid-view .dir-title {
+    font-size: 1.75rem;
+}
+
+.projects-container.grid-view .dir-meta {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.projects-container.grid-view .dir-year {
+    display: none;
+}
+
+.projects-container.grid-view .dir-action {
+    display: none;
+}
+
+/* Responsive constraints */
+@media (max-width: 992px) {
+    .projects-container.list-view .dir-project-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+        padding: 2rem 0;
+    }
+    
+    .projects-container.list-view .dir-project-item:hover {
+        padding-left: 0;
+        padding-right: 0;
+        background-color: transparent;
+    }
+    
+    .projects-container.list-view .dir-thumb {
+        width: 100%;
+        height: 250px;
+    }
+    
+    .projects-container.list-view .dir-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        width: 100%;
+    }
+    
+    .projects-container.list-view .dir-meta {
+        margin-right: 0;
+    }
+    
+    .projects-container.list-view .dir-year,
+    .projects-container.list-view .dir-action {
+        display: none;
+    }
+}
