@@ -80,4 +80,104 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+  
+  // Projects Filtering Logic
+  if (projectsContainer && customDropdowns.length > 0) {
+    const filters = {
+      type: 'all',
+      service: 'all',
+      industry: 'all'
+    };
+
+    const projectItems = projectsContainer.querySelectorAll('.dir-project-item');
+
+    customDropdowns.forEach(dropdown => {
+      const group = dropdown.getAttribute('data-filter-group');
+      const label = dropdown.querySelector('.dropdown-label');
+      const items = dropdown.querySelectorAll('.dropdown-item');
+
+      items.forEach(item => {
+        item.addEventListener('click', (e) => {
+          e.stopPropagation();
+          
+          // Update active class
+          items.forEach(i => i.classList.remove('active'));
+          item.classList.add('active');
+          
+          // Update label text based on group
+          const valText = item.textContent;
+          const groupLabels = {
+            type: 'Tipo',
+            service: 'Serviços',
+            industry: 'Indústria'
+          };
+          
+          // Only update prefix if it exists in our mapping
+          if(groupLabels[group]) {
+             label.textContent = `${groupLabels[group]}: ${valText}`;
+          }
+          
+          // Update filter state
+          filters[group] = item.getAttribute('data-value');
+          
+          // Close dropdown
+          dropdown.classList.remove('open');
+          
+          // Apply filters
+          applyFilters();
+        });
+      });
+    });
+
+    function applyFilters() {
+      // Fade out for transition effect
+      projectsContainer.style.transition = 'opacity 0.2s ease-out';
+      projectsContainer.style.opacity = '0';
+      
+      setTimeout(() => {
+        let visibleCount = 0;
+        
+        projectItems.forEach(card => {
+          // Get all tags text in lowercase
+          const tags = Array.from(card.querySelectorAll('.dir-tag')).map(t => t.textContent.toLowerCase().trim());
+          
+          // Check Type
+          let typeMatch = true;
+          if (filters.type === 'real' && !tags.includes('caso real')) typeMatch = false;
+          if (filters.type === 'pessoal' && !tags.includes('pessoal')) typeMatch = false;
+          
+          // Check Service
+          let serviceMatch = true;
+          if (filters.service === 'design' && !tags.includes('design')) serviceMatch = false;
+          if (filters.service === 'frontend' && !tags.includes('frontend') && !tags.includes('front end')) serviceMatch = false;
+          if (filters.service === 'fullstack' && !tags.includes('full stack')) serviceMatch = false;
+          
+          // Check Industry
+          let industryMatch = true;
+          if (filters.industry === 'financa' && !tags.includes('finança')) industryMatch = false;
+          if (filters.industry === 'imobiliario' && !tags.includes('imobiliário')) industryMatch = false;
+          if (filters.industry === 'moda' && !tags.includes('moda & loja')) industryMatch = false;
+          if (filters.industry === 'agencia' && !tags.includes('agência')) industryMatch = false;
+          
+          // If all active filters match, show card
+          if (typeMatch && serviceMatch && industryMatch) {
+            card.style.display = 'flex';
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+        
+        // Update header count if it exists
+        const countDisplay = document.querySelector('.filter-left .count');
+        if(countDisplay) {
+          // Format as (N)
+          countDisplay.textContent = `(${visibleCount})`;
+        }
+        
+        // Fade back in
+        projectsContainer.style.opacity = '1';
+      }, 200);
+    }
+  }
 });
