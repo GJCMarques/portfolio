@@ -222,6 +222,7 @@
     border-color: var(--color-text-main);
     transform: translateY(-5px);
     box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    transition: all 0.1s ease-out;
 }
 
 .projects-container.list-view .dir-thumb {
@@ -348,6 +349,7 @@
     border-color: var(--color-text-main);
     transform: translateY(-5px);
     box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    transition: all 0.1s ease-out;
 }
 
 .projects-container.grid-view .dir-thumb {
