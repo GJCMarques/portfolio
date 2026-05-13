@@ -44,6 +44,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     });
+    
+    // Close dropdowns on scroll for better UX
+    window.addEventListener('scroll', () => {
+      customDropdowns.forEach(dropdown => {
+        if (dropdown.classList.contains('open')) {
+          dropdown.classList.remove('open');
+        }
+      });
+    }, { passive: true });
   }
   
   // View Toggle Logic (List vs Grid)
