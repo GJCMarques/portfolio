@@ -65,7 +65,8 @@
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.dropdown-trigger:hover, .custom-dropdown.open .dropdown-trigger {
+.dropdown-trigger:hover,
+.custom-dropdown.open .dropdown-trigger {
     background: var(--color-text-main);
     color: var(--color-bg-main);
 }
@@ -91,7 +92,7 @@
     transform: translateY(-10px);
     transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
     z-index: 9999;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
 .custom-dropdown.open .dropdown-menu {
@@ -114,8 +115,9 @@
     transition: all 0.2s ease;
 }
 
-.dropdown-item:hover, .dropdown-item.active {
-    background: rgba(0,0,0,0.03);
+.dropdown-item:hover,
+.dropdown-item.active {
+    background: rgba(0, 0, 0, 0.03);
     color: var(--color-text-main);
 }
 
@@ -165,7 +167,7 @@
 .view-btn.active {
     background: var(--color-text-main);
     color: var(--color-bg-main);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
 /* Responsiveness */
@@ -174,19 +176,20 @@
         flex-direction: column;
         align-items: flex-start;
     }
-    
+
     .filter-right {
         width: 100%;
         justify-content: flex-start;
         gap: 0.75rem;
     }
-    
+
     .filter-divider {
         display: none;
     }
-    
+
     .view-toggles {
-        margin-left: auto; /* Push view toggles to right on mobile */
+        margin-left: auto;
+        /* Push view toggles to right on mobile */
     }
 }
 
@@ -210,7 +213,8 @@
     padding: 2.5rem;
     border: 1px solid var(--color-border);
     border-radius: 40px;
-    background-color: rgba(0, 0, 0, 0.01); /* Very subtle card background */
+    background-color: rgba(0, 0, 0, 0.01);
+    /* Very subtle card background */
     text-decoration: none;
     color: var(--color-text-main);
     transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -221,7 +225,7 @@
     background-color: transparent;
     border-color: var(--color-text-main);
     transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
     transition: all 0.1s ease-out;
 }
 
@@ -348,7 +352,7 @@
     background-color: transparent;
     border-color: var(--color-text-main);
     transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
     transition: all 0.1s ease-out;
 }
 
@@ -406,38 +410,38 @@
         padding: 1.5rem;
         border-radius: 24px;
     }
-    
+
     .projects-container.list-view .dir-project-item:hover {
         transform: translateY(-3px);
     }
-    
+
     .projects-container.list-view .dir-thumb {
         width: 100%;
         height: 250px;
     }
-    
+
     .projects-container.list-view .dir-info {
         flex-direction: column;
         align-items: flex-start;
         gap: 1rem;
         width: 100%;
     }
-    
+
     .projects-container.list-view .dir-details {
         flex-direction: column;
         align-items: flex-start;
         gap: 1rem;
     }
-    
+
     .projects-container.list-view .dir-desc {
         padding-left: 0;
         border-left: none;
     }
-    
+
     .projects-container.list-view .dir-meta {
         margin-right: 0;
     }
-    
+
     .projects-container.list-view .dir-year,
     .projects-container.list-view .dir-action {
         display: none;
@@ -448,28 +452,28 @@
    PROJECTS PAGE: FOOTER CTA OVERRIDES
 ========================================= */
 /* We override the home.css base styles here so the Home page remains untouched */
-.directory-section ~ section .projects-section-footer {
+.projects-directory-section~section .projects-section-footer {
     padding: 0 !important;
     margin-top: 4rem !important;
-    height: 200px !important; /* Force extreme thin ribbon */
+    height: 720px !important;
     min-height: 0 !important;
     justify-content: center !important;
-    gap: 0.5rem !important;
+    gap: 2rem !important;
 }
 
-.directory-section ~ section .footer-cta-title {
-    margin: 0 !important; 
-    font-size: 2.5rem !important; 
-    line-height: 1 !important;
+.projects-directory-section~section .footer-cta-title {
+    margin: 0 !important;
+    font-size: 4rem !important;
+    line-height: 1.1 !important;
 }
 
-.directory-section ~ section .footer-eyebrow {
-    margin-bottom: 0 !important; 
+.projects-directory-section~section .footer-eyebrow {
+    margin-bottom: 0 !important;
 }
 
 @media (max-width: 768px) {
-    .directory-section ~ section .projects-section-footer {
-        padding: 1.5rem 1rem;
+    .projects-directory-section~section .projects-section-footer {
+        padding: 1.5rem 1rem !important;
     }
 }
 
@@ -517,9 +521,11 @@
         padding: 3rem 1.5rem;
         border-radius: 24px;
     }
+
     .cta-heading {
         font-size: 2.5rem;
     }
+
     .cta-sub {
         font-size: 1.1rem;
     }
