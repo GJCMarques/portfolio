@@ -458,22 +458,19 @@
     height: 45rem !important;
     min-height: 0 !important;
     justify-content: center !important;
-    gap: 2rem !important;
 }
 
 .projects-directory-section~section .footer-cta-title {
-    margin: 0 !important;
-    font-size: 4rem !important;
-    line-height: 1.1 !important;
-}
-
-.projects-directory-section~section .footer-eyebrow {
-    margin-bottom: 0 !important;
+    max-width: 100% !important;
+    white-space: nowrap !important;
 }
 
 @media (max-width: 768px) {
     .projects-directory-section~section .projects-section-footer {
         padding: 1.5rem 1rem !important;
+    }
+    .projects-directory-section~section .footer-cta-title {
+        white-space: normal !important;
     }
 }
 
