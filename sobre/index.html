@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="../assets/css/menu.css">
     <link rel="stylesheet" href="../assets/css/animations.css">
     <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/sobre.css">
 </head>
 
 <body style="overflow-x: hidden;">
@@ -86,81 +87,75 @@
         <span class="brand-name">Guilherme Marques</span>
     </a>
 
-    <main style="padding-top: var(--header-height); padding-bottom: 6rem;">
-        <section class="about-intro-section" style="padding-top: 4rem;">
-            <div class="container">
-                <div class="intro-grid">
-                    <!-- Left: Label & Image -->
-                    <div class="intro-label-col fade-up">
-                        <span class="label-text">01 / A Minha Jornada</span>
-                        <div class="intro-image-wrapper" style="margin-top: 2rem;">
-                            <img src="../assets/img/home/sobremim.webp" alt="Guilherme Marques" class="intro-img-horizontal" style="aspect-ratio: 3/4; object-fit: cover;">
-                        </div>
-                    </div>
+    <main style="padding-top: var(--header-height);">
+        <!-- Section: Editorial Biography -->
+        <section class="about-intro-section section container">
+            <div class="about-bio-grid">
+                <!-- Left: Sticky Image -->
+                <div class="about-image-sticky fade-up">
+                    <img src="../assets/img/home/sobremim.webp" alt="Guilherme Marques">
+                </div>
 
-                    <!-- Right: Content -->
-                    <div class="intro-content-col">
-                        <h1 class="intro-statement fade-up" style="transition-delay: 0.1s; margin-bottom: 3rem;">
-                            A unir a tecnologia e<br>a visão de negócio.
+                <!-- Right: Typography & Content -->
+                <div class="about-typography">
+                    <div class="fade-up" style="margin-bottom: 4rem;">
+                        <span class="label-text">01 / A Minha Jornada</span>
+                        <h1 style="font-size: clamp(3rem, 6vw, 5rem); line-height: 1.1; margin-top: 1rem; margin-bottom: 2rem;">
+                            A unir a tecnologia e a visão de negócio.
                         </h1>
-                        <div class="fade-up" style="transition-delay: 0.2s; font-size: 1.125rem; line-height: 1.6; color: var(--color-text-muted); display: flex; flex-direction: column; gap: 1.5rem; max-width: 600px;">
-                            <p>
-                                Sou um Desenvolvedor Front-End e UI/UX Designer focado em criar
-                                soluções digitais robustas, minimalistas e altamente performantes para o mercado corporativo
-                                B2B.
-                            </p>
-                            <p>
-                                Com experiência na conceção de plataformas, dashboards analíticos
-                                e websites institucionais, o meu objetivo é traduzir a complexidade de negócios em interfaces
-                                claras, limpas e objetivas que geram confiança e resultados.
-                            </p>
-                            <p>
-                                Acredito num código modular, na ausência de dependências inúteis e numa estética "menos é mais"
-                                que não distrai, mas converte.
-                            </p>
-                        </div>
+                    </div>
+                    
+                    <div class="fade-up" style="transition-delay: 0.1s;">
+                        <p>
+                            Sou um Desenvolvedor Front-End e UI/UX Designer focado em criar
+                            soluções digitais robustas, minimalistas e altamente performantes para o mercado corporativo
+                            B2B.
+                        </p>
+                        <p>
+                            Com experiência na conceção de plataformas, dashboards analíticos
+                            e websites institucionais, o meu objetivo é traduzir a complexidade de negócios em interfaces
+                            claras, limpas e objetivas que geram confiança e resultados.
+                        </p>
+                        <p>
+                            Acredito num código modular, na ausência de dependências inúteis e numa estética "menos é mais"
+                            que não distrai, mas converte.
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Section: Experience (Timeline) -->
-        <section class="section container stagger-container" style="margin-top: 6rem;">
-            <div class="projects-header fade-up">
-                <h2 class="projects-heading">02 / PERCURSO PROFISSIONAL</h2>
-                <p class="projects-subheading">A minha evolução na área tecnológica e de design, pautada pela procura constante de excelência e inovação.</p>
+        <section class="timeline-section section container stagger-container fade-up">
+            <div class="timeline-header">
+                <span class="label-text">02 / Percurso Profissional</span>
+                <h2 style="font-size: clamp(2rem, 4vw, 3rem); line-height: 1.2; margin-top: 1rem;">
+                    Evolução Tecnológica e de Design
+                </h2>
             </div>
             
-            <div class="projects-list">
+            <div class="timeline-list">
                 <!-- Exp 1 -->
-                <article class="project-row fade-up" style="padding-top: 3rem; padding-bottom: 3rem;">
-                    <div class="project-content-col" style="width: 100%;">
-                        <div class="project-top-meta">
-                            <h3 class="project-title" style="font-size: 2rem;">Front-End Engineer Sénior</h3>
-                            <span class="project-date">2021 - Presente</span>
-                        </div>
-                        <div class="project-details-grid" style="grid-template-columns: 1fr;">
-                            <div class="detail-block full-width">
-                                <span class="detail-label">Descrição</span>
-                                <span class="detail-value">Desenvolvimento de dashboards e portais para clientes empresariais, garantindo uma UX irrepreensível, arquitetura escalável e código otimizado.</span>
-                            </div>
-                        </div>
+                <article class="timeline-item fade-up">
+                    <div class="timeline-meta">
+                        <span class="timeline-year">2021 — PRESENTE</span>
+                        <h3 class="timeline-role">Front-End Engineer Sénior</h3>
+                        <span class="timeline-company">Independente / Agências</span>
+                    </div>
+                    <div class="timeline-desc">
+                        <p>Desenvolvimento de dashboards e portais para clientes empresariais, garantindo uma UX irrepreensível, arquitetura escalável e código otimizado. Implementação de animações avançadas e integrações com APIs complexas.</p>
                     </div>
                 </article>
 
                 <!-- Exp 2 -->
-                <article class="project-row fade-up" style="padding-top: 3rem; padding-bottom: 3rem;">
-                    <div class="project-content-col" style="width: 100%;">
-                        <div class="project-top-meta">
-                            <h3 class="project-title" style="font-size: 2rem;">UI/UX Designer</h3>
-                            <span class="project-date">2018 - 2021</span>
-                        </div>
-                        <div class="project-details-grid" style="grid-template-columns: 1fr;">
-                            <div class="detail-block full-width">
-                                <span class="detail-label">Descrição</span>
-                                <span class="detail-value">Design de sistemas corporativos, guidelines e wireframes para aplicações de alta complexidade. Foco em acessibilidade e conversão.</span>
-                            </div>
-                        </div>
+                <article class="timeline-item fade-up">
+                    <div class="timeline-meta">
+                        <span class="timeline-year">2018 — 2021</span>
+                        <h3 class="timeline-role">UI/UX Designer</h3>
+                        <span class="timeline-company">Freelancer</span>
+                    </div>
+                    <div class="timeline-desc">
+                        <p>Design de sistemas corporativos, guidelines e wireframes para aplicações de alta complexidade. Foco em acessibilidade, conversão e criação de design systems modulares focados em alta consistência visual.</p>
                     </div>
                 </article>
             </div>

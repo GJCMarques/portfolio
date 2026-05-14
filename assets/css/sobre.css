@@ -1,0 +1,113 @@
+/* ==========================================================================
+   SOBRE MIM - EDITORIAL LAYOUT
+   ========================================================================== */
+
+.about-intro-section {
+    padding-top: 6rem;
+    padding-bottom: 4rem;
+}
+
+.about-bio-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+}
+
+@media (min-width: 1024px) {
+    .about-bio-grid {
+        grid-template-columns: 4fr 6fr;
+        gap: 6rem;
+    }
+}
+
+.about-image-sticky {
+    position: sticky;
+    top: calc(var(--header-height) + 2rem);
+}
+
+.about-image-sticky img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+    filter: grayscale(20%);
+    transition: filter 0.5s var(--ease-out-expo);
+}
+
+.about-image-sticky img:hover {
+    filter: grayscale(0%);
+}
+
+.about-typography p {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.about-typography p:first-child {
+    font-size: 1.5rem;
+    color: var(--color-text);
+    font-weight: 500;
+}
+
+/* Timeline Styles */
+.timeline-section {
+    padding: 6rem 0;
+    margin-top: 4rem;
+}
+
+.timeline-header {
+    margin-bottom: 4rem;
+}
+
+.timeline-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.timeline-item {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 3rem 0;
+    border-top: 1px solid var(--color-border);
+}
+
+@media (min-width: 768px) {
+    .timeline-item {
+        grid-template-columns: 300px 1fr;
+        gap: 3rem;
+    }
+}
+
+.timeline-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.timeline-year {
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    color: var(--color-primary);
+    letter-spacing: 0.05em;
+}
+
+.timeline-role {
+    font-size: 1.75rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.timeline-company {
+    font-size: 1rem;
+    color: var(--color-text);
+    opacity: 0.8;
+}
+
+.timeline-desc {
+    font-size: 1.125rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+}
