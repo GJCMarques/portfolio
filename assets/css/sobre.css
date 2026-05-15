@@ -159,6 +159,18 @@
     margin-top: 4rem;
 }
 
+.label-text {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 18px;
+    letter-spacing: 3.6px;
+    text-transform: uppercase;
+    display: block;
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+}
+
 .timeline-header {
     margin-bottom: 4rem;
 }
