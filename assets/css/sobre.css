@@ -379,7 +379,13 @@
     display: flex;
     overflow: hidden;
     min-height: 440px;
-    border: none;
+    border: 1px solid var(--color-border);
+    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.testimonial-card:hover {
+    border-color: #000;
+    transition: all 0.1s ease-out;
 }
 
 .testimonial-content {
@@ -400,7 +406,13 @@
     height: 60%;
     width: 1px;
     background-color: var(--color-border);
+    transition: background-color 0.3s ease;
     opacity: 0.5;
+}
+
+.testimonial-card:hover .testimonial-content::after {
+    background-color: #000;
+    opacity: 1;
 }
 
 .testimonial-visual {
@@ -414,15 +426,7 @@
     overflow: hidden;
 }
 
-.quote-icon {
-    position: absolute;
-    top: 3.5rem;
-    left: 4.5rem;
-    width: 40px;
-    height: 40px;
-    opacity: 0.15;
-    color: var(--color-text-main);
-}
+/* Quote icon removed */
 
 .testimonial-text {
     font-size: 1.4rem;
@@ -565,4 +569,130 @@
 .indicator.active {
     background-color: var(--color-primary);
     width: 24px;
+}
+/* Project Directory Cards (Shared with Projects Page) */
+.dir-project-item {
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+    border: 1px solid var(--color-border);
+    border-radius: 2rem;
+    background-color: transparent;
+    text-decoration: none;
+    color: var(--color-text-main);
+    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    gap: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.projects-list .dir-project-item:hover {
+    border-color: #000 !important;
+    background-color: rgba(0, 0, 0, 0.03) !important;
+    transform: translateY(-8px) !important;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08) !important;
+    transition: all 0.1s ease-out;
+}
+
+.dir-thumb {
+    width: 240px;
+    height: 160px;
+    border-radius: 1.25rem;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.dir-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.dir-project-item:hover .dir-thumb img {
+    transform: scale(1.05);
+}
+
+.dir-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.dir-title {
+    font-size: 1.75rem;
+    font-weight: 500;
+    margin: 0;
+    letter-spacing: -0.02em;
+}
+
+.dir-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.dir-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.dir-tag {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.35rem 0.85rem;
+    border: 1px solid var(--color-border);
+    border-radius: 2rem;
+    color: var(--color-text-muted);
+}
+
+.dir-desc {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    margin: 0;
+    line-height: 1.5;
+}
+
+.dir-year {
+    font-family: var(--font-secondary);
+    font-size: 1.125rem;
+    color: var(--color-text-muted);
+    width: 60px;
+    text-align: right;
+}
+
+.dir-action {
+    width: 32px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.dir-action svg {
+    width: 28px;
+    height: 28px;
+    transition: transform 0.3s ease;
+}
+
+.dir-project-item:hover .dir-action svg {
+    transform: translateX(5px);
+}
+
+@media (max-width: 992px) {
+    .dir-project-item {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.5rem;
+        gap: 1.5rem;
+    }
+    
+    .dir-thumb {
+        width: 100%;
+        height: 220px;
+    }
+    
+    .dir-year, .dir-action {
+        display: none;
+    }
 }
