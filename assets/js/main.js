@@ -201,9 +201,13 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentIndex = 0;
     
     const updateCarousel = (index) => {
-      const slideWidth = slides[0].getBoundingClientRect().width;
-      carouselTrack.style.transform = `translateX(-${index * slideWidth}px)`;
+      carouselTrack.style.transform = `translateX(-${index * 100}%)`;
       
+      // Update active slide class
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+
       // Update indicators
       indicators.forEach((indicator, i) => {
         indicator.classList.toggle('active', i === index);
@@ -211,6 +215,9 @@ document.addEventListener('DOMContentLoaded', () => {
       
       currentIndex = index;
     };
+
+    // Initialize first slide as active
+    updateCarousel(0);
     
     if (nextBtn) {
       nextBtn.addEventListener('click', () => {
