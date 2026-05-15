@@ -463,7 +463,7 @@
 .org-logo {
     width: 100%;
     height: 100%;
-    max-width: 280px; /* Increased max size */
+    max-width: 350px; /* Increased max size */
     object-fit: contain;
     filter: none;
     opacity: 1;
