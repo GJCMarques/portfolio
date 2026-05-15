@@ -171,6 +171,16 @@
     margin-bottom: 1.5rem;
 }
 
+.section-title-editorial {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 96.8px;
+    letter-spacing: -3.5px;
+    margin-top: 1rem;
+    color: var(--color-text-main);
+}
+
 .timeline-header {
     margin-bottom: 4rem;
 }
