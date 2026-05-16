@@ -382,29 +382,52 @@
     margin-top: 4rem;
 }
 
+.lang-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.lang-name {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--color-text);
+}
+
+.lang-level {
+    font-size: 0.9rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
 .lang-item-interactive {
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .lang-item-interactive:hover {
-    background: rgba(0, 0, 0, 0.02);
-    padding-left: 1rem;
+    padding-left: 0.5rem;
 }
 
-.lang-info {
+.lang-level-group {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
 }
 
 .cert-arrow-btn {
     background: none;
     border: none;
-    padding: 0.5rem;
+    padding: 0;
     color: var(--color-text);
-    opacity: 0.3;
+    opacity: 0.2;
     transition: all 0.3s var(--ease-out-expo);
-    transform: rotate(0deg);
+    display: flex;
+    align-items: center;
 }
 
 .lang-item-interactive:hover .cert-arrow-btn {
