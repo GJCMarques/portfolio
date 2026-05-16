@@ -314,7 +314,7 @@
     border-color: var(--color-primary);
 }
 
-/* Skills Grid Editorial (4 columns on desktop, 2 on tablet, 1 on mobile) */
+/* Skills Grid Editorial (6 categories: 3x2 on desktop, 2x3 on tablet, 1x6 on mobile) */
 .skills-grid-editorial {
     display: grid;
     grid-template-columns: 1fr;
@@ -345,25 +345,23 @@
 
     .skills-category-editorial {
         border-bottom: none;
+        border-right: none;
         padding: 3rem 2.5rem;
     }
 
-    /* First row horizontal separators */
-    .skills-category-editorial:nth-child(1),
-    .skills-category-editorial:nth-child(2) {
+    /* Horizontal separators between rows (top 4 items) */
+    .skills-category-editorial:nth-child(-n+4) {
         border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     }
 
     /* Vertical separators for tablet (left column has right border) */
-    .skills-category-editorial:nth-child(1),
-    .skills-category-editorial:nth-child(3) {
+    .skills-category-editorial:nth-child(odd) {
         border-right: 1px solid rgba(0, 0, 0, 0.1);
         padding-left: 0;
         padding-right: 3rem;
     }
 
-    .skills-category-editorial:nth-child(2),
-    .skills-category-editorial:nth-child(4) {
+    .skills-category-editorial:nth-child(even) {
         padding-left: 3rem;
         padding-right: 0;
     }
@@ -371,7 +369,7 @@
 
 @media (min-width: 1200px) {
     .skills-grid-editorial {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
 
     .skills-category-editorial {
@@ -381,28 +379,37 @@
         padding-bottom: 0 !important;
     }
 
-    /* Perfect 4-column padding and vertical separators */
-    .skills-category-editorial:nth-child(1) {
-        padding-left: 0;
-        padding-right: 2.5rem;
+    /* Horizontal separation line between Row 1 and Row 2 */
+    .skills-category-editorial:nth-child(-n+3) {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+        padding-top: 0 !important;
+        padding-bottom: 4rem !important;
+    }
+
+    .skills-category-editorial:nth-child(n+4) {
+        padding-top: 4rem !important;
+        padding-bottom: 0 !important;
+    }
+
+    /* Vertical separators between columns */
+    .skills-category-editorial:not(:nth-child(3n)) {
         border-right: 1px solid rgba(0, 0, 0, 0.1) !important;
     }
 
-    .skills-category-editorial:nth-child(2) {
-        padding-left: 2.5rem;
-        padding-right: 2.5rem;
-        border-right: 1px solid rgba(0, 0, 0, 0.1) !important;
+    /* Perfect grid offsets */
+    .skills-category-editorial:nth-child(3n+1) {
+        padding-left: 0 !important;
+        padding-right: 3rem !important;
     }
 
-    .skills-category-editorial:nth-child(3) {
-        padding-left: 2.5rem;
-        padding-right: 2.5rem;
-        border-right: 1px solid rgba(0, 0, 0, 0.1) !important;
+    .skills-category-editorial:nth-child(3n+2) {
+        padding-left: 3rem !important;
+        padding-right: 3rem !important;
     }
 
-    .skills-category-editorial:nth-child(4) {
-        padding-left: 2.5rem;
-        padding-right: 0;
+    .skills-category-editorial:nth-child(3n) {
+        padding-left: 3rem !important;
+        padding-right: 0 !important;
     }
 }
 
