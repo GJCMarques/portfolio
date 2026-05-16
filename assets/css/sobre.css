@@ -402,15 +402,20 @@
     color: #666;
     text-transform: uppercase;
     letter-spacing: 0.1em;
+    line-height: 1;
 }
 
 .lang-item-interactive {
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: border-bottom-color 0.6s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .lang-item-interactive:hover {
-    padding-left: 0.5rem;
+    border-bottom-color: #000;
+}
+
+.lang-item-interactive:hover .lang-level {
+    color: var(--color-text);
 }
 
 .lang-level-group {
@@ -423,16 +428,20 @@
     background: none;
     border: none;
     padding: 0;
+    margin: 0;
     color: var(--color-text);
-    opacity: 0.2;
-    transition: all 0.3s var(--ease-out-expo);
+    opacity: 0.3;
+    transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
     display: flex;
     align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
 }
 
 .lang-item-interactive:hover .cert-arrow-btn {
     opacity: 1;
-    transform: translate(3px, -3px);
+    transform: translate(4px, -4px) scale(1.1);
 }
 
 /* --- Modal Styles --- */
