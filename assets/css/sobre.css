@@ -347,7 +347,7 @@
         border-bottom: none;
         border-right: none;
         padding-top: 4rem;
-        padding-bottom: 4rem;
+        padding-bottom: 5.5rem;
     }
 
     /* Left column vertical border */
@@ -373,12 +373,6 @@
     .skills-category-editorial:nth-child(2) {
         padding-top: 0;
     }
-
-    /* Last row padding-bottom: 0 */
-    .skills-category-editorial:nth-last-child(1),
-    .skills-category-editorial:nth-last-child(2) {
-        padding-bottom: 0;
-    }
 }
 
 /* Accordion Panel for Extra Skills */
@@ -397,8 +391,14 @@
 @media (min-width: 768px) {
     .skills-extra-panel .skills-category-editorial:nth-child(1),
     .skills-extra-panel .skills-category-editorial:nth-child(2) {
-        padding-top: 4rem;
+        padding-top: 5.5rem;
         border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    /* Keep last elements of the expanded accordion neat at the bottom */
+    .skills-extra-panel .skills-category-editorial:nth-last-child(1),
+    .skills-extra-panel .skills-category-editorial:nth-last-child(2) {
+        padding-bottom: 0;
     }
 }
 
