@@ -366,9 +366,17 @@
                             <span class="lang-name">Português</span>
                             <span class="lang-level">Nativo (C2)</span>
                         </div>
-                        <div class="lang-item">
-                            <span class="lang-name">Inglês</span>
-                            <span class="lang-level">Avançado (B2)</span>
+                        <div class="lang-item lang-item-interactive" id="open-english-cert">
+                            <div class="lang-info">
+                                <span class="lang-name">Inglês</span>
+                                <span class="lang-level">Avançado (B2 Certificado)</span>
+                            </div>
+                            <button class="cert-arrow-btn" aria-label="Ver Certificado de Inglês">
+                                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                                    <polyline points="7 7 17 7 17 17"></polyline>
+                                </svg>
+                            </button>
                         </div>
                         <div class="lang-item">
                             <span class="lang-name">Espanhol</span>
@@ -618,6 +626,34 @@
 
     <script src="../assets/js/animations.js"></script>
     <script src="../assets/js/menu.js"></script>
+    <!-- Modal Certificado Inglês -->
+    <div id="cert-modal" class="modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-container">
+            <button class="modal-close" id="close-modal" aria-label="Fechar">
+                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <div class="modal-content">
+                <div class="cert-header-modal">
+                    <h3>Certificate of Advanced English (B2)</h3>
+                    <p>Cambridge Assessment English</p>
+                </div>
+                <div class="cert-image-container">
+                    <!-- Substituir pelo caminho real da imagem do certificado -->
+                    <img src="../assets/img/sobre/certificados/cambridge-b2.webp" alt="Certificado Cambridge B2" class="cert-img-full">
+                </div>
+                <div class="modal-actions">
+                    <a href="../assets/pdf/certificados/cambridge-b2.pdf" target="_blank" class="btn-primary">
+                        <span>Ver PDF Original</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="../assets/js/main.js"></script>
 </body>
 

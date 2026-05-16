@@ -247,5 +247,35 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', () => {
       updateCarousel(currentIndex);
     });
+
+    // Modal Certificado Inglês
+    const openCert = document.getElementById('open-english-cert');
+    const closeCert = document.getElementById('close-modal');
+    const certModal = document.getElementById('cert-modal');
+    const modalBackdrop = certModal?.querySelector('.modal-backdrop');
+
+    if (openCert && certModal) {
+      openCert.addEventListener('click', (e) => {
+        e.preventDefault();
+        certModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    }
+
+    const closeModalFunc = () => {
+      if (certModal) {
+        certModal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    };
+
+    if (closeCert) closeCert.addEventListener('click', closeModalFunc);
+    if (modalBackdrop) modalBackdrop.addEventListener('click', closeModalFunc);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && certModal?.classList.contains('active')) {
+        closeModalFunc();
+      }
+    });
   }
 });
