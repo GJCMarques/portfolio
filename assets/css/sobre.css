@@ -369,6 +369,11 @@
     transform: translateY(-2px);
 }
 
+.skill-tag-pill {
+    border-radius: 100px;
+    padding: 0.6rem 1.4rem;
+}
+
 /* --- Languages & Interests --- */
 .skills-split {
     display: grid;
