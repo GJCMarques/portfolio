@@ -378,8 +378,17 @@
 .skills-split {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 6rem;
+    gap: 0;
     margin-top: 4rem;
+}
+
+.languages-column {
+    padding-right: 3rem;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.interests-column {
+    padding-left: 3rem;
 }
 
 .lang-item {
@@ -555,6 +564,17 @@
     .skills-split {
         grid-template-columns: 1fr;
         gap: 3rem;
+    }
+
+    .languages-column {
+        padding-right: 0;
+        border-right: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        padding-bottom: 3rem;
+    }
+
+    .interests-column {
+        padding-left: 0;
     }
 }
 
