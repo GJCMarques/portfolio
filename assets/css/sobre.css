@@ -1172,7 +1172,14 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+.about-dark-section .skills-extra-panel .skills-category-editorial:last-child {
+    border-bottom: none; /* Remove bottom border on mobile for the last category */
+}
+
 @media (min-width: 768px) {
+    .about-dark-section .skills-category-editorial {
+        border-bottom: none; /* Reset global border-bottom on desktop first */
+    }
     .about-dark-section .skills-category-editorial:nth-child(odd) {
         border-right: 1px solid rgba(255, 255, 255, 0.1);
     }
