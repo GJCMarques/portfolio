@@ -636,7 +636,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0);
+    background: rgba(0, 0, 0, 0);
     opacity: 0;
     backdrop-filter: blur(0px);
     -webkit-backdrop-filter: blur(0px);
@@ -647,7 +647,7 @@
 
 .modal.active .modal-backdrop {
     opacity: 1;
-    background-color: rgba(255, 255, 255, 0.85);
+    background-color: transparent; /* No color overlay, completely pristine blur */
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
 }
@@ -656,9 +656,9 @@
     position: relative;
     width: 95%;
     max-width: 520px;
-    background: #fff;
-    border: 1px solid var(--color-border);
-    padding: 2.5rem 2rem 2rem 2rem;
+    background: #1A1A18; /* Black luxury background matching the dark theme */
+    border: 1px solid rgba(255, 255, 255, 0.15); /* Sleek white border */
+    padding: 3rem 2rem 2rem 2rem;
     border-radius: 2.5rem;
     overflow: hidden;
     opacity: 0;
@@ -688,8 +688,8 @@
     position: absolute;
     top: 1.5rem;
     right: 1.5rem;
-    background: rgba(0, 0, 0, 0.05);
-    border: none;
+    background: rgba(255, 255, 255, 0.08); /* Transparent white */
+    border: 1px solid rgba(255, 255, 255, 0.15);
     cursor: pointer;
     width: 44px;
     height: 44px;
@@ -697,15 +697,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-text);
+    color: #FFFFFF; /* White close icon */
     z-index: 10;
     pointer-events: auto;
     transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .modal-close:hover {
-    background: var(--color-text);
-    color: var(--color-bg);
+    background: #FFFFFF; /* White background on hover */
+    color: #1A1A18; /* Black icon on hover */
+    border-color: #FFFFFF;
     transform: rotate(90deg);
 }
 
@@ -718,10 +719,11 @@
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
+    color: #FFFFFF; /* White title */
 }
 
 .cert-header-modal p {
-    color: #666;
+    color: rgba(255, 255, 255, 0.55); /* White subtext */
     text-transform: uppercase;
     letter-spacing: 0.1em;
     font-size: 0.8rem;
@@ -737,6 +739,7 @@
     justify-content: center;
     overflow: hidden;
     border-radius: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle frame for the certificate itself */
 }
 
 .cert-img-full {
