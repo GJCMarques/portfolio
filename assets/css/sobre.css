@@ -1143,7 +1143,7 @@
     background-color: #1A1A18;
     color: #FFFFFF;
     position: relative;
-    padding: 100px 0; /* Balanced padding top & bottom */
+    padding: 100px 0 0; /* Padding bottom removed */
     margin: 100px 0; /* Add vertical space for dividers to slide under */
     z-index: 10;
 }
