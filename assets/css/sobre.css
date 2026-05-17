@@ -1274,7 +1274,7 @@
 .about-dark-section .section-divider-top {
     top: -99px;
     z-index: 1;
-    transform: rotate(180deg) scaleX(-1);
+    transform: rotate(180deg); /* scaleX(-1) removed to invert left/right wave orientation */
     color: #1A1A18;
 }
 
@@ -1282,7 +1282,7 @@
     bottom: -99px;
     z-index: 1;
     color: #1A1A18;
-    transform: scaleX(-1);
+    transform: none; /* scaleX(-1) removed to invert left/right wave orientation */
 }
 
 .about-dark-section .section-divider-top svg,
