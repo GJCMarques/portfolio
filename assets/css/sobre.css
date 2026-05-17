@@ -1125,3 +1125,13 @@
         display: none;
     }
 }
+
+/* =========================================
+   SECTION DIVIDER
+========================================= */
+.section-divider {
+    border: 0;
+    border-top: 1px solid var(--color-border);
+    margin: 0;
+    width: 100%;
+}
