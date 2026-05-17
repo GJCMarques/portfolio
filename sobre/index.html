@@ -327,7 +327,7 @@
             <div class="skills-grid-editorial">
                 <!-- 1. Front-End & Interface -->
                 <div class="skills-category-editorial">
-                    <h3 class="skills-category-title">Front-End & Interface</h3>
+                    <h3 class="skills-category-title"> Web Front-End & Interface</h3>
                     <div class="skills-list">
                         <span class="skill-tag">HTML5 / CSS3</span>
                         <span class="skill-tag">JavaScript (ES6+)</span>
@@ -336,16 +336,23 @@
                         <span class="skill-tag">Next.js</span>
                         <span class="skill-tag">Vue.js</span>
                         <span class="skill-tag">Angular</span>
+                        <span class="skill-tag">Tailwind CSS</span>
+                        <span class="skill-tag">SEO</span>
+                        <span class="skill-tag">SASS / SCSS</span>
+                        <span class="skill-tag">Three.js / WebGL</span>
                         <span class="skill-tag">GSAP</span>
                         <span class="skill-tag">Framer Motion</span>
+                        <span class="skill-tag">Bootstrap</span>
+                        <span class="skill-tag">Vite & Webpack</span>
                         <span class="skill-tag">Acessibilidade Web (A11y)</span>
+                        <span class="skill-tag">Performance & Web Vitals</span>
                         <span class="skill-tag">Figma / Canva</span>
                         <span class="skill-tag">Design Responsivo</span>
                     </div>
                 </div>
                 <!-- 2. Back-End & Servidores -->
                 <div class="skills-category-editorial">
-                    <h3 class="skills-category-title">Back-End & Servidores</h3>
+                    <h3 class="skills-category-title">Web Back-End & Servidores</h3>
                     <div class="skills-list">
                         <span class="skill-tag">PHP</span>
                         <span class="skill-tag">Node.js</span>
@@ -492,9 +499,11 @@
 
             <!-- Toggle Accordion Control Button -->
             <div class="skills-toggle-container">
-                <button id="toggleSkillsBtn" class="skills-toggle-btn" aria-expanded="false" aria-controls="skillsExtraPanel">
+                <button id="toggleSkillsBtn" class="skills-toggle-btn" aria-expanded="false"
+                    aria-controls="skillsExtraPanel">
                     <span class="btn-text">Ver Todas as Competências</span>
-                    <svg class="toggle-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <svg class="toggle-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
                         <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
                 </button>
@@ -824,11 +833,11 @@
         document.addEventListener('DOMContentLoaded', () => {
             const toggleBtn = document.getElementById('toggleSkillsBtn');
             const extraPanel = document.getElementById('skillsExtraPanel');
-            
+
             if (toggleBtn && extraPanel) {
                 toggleBtn.addEventListener('click', () => {
                     const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
-                    
+
                     if (isExpanded) {
                         // If it was 'none', set it to scrollHeight first to let the transition occur
                         if (extraPanel.style.maxHeight === 'none' || !extraPanel.style.maxHeight) {
@@ -836,17 +845,17 @@
                             // Force reflow
                             extraPanel.offsetHeight;
                         }
-                        
+
                         // Collapse animation
                         setTimeout(() => {
                             extraPanel.style.maxHeight = '0px';
                             extraPanel.style.opacity = '0';
                         }, 10);
-                        
+
                         toggleBtn.setAttribute('aria-expanded', 'false');
                         toggleBtn.querySelector('.btn-text').textContent = 'Ver Todas as Competências';
                         extraPanel.setAttribute('aria-hidden', 'true');
-                        
+
                         // Smooth scroll back up to the technical expertise header
                         const targetSection = document.querySelector('.skills-grid-editorial');
                         if (targetSection) {
@@ -865,7 +874,7 @@
                         extraPanel.style.opacity = '1';
                         toggleBtn.setAttribute('aria-expanded', 'true');
                         toggleBtn.querySelector('.btn-text').textContent = 'Mostrar Menos';
-                        
+
                         // After transition completes, adjust max-height to none to allow responsive scaling if resized
                         setTimeout(() => {
                             if (toggleBtn.getAttribute('aria-expanded') === 'true') {
@@ -874,7 +883,7 @@
                         }, 800);
                     }
                 });
-                
+
                 // Keep max-height auto-adjusted if screen resizes while expanded
                 window.addEventListener('resize', () => {
                     if (toggleBtn.getAttribute('aria-expanded') === 'true') {
