@@ -1135,3 +1135,159 @@
     margin: 0;
     width: 100%;
 }
+
+/* =========================================
+   DARK SECTION STYLES (SECTIONS 06 & 07)
+========================================= */
+.about-dark-section {
+    background-color: #1A1A18;
+    color: #FFFFFF;
+    position: relative;
+    padding: 100px 0; /* Balanced padding top & bottom */
+    margin: 100px 0; /* Add vertical space for dividers to slide under */
+    z-index: 10;
+}
+
+/* Remove container lateral padding to align perfectly with grid and margins */
+.about-dark-section .container {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* Section Title and Markers override */
+.about-dark-section .section-title-editorial {
+    color: #FFFFFF;
+}
+
+.about-dark-section .label-text {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.about-dark-section .skills-category-title {
+    color: #FFFFFF;
+}
+
+/* Skills list grid borders override */
+.about-dark-section .skills-category-editorial {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (min-width: 768px) {
+    .about-dark-section .skills-category-editorial:nth-child(odd) {
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .about-dark-section .skills-category-editorial:nth-last-child(n+3) {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .about-dark-section .skills-extra-panel .skills-category-editorial:nth-child(1),
+    .about-dark-section .skills-extra-panel .skills-category-editorial:nth-child(2) {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+}
+
+/* Skills Tags in Dark Section */
+.about-dark-section .skill-tag {
+    border-color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.about-dark-section .skill-tag:hover {
+    background: #FFFFFF;
+    color: #1A1A18;
+    border-color: #FFFFFF;
+}
+
+/* Toggle Accordion Button in Dark Section */
+.about-dark-section .skills-toggle-btn {
+    border-color: #FFFFFF;
+    color: #FFFFFF;
+}
+
+.about-dark-section .skills-toggle-btn::after {
+    background-color: #FFFFFF;
+}
+
+.about-dark-section .skills-toggle-btn:hover {
+    color: #1A1A18;
+    background-color: #FFFFFF;
+    border-color: #FFFFFF;
+}
+
+/* Split Column border in Dark Section */
+.about-dark-section .languages-column {
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 1023px) {
+    .about-dark-section .languages-column {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-right: 0;
+        padding-bottom: 3rem;
+        margin-bottom: 3rem;
+    }
+}
+
+/* Language Items in Dark Section */
+.about-dark-section .lang-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.about-dark-section .lang-name {
+    color: #FFFFFF;
+}
+
+.about-dark-section .lang-level {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.about-dark-section .lang-item-interactive:hover {
+    border-bottom-color: #FFFFFF;
+}
+
+.about-dark-section .lang-item-interactive:hover .lang-level {
+    color: #FFFFFF;
+}
+
+.about-dark-section .cert-arrow-btn {
+    color: #FFFFFF;
+}
+
+/* Subtle line separator inside dark block */
+.about-dark-section .section-divider {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* =========================================
+   SHAPE DIVIDERS CONFIGURATION (LANDING PAGE PARITY)
+========================================= */
+.about-dark-section .section-divider-top,
+.about-dark-section .section-divider-bottom {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    pointer-events: none;
+}
+
+.about-dark-section .section-divider-top {
+    top: -99px;
+    z-index: 1;
+    transform: rotate(180deg) scaleX(-1);
+    color: #1A1A18;
+}
+
+.about-dark-section .section-divider-bottom {
+    bottom: -99px;
+    z-index: 1;
+    color: #1A1A18;
+    transform: scaleX(-1);
+}
+
+.about-dark-section .section-divider-top svg,
+.about-dark-section .section-divider-bottom svg {
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 100px;
+}
