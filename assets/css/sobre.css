@@ -657,7 +657,7 @@
     width: 95%;
     max-width: 520px;
     background: #1A1A18; /* Black luxury background matching the dark theme */
-    border: 1px solid rgba(255, 255, 255, 0.15); /* Sleek white border */
+    border: 3px solid rgba(255, 255, 255, 0.08); /* Heavy luxury thick but subtle border */
     padding: 3rem 2rem 2rem 2rem;
     border-radius: 2.5rem;
     overflow: hidden;
@@ -739,7 +739,7 @@
     justify-content: center;
     overflow: hidden;
     border-radius: 1.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle frame for the certificate itself */
+    border: none; /* Border removed for seamless look */
 }
 
 .cert-img-full {
