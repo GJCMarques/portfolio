@@ -826,9 +826,28 @@
 
             <!-- Horizontal Giant Banner Cover -->
             <div class="civic-cover-wrapper">
+                <!-- Navigation Arrows -->
+                <button class="civic-carousel-arrow prev" aria-label="Slide anterior">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                </button>
+                <button class="civic-carousel-arrow next" aria-label="Próximo slide">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+
                 <img id="civic-cover-img" src="../assets/img/sobre/voluntariado/juventudegaia6.webp"
                     alt="Participação Cívica e Voluntariado" class="civic-cover-media">
                 <div class="civic-cover-overlay"></div>
+
+                <!-- Progress Indicators (Dots) -->
+                <div class="civic-carousel-dots" id="civic-carousel-dots">
+                    <!-- Gerado Dinamicamente via JS -->
+                </div>
             </div>
 
             <!-- Asymmetric Split Panel Layout -->
@@ -1193,11 +1212,121 @@
             const detailContents = document.querySelectorAll('.civic-detail-content');
             const coverImg = document.getElementById('civic-cover-img');
 
-            // Mapeamento de imagens de alta resolução locais
-            const tabImages = {
-                civic: '../assets/img/sobre/voluntariado/juventudegaia6.webp',
-                volunteering: '../assets/img/sobre/voluntariado/juventudegaia3.webp'
+            const dotsContainer = document.getElementById('civic-carousel-dots');
+            const prevArrow = document.querySelector('.civic-carousel-arrow.prev');
+            const nextArrow = document.querySelector('.civic-carousel-arrow.next');
+
+            // Listas de imagens de alta resolução
+            const categoryImages = {
+                civic: [
+                    '../assets/img/sobre/voluntariado/juventudegaia6.webp',
+                    '../assets/img/sobre/voluntariado/juventudegaia2.webp',
+                    '../assets/img/sobre/voluntariado/gaiacapital.webp',
+                    '../assets/img/sobre/voluntariado/juventudegaia8.webp',
+                    '../assets/img/sobre/voluntariado/juventudegaia10.webp'
+                ],
+                volunteering: [
+                    '../assets/img/sobre/voluntariado/juventudegaia1.webp',
+                    '../assets/img/sobre/voluntariado/juventudegaia2.webp',
+                    '../assets/img/sobre/voluntariado/juventudegaia3.webp',
+                    '../assets/img/sobre/voluntariado/juventudegaia4.webp',
+                    '../assets/img/sobre/voluntariado/juventudegaia5.webp',
+                    '../assets/img/sobre/voluntariado/juventudegaia6.webp',
+                    '../assets/img/sobre/voluntariado/juventudegaia7.webp',
+                    '../assets/img/sobre/voluntariado/juventudegaia8.webp',
+                    '../assets/img/sobre/voluntariado/juventudegaia9.webp',
+                    '../assets/img/sobre/voluntariado/juventudegaia10.webp'
+                ]
             };
+
+            let currentCategory = 'civic';
+            let currentImageIndex = 0;
+            let slideInterval = null;
+
+            // Função para atualizar a imagem de cobertura com efeito de fade
+            function showImage(index) {
+                const images = categoryImages[currentCategory];
+                if (!images || !images.length || !coverImg) return;
+
+                // Tratar limites circulares
+                if (index >= images.length) index = 0;
+                if (index < 0) index = images.length - 1;
+
+                currentImageIndex = index;
+
+                // Animar transição (fade out rápido, muda src, fade in)
+                coverImg.style.opacity = '0';
+                setTimeout(() => {
+                    coverImg.src = images[currentImageIndex];
+                    coverImg.style.opacity = '1';
+
+                    // Atualizar pontos/indicadores
+                    const dots = dotsContainer.querySelectorAll('.civic-carousel-dot');
+                    dots.forEach((dot, idx) => {
+                        if (idx === currentImageIndex) {
+                            dot.classList.add('active');
+                        } else {
+                            dot.classList.remove('active');
+                        }
+                    });
+                }, 300);
+            }
+
+            // Função para gerar indicadores dinâmicos
+            function buildIndicators() {
+                if (!dotsContainer) return;
+                dotsContainer.innerHTML = '';
+                const images = categoryImages[currentCategory];
+
+                images.forEach((_, idx) => {
+                    const dot = document.createElement('button');
+                    dot.className = `civic-carousel-dot ${idx === currentImageIndex ? 'active' : ''}`;
+                    dot.setAttribute('aria-label', `Ir para imagem ${idx + 1}`);
+                    dot.addEventListener('click', () => {
+                        showImage(idx);
+                        resetAutoplay();
+                    });
+                    dotsContainer.appendChild(dot);
+                });
+            }
+
+            // Função para iniciar o temporizador automático de 5 segundos
+            function startAutoplay() {
+                stopAutoplay();
+                slideInterval = setInterval(() => {
+                    showImage(currentImageIndex + 1);
+                }, 5000);
+            }
+
+            // Função para parar o temporizador
+            function stopAutoplay() {
+                if (slideInterval) {
+                    clearInterval(slideInterval);
+                    slideInterval = null;
+                }
+            }
+
+            // Resetar autoplay ao interagir manualmente
+            function resetAutoplay() {
+                startAutoplay();
+            }
+
+            // Listeners das setas transparentes
+            if (prevArrow) {
+                prevArrow.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    showImage(currentImageIndex - 1);
+                    resetAutoplay();
+                });
+            }
+
+            if (nextArrow) {
+                nextArrow.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    showImage(currentImageIndex + 1);
+                    resetAutoplay();
+                });
+            }
 
             // 1. Alternar entre as Categorias Principais (Tabs)
             mainTabBtns.forEach(btn => {
@@ -1208,14 +1337,14 @@
                     mainTabBtns.forEach(b => b.classList.remove('active'));
                     btn.classList.add('active');
 
-                    // Transição suave da imagem de cobertura
-                    if (coverImg) {
-                        coverImg.style.opacity = '0';
-                        setTimeout(() => {
-                            coverImg.src = tabImages[mainTab];
-                            coverImg.style.opacity = '1';
-                        }, 300);
-                    }
+                    // Mudar a categoria ativa e reiniciar o carrossel
+                    currentCategory = mainTab;
+                    currentImageIndex = 0;
+                    
+                    // Transição imediata para a primeira imagem da nova categoria
+                    showImage(0);
+                    buildIndicators();
+                    resetAutoplay();
 
                     // Alternar os menus laterais de atividades
                     menuLists.forEach(list => {
@@ -1252,6 +1381,10 @@
                     });
                 });
             });
+
+            // Inicialização inicial
+            buildIndicators();
+            startAutoplay();
         });
     </script>
 
