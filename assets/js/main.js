@@ -248,34 +248,40 @@ document.addEventListener('DOMContentLoaded', () => {
       updateCarousel(currentIndex);
     });
 
-    // Modal Certificado Inglês
-    const openCert = document.getElementById('open-english-cert');
-    const closeCert = document.getElementById('close-modal');
-    const certModal = document.getElementById('cert-modal');
-    const modalBackdrop = certModal?.querySelector('.modal-backdrop');
+    // Reusable Modal Handler Setup
+    const setupModal = (triggerId, modalId, closeBtnId) => {
+      const trigger = document.getElementById(triggerId);
+      const modal = document.getElementById(modalId);
+      if (!trigger || !modal) return;
 
-    if (openCert && certModal) {
-      openCert.addEventListener('click', (e) => {
+      const closeBtn = document.getElementById(closeBtnId) || modal.querySelector('.modal-close');
+      const backdrop = modal.querySelector('.modal-backdrop');
+
+      const openModal = (e) => {
         e.preventDefault();
-        certModal.classList.add('active');
+        modal.classList.add('active');
         document.body.style.overflow = 'hidden';
-      });
-    }
+      };
 
-    const closeModalFunc = () => {
-      if (certModal) {
-        certModal.classList.remove('active');
+      const closeModal = () => {
+        modal.classList.remove('active');
         document.body.style.overflow = '';
-      }
+      };
+
+      trigger.addEventListener('click', openModal);
+      if (closeBtn) closeBtn.addEventListener('click', closeModal);
+      if (backdrop) backdrop.addEventListener('click', closeModal);
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+          closeModal();
+        }
+      });
     };
 
-    if (closeCert) closeCert.addEventListener('click', closeModalFunc);
-    if (modalBackdrop) modalBackdrop.addEventListener('click', closeModalFunc);
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && certModal?.classList.contains('active')) {
-        closeModalFunc();
-      }
-    });
+    // Initialize all modals
+    setupModal('open-english-cert', 'cert-modal', 'close-modal');
+    setupModal('open-gaia-cert', 'gaia-cert-modal', 'close-gaia-modal');
+    setupModal('open-juventude-cert', 'juventude-cert-modal', 'close-juventude-modal');
   }
 });
