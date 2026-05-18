@@ -840,7 +840,9 @@
                     </svg>
                 </button>
 
-                <img id="civic-cover-img" src="../assets/img/sobre/voluntariado/juventudegaia6.webp"
+                <img id="civic-cover-img-1" src="../assets/img/sobre/voluntariado/juventudegaia6.webp"
+                    alt="Participação Cívica e Voluntariado" class="civic-cover-media active">
+                <img id="civic-cover-img-2" src=""
                     alt="Participação Cívica e Voluntariado" class="civic-cover-media">
                 <div class="civic-cover-overlay"></div>
 
@@ -1210,7 +1212,9 @@
             const menuLists = document.querySelectorAll('.civic-menu-list');
             const menuItems = document.querySelectorAll('.civic-menu-item');
             const detailContents = document.querySelectorAll('.civic-detail-content');
-            const coverImg = document.getElementById('civic-cover-img');
+            const coverImg1 = document.getElementById('civic-cover-img-1');
+            const coverImg2 = document.getElementById('civic-cover-img-2');
+            let isImg1Active = true;
 
             const dotsContainer = document.getElementById('civic-carousel-dots');
             const prevArrow = document.querySelector('.civic-carousel-arrow.prev');
@@ -1246,19 +1250,36 @@
             // Função para atualizar a imagem de cobertura com efeito de fade
             function showImage(index) {
                 const images = categoryImages[currentCategory];
-                if (!images || !images.length || !coverImg) return;
+                if (!images || !images.length) return;
 
                 // Tratar limites circulares
                 if (index >= images.length) index = 0;
                 if (index < 0) index = images.length - 1;
 
                 currentImageIndex = index;
+                const nextSrc = images[currentImageIndex];
 
-                // Animar transição (fade out rápido, muda src, fade in)
-                coverImg.style.opacity = '0';
+                const currentActiveImg = isImg1Active ? coverImg1 : coverImg2;
+                const nextActiveImg = isImg1Active ? coverImg2 : coverImg1;
+
+                // Prepara a imagem seguinte (em background, invisível e ampliada)
+                nextActiveImg.src = nextSrc;
+                nextActiveImg.style.transform = 'scale(1.08)';
+                nextActiveImg.style.opacity = '0';
+                nextActiveImg.classList.remove('active');
+
+                // Transição: ativa a nova imagem e desativa a antiga
                 setTimeout(() => {
-                    coverImg.src = images[currentImageIndex];
-                    coverImg.style.opacity = '1';
+                    nextActiveImg.classList.add('active');
+                    nextActiveImg.style.opacity = '1';
+                    nextActiveImg.style.transform = 'scale(1)';
+
+                    currentActiveImg.classList.remove('active');
+                    currentActiveImg.style.opacity = '0';
+                    currentActiveImg.style.transform = 'scale(1.08)';
+
+                    // Alterna o estado ativo
+                    isImg1Active = !isImg1Active;
 
                     // Atualizar pontos/indicadores
                     const dots = dotsContainer.querySelectorAll('.civic-carousel-dot');
@@ -1269,7 +1290,7 @@
                             dot.classList.remove('active');
                         }
                     });
-                }, 300);
+                }, 50);
             }
 
             // Função para gerar indicadores dinâmicos
