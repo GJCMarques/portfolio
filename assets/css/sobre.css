@@ -1772,39 +1772,78 @@
     }
 }
 
-/* Premium Certificate/Diploma Button in Civic/Volunteering Details */
+/* Premium Brutalist-Lux Certificate/Diploma Button in Civic/Volunteering Details */
 .civic-cert-btn {
     display: inline-flex;
     align-items: center;
     gap: 0.85rem;
     background: transparent;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-full);
-    padding: 0.8rem 2rem;
+    border: 1.5px solid var(--color-text-main);
+    border-radius: var(--radius-full); /* Rounded corners */
+    padding: 0.85rem 2.2rem;
     color: var(--color-text-main);
     font-family: 'Outfit', sans-serif;
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     font-weight: 700;
     cursor: pointer;
-    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-    margin-top: 0.5rem;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    margin-top: 1.5rem;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
     outline: none;
+    position: relative;
 }
 
 .civic-cert-btn svg {
-    transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .civic-cert-btn:hover {
     background-color: var(--color-text-main);
     color: var(--color-bg-main);
     border-color: var(--color-text-main);
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    transform: translateY(-2px);
 }
 
 .civic-cert-btn:hover svg {
-    transform: translate(2px, -2px) scale(1.1);
+    transform: translate(3px, -3px) scale(1.15);
+}
+
+/* --- Light and Horizontal (Landscape) Modal Customization --- */
+.modal-light .modal-container {
+    background: #FFFFFF;
+    border: 3px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+}
+
+.modal-light .modal-close {
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: #1A1A18;
+}
+
+.modal-light .modal-close:hover {
+    background: #1A1A18;
+    color: #FFFFFF;
+    border-color: #1A1A18;
+}
+
+.modal-light .cert-header-modal h3 {
+    color: #1A1A18;
+}
+
+.modal-light .cert-header-modal p {
+    color: rgba(0, 0, 0, 0.55);
+}
+
+/* Horizontal / Landscape Layout configuration */
+.modal-horizontal .modal-container {
+    max-width: 820px; /* Wider for landscape certificates */
+    padding: 3.5rem 2.5rem 2.5rem 2.5rem;
+    border-radius: 1.5rem; /* Clean, slightly sharper corners */
+}
+
+.modal-horizontal .cert-image-container {
+    aspect-ratio: 1.414; /* A4 Landscape ratio (1 / 0.707) */
+    background: rgba(0, 0, 0, 0.02);
 }
