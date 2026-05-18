@@ -1521,7 +1521,7 @@
     grid-template-columns: 1.2fr 1.8fr;
     gap: 4rem;
     margin-top: 4rem;
-    align-items: start;
+    align-items: stretch;
 }
 
 .civic-menu-col {
