@@ -1384,11 +1384,7 @@
     height: 100%;
     object-fit: cover;
     opacity: 1;
-    transition: opacity 0.3s ease, transform 1s var(--ease-out-expo);
-}
-
-.civic-cover-wrapper:hover .civic-cover-media {
-    transform: scale(1.02);
+    transition: opacity 0.3s ease;
 }
 
 .civic-cover-overlay {
@@ -1476,8 +1472,6 @@
 
 .civic-menu-item.active .item-dot {
     background-color: var(--color-primary);
-    transform: scale(1.5);
-    box-shadow: 0 0 8px var(--color-primary);
 }
 
 .civic-details-col {
