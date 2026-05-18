@@ -806,8 +806,7 @@
         </section>
 
         <!-- Section 09: Voluntariado & Ação Cívica -->
-        <section class="section container stagger-container fade-up"
-            style="padding: 100px 0; border-top: 1px solid var(--color-border);">
+        <section class="section container stagger-container fade-up" style="padding: 100px 0; border-top: 1px solid var(--color-border);">
             <div class="timeline-header">
                 <span class="label-text">/ Voluntariado & Impacto Social</span>
                 <h2 class="section-title-editorial">
@@ -815,55 +814,169 @@
                 </h2>
             </div>
 
-            <div class="volunteering-grid">
-                <!-- Card 1: PE Embaixador -->
-                <div class="volunteering-card fade-up">
-                    <div class="volunteering-badge">Cidadania Europeia</div>
-                    <div class="volunteering-content">
-                        <div class="volunteering-header">
-                            <span class="volunteering-year">2021 — Presente</span>
-                            <h3 class="volunteering-title">Embaixador Júnior do Parlamento Europeu</h3>
-                            <span class="volunteering-org">Colégio de Gaia & Parlamento Europeu</span>
-                        </div>
-                        <p class="volunteering-description">
-                            Participação ativa no prestigiado programa "Escola Embaixadora do Parlamento Europeu",
-                            promovendo a cidadania europeia, a democracia e os direitos humanos. Coordenação de debates,
-                            seminários e eventos cívicos, com destaque para a representação do Colégio de Gaia na
-                            prestigiada sessão internacional do EUROSCOLA em Estrasburgo, interagindo com jovens de toda
-                            a Europa.
-                        </p>
-                        <div class="volunteering-skills">
-                            <span class="skill-tag">Diplomacia Cívica</span>
-                            <span class="skill-tag">Comunicação</span>
-                            <span class="skill-tag">Liderança Jovem</span>
-                            <span class="skill-tag">Sessão Euroscola</span>
-                        </div>
+            <!-- Main Navigation Tabs -->
+            <div class="civic-tabs-nav">
+                <button class="civic-tab-btn active" data-main-tab="civic">
+                    <span class="tab-num">01 /</span> Atividades Cívicas & Diplomacia
+                </button>
+                <button class="civic-tab-btn" data-main-tab="volunteering">
+                    <span class="tab-num">02 /</span> Voluntariado Comunitário
+                </button>
+            </div>
+
+            <!-- Horizontal Giant Banner Cover -->
+            <div class="civic-cover-wrapper">
+                <img id="civic-cover-img" src="../assets/img/sobre/voluntariado/juventudegaia2.webp" alt="Participação Cívica e Voluntariado" class="civic-cover-media">
+                <div class="civic-cover-overlay"></div>
+            </div>
+
+            <!-- Asymmetric Split Panel Layout -->
+            <div class="civic-split-panel">
+                
+                <!-- Left Side: Dynamic Activity Selector -->
+                <div class="civic-menu-col">
+                    <h4 class="civic-menu-label">Selecionar Atividade</h4>
+                    
+                    <!-- Atividades Cívicas List -->
+                    <div class="civic-menu-list active" data-menu-group="civic">
+                        <button class="civic-menu-item active" data-activity="euroscola">
+                            <span class="item-dot"></span>
+                            <span class="item-title">Sessão Euroscola Estrasburgo</span>
+                        </button>
+                        <button class="civic-menu-item" data-activity="embaixador">
+                            <span class="item-dot"></span>
+                            <span class="item-title">Escola Embaixadora do PE</span>
+                        </button>
+                        <button class="civic-menu-item" data-activity="assembleia">
+                            <span class="item-dot"></span>
+                            <span class="item-title">Assembleia Municipal de Jovens</span>
+                        </button>
+                    </div>
+
+                    <!-- Voluntariado List -->
+                    <div class="civic-menu-list" data-menu-group="volunteering">
+                        <button class="civic-menu-item active" data-activity="inclusao">
+                            <span class="item-dot"></span>
+                            <span class="item-title">Inclusão Digital Pro Bono</span>
+                        </button>
+                        <button class="civic-menu-item" data-activity="solidariedade">
+                            <span class="item-dot"></span>
+                            <span class="item-title">Apoio Comunitário & Logística</span>
+                        </button>
+                        <button class="civic-menu-item" data-activity="proximidade">
+                            <span class="item-dot"></span>
+                            <span class="item-title">Voluntariado de Proximidade</span>
+                        </button>
                     </div>
                 </div>
 
-                <!-- Card 2: Ação Comunitária e Social -->
-                <div class="volunteering-card fade-up">
-                    <div class="volunteering-badge">Impacto Comunitário</div>
-                    <div class="volunteering-content">
-                        <div class="volunteering-header">
-                            <span class="volunteering-year">Contínuo</span>
-                            <h3 class="volunteering-title">Ação Comunitária & Inclusão Digital</h3>
-                            <span class="volunteering-org">Iniciativas Independentes & Apoio Social</span>
+                <!-- Right Side: Content Details Box -->
+                <div class="civic-details-col">
+                    
+                    <!-- Detail Blocks for Atividades Cívicas -->
+                    <div class="civic-detail-content active" id="detail-euroscola">
+                        <div class="detail-header">
+                            <span class="detail-year">2021 — Sessão Internacional</span>
+                            <h3 class="detail-title">Representação no EUROSCOLA Estrasburgo</h3>
+                            <span class="detail-org">Parlamento Europeu, Estrasburgo (França)</span>
                         </div>
-                        <p class="volunteering-description">
-                            Dedicado a apoiar a comunidade local através de campanhas de solidariedade e assistência
-                            tecnológica de proximidade. Desenvolvimento pro bono de plataformas web e canais digitais
-                            simples para causas locais, suporte técnico gratuito no diagnóstico e montagem de
-                            computadores para inclusão digital de jovens, e suporte logístico em campanhas alimentares
-                            comunitárias.
+                        <p class="detail-desc">
+                            Selecionado para integrar a delegação oficial de jovens embaixadores no prestigiado programa EUROSCOLA, diretamente no hemiciclo do Parlamento Europeu em Estrasburgo. Participou ativamente em debates plenários em inglês e francês sobre o futuro da União Europeia, economia circular e transição climática, exercendo o papel de eurodeputado por um dia na discussão e votação de resoluções transfronteiriças.
                         </p>
-                        <div class="volunteering-skills">
-                            <span class="skill-tag">Apoio Pro Bono</span>
-                            <span class="skill-tag">Solidariedade Ativa</span>
-                            <span class="skill-tag">Inclusão Digital</span>
-                            <span class="skill-tag">Logística Social</span>
+                        <div class="detail-skills">
+                            <span class="skill-tag">Diplomacia Cívica</span>
+                            <span class="skill-tag">Euroscola</span>
+                            <span class="skill-tag">Oratória Pública</span>
+                            <span class="skill-tag">Multilinguismo</span>
                         </div>
                     </div>
+
+                    <div class="civic-detail-content" id="detail-embaixador">
+                        <div class="detail-header">
+                            <span class="detail-year">2021 — 2023</span>
+                            <h3 class="detail-title">Embaixador Júnior do Parlamento Europeu</h3>
+                            <span class="detail-org">Colégio de Gaia & Parlamento Europeu</span>
+                        </div>
+                        <p class="detail-desc">
+                            Coordenação ativa do programa "Escola Embaixadora do Parlamento Europeu" ao nível escolar. Dinamização de exposições interativas, seminários temáticos, fóruns de debate aberto e sessões de esclarecimento sobre o funcionamento institucional da União Europeia, democracia participativa e cidadania digital para a comunidade escolar de Gaia.
+                        </p>
+                        <div class="detail-skills">
+                            <span class="skill-tag">Liderança Jovem</span>
+                            <span class="skill-tag">Cidadania Europeia</span>
+                            <span class="skill-tag">Organização de Eventos</span>
+                            <span class="skill-tag">Políticas Públicas</span>
+                        </div>
+                    </div>
+
+                    <div class="civic-detail-content" id="detail-assembleia">
+                        <div class="detail-header">
+                            <span class="detail-year">Participação Anual</span>
+                            <h3 class="detail-title">Deputado Jovem na Assembleia Municipal de Jovens</h3>
+                            <span class="detail-org">Câmara Municipal de Vila Nova de Gaia</span>
+                        </div>
+                        <p class="detail-desc">
+                            Representação juvenil ativa em sessões parlamentares municipais no Salão Nobre do Município. Elaboração, apresentação e debate de propostas de recomendação focadas em mobilidade urbana sustentável, modernização de infraestruturas culturais e digitais para jovens, e preservação do ecossistema costeiro de Vila Nova de Gaia.
+                        </p>
+                        <div class="detail-skills">
+                            <span class="skill-tag">Debate Político</span>
+                            <span class="skill-tag">Política Local</span>
+                            <span class="skill-tag">Advocacy Municipal</span>
+                            <span class="skill-tag">Oratória</span>
+                        </div>
+                    </div>
+
+                    <!-- Detail Blocks for Voluntariado -->
+                    <div class="civic-detail-content" id="detail-inclusao">
+                        <div class="detail-header">
+                            <span class="detail-year">Contínuo</span>
+                            <h3 class="detail-title">Inclusão Digital Pro Bono</h3>
+                            <span class="detail-org">Apoio a Famílias & Associações Locais</span>
+                        </div>
+                        <p class="detail-desc">
+                            Diagnóstico, reparação e configuração gratuita de computadores e periféricos para fins educativos em agregados familiares carenciados e pequenas associações de cariz social. Implementação de sistemas operativos leves, software de produtividade de código aberto e formação básica em navegação segura para combater a infoexclusão digital.
+                        </p>
+                        <div class="detail-skills">
+                            <span class="skill-tag">Suporte de Hardware</span>
+                            <span class="skill-tag">Sistemas Operativos</span>
+                            <span class="skill-tag">Inclusão Digital</span>
+                            <span class="skill-tag">Apoio Pro Bono</span>
+                        </div>
+                    </div>
+
+                    <div class="civic-detail-content" id="detail-solidariedade">
+                        <div class="detail-header">
+                            <span class="detail-year">Campanhas Sazonais</span>
+                            <h3 class="detail-title">Logística & Apoio em Bancos Alimentares</h3>
+                            <span class="detail-org">Banco Alimentar Contra a Fome</span>
+                        </div>
+                        <p class="detail-desc">
+                            Cooperação regular nas equipas de voluntariado cívico na recolha, triagem sistemática e empacotamento logístico de bens essenciais para famílias carenciadas. Gestão de armazém temporário e coordenação de rotas de transporte durante os fins de semana de campanha intensiva de solidariedade social.
+                        </p>
+                        <div class="detail-skills">
+                            <span class="skill-tag">Logística</span>
+                            <span class="skill-tag">Coordenação</span>
+                            <span class="skill-tag">Trabalho em Equipa</span>
+                            <span class="skill-tag">Ação Social</span>
+                        </div>
+                    </div>
+
+                    <div class="civic-detail-content" id="detail-proximidade">
+                        <div class="detail-header">
+                            <span class="detail-year">Apoio Local</span>
+                            <h3 class="detail-title">Apoio Técnico de Proximidade</h3>
+                            <span class="detail-org">Comunidade de Vila Nova de Gaia</span>
+                        </div>
+                        <p class="detail-desc">
+                            Disponibilização voluntária de suporte técnico para idosos e pequenos negócios locais na modernização e transição de processos diários para ambiente digital. Configuração de acessos a portais do cidadão, e-banking, e assessoria técnica em comunicações, promovendo autonomia no uso quotidiano da tecnologia.
+                        </p>
+                        <div class="detail-skills">
+                            <span class="skill-tag">Apoio de Proximidade</span>
+                            <span class="skill-tag">Literacia Tecnológica</span>
+                            <span class="skill-tag">Empatia</span>
+                            <span class="skill-tag">Suporte Técnico</span>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -1048,6 +1161,77 @@
                     }
                 });
             }
+        });
+    </script>
+
+    <!-- Script do Sistema de Separadores de Participação Cívica e Voluntariado -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainTabBtns = document.querySelectorAll('.civic-tab-btn');
+            const menuLists = document.querySelectorAll('.civic-menu-list');
+            const menuItems = document.querySelectorAll('.civic-menu-item');
+            const detailContents = document.querySelectorAll('.civic-detail-content');
+            const coverImg = document.getElementById('civic-cover-img');
+
+            // Mapeamento de imagens de alta resolução locais
+            const tabImages = {
+                civic: '../assets/img/sobre/voluntariado/juventudegaia2.webp',
+                volunteering: '../assets/img/sobre/voluntariado/voluntariadogaia.webp'
+            };
+
+            // 1. Alternar entre as Categorias Principais (Tabs)
+            mainTabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const mainTab = btn.getAttribute('data-main-tab');
+
+                    // Atualizar estado ativo dos botões principais
+                    mainTabBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    // Transição suave da imagem de cobertura
+                    if (coverImg) {
+                        coverImg.style.opacity = '0';
+                        setTimeout(() => {
+                            coverImg.src = tabImages[mainTab];
+                            coverImg.style.opacity = '1';
+                        }, 300);
+                    }
+
+                    // Alternar os menus laterais de atividades
+                    menuLists.forEach(list => {
+                        list.classList.remove('active');
+                        if (list.getAttribute('data-menu-group') === mainTab) {
+                            list.classList.add('active');
+                            
+                            // Selecionar automaticamente a primeira atividade deste grupo
+                            const firstItem = list.querySelector('.civic-menu-item');
+                            if (firstItem) {
+                                firstItem.click();
+                            }
+                        }
+                    });
+                });
+            });
+
+            // 2. Alternar entre as Atividades da Lista (Menu Esquerdo)
+            menuItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const activityId = item.getAttribute('data-activity');
+                    const parentGroup = item.closest('.civic-menu-list');
+
+                    // Atualizar estado ativo na lista lateral
+                    parentGroup.querySelectorAll('.civic-menu-item').forEach(i => i.classList.remove('active'));
+                    item.classList.add('active');
+
+                    // Mostrar o bloco de detalhe correspondente à direita
+                    detailContents.forEach(content => {
+                        content.classList.remove('active');
+                        if (content.id === `detail-${activityId}`) {
+                            content.classList.add('active');
+                        }
+                    });
+                });
+            });
         });
     </script>
 
