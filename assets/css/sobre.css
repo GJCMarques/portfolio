@@ -1594,7 +1594,7 @@
 }
 
 .civic-details-col {
-    min-height: 380px;
+    min-height: 430px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1643,7 +1643,7 @@
     font-size: 1.12rem;
     line-height: 1.7;
     color: var(--color-text-muted);
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
 }
 
 .detail-skills {
@@ -1723,9 +1723,17 @@
     .civic-carousel-arrow {
         width: 50px;
     }
+
+    .civic-details-col {
+        min-height: 360px; /* Tablet stable height */
+    }
 }
 
 @media (max-width: 600px) {
+    .civic-details-col {
+        min-height: 330px; /* Mobile stable height */
+    }
+
     .civic-tabs-nav {
         flex-direction: column;
         gap: 0.5rem;
@@ -1768,7 +1776,7 @@
 
     .detail-desc {
         font-size: 1.02rem;
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
     }
 }
 
