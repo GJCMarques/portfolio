@@ -1861,3 +1861,160 @@
     aspect-ratio: 1.414; /* A4 Landscape ratio (1 / 0.707) */
     background: rgba(0, 0, 0, 0.02);
 }
+
+/* ==========================================================================
+   SECTION 10: ABOUT PAGE FINAL CTA
+   ========================================================================== */
+.container-large {
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.about-cta-section {
+    padding: 100px 0 !important;
+    background-color: var(--color-bg-main);
+}
+
+.about-cta-container {
+    position: relative;
+    width: 100%;
+    min-height: 45rem; /* Tall, premium cinematic look matching projects footer height (720px) */
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #000;
+    padding: 4rem 2rem;
+}
+
+.about-cta-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.about-cta-bg .bg-video-full,
+.about-cta-bg .bg-img-full {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+}
+
+.about-cta-content {
+    position: relative;
+    z-index: 2;
+    color: #FFFFFF;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-cta-content .cta-subtitle {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    font-weight: 700;
+    color: #FFFFFF;
+    opacity: 0.8;
+}
+
+.about-cta-content .cta-title {
+    font-size: clamp(2.5rem, 5vw, 4.2rem);
+    line-height: 1.1;
+    letter-spacing: -0.05em;
+    margin: 1.5rem 0 3rem;
+    font-weight: 700;
+    color: #FFFFFF;
+}
+
+.about-cta-actions {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* Primary Main CTA Button (Ver Projetos) */
+.about-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.85rem;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 1.25rem 3.5rem;
+    border-radius: var(--radius-full);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+}
+
+.about-cta-btn svg {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about-cta-btn.primary {
+    background-color: #FFFFFF;
+    color: #000000;
+    border: 1px solid #FFFFFF;
+}
+
+.about-cta-btn.primary:hover {
+    background-color: #000000;
+    color: #FFFFFF;
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-5px);
+}
+
+.about-cta-btn.primary:hover svg {
+    transform: translateX(4px);
+}
+
+/* Secondary Button (Entrar em Contacto) */
+.about-cta-btn.secondary {
+    background-color: transparent;
+    color: #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.about-cta-btn.secondary:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    border-color: #FFFFFF;
+    transform: translateY(-5px);
+}
+
+.about-cta-btn.secondary:hover svg {
+    transform: translateX(4px);
+}
+
+@media (max-width: 768px) {
+    .about-cta-section {
+        padding: 60px 0 !important;
+    }
+    
+    .about-cta-container {
+        min-height: 35rem; /* Scaled down height on mobile */
+        padding: 5rem 1.5rem;
+    }
+    
+    .about-cta-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 1.2rem;
+    }
+    
+    .about-cta-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
