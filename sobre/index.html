@@ -1358,18 +1358,27 @@
                 });
             }
 
-            // Função para iniciar o temporizador automático de 5 segundos
+            // Função para iniciar o temporizador automático de 5 segundos (ou 10 segundos para vídeos)
             function startAutoplay() {
                 stopAutoplay();
-                slideInterval = setInterval(() => {
+
+                const images = categoryImages[currentCategory];
+                if (!images || !images.length) return;
+
+                const currentSrc = images[currentImageIndex];
+                const isVideo = currentSrc && currentSrc.endsWith('.mp4');
+                const delay = isVideo ? 15000 : 5000;
+
+                slideInterval = setTimeout(() => {
                     showImage(currentImageIndex + 1);
-                }, 5000);
+                    startAutoplay();
+                }, delay);
             }
 
             // Função para parar o temporizador
             function stopAutoplay() {
                 if (slideInterval) {
-                    clearInterval(slideInterval);
+                    clearTimeout(slideInterval);
                     slideInterval = null;
                 }
             }
