@@ -817,7 +817,7 @@
             <!-- Main Navigation Tabs -->
             <div class="civic-tabs-nav">
                 <button class="civic-tab-btn active" data-main-tab="civic">
-                    <span class="tab-num">01 /</span> Atividades Cívicas & Diplomacia
+                    <span class="tab-num">01 /</span> Diplomacia Europeia
                 </button>
                 <button class="civic-tab-btn" data-main-tab="volunteering">
                     <span class="tab-num">02 /</span> Trabalho Voluntariado
@@ -840,9 +840,10 @@
                     </svg>
                 </button>
 
-                <img id="civic-cover-img-1" src="../assets/img/sobre/voluntariado/juventudegaia6.webp"
-                    alt="Participação Cívica e Voluntariado" class="civic-cover-media active">
-                <img id="civic-cover-img-2" src="" alt="Participação Cívica e Voluntariado" class="civic-cover-media">
+                <div id="civic-cover-img-1" class="civic-cover-media active">
+                    <img src="../assets/img/sobre/euroscola/euroscola1.webp" alt="Diplomacia Europeia e Voluntariado">
+                </div>
+                <div id="civic-cover-img-2" class="civic-cover-media"></div>
                 <div class="civic-cover-overlay"></div>
 
                 <!-- Progress Indicators (Dots) -->
@@ -1252,11 +1253,10 @@
             // Listas de imagens de alta resolução
             const categoryImages = {
                 civic: [
-                    '../assets/img/sobre/voluntariado/juventudegaia6.webp',
-                    '../assets/img/sobre/voluntariado/juventudegaia2.webp',
-                    '../assets/img/sobre/voluntariado/gaiacapital.webp',
-                    '../assets/img/sobre/voluntariado/juventudegaia8.webp',
-                    '../assets/img/sobre/voluntariado/juventudegaia10.webp'
+                    '../assets/img/sobre/euroscola/euroscola1.webp',
+                    '../assets/img/sobre/euroscola/euroscola2.webp',
+                    '../assets/img/sobre/euroscola/euroscola3.webp',
+                    '../assets/img/sobre/euroscola/euroscola4.mp4'
                 ],
                 volunteering: [
                     '../assets/img/sobre/voluntariado/juventudegaia1.webp',
@@ -1268,7 +1268,8 @@
                     '../assets/img/sobre/voluntariado/juventudegaia7.webp',
                     '../assets/img/sobre/voluntariado/juventudegaia8.webp',
                     '../assets/img/sobre/voluntariado/juventudegaia9.webp',
-                    '../assets/img/sobre/voluntariado/juventudegaia10.webp'
+                    '../assets/img/sobre/voluntariado/juventudegaia10.webp',
+                    '../assets/img/sobre/voluntariado/juventudegaia11.webp'
                 ]
             };
 
@@ -1287,12 +1288,29 @@
 
                 currentImageIndex = index;
                 const nextSrc = images[currentImageIndex];
+                const isVideo = nextSrc.endsWith('.mp4');
 
                 const currentActiveImg = isImg1Active ? coverImg1 : coverImg2;
                 const nextActiveImg = isImg1Active ? coverImg2 : coverImg1;
 
-                // Prepara a imagem seguinte (em background, invisível e ampliada)
-                nextActiveImg.src = nextSrc;
+                // Prepara o conteúdo seguinte (em background, invisível e ampliada)
+                nextActiveImg.innerHTML = '';
+                if (isVideo) {
+                    const videoEl = document.createElement('video');
+                    videoEl.src = nextSrc;
+                    videoEl.autoplay = true;
+                    videoEl.loop = true;
+                    videoEl.muted = true;
+                    videoEl.playsInline = true;
+                    nextActiveImg.appendChild(videoEl);
+                    videoEl.play().catch(err => console.log('Autoplay blocked or interrupted:', err));
+                } else {
+                    const imgEl = document.createElement('img');
+                    imgEl.src = nextSrc;
+                    imgEl.alt = "Diplomacia Europeia e Voluntariado";
+                    nextActiveImg.appendChild(imgEl);
+                }
+
                 nextActiveImg.style.transform = 'scale(1.08)';
                 nextActiveImg.style.opacity = '0';
                 nextActiveImg.classList.remove('active');

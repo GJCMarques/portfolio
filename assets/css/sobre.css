@@ -1412,12 +1412,18 @@
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: center 15%;
     opacity: 0;
     transform: scale(1.08);
     transition: opacity 1s cubic-bezier(0.25, 1, 0.3, 1), transform 1.4s cubic-bezier(0.25, 1, 0.3, 1);
     z-index: 1;
+}
+
+.civic-cover-media img,
+.civic-cover-media video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 15%;
 }
 
 .civic-cover-media.active {
