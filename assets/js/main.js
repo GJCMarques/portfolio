@@ -283,5 +283,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupModal('open-english-cert', 'cert-modal', 'close-modal');
     setupModal('open-gaia-cert', 'gaia-cert-modal', 'close-gaia-modal');
     setupModal('open-juventude-cert', 'juventude-cert-modal', 'close-juventude-modal');
+    setupModal('open-euroscola-cert', 'euroscola-cert-modal', 'close-euroscola-modal');
+    setupModal('open-monserrate-cert', 'monserrate-cert-modal', 'close-monserrate-modal');
   }
 });
