@@ -1963,21 +1963,8 @@
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.about-cta-btn.primary {
-    background-color: #FFFFFF;
-    color: #000000;
-    border: 1px solid #FFFFFF;
-}
-
-.about-cta-btn.primary:hover {
-    background-color: #000000;
-    color: #FFFFFF;
-    border-color: rgba(255, 255, 255, 0.3);
-    transform: translateY(-5px);
-}
-
-.about-cta-btn.primary:hover svg {
-    transform: translateX(4px);
+.btn-wrapper {
+    display: inline-block;
 }
 
 /* Secondary Button (Entrar em Contacto) */
@@ -2011,6 +1998,15 @@
         flex-direction: column;
         width: 100%;
         gap: 1.2rem;
+    }
+    
+    .about-cta-actions .btn-wrapper {
+        width: 100%;
+    }
+    
+    .about-cta-actions .btn {
+        width: 100%;
+        justify-content: center;
     }
     
     .about-cta-btn {
