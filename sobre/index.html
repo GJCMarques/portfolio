@@ -278,40 +278,43 @@
                     Especializações e Cursos Técnicos
                 </h2>
             </div>
-            <div class="certs-grid">
+            <div class="certs-minimal-grid">
                 <!-- Cert 1 -->
-                <div class="cert-card fade-up">
-                    <span class="cert-year">2023</span>
-                    <h3 class="cert-title">Advanced Front-End Architecture</h3>
-                    <span class="cert-issuer">Google Developers / Coursera</span>
-                    <p class="cert-desc">Programa focado em otimização de performance, state management complexo e
-                        padrões de design escaláveis em ambientes Vanilla JS e React.</p>
-                    <a href="#" class="cert-download">
-                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2"
-                            fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                            <polyline points="7 10 12 15 17 10"></polyline>
-                            <line x1="12" y1="15" x2="12" y2="3"></line>
-                        </svg>
-                        Ver Certificado PDF
-                    </a>
+                <div class="cert-grid-card fade-up" id="open-frontend-cert">
+                    <div class="cert-card-header">
+                        <span class="cert-card-year">2023</span>
+                        <span class="cert-card-issuer">Google Developers / Coursera</span>
+                    </div>
+                    <h3 class="cert-card-title">Advanced Front-End Architecture</h3>
+                    <p class="cert-card-desc">Programa focado em otimização de performance, state management complexo e padrões de design escaláveis em ambientes Vanilla JS e React.</p>
+                    <div class="cert-card-footer">
+                        <span class="cert-card-action">
+                            Visualizar PDF
+                            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2.5" fill="none">
+                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                        </span>
+                    </div>
                 </div>
+
                 <!-- Cert 2 -->
-                <div class="cert-card fade-up" style="transition-delay: 0.1s;">
-                    <span class="cert-year">2022</span>
-                    <h3 class="cert-title">UI/UX Design Masterclass</h3>
-                    <span class="cert-issuer">Interaction Design Foundation (IxDF)</span>
-                    <p class="cert-desc">Especialização em psicologia do design, acessibilidade (WCAG), testes de
-                        usabilidade e criação de Design Systems baseados em tokens.</p>
-                    <a href="#" class="cert-download">
-                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2"
-                            fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                            <polyline points="7 10 12 15 17 10"></polyline>
-                            <line x1="12" y1="15" x2="12" y2="3"></line>
-                        </svg>
-                        Ver Certificado PDF
-                    </a>
+                <div class="cert-grid-card fade-up" id="open-uiux-cert" style="transition-delay: 0.1s;">
+                    <div class="cert-card-header">
+                        <span class="cert-card-year">2022</span>
+                        <span class="cert-card-issuer">Interaction Design Foundation (IxDF)</span>
+                    </div>
+                    <h3 class="cert-card-title">UI/UX Design Masterclass</h3>
+                    <p class="cert-card-desc">Especialização em psicologia do design, acessibilidade (WCAG), testes de usabilidade e criação de Design Systems baseados em tokens.</p>
+                    <div class="cert-card-footer">
+                        <span class="cert-card-action">
+                            Visualizar PDF
+                            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2.5" fill="none">
+                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                        </span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1182,6 +1185,54 @@
                 <div class="cert-image-container">
                     <img src="../assets/img/sobre/linguas/diplomaingles.webp" alt="Certificado de Inglês Cambridge B2"
                         class="cert-img-full">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Certificado Google Front-End -->
+    <div id="frontend-cert-modal" class="modal modal-light modal-horizontal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-container">
+            <button class="modal-close" id="close-frontend-modal" aria-label="Fechar">
+                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <div class="modal-content">
+                <div class="cert-header-modal">
+                    <h3>Advanced Front-End Architecture</h3>
+                    <p>Google Developers / Coursera</p>
+                </div>
+                <div class="cert-image-container">
+                    <img src="../assets/img/sobre/certificados/cert_frontend.png"
+                        alt="Certificado Advanced Front-End Architecture" class="cert-img-full">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Certificado IxDF UI/UX -->
+    <div id="uiux-cert-modal" class="modal modal-light modal-horizontal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-container">
+            <button class="modal-close" id="close-uiux-modal" aria-label="Fechar">
+                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <div class="modal-content">
+                <div class="cert-header-modal">
+                    <h3>UI/UX Design Masterclass</h3>
+                    <p>Interaction Design Foundation (IxDF)</p>
+                </div>
+                <div class="cert-image-container">
+                    <img src="../assets/img/sobre/certificados/cert_uiux.png"
+                        alt="Certificado UI/UX Design Masterclass" class="cert-img-full">
                 </div>
             </div>
         </div>

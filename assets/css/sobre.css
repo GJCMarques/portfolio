@@ -236,82 +236,148 @@
     line-height: 1.6;
 }
 
-/* Certifications & Courses Grid */
-.certs-grid {
+/* Minimal Grid for Certifications (2x2 structure) */
+.certs-minimal-grid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     margin-top: 4rem;
 }
 
-@media (min-width: 768px) {
-    .certs-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-.cert-card {
+.cert-grid-card {
     border: 1px solid var(--color-border);
-    padding: 2.5rem;
-    border-radius: var(--radius-md);
-    transition: all 0.3s var(--ease-out-expo);
-    background-color: var(--color-bg-main);
+    padding: 3rem;
+    border-radius: 2rem;
+    background-color: var(--color-bg-card);
+    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
     display: flex;
     flex-direction: column;
-    height: 100%;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
 }
 
-.cert-card:hover {
-    border-color: var(--color-primary);
-    transform: translateY(-5px);
+.cert-grid-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(26, 26, 24, 0.015); /* very subtle dark tint */
+    opacity: 0;
+    transition: opacity 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    pointer-events: none;
 }
 
-.cert-year {
+.cert-grid-card:hover {
+    border-color: var(--color-primary) !important;
+    transform: translateY(-8px) !important;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.04) !important;
+}
+
+.cert-grid-card:hover::before {
+    opacity: 1;
+}
+
+.cert-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.cert-card-year {
     font-family: var(--font-mono);
     font-size: 0.875rem;
     color: var(--color-text-muted);
-    margin-bottom: 1rem;
-    display: block;
-}
-
-.cert-title {
-    font-size: 1.5rem;
     font-weight: 500;
-    line-height: 1.3;
-    margin-bottom: 0.5rem;
 }
 
-.cert-issuer {
-    font-size: 1rem;
-    color: var(--color-primary);
-    margin-bottom: 1.5rem;
-}
-
-.cert-desc {
+.cert-card-issuer {
+    font-family: var(--font-mono);
+    font-size: 0.825rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
     color: var(--color-text-muted);
+    transition: color 0.3s ease;
+}
+
+.cert-grid-card:hover .cert-card-issuer {
+    color: var(--color-primary);
+}
+
+.cert-card-title {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    font-size: 1.625rem;
+    line-height: 1.35;
+    margin: 0 0 1rem 0;
+    color: var(--color-text-main);
+    letter-spacing: -0.02em;
+}
+
+.cert-card-desc {
+    color: var(--color-text-muted);
+    font-size: 0.975rem;
     line-height: 1.6;
-    margin-bottom: 2rem;
+    margin: 0 0 2.5rem 0;
     flex-grow: 1;
 }
 
-.cert-download {
+.cert-card-footer {
+    display: flex;
+    align-items: center;
+    margin-top: auto;
+}
+
+.cert-card-action {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.75rem;
     font-family: var(--font-mono);
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     color: var(--color-text-main);
-    border-bottom: 1px solid transparent;
-    padding-bottom: 0.25rem;
     transition: all 0.3s ease;
-    align-self: flex-start;
+    font-weight: 500;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
 }
 
-.cert-download:hover {
+.cert-card-action svg {
+    transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.cert-grid-card:hover .cert-card-action {
     color: var(--color-primary);
     border-color: var(--color-primary);
+}
+
+.cert-grid-card:hover .cert-card-action svg {
+    transform: translate(3px, -3px);
+}
+
+@media (max-width: 992px) {
+    .cert-grid-card {
+        padding: 2.5rem;
+    }
+    .cert-card-title {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .certs-minimal-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    .cert-grid-card {
+        padding: 2rem;
+    }
 }
 
 /* Skills Grid Editorial (2 columns on desktop/tablet, 1 column on mobile) */

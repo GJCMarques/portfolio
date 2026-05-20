@@ -285,5 +285,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupModal('open-juventude-cert', 'juventude-cert-modal', 'close-juventude-modal');
     setupModal('open-euroscola-cert', 'euroscola-cert-modal', 'close-euroscola-modal');
     setupModal('open-monserrate-cert', 'monserrate-cert-modal', 'close-monserrate-modal');
+    setupModal('open-frontend-cert', 'frontend-cert-modal', 'close-frontend-modal');
+    setupModal('open-uiux-cert', 'uiux-cert-modal', 'close-uiux-modal');
   }
 });
