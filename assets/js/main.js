@@ -285,7 +285,10 @@ document.addEventListener('DOMContentLoaded', () => {
     setupModal('open-juventude-cert', 'juventude-cert-modal', 'close-juventude-modal');
     setupModal('open-euroscola-cert', 'euroscola-cert-modal', 'close-euroscola-modal');
     setupModal('open-monserrate-cert', 'monserrate-cert-modal', 'close-monserrate-modal');
-    setupModal('open-frontend-cert', 'frontend-cert-modal', 'close-frontend-modal');
-    setupModal('open-uiux-cert', 'uiux-cert-modal', 'close-uiux-modal');
+    setupModal('open-ai-org-cert', 'ai-org-cert-modal', 'close-ai-org-modal');
+    setupModal('open-ibm-genai-cert', 'ibm-genai-cert-modal', 'close-ibm-genai-modal');
+    setupModal('open-ibm-ds-cert', 'ibm-ds-cert-modal', 'close-ibm-ds-modal');
+    setupModal('open-columbia-fe-cert', 'columbia-fe-cert-modal', 'close-columbia-fe-modal');
+    setupModal('open-google-da-cert', 'google-da-cert-modal', 'close-google-da-modal');
   }
 });
