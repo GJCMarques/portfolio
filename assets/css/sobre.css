@@ -419,9 +419,24 @@
     font-weight: 500;
 }
 
+/* Center lone last card in a 2-column grid */
+.certs-minimal-grid .cert-grid-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    max-width: calc(50% - 1rem);
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
 @media (max-width: 992px) {
     .certs-minimal-grid {
         grid-template-columns: 1fr;
+    }
+
+    /* Reset when single column */
+    .certs-minimal-grid .cert-grid-card:last-child:nth-child(odd) {
+        grid-column: auto;
+        max-width: 100%;
     }
 }
 
