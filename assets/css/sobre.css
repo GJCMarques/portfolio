@@ -2239,3 +2239,51 @@
         justify-content: center;
     }
 }
+
+/* =========================================
+   EDUCATION CARDS
+========================================= */
+.education-item {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    padding: 3rem;
+    border: 1px solid var(--color-border);
+    border-radius: 2rem;
+    background-color: var(--color-bg-card);
+    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.education-item:hover {
+    border-color: var(--color-primary);
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.04);
+}
+
+.education-logo-img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    /* Sem fundo branco e sem borders como pedido */
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.education-item:hover .education-logo-img {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .education-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
+        padding: 2rem;
+    }
+    .education-logo-img {
+        width: 120px;
+        height: 120px;
+    }
+}
