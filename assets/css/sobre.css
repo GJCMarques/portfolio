@@ -2342,3 +2342,48 @@
         height: 150px;
     }
 }
+
+/* =========================================
+   WORK TIMELINE (REVERSED)
+========================================= */
+.work-timeline-item {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: start;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--color-border);
+}
+.work-timeline-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+@media (min-width: 768px) {
+    .work-timeline-item {
+        /* Inverted: content left, logo right */
+        grid-template-columns: 1fr 200px;
+        gap: 4rem;
+    }
+}
+
+.work-logo-img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+}
+
+@media (max-width: 768px) {
+    .work-logo-img {
+        width: 150px;
+        height: 150px;
+    }
+    .work-timeline-item {
+        /* On mobile, usually logo is on top or bottom. We'll use CSS order if we want logo top */
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .work-timeline-item .timeline-logo {
+        margin-bottom: 1rem;
+    }
+}
