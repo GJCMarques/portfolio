@@ -2267,12 +2267,71 @@
     width: 150px;
     height: 150px;
     object-fit: contain;
-    /* Sem fundo branco, sem border, sem background, como pedido */
-    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.education-timeline-item:hover .education-logo-img {
-    transform: scale(1.05);
+.timeline-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.education-desc {
+    margin-top: 0.5rem;
+}
+
+.education-desc p {
+    font-size: 1.125rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+/* Button style from Landing Page */
+.education-cert-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text-main);
+    transition: gap 0.4s ease;
+    width: max-content;
+    position: relative;
+    padding-bottom: 8px;
+    text-decoration: none;
+}
+
+.education-cert-btn::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--color-text-main);
+    transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.education-cert-btn:hover::after {
+    width: 100%;
+}
+
+.education-cert-btn .btn-text {
+    position: relative;
+    display: inline-block;
+}
+
+.education-cert-btn svg {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.4s ease;
+    display: block;
+}
+
+.education-cert-btn:hover {
+    gap: 1.5rem;
 }
 
 @media (max-width: 768px) {
