@@ -153,6 +153,19 @@
     font-weight: 500;
 }
 
+.about-typography p.about-intro-text {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 100;
+    font-size: 20px;
+    line-height: 32px;
+    letter-spacing: -0.2px;
+    color: var(--color-text-muted);
+}
+
+.about-typography p.about-intro-text:not(:last-child) {
+    margin-bottom: 1rem;
+}
+
 /* Timeline Styles */
 .timeline-section {
     padding: 6rem 0;
