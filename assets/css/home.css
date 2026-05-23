@@ -1289,3 +1289,65 @@
   background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
   pointer-events: none;
 }
+
+/* ==========================================================================
+   Preloader (Landing Page Only)
+   ========================================================================== */
+#home-preloader {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--bg-black, #060606);
+  z-index: 999999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.8s cubic-bezier(0.7, 0, 0.2, 1), opacity 0.8s cubic-bezier(0.7, 0, 0.2, 1);
+  color: var(--text-main, #FAFAFA);
+}
+
+#home-preloader.preloader-hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+#home-preloader.preloader-instant-hide {
+  display: none !important;
+}
+
+.preloader-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  overflow: hidden;
+}
+
+.preloader-counter {
+  font-family: var(--font-clash, "Clash Display", sans-serif);
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--text-main, #FAFAFA);
+}
+
+.preloader-bar-container {
+  width: 200px;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.preloader-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  background-color: var(--accent-light, #FFFFFF);
+  transition: width 0.05s linear;
+}

@@ -17,6 +17,56 @@
 
 <body style="overflow-x: hidden;">
 
+    <!-- Home Preloader -->
+    <div id="home-preloader">
+        <div class="preloader-wrapper">
+            <span class="preloader-counter" id="home-preloader-counter">0%</span>
+            <div class="preloader-bar-container">
+                <div class="preloader-bar" id="home-preloader-bar"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        (function() {
+            const preloader = document.getElementById("home-preloader");
+            const navEntries = performance.getEntriesByType("navigation");
+            const isReload = navEntries.length > 0 && navEntries[0].type === "reload";
+            const hasSeen = sessionStorage.getItem("hasSeenPreloader");
+
+            // Se já tiver visto na mesma sessão e NÃO for um reload da página (F5)
+            if (hasSeen && !isReload) {
+                preloader.classList.add("preloader-instant-hide");
+            } else {
+                sessionStorage.setItem("hasSeenPreloader", "true");
+                document.body.style.overflow = "hidden"; // bloquear scroll
+
+                window.addEventListener("DOMContentLoaded", () => {
+                    const counter = document.getElementById("home-preloader-counter");
+                    const bar = document.getElementById("home-preloader-bar");
+                    let progress = 0;
+                    
+                    const interval = setInterval(() => {
+                        progress += Math.floor(Math.random() * 8) + 4;
+                        if (progress > 100) progress = 100;
+                        
+                        counter.innerText = progress + "%";
+                        bar.style.width = progress + "%";
+
+                        if (progress === 100) {
+                            clearInterval(interval);
+                            setTimeout(() => {
+                                preloader.classList.add("preloader-hidden");
+                                document.body.style.overflow = "hidden"; // Keep x-hidden logic
+                                document.body.style.overflowY = "auto";  // Restore scroll
+                                setTimeout(() => preloader.remove(), 800);
+                            }, 400); // Pausa antes de subir o curtain
+                        }
+                    }, 40); // Loader ultra rápido, Premium style
+                });
+            }
+        })();
+    </script>
+
     <!-- New High-End Menu Trigger -->
     <button id="menuTrigger" class="menu-trigger" aria-label="Toggle Menu" aria-expanded="false">
         <div class="trigger-icon">
