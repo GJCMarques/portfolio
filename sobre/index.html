@@ -1522,7 +1522,7 @@
 
     <!-- Script do Accordion de Competências -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
+        (function() {
             const toggleBtn = document.getElementById('toggleSkillsBtn');
             const extraPanel = document.getElementById('skillsExtraPanel');
 
@@ -1583,12 +1583,12 @@
                     }
                 });
             }
-        });
+        })();
     </script>
 
     <!-- Script do Sistema de Separadores de Participação Cívica e Voluntariado -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
+        (function() {
             const mainTabBtns = document.querySelectorAll('.civic-tab-btn');
             const menuLists = document.querySelectorAll('.civic-menu-list');
             const menuItems = document.querySelectorAll('.civic-menu-item');
@@ -1813,7 +1813,7 @@
             // Inicialização inicial
             buildIndicators();
             startAutoplay();
-        });
+        })();
     </script>
 
     <script src="../assets/js/main.js"></script>

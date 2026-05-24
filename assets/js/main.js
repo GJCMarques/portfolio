@@ -13,7 +13,8 @@ window.reinitMain = function() {
     window._globalProjectsFilters = { type: 'all', service: 'all', industry: 'all' };
 
     document.addEventListener('click', (e) => {
-      
+      if (!e.target || typeof e.target.closest !== 'function') return;
+
       // 1. Mobile Menu Toggle
       const menuToggle = e.target.closest('.mobile-menu-toggle');
       if (menuToggle) {
@@ -161,7 +162,7 @@ window.reinitMain = function() {
       }
       
       container.style.opacity = '1';
-    }, 200);
+    }, 20);
   }
 
   // Recommendations Carousel Logic
@@ -179,46 +180,42 @@ window.reinitMain = function() {
       if (track) track.style.transform = `translateX(-${index * 100}%)`;
       
       document.querySelectorAll('.carousel-slide').forEach((slide, i) => {
-        slide.classList.toggle('active', i === index);
-      });
-
-      document.querySelectorAll('.indicator').forEach((indicator, i) => {
-        indicator.classList.toggle('active', i === index);
+        if (i === index) slide.classList.add('active');
+        else slide.classList.remove('active');
       });
       
+      const currentIndicators = document.querySelectorAll('.indicator');
+      if (currentIndicators.length > 0) {
+        currentIndicators.forEach((indicator, i) => {
+          if (i === index) indicator.classList.add('active');
+          else indicator.classList.remove('active');
+        });
+      }
       currentIndex = index;
     };
 
-    updateCarousel(0);
-    
     if (nextBtn) {
-      const newNextBtn = nextBtn.cloneNode(true);
-      nextBtn.parentNode.replaceChild(newNextBtn, nextBtn);
-      newNextBtn.addEventListener('click', () => {
+      nextBtn.onclick = () => {
         let index = currentIndex + 1;
         if (index >= document.querySelectorAll('.carousel-slide').length) index = 0;
         updateCarousel(index);
-      });
+      };
     }
     
     if (prevBtn) {
-      const newPrevBtn = prevBtn.cloneNode(true);
-      prevBtn.parentNode.replaceChild(newPrevBtn, prevBtn);
-      newPrevBtn.addEventListener('click', () => {
+      prevBtn.onclick = () => {
         let index = currentIndex - 1;
         const total = document.querySelectorAll('.carousel-slide').length;
         if (index < 0) index = total - 1;
         updateCarousel(index);
-      });
+      };
     }
     
     if (indicators.length > 0) {
       indicators.forEach((indicator, i) => {
-        const newIndicator = indicator.cloneNode(true);
-        indicator.parentNode.replaceChild(newIndicator, indicator);
-        newIndicator.addEventListener('click', () => {
+        indicator.onclick = () => {
           updateCarousel(i);
-        });
+        };
       });
     }
     
@@ -248,6 +245,8 @@ window.reinitMain = function() {
     };
 
     document.addEventListener('click', (e) => {
+      if (!e.target || typeof e.target.closest !== 'function') return;
+
       // 1. Check if we clicked a trigger to OPEN a modal
       const triggerEl = e.target.closest('[id^="open-"]');
       if (triggerEl && modalMap[triggerEl.id]) {
@@ -286,7 +285,7 @@ window.reinitMain = function() {
 };
 
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', window.reinitMain);
+  window.addEventListener('load', window.reinitMain);
 } else {
   window.reinitMain();
 }
