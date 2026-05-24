@@ -28,7 +28,9 @@
 /* Global Logo Parity (Targets both landing page and internal pages) */
 .brand-logo,
 .brand-logo-fixed {
-  display: flex;
+  display: inline-flex;
+  width: max-content;
+  align-self: flex-start;
   align-items: center;
   gap: 1rem;
   text-decoration: none;
