@@ -49,6 +49,12 @@
 
             if (hasSeen && !isReload) {
                 preloader.classList.add("preloader-instant-hide");
+                // Garantir que a animação da página arranca se o preloader for ignorado
+                window.addEventListener("DOMContentLoaded", () => {
+                    document.querySelectorAll('.split-hero-container.fade-up, .hero-text-wrapper.fade-up, .bottom-nav.fade-up').forEach(el => {
+                        el.classList.add('is-visible');
+                    });
+                });
             } else {
                 sessionStorage.setItem("hasSeenPreloader", "true");
                 document.body.style.overflow = "hidden"; // bloquear scroll
@@ -92,11 +98,23 @@
                                 clearInterval(dotsInterval);
                                 textEl.innerText = "Concluído"; // Opcional: mostrar "Concluído" no final
                                 setTimeout(() => {
-                                    preloader.classList.add("preloader-hidden");
-                                    document.body.style.overflow = "hidden"; 
-                                    document.body.style.overflowY = "auto";
-                                    setTimeout(() => preloader.remove(), 800);
-                                }, 1200); // Margem extra para o 100 ser apreciado
+                                    // 1. Fade out the inner elements gracefully
+                                    preloader.classList.add("preloader-finishing");
+                                    
+                                    // 2. Shrink the card and trigger hero animations
+                                    setTimeout(() => {
+                                        preloader.classList.add("preloader-hidden");
+                                        document.body.style.overflow = "hidden"; 
+                                        document.body.style.overflowY = "auto";
+                                        
+                                        // Trigger da landing page hero elements!
+                                        document.querySelectorAll('.split-hero-container.fade-up, .hero-text-wrapper.fade-up, .bottom-nav.fade-up').forEach(el => {
+                                            el.classList.add('is-visible');
+                                        });
+                                        
+                                        setTimeout(() => preloader.remove(), 1200);
+                                    }, 800); // 800ms for the finishing fade to complete
+                                }, 800); // Wait 800ms to appreciate the 100% and 'Concluído' text
                                 return;
                             }
                             
@@ -188,7 +206,7 @@
     </aside>
 
     <!-- Split Hero Container -->
-    <main id="top" class="split-hero-container fade-up is-visible">
+    <main id="top" class="split-hero-container fade-up">
 
         <!-- Left Side: Content & Navigation -->
         <div class="split-left">
@@ -203,14 +221,14 @@
                 <span class="brand-name">Guilherme Marques</span>
             </a>
 
-            <div class="hero-text-wrapper fade-up is-visible" style="transition-delay: 0.2s;">
+            <div class="hero-text-wrapper fade-up" style="transition-delay: 0.2s;">
                 <h1 class="hero-title">Técnico Informático &<br>Web Developer</h1>
                 <p class="hero-desc">Sou Técnico Informático e Web Developer. Desenvolvo websites e soluções digitais
                     robustas, pensadas à medida. Especializo-me na criação de plataformas web para PMEs, mas possuo
                     também um vasto conhecimento em Multimédia e diversas outras áreas da Informática.</p>
             </div>
 
-            <nav class="bottom-nav fade-up is-visible" style="transition-delay: 0.4s;">
+            <nav class="bottom-nav fade-up" style="transition-delay: 0.4s;">
                 <a href="sobre/">/ Sobre</a>
                 <a href="projetos/">/ Projetos</a>
                 <a href="servicos/">/ Serviços</a>
