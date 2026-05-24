@@ -25,7 +25,15 @@
                     <circle cx="50" cy="50" r="48" class="loader-circle-bg" />
                     <circle cx="50" cy="50" r="48" class="loader-circle" id="loader-circle-fill" />
                 </svg>
-                <div class="loader-number" id="home-loader-number">00</div>
+                <div class="loader-number-container">
+                    <div class="loader-number-roll" id="home-loader-number-roll">
+                        <div class="roll-num">00</div>
+                        <div class="roll-num">20</div>
+                        <div class="roll-num">66</div>
+                        <div class="roll-num">83</div>
+                        <div class="roll-num">100</div>
+                    </div>
+                </div>
             </div>
             <div class="loader-text">Loading...</div>
         </div>
@@ -44,42 +52,44 @@
                 document.body.style.overflow = "hidden"; // bloquear scroll
 
                 window.addEventListener("DOMContentLoaded", () => {
-                    const numberEl = document.getElementById("home-loader-number");
+                    const rollEl = document.getElementById("home-loader-number-roll");
                     const circleEl = document.getElementById("loader-circle-fill");
                     
-                    // Os números pelos quais vai saltar
                     const steps = [0, 20, 66, 83, 100];
-                    const totalDuration = 3000;
-                    
                     const circumference = 301.59;
+                    
                     circleEl.style.strokeDasharray = circumference;
                     circleEl.style.strokeDashoffset = circumference;
                     
                     let stepIndex = 0;
-                    // Queremos que chegue aos 100% num tempo ligeiramente inferior para dar margem à animação de fecho
-                    const intervalTime = 2500 / (steps.length - 1);
+                    const intervalTime = 2500 / (steps.length - 1); // ~625ms entre cada salto
                     
-                    const stepInterval = setInterval(() => {
-                        stepIndex++;
-                        if (stepIndex >= steps.length) {
-                            clearInterval(stepInterval);
-                            setTimeout(() => {
-                                preloader.classList.add("preloader-hidden");
-                                document.body.style.overflow = "hidden"; 
-                                document.body.style.overflowY = "auto";
-                                setTimeout(() => preloader.remove(), 800);
-                            }, 500); // pequena pausa depois de chegar aos 100
-                            return;
-                        }
-                        
-                        const val = steps[stepIndex];
-                        numberEl.innerText = val === 0 ? "00" : val;
-                        
-                        // Atualiza o offset do círculo SVG de acordo com a percentagem
-                        const offset = circumference - (val / 100) * circumference;
-                        circleEl.style.strokeDashoffset = offset;
-                        
-                    }, intervalTime);
+                    // Espera pela animação de fade-in da entrada (aprox. 600ms para estabilizar)
+                    setTimeout(() => {
+                        const stepInterval = setInterval(() => {
+                            stepIndex++;
+                            
+                            if (stepIndex >= steps.length) {
+                                clearInterval(stepInterval);
+                                setTimeout(() => {
+                                    preloader.classList.add("preloader-hidden");
+                                    document.body.style.overflow = "hidden"; 
+                                    document.body.style.overflowY = "auto";
+                                    setTimeout(() => preloader.remove(), 800);
+                                }, 600); 
+                                return;
+                            }
+                            
+                            // Text Roll Anim
+                            rollEl.style.transform = `translateY(calc(-1em * ${stepIndex}))`;
+                            
+                            // Smooth Circle Anim
+                            const val = steps[stepIndex];
+                            const offset = circumference - (val / 100) * circumference;
+                            circleEl.style.strokeDashoffset = offset;
+                            
+                        }, intervalTime);
+                    }, 400); // 400ms delay para arrancar
                 });
             }
         })();
