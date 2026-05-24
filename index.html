@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guilherme Marques | Design & Front-End Web Development</title>
+    <title>Guilherme Marques | Técnico Informático & Web Development</title>
     <link rel="icon" type="image/svg+xml" href="assets/img/logo.svg">
     <link rel="stylesheet" href="assets/css/fonts.css">
     <link rel="stylesheet" href="assets/css/variables.css">
@@ -34,14 +34,35 @@
                     <circle cx="50" cy="50" r="48" class="loader-circle" id="loader-circle-fill" />
                 </svg>
                 <div class="loader-number-container">
-                    <div class="digit-col" id="col-1" style="width: 0; opacity: 0; overflow: hidden; transition: width 0.4s ease-out, opacity 0.4s ease-out;">
+                    <div class="digit-col" id="col-1"
+                        style="width: 0; opacity: 0; overflow: hidden; transition: width 0.4s ease-out, opacity 0.4s ease-out;">
                         <div class="roll-num">1</div>
                     </div>
                     <div class="digit-col" id="col-2">
-                        <div class="roll-num">0</div><div class="roll-num">1</div><div class="roll-num">2</div><div class="roll-num">3</div><div class="roll-num">4</div><div class="roll-num">5</div><div class="roll-num">6</div><div class="roll-num">7</div><div class="roll-num">8</div><div class="roll-num">9</div><div class="roll-num">0</div>
+                        <div class="roll-num">0</div>
+                        <div class="roll-num">1</div>
+                        <div class="roll-num">2</div>
+                        <div class="roll-num">3</div>
+                        <div class="roll-num">4</div>
+                        <div class="roll-num">5</div>
+                        <div class="roll-num">6</div>
+                        <div class="roll-num">7</div>
+                        <div class="roll-num">8</div>
+                        <div class="roll-num">9</div>
+                        <div class="roll-num">0</div>
                     </div>
                     <div class="digit-col" id="col-3">
-                        <div class="roll-num">0</div><div class="roll-num">1</div><div class="roll-num">2</div><div class="roll-num">3</div><div class="roll-num">4</div><div class="roll-num">5</div><div class="roll-num">6</div><div class="roll-num">7</div><div class="roll-num">8</div><div class="roll-num">9</div><div class="roll-num">0</div>
+                        <div class="roll-num">0</div>
+                        <div class="roll-num">1</div>
+                        <div class="roll-num">2</div>
+                        <div class="roll-num">3</div>
+                        <div class="roll-num">4</div>
+                        <div class="roll-num">5</div>
+                        <div class="roll-num">6</div>
+                        <div class="roll-num">7</div>
+                        <div class="roll-num">8</div>
+                        <div class="roll-num">9</div>
+                        <div class="roll-num">0</div>
                     </div>
                 </div>
             </div>
@@ -49,7 +70,7 @@
         </div>
     </div>
     <script>
-        (function() {
+        (function () {
             const preloader = document.getElementById("home-preloader");
             const navEntries = performance.getEntriesByType("navigation");
             const isReload = navEntries.length > 0 && navEntries[0].type === "reload";
@@ -73,7 +94,7 @@
                     const col3 = document.getElementById("col-3");
                     const circleEl = document.getElementById("loader-circle-fill");
                     const textEl = document.getElementById("loader-text");
-                    
+
                     // Animação dos pontinhos "A carregar..."
                     let dotsCount = 0;
                     const dotsInterval = setInterval(() => {
@@ -89,18 +110,18 @@
                         Math.floor(Math.random() * (90 - 75 + 1)) + 75,
                         100
                     ];
-                    
+
                     const circumference = 301.59;
                     circleEl.style.strokeDasharray = circumference;
                     circleEl.style.strokeDashoffset = circumference;
-                    
+
                     let stepIndex = 0;
                     const intervalTime = 800; // 800ms
-                    
+
                     setTimeout(() => {
                         const stepInterval = setInterval(() => {
                             stepIndex++;
-                            
+
                             if (stepIndex >= steps.length) {
                                 clearInterval(stepInterval);
                                 clearInterval(dotsInterval);
@@ -108,48 +129,48 @@
                                 setTimeout(() => {
                                     // 1. Fade out the inner elements gracefully
                                     preloader.classList.add("preloader-finishing");
-                                    
+
                                     // 2. Shrink the card and trigger hero animations
                                     setTimeout(() => {
                                         preloader.classList.add("preloader-hidden");
-                                        document.body.style.overflow = "hidden"; 
+                                        document.body.style.overflow = "hidden";
                                         document.body.style.overflowY = "auto";
-                                        
+
                                         // Trigger da landing page hero elements!
                                         document.querySelectorAll('.split-hero-container.fade-up, .hero-text-wrapper.fade-up, .bottom-nav.fade-up').forEach(el => {
                                             el.classList.add('is-visible');
                                         });
-                                        
+
                                         setTimeout(() => preloader.remove(), 1500);
                                     }, 800); // 800ms for the finishing fade to complete
                                 }, 800); // Wait 800ms to appreciate the 100% and 'Concluído' text
                                 return;
                             }
-                            
+
                             const val = steps[stepIndex];
                             const valStr = val === 0 ? "00" : val.toString();
-                            
+
                             if (valStr === "100") {
                                 // Rolar em frente para o segundo '0' no final da lista (índice 10)
                                 col2.style.transform = `translateY(-10em)`;
                                 col3.style.transform = `translateY(-10em)`;
-                                
+
                                 // Mostrar o 1 suavemente só depois de os 00 chegarem ao sítio
                                 setTimeout(() => {
                                     col1.style.width = "1ch";
                                     col1.style.opacity = "1";
-                                }, 800); 
+                                }, 800);
                             } else if (valStr.length === 2) {
                                 col2.style.transform = `translateY(-${valStr[0]}em)`;
                                 col3.style.transform = `translateY(-${valStr[1]}em)`;
                             }
-                            
+
                             // Smooth Circle Anim
                             const offset = circumference - (val / 100) * circumference;
                             circleEl.style.strokeDashoffset = offset;
-                            
+
                         }, intervalTime);
-                    }, 400); 
+                    }, 400);
                 });
             }
         })();
