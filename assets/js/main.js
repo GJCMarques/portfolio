@@ -13,10 +13,12 @@ window.reinitMain = function() {
     window._globalProjectsFilters = { type: 'all', service: 'all', industry: 'all' };
 
     document.addEventListener('click', (e) => {
-      if (!e.target || typeof e.target.closest !== 'function') return;
+      let target = e.target;
+      if (target && target.nodeType === 3) target = target.parentNode;
+      if (!target || typeof target.closest !== 'function') return;
 
       // 1. Mobile Menu Toggle
-      const menuToggle = e.target.closest('.mobile-menu-toggle');
+      const menuToggle = target.closest('.mobile-menu-toggle');
       if (menuToggle) {
         const mainNav = document.querySelector('.main-nav');
         if (mainNav) {
@@ -28,7 +30,7 @@ window.reinitMain = function() {
       }
 
       // 2. Custom Dropdown Triggers (Abrir/Fechar)
-      const dropdownTrigger = e.target.closest('.dropdown-trigger');
+      const dropdownTrigger = target.closest('.dropdown-trigger');
       if (dropdownTrigger) {
         const dropdown = dropdownTrigger.closest('.custom-dropdown');
         if (dropdown) {
@@ -42,7 +44,7 @@ window.reinitMain = function() {
       }
 
       // 3. Custom Dropdown Items (Selecionar Filtro)
-      const filterItem = e.target.closest('.dropdown-item');
+      const filterItem = target.closest('.dropdown-item');
       if (filterItem) {
         e.stopPropagation();
         const dropdown = filterItem.closest('.custom-dropdown');
@@ -67,7 +69,7 @@ window.reinitMain = function() {
       }
 
       // 4. View Toggles (Grid vs List)
-      const viewBtn = e.target.closest('.view-btn');
+      const viewBtn = target.closest('.view-btn');
       if (viewBtn) {
         if (viewBtn.classList.contains('active')) return;
         document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
@@ -88,7 +90,7 @@ window.reinitMain = function() {
       }
 
       // 5. Accordion (Serviços)
-      const accordionHeader = e.target.closest('.accordion-header');
+      const accordionHeader = target.closest('.accordion-header');
       if (accordionHeader) {
         const item = accordionHeader.closest('.accordion-item');
         if (item) {
@@ -102,7 +104,7 @@ window.reinitMain = function() {
       }
 
       // 6. Close Dropdowns if clicked outside
-      if (!e.target.closest('.custom-dropdown')) {
+      if (!target.closest('.custom-dropdown')) {
         document.querySelectorAll('.custom-dropdown.open').forEach(dropdown => {
           dropdown.classList.remove('open');
         });
@@ -245,10 +247,12 @@ window.reinitMain = function() {
     };
 
     document.addEventListener('click', (e) => {
-      if (!e.target || typeof e.target.closest !== 'function') return;
+      let target = e.target;
+      if (target && target.nodeType === 3) target = target.parentNode;
+      if (!target || typeof target.closest !== 'function') return;
 
       // 1. Check if we clicked a trigger to OPEN a modal
-      const triggerEl = e.target.closest('[id^="open-"]');
+      const triggerEl = target.closest('[id^="open-"]');
       if (triggerEl && modalMap[triggerEl.id]) {
         e.preventDefault();
         const modalId = modalMap[triggerEl.id];
@@ -261,8 +265,8 @@ window.reinitMain = function() {
       }
 
       // 2. Check if we clicked to CLOSE a modal
-      if (e.target.closest('.modal-close') || e.target.classList.contains('modal-backdrop')) {
-        const modal = e.target.closest('.modal'); // Fixed selector from .modal-overlay to .modal
+      if (target.closest('.modal-close') || target.classList.contains('modal-backdrop')) {
+        const modal = target.closest('.modal'); // Fixed selector from .modal-overlay to .modal
         if (modal) {
           modal.classList.remove('active');
           document.body.style.overflow = '';
@@ -285,7 +289,7 @@ window.reinitMain = function() {
 };
 
 if (document.readyState === 'loading') {
-  window.addEventListener('load', window.reinitMain);
+  document.addEventListener('DOMContentLoaded', window.reinitMain);
 } else {
   window.reinitMain();
 }
