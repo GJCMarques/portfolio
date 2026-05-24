@@ -216,42 +216,40 @@ window.reinitMain = function() {
     }
   }
 
-  // Reusable Modal Handler Setup
-  const setupModal = (triggerId, modalId, closeBtnId) => {
-    const trigger = document.getElementById(triggerId);
-    if (!trigger) return;
-
-    const newTrigger = trigger.cloneNode(true);
-    trigger.parentNode.replaceChild(newTrigger, trigger);
-
-    const openModal = (e) => {
-      e.preventDefault();
-      const modal = document.getElementById(modalId);
-      if (modal) {
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      }
+  // ==========================================
+  // MODAL LOGIC: EVENT DELEGATION
+  // ==========================================
+  if (!window.__mainModalDelegatedAttached) {
+    const modalMap = {
+      'open-english-cert': 'cert-modal',
+      'open-gaia-cert': 'gaia-cert-modal',
+      'open-juventude-cert': 'juventude-cert-modal',
+      'open-euroscola-cert': 'euroscola-cert-modal',
+      'open-monserrate-cert': 'monserrate-cert-modal',
+      'open-ai-org-cert': 'ai-org-cert-modal',
+      'open-ibm-genai-cert': 'ibm-genai-cert-modal',
+      'open-ibm-ds-cert': 'ibm-ds-cert-modal',
+      'open-columbia-fe-cert': 'columbia-fe-cert-modal',
+      'open-google-da-cert': 'google-da-cert-modal'
     };
 
-    newTrigger.addEventListener('click', openModal);
-  };
-
-  setupModal('open-english-cert', 'cert-modal', 'close-modal');
-  setupModal('open-gaia-cert', 'gaia-cert-modal', 'close-gaia-modal');
-  setupModal('open-juventude-cert', 'juventude-cert-modal', 'close-juventude-modal');
-  setupModal('open-euroscola-cert', 'euroscola-cert-modal', 'close-euroscola-modal');
-  setupModal('open-monserrate-cert', 'monserrate-cert-modal', 'close-monserrate-modal');
-  setupModal('open-ai-org-cert', 'ai-org-cert-modal', 'close-ai-org-modal');
-  setupModal('open-ibm-genai-cert', 'ibm-genai-cert-modal', 'close-ibm-genai-modal');
-  setupModal('open-ibm-ds-cert', 'ibm-ds-cert-modal', 'close-ibm-ds-modal');
-  setupModal('open-columbia-fe-cert', 'columbia-fe-cert-modal', 'close-columbia-fe-modal');
-  setupModal('open-google-da-cert', 'google-da-cert-modal', 'close-google-da-modal');
-
-  // Handle modal closing globally (only once)
-  if (!window.__mainModalDocListenersAttached) {
     document.addEventListener('click', (e) => {
+      // 1. Check if we clicked a trigger to OPEN a modal
+      const triggerEl = e.target.closest('[id^="open-"]');
+      if (triggerEl && modalMap[triggerEl.id]) {
+        e.preventDefault();
+        const modalId = modalMap[triggerEl.id];
+        const modal = document.getElementById(modalId);
+        if (modal) {
+          modal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+        return;
+      }
+
+      // 2. Check if we clicked to CLOSE a modal
       if (e.target.closest('.modal-close') || e.target.classList.contains('modal-backdrop')) {
-        const modal = e.target.closest('.modal-overlay');
+        const modal = e.target.closest('.modal'); // Fixed selector from .modal-overlay to .modal
         if (modal) {
           modal.classList.remove('active');
           document.body.style.overflow = '';
@@ -261,14 +259,15 @@ window.reinitMain = function() {
 
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
-        const activeModal = document.querySelector('.modal-overlay.active');
+        const activeModal = document.querySelector('.modal.active');
         if (activeModal) {
           activeModal.classList.remove('active');
           document.body.style.overflow = '';
         }
       }
     });
-    window.__mainModalDocListenersAttached = true;
+
+    window.__mainModalDelegatedAttached = true;
   }
 };
 
