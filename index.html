@@ -37,7 +37,7 @@
                     </div>
                 </div>
             </div>
-            <div class="loader-text">Loading...</div>
+            <div class="loader-text" id="loader-text">A carregar</div>
         </div>
     </div>
     <script>
@@ -58,7 +58,15 @@
                     const col2 = document.getElementById("col-2");
                     const col3 = document.getElementById("col-3");
                     const circleEl = document.getElementById("loader-circle-fill");
+                    const textEl = document.getElementById("loader-text");
                     
+                    // Animação dos pontinhos "A carregar..."
+                    let dotsCount = 0;
+                    const dotsInterval = setInterval(() => {
+                        dotsCount = (dotsCount + 1) % 4;
+                        textEl.innerText = "A carregar" + ".".repeat(dotsCount);
+                    }, 400);
+
                     // Gerar números aleatórios para um "salto" mais orgânico
                     const steps = [
                         0,
@@ -81,6 +89,8 @@
                             
                             if (stepIndex >= steps.length) {
                                 clearInterval(stepInterval);
+                                clearInterval(dotsInterval);
+                                textEl.innerText = "Concluído"; // Opcional: mostrar "Concluído" no final
                                 setTimeout(() => {
                                     preloader.classList.add("preloader-hidden");
                                     document.body.style.overflow = "hidden"; 
