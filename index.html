@@ -26,12 +26,14 @@
                     <circle cx="50" cy="50" r="48" class="loader-circle" id="loader-circle-fill" />
                 </svg>
                 <div class="loader-number-container">
-                    <div class="loader-number-roll" id="home-loader-number-roll">
-                        <div class="roll-num">00</div>
-                        <div class="roll-num">20</div>
-                        <div class="roll-num">66</div>
-                        <div class="roll-num">83</div>
-                        <div class="roll-num">100</div>
+                    <div class="digit-col" id="col-1" style="width: 0; opacity: 0; overflow: hidden; transition: width 0.4s ease-out, opacity 0.4s ease-out;">
+                        <div class="roll-num">1</div>
+                    </div>
+                    <div class="digit-col" id="col-2">
+                        <div class="roll-num">0</div><div class="roll-num">1</div><div class="roll-num">2</div><div class="roll-num">3</div><div class="roll-num">4</div><div class="roll-num">5</div><div class="roll-num">6</div><div class="roll-num">7</div><div class="roll-num">8</div><div class="roll-num">9</div><div class="roll-num">0</div>
+                    </div>
+                    <div class="digit-col" id="col-3">
+                        <div class="roll-num">0</div><div class="roll-num">1</div><div class="roll-num">2</div><div class="roll-num">3</div><div class="roll-num">4</div><div class="roll-num">5</div><div class="roll-num">6</div><div class="roll-num">7</div><div class="roll-num">8</div><div class="roll-num">9</div><div class="roll-num">0</div>
                     </div>
                 </div>
             </div>
@@ -52,19 +54,27 @@
                 document.body.style.overflow = "hidden"; // bloquear scroll
 
                 window.addEventListener("DOMContentLoaded", () => {
-                    const rollEl = document.getElementById("home-loader-number-roll");
+                    const col1 = document.getElementById("col-1");
+                    const col2 = document.getElementById("col-2");
+                    const col3 = document.getElementById("col-3");
                     const circleEl = document.getElementById("loader-circle-fill");
                     
-                    const steps = [0, 20, 66, 83, 100];
-                    const circumference = 301.59;
+                    // Gerar números aleatórios para um "salto" mais orgânico
+                    const steps = [
+                        0,
+                        Math.floor(Math.random() * (35 - 15 + 1)) + 15,
+                        Math.floor(Math.random() * (65 - 45 + 1)) + 45,
+                        Math.floor(Math.random() * (90 - 75 + 1)) + 75,
+                        100
+                    ];
                     
+                    const circumference = 301.59;
                     circleEl.style.strokeDasharray = circumference;
                     circleEl.style.strokeDashoffset = circumference;
                     
                     let stepIndex = 0;
-                    const intervalTime = 2500 / (steps.length - 1); // ~625ms entre cada salto
+                    const intervalTime = 800; // 800ms
                     
-                    // Espera pela animação de fade-in da entrada (aprox. 600ms para estabilizar)
                     setTimeout(() => {
                         const stepInterval = setInterval(() => {
                             stepIndex++;
@@ -76,20 +86,34 @@
                                     document.body.style.overflow = "hidden"; 
                                     document.body.style.overflowY = "auto";
                                     setTimeout(() => preloader.remove(), 800);
-                                }, 600); 
+                                }, 1200); // Margem extra para o 100 ser apreciado
                                 return;
                             }
                             
-                            // Text Roll Anim
-                            rollEl.style.transform = `translateY(calc(-1em * ${stepIndex}))`;
+                            const val = steps[stepIndex];
+                            const valStr = val === 0 ? "00" : val.toString();
+                            
+                            if (valStr === "100") {
+                                // Rolar em frente para o segundo '0' no final da lista (índice 10)
+                                col2.style.transform = `translateY(-10em)`;
+                                col3.style.transform = `translateY(-10em)`;
+                                
+                                // Mostrar o 1 suavemente só depois de os 00 chegarem ao sítio
+                                setTimeout(() => {
+                                    col1.style.width = "1ch";
+                                    col1.style.opacity = "1";
+                                }, 800); 
+                            } else if (valStr.length === 2) {
+                                col2.style.transform = `translateY(-${valStr[0]}em)`;
+                                col3.style.transform = `translateY(-${valStr[1]}em)`;
+                            }
                             
                             // Smooth Circle Anim
-                            const val = steps[stepIndex];
                             const offset = circumference - (val / 100) * circumference;
                             circleEl.style.strokeDashoffset = offset;
                             
                         }, intervalTime);
-                    }, 400); // 400ms delay para arrancar
+                    }, 400); 
                 });
             }
         })();
