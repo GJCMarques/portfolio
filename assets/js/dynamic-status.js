@@ -98,6 +98,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (iconElement) iconElement.innerHTML = current.icon;
     }
 
+    if (window.__dynamicStatusIntervalsSet) return;
+    window.__dynamicStatusIntervalsSet = true;
+
     updateClock();
     updateStatus();
     setInterval(updateClock, 1000);

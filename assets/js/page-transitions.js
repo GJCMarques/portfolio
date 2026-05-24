@@ -294,6 +294,9 @@
       // that must NOT run on AJAX navigation
       if (code.includes('home-preloader') || code.includes('hasSeenPreloader')) return;
 
+      // Skip Live Server injected scripts to prevent WebSocket memory leaks and crashes
+      if (code.includes('Code injected by live-server') || code.includes('live-server') || code.includes('Live Server')) return;
+
       try {
         const newScript = document.createElement('script');
         newScript.textContent = code;

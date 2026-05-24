@@ -51,12 +51,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Auto-advance every 10 seconds
-    let autoPlay = setInterval(showNext, 10000);
+    if (window.__heroCarouselInterval) clearInterval(window.__heroCarouselInterval);
+    window.__heroCarouselInterval = setInterval(showNext, 10000);
 
     // Pause auto-play on interaction
     const container = document.querySelector('.split-right');
-    container.addEventListener('mouseenter', () => clearInterval(autoPlay));
-    container.addEventListener('mouseleave', () => {
-        autoPlay = setInterval(showNext, 10000);
-    });
+    if (container) {
+        container.addEventListener('mouseenter', () => clearInterval(window.__heroCarouselInterval));
+        container.addEventListener('mouseleave', () => {
+            if (window.__heroCarouselInterval) clearInterval(window.__heroCarouselInterval);
+            window.__heroCarouselInterval = setInterval(showNext, 10000);
+        });
+    }
 });
