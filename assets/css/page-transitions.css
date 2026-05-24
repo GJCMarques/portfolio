@@ -1,0 +1,68 @@
+/* assets/css/page-transitions.css */
+/* ============================================================
+   PAGE TRANSITION OVERLAY
+   Horizontal stripes — mirroring the preloader exit animation
+   ============================================================ */
+
+#page-transition-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 99999; /* Below preloader (999999) but above everything else */
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  /* Overlay is always present in the DOM, controlled via classes */
+}
+
+/* --- Stripes --- */
+#page-transition-overlay .pt-stripe {
+  flex: 1;
+  background-color: var(--bg-black, #060606);
+  /* Initial state: fully collapsed (hidden) */
+  transform: scaleX(0);
+  transition: transform 0.85s cubic-bezier(0.85, 0, 0.15, 1);
+  will-change: transform;
+}
+
+/* Alternate transform origins (right/left) — identical to preloader */
+#page-transition-overlay .pt-stripe:nth-child(1) { transform-origin: left;  }
+#page-transition-overlay .pt-stripe:nth-child(2) { transform-origin: right; }
+#page-transition-overlay .pt-stripe:nth-child(3) { transform-origin: left;  }
+#page-transition-overlay .pt-stripe:nth-child(4) { transform-origin: right; }
+#page-transition-overlay .pt-stripe:nth-child(5) { transform-origin: left;  }
+
+/* ============================================================
+   COVER STATE — stripes sweep IN (leaving current page)
+   Identical rhythm to the preloader enter animation
+   ============================================================ */
+#page-transition-overlay.pt-covering .pt-stripe {
+  transform: scaleX(1);
+}
+
+#page-transition-overlay.pt-covering .pt-stripe:nth-child(1) { transition-delay: 0.00s; }
+#page-transition-overlay.pt-covering .pt-stripe:nth-child(2) { transition-delay: 0.08s; }
+#page-transition-overlay.pt-covering .pt-stripe:nth-child(3) { transition-delay: 0.16s; }
+#page-transition-overlay.pt-covering .pt-stripe:nth-child(4) { transition-delay: 0.24s; }
+#page-transition-overlay.pt-covering .pt-stripe:nth-child(5) { transition-delay: 0.32s; }
+
+/* ============================================================
+   REVEAL STATE — stripes sweep OUT (entering new page)
+   Matches the preloader exit — alternating origins, staggered
+   ============================================================ */
+#page-transition-overlay.pt-revealing .pt-stripe {
+  transform: scaleX(0);
+}
+
+/* Swap origins on reveal for variety (preloader-exit feel) */
+#page-transition-overlay.pt-revealing .pt-stripe:nth-child(1) { transform-origin: right; transition-delay: 0.00s; }
+#page-transition-overlay.pt-revealing .pt-stripe:nth-child(2) { transform-origin: left;  transition-delay: 0.08s; }
+#page-transition-overlay.pt-revealing .pt-stripe:nth-child(3) { transform-origin: right; transition-delay: 0.16s; }
+#page-transition-overlay.pt-revealing .pt-stripe:nth-child(4) { transform-origin: left;  transition-delay: 0.24s; }
+#page-transition-overlay.pt-revealing .pt-stripe:nth-child(5) { transform-origin: right; transition-delay: 0.32s; }
+
+/* Block pointer events while covering (during transition) */
+#page-transition-overlay.pt-covering {
+  pointer-events: all;
+}
