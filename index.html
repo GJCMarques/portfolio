@@ -20,10 +20,14 @@
     <!-- Home Preloader -->
     <div id="home-preloader">
         <div class="preloader-wrapper">
-            <span class="preloader-counter" id="home-preloader-counter">0%</span>
-            <div class="preloader-bar-container">
-                <div class="preloader-bar" id="home-preloader-bar"></div>
+            <div class="minimal-loader-container">
+                <svg class="minimal-loader-svg" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="48" class="loader-circle-bg" />
+                    <circle cx="50" cy="50" r="48" class="loader-circle" id="loader-circle-fill" />
+                </svg>
+                <div class="loader-number" id="home-loader-number">00</div>
             </div>
+            <div class="loader-text">Loading...</div>
         </div>
     </div>
     <script>
@@ -33,7 +37,6 @@
             const isReload = navEntries.length > 0 && navEntries[0].type === "reload";
             const hasSeen = sessionStorage.getItem("hasSeenPreloader");
 
-            // Se já tiver visto na mesma sessão e NÃO for um reload da página (F5)
             if (hasSeen && !isReload) {
                 preloader.classList.add("preloader-instant-hide");
             } else {
@@ -41,31 +44,47 @@
                 document.body.style.overflow = "hidden"; // bloquear scroll
 
                 window.addEventListener("DOMContentLoaded", () => {
-                    const counter = document.getElementById("home-preloader-counter");
-                    const bar = document.getElementById("home-preloader-bar");
-                    let progress = 0;
+                    const numberEl = document.getElementById("home-loader-number");
+                    const circleEl = document.getElementById("loader-circle-fill");
                     
-                    const interval = setInterval(() => {
-                        progress += Math.floor(Math.random() * 8) + 4;
-                        if (progress > 100) progress = 100;
-                        
-                        counter.innerText = progress + "%";
-                        bar.style.width = progress + "%";
-
-                        if (progress === 100) {
-                            clearInterval(interval);
+                    // Os números pelos quais vai saltar
+                    const steps = [0, 20, 66, 83, 100];
+                    const totalDuration = 3000;
+                    
+                    const circumference = 301.59;
+                    circleEl.style.strokeDasharray = circumference;
+                    circleEl.style.strokeDashoffset = circumference;
+                    
+                    let stepIndex = 0;
+                    // Queremos que chegue aos 100% num tempo ligeiramente inferior para dar margem à animação de fecho
+                    const intervalTime = 2500 / (steps.length - 1);
+                    
+                    const stepInterval = setInterval(() => {
+                        stepIndex++;
+                        if (stepIndex >= steps.length) {
+                            clearInterval(stepInterval);
                             setTimeout(() => {
                                 preloader.classList.add("preloader-hidden");
-                                document.body.style.overflow = "hidden"; // Keep x-hidden logic
-                                document.body.style.overflowY = "auto";  // Restore scroll
+                                document.body.style.overflow = "hidden"; 
+                                document.body.style.overflowY = "auto";
                                 setTimeout(() => preloader.remove(), 800);
-                            }, 400); // Pausa antes de subir o curtain
+                            }, 500); // pequena pausa depois de chegar aos 100
+                            return;
                         }
-                    }, 40); // Loader ultra rápido, Premium style
+                        
+                        const val = steps[stepIndex];
+                        numberEl.innerText = val === 0 ? "00" : val;
+                        
+                        // Atualiza o offset do círculo SVG de acordo com a percentagem
+                        const offset = circumference - (val / 100) * circumference;
+                        circleEl.style.strokeDashoffset = offset;
+                        
+                    }, intervalTime);
                 });
             }
         })();
     </script>
+
 
     <!-- New High-End Menu Trigger -->
     <button id="menuTrigger" class="menu-trigger" aria-label="Toggle Menu" aria-expanded="false">
