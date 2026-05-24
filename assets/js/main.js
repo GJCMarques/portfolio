@@ -1,14 +1,17 @@
 /* assets/js/main.js */
 // Main scripts like mobile menu
 
-document.addEventListener('DOMContentLoaded', () => {
+window.reinitMain = function() {
   const menuToggle = document.querySelector('.mobile-menu-toggle');
   const mainNav = document.querySelector('.main-nav');
   
   if(menuToggle && mainNav) {
-    menuToggle.addEventListener('click', () => {
-      const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-      menuToggle.setAttribute('aria-expanded', !isExpanded);
+    // Clean up old listeners by cloning
+    const newMenuToggle = menuToggle.cloneNode(true);
+    menuToggle.parentNode.replaceChild(newMenuToggle, menuToggle);
+    newMenuToggle.addEventListener('click', () => {
+      const isExpanded = newMenuToggle.getAttribute('aria-expanded') === 'true';
+      newMenuToggle.setAttribute('aria-expanded', !isExpanded);
       mainNav.classList.toggle('is-open');
     });
   }
@@ -19,40 +22,34 @@ document.addEventListener('DOMContentLoaded', () => {
   if (customDropdowns.length > 0) {
     customDropdowns.forEach(dropdown => {
       const trigger = dropdown.querySelector('.dropdown-trigger');
-      
       if (trigger) {
-        trigger.addEventListener('click', (e) => {
-          // Prevent body click from firing
+        const newTrigger = trigger.cloneNode(true);
+        trigger.parentNode.replaceChild(newTrigger, trigger);
+        newTrigger.addEventListener('click', (e) => {
           e.stopPropagation(); 
-          
-          // Close any other open dropdowns
           customDropdowns.forEach(d => {
             if (d !== dropdown) d.classList.remove('open');
           });
-          
-          // Toggle current
           dropdown.classList.toggle('open');
         });
       }
     });
     
-    // Close dropdowns when clicking anywhere outside
-    document.addEventListener('click', (e) => {
-      customDropdowns.forEach(dropdown => {
-        if (!dropdown.contains(e.target)) {
-          dropdown.classList.remove('open');
-        }
+    if (!window.__mainDropdownDocListenersAttached) {
+      document.addEventListener('click', (e) => {
+        document.querySelectorAll('.custom-dropdown').forEach(dropdown => {
+          if (!dropdown.contains(e.target)) {
+            dropdown.classList.remove('open');
+          }
+        });
       });
-    });
-    
-    // Close dropdowns on scroll for better UX
-    window.addEventListener('scroll', () => {
-      customDropdowns.forEach(dropdown => {
-        if (dropdown.classList.contains('open')) {
+      window.addEventListener('scroll', () => {
+        document.querySelectorAll('.custom-dropdown.open').forEach(dropdown => {
           dropdown.classList.remove('open');
-        }
-      });
-    }, { passive: true });
+        });
+      }, { passive: true });
+      window.__mainDropdownDocListenersAttached = true;
+    }
   }
   
   // View Toggle Logic (List vs Grid)
@@ -61,30 +58,22 @@ document.addEventListener('DOMContentLoaded', () => {
   
   if (viewBtns.length > 0 && projectsContainer) {
     viewBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        // Don't do anything if it's already active
-        if (btn.classList.contains('active')) return;
+      const newBtn = btn.cloneNode(true);
+      btn.parentNode.replaceChild(newBtn, btn);
+      newBtn.addEventListener('click', () => {
+        if (newBtn.classList.contains('active')) return;
+        document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+        newBtn.classList.add('active');
+        const viewType = newBtn.getAttribute('data-view');
         
-        // Remove active class from all
-        viewBtns.forEach(b => b.classList.remove('active'));
-        
-        // Add to clicked
-        btn.classList.add('active');
-        
-        // Determine intended view
-        const viewType = btn.getAttribute('data-view');
-        
-        // Quick fade out
-        projectsContainer.style.transition = 'opacity 0.2s ease-out';
-        projectsContainer.style.opacity = '0';
-        
+        const container = document.getElementById('projectsContainer');
+        if (!container) return;
+        container.style.transition = 'opacity 0.2s ease-out';
+        container.style.opacity = '0';
         setTimeout(() => {
-          // Swap classes
-          projectsContainer.classList.remove('list-view', 'grid-view');
-          projectsContainer.classList.add(`${viewType}-view`);
-          
-          // Fade back in
-          projectsContainer.style.opacity = '1';
+          container.classList.remove('list-view', 'grid-view');
+          container.classList.add(`${viewType}-view`);
+          container.style.opacity = '1';
         }, 200);
       });
     });
@@ -92,13 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Projects Filtering Logic
   if (projectsContainer && customDropdowns.length > 0) {
-    const filters = {
-      type: 'all',
-      service: 'all',
-      industry: 'all'
-    };
-
-    const projectItems = projectsContainer.querySelectorAll('.dir-project-item');
+    const filters = { type: 'all', service: 'all', industry: 'all' };
 
     customDropdowns.forEach(dropdown => {
       const group = dropdown.getAttribute('data-filter-group');
@@ -106,69 +89,57 @@ document.addEventListener('DOMContentLoaded', () => {
       const items = dropdown.querySelectorAll('.dropdown-item');
 
       items.forEach(item => {
-        item.addEventListener('click', (e) => {
+        const newItem = item.cloneNode(true);
+        item.parentNode.replaceChild(newItem, item);
+        newItem.addEventListener('click', (e) => {
           e.stopPropagation();
           
-          // Update active class
-          items.forEach(i => i.classList.remove('active'));
-          item.classList.add('active');
+          dropdown.querySelectorAll('.dropdown-item').forEach(i => i.classList.remove('active'));
+          newItem.classList.add('active');
           
-          // Update label text based on group
-          const valText = item.textContent;
-          const groupLabels = {
-            type: 'Tipo',
-            service: 'Serviços',
-            industry: 'Indústria'
-          };
+          const valText = newItem.textContent;
+          const groupLabels = { type: 'Tipo', service: 'Serviços', industry: 'Indústria' };
           
-          // Only update prefix if it exists in our mapping
-          if(groupLabels[group]) {
+          if(groupLabels[group] && label) {
              label.textContent = `${groupLabels[group]}: ${valText}`;
           }
           
-          // Update filter state
-          filters[group] = item.getAttribute('data-value');
-          
-          // Close dropdown
+          filters[group] = newItem.getAttribute('data-value');
           dropdown.classList.remove('open');
-          
-          // Apply filters
-          applyFilters();
+          applyFilters(filters);
         });
       });
     });
 
-    function applyFilters() {
-      // Fade out for transition effect
-      projectsContainer.style.transition = 'opacity 0.2s ease-out';
-      projectsContainer.style.opacity = '0';
+    function applyFilters(currentFilters) {
+      const container = document.getElementById('projectsContainer');
+      if (!container) return;
+      const projectItems = container.querySelectorAll('.dir-project-item');
+      
+      container.style.transition = 'opacity 0.2s ease-out';
+      container.style.opacity = '0';
       
       setTimeout(() => {
         let visibleCount = 0;
         
         projectItems.forEach(card => {
-          // Get all tags text in lowercase
           const tags = Array.from(card.querySelectorAll('.dir-tag')).map(t => t.textContent.toLowerCase().trim());
           
-          // Check Type
           let typeMatch = true;
-          if (filters.type === 'real' && !tags.includes('caso real')) typeMatch = false;
-          if (filters.type === 'pessoal' && !tags.includes('pessoal')) typeMatch = false;
+          if (currentFilters.type === 'real' && !tags.includes('caso real')) typeMatch = false;
+          if (currentFilters.type === 'pessoal' && !tags.includes('pessoal')) typeMatch = false;
           
-          // Check Service
           let serviceMatch = true;
-          if (filters.service === 'design' && !tags.includes('design')) serviceMatch = false;
-          if (filters.service === 'frontend' && !tags.includes('frontend') && !tags.includes('front end')) serviceMatch = false;
-          if (filters.service === 'fullstack' && !tags.includes('full stack')) serviceMatch = false;
+          if (currentFilters.service === 'design' && !tags.includes('design')) serviceMatch = false;
+          if (currentFilters.service === 'frontend' && !tags.includes('frontend') && !tags.includes('front end')) serviceMatch = false;
+          if (currentFilters.service === 'fullstack' && !tags.includes('full stack')) serviceMatch = false;
           
-          // Check Industry
           let industryMatch = true;
-          if (filters.industry === 'financa' && !tags.includes('finança')) industryMatch = false;
-          if (filters.industry === 'imobiliario' && !tags.includes('imobiliário')) industryMatch = false;
-          if (filters.industry === 'moda' && !tags.includes('moda & loja')) industryMatch = false;
-          if (filters.industry === 'agencia' && !tags.includes('agência')) industryMatch = false;
+          if (currentFilters.industry === 'financa' && !tags.includes('finança')) industryMatch = false;
+          if (currentFilters.industry === 'imobiliario' && !tags.includes('imobiliário')) industryMatch = false;
+          if (currentFilters.industry === 'moda' && !tags.includes('moda & loja')) industryMatch = false;
+          if (currentFilters.industry === 'agencia' && !tags.includes('agência')) industryMatch = false;
           
-          // If all active filters match, show card
           if (typeMatch && serviceMatch && industryMatch) {
             card.style.display = 'flex';
             visibleCount++;
@@ -177,15 +148,12 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         });
         
-        // Update header count if it exists
         const countDisplay = document.querySelector('.filter-left .count');
         if(countDisplay) {
-          // Format as (N)
           countDisplay.textContent = `(${visibleCount})`;
         }
         
-        // Fade back in
-        projectsContainer.style.opacity = '1';
+        container.style.opacity = '1';
       }, 200);
     }
   }
@@ -201,94 +169,119 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentIndex = 0;
     
     const updateCarousel = (index) => {
-      carouselTrack.style.transform = `translateX(-${index * 100}%)`;
+      const track = document.querySelector('.carousel-track');
+      if (track) track.style.transform = `translateX(-${index * 100}%)`;
       
-      // Update active slide class
-      slides.forEach((slide, i) => {
+      document.querySelectorAll('.carousel-slide').forEach((slide, i) => {
         slide.classList.toggle('active', i === index);
       });
 
-      // Update indicators
-      indicators.forEach((indicator, i) => {
+      document.querySelectorAll('.indicator').forEach((indicator, i) => {
         indicator.classList.toggle('active', i === index);
       });
       
       currentIndex = index;
     };
 
-    // Initialize first slide as active
     updateCarousel(0);
     
     if (nextBtn) {
-      nextBtn.addEventListener('click', () => {
+      const newNextBtn = nextBtn.cloneNode(true);
+      nextBtn.parentNode.replaceChild(newNextBtn, nextBtn);
+      newNextBtn.addEventListener('click', () => {
         let index = currentIndex + 1;
-        if (index >= slides.length) index = 0;
+        if (index >= document.querySelectorAll('.carousel-slide').length) index = 0;
         updateCarousel(index);
       });
     }
     
     if (prevBtn) {
-      prevBtn.addEventListener('click', () => {
+      const newPrevBtn = prevBtn.cloneNode(true);
+      prevBtn.parentNode.replaceChild(newPrevBtn, prevBtn);
+      newPrevBtn.addEventListener('click', () => {
         let index = currentIndex - 1;
-        if (index < 0) index = slides.length - 1;
+        const total = document.querySelectorAll('.carousel-slide').length;
+        if (index < 0) index = total - 1;
         updateCarousel(index);
       });
     }
     
     if (indicators.length > 0) {
       indicators.forEach((indicator, i) => {
-        indicator.addEventListener('click', () => {
+        const newIndicator = indicator.cloneNode(true);
+        indicator.parentNode.replaceChild(newIndicator, indicator);
+        newIndicator.addEventListener('click', () => {
           updateCarousel(i);
         });
       });
     }
     
-    // Handle resize to update slide width
-    window.addEventListener('resize', () => {
-      updateCarousel(currentIndex);
-    });
+    if (!window.__mainCarouselResizeAttached) {
+      window.addEventListener('resize', () => {
+        updateCarousel(currentIndex);
+      });
+      window.__mainCarouselResizeAttached = true;
+    }
+  }
 
-    // Reusable Modal Handler Setup
-    const setupModal = (triggerId, modalId, closeBtnId) => {
-      const trigger = document.getElementById(triggerId);
+  // Reusable Modal Handler Setup
+  const setupModal = (triggerId, modalId, closeBtnId) => {
+    const trigger = document.getElementById(triggerId);
+    if (!trigger) return;
+
+    const newTrigger = trigger.cloneNode(true);
+    trigger.parentNode.replaceChild(newTrigger, trigger);
+
+    const openModal = (e) => {
+      e.preventDefault();
       const modal = document.getElementById(modalId);
-      if (!trigger || !modal) return;
-
-      const closeBtn = document.getElementById(closeBtnId) || modal.querySelector('.modal-close');
-      const backdrop = modal.querySelector('.modal-backdrop');
-
-      const openModal = (e) => {
-        e.preventDefault();
+      if (modal) {
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
-      };
-
-      const closeModal = () => {
-        modal.classList.remove('active');
-        document.body.style.overflow = '';
-      };
-
-      trigger.addEventListener('click', openModal);
-      if (closeBtn) closeBtn.addEventListener('click', closeModal);
-      if (backdrop) backdrop.addEventListener('click', closeModal);
-
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modal.classList.contains('active')) {
-          closeModal();
-        }
-      });
+      }
     };
 
-    // Initialize all modals
-    setupModal('open-english-cert', 'cert-modal', 'close-modal');
-    setupModal('open-gaia-cert', 'gaia-cert-modal', 'close-gaia-modal');
-    setupModal('open-juventude-cert', 'juventude-cert-modal', 'close-juventude-modal');
-    setupModal('open-euroscola-cert', 'euroscola-cert-modal', 'close-euroscola-modal');
-    setupModal('open-monserrate-cert', 'monserrate-cert-modal', 'close-monserrate-modal');
-    setupModal('open-ai-org-cert', 'ai-org-cert-modal', 'close-ai-org-modal');
-    setupModal('open-ibm-genai-cert', 'ibm-genai-cert-modal', 'close-ibm-genai-modal');
-    setupModal('open-ibm-ds-cert', 'ibm-ds-cert-modal', 'close-ibm-ds-modal');
-    setupModal('open-columbia-fe-cert', 'columbia-fe-cert-modal', 'close-columbia-fe-modal');
-    setupModal('open-google-da-cert', 'google-da-cert-modal', 'close-google-da-modal');
+    newTrigger.addEventListener('click', openModal);
+  };
+
+  setupModal('open-english-cert', 'cert-modal', 'close-modal');
+  setupModal('open-gaia-cert', 'gaia-cert-modal', 'close-gaia-modal');
+  setupModal('open-juventude-cert', 'juventude-cert-modal', 'close-juventude-modal');
+  setupModal('open-euroscola-cert', 'euroscola-cert-modal', 'close-euroscola-modal');
+  setupModal('open-monserrate-cert', 'monserrate-cert-modal', 'close-monserrate-modal');
+  setupModal('open-ai-org-cert', 'ai-org-cert-modal', 'close-ai-org-modal');
+  setupModal('open-ibm-genai-cert', 'ibm-genai-cert-modal', 'close-ibm-genai-modal');
+  setupModal('open-ibm-ds-cert', 'ibm-ds-cert-modal', 'close-ibm-ds-modal');
+  setupModal('open-columbia-fe-cert', 'columbia-fe-cert-modal', 'close-columbia-fe-modal');
+  setupModal('open-google-da-cert', 'google-da-cert-modal', 'close-google-da-modal');
+
+  // Handle modal closing globally (only once)
+  if (!window.__mainModalDocListenersAttached) {
+    document.addEventListener('click', (e) => {
+      if (e.target.closest('.modal-close') || e.target.classList.contains('modal-backdrop')) {
+        const modal = e.target.closest('.modal-overlay');
+        if (modal) {
+          modal.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        const activeModal = document.querySelector('.modal-overlay.active');
+        if (activeModal) {
+          activeModal.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      }
+    });
+    window.__mainModalDocListenersAttached = true;
   }
-});
+};
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', window.reinitMain);
+} else {
+  window.reinitMain();
+}

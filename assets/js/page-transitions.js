@@ -304,6 +304,14 @@
         console.warn('[PT] Inline script error:', err);
       }
     });
+
+    // CRITICAL FIX: Many inline scripts are wrapped in document.addEventListener('DOMContentLoaded', ...)
+    // Since the document is already loaded, these listeners would normally never fire.
+    // We manually dispatch the event so they execute immediately after being injected.
+    window.document.dispatchEvent(new Event('DOMContentLoaded', {
+      bubbles: true,
+      cancelable: true
+    }));
   }
 
   /* ----------------------------------------------------------
@@ -324,6 +332,11 @@
 
     // ---- Hero Carousel (home page only) ----
     reinitHeroCarousel();
+
+    // ---- Main logic (modals, dropdowns, filters, view toggles) ----
+    if (typeof window.reinitMain === 'function') {
+      window.reinitMain();
+    }
   }
 
   function reinitAnimations() {
