@@ -1576,11 +1576,16 @@
                 });
 
                 // Keep max-height auto-adjusted if screen resizes while expanded
-                window.addEventListener('resize', () => {
-                    if (toggleBtn.getAttribute('aria-expanded') === 'true') {
-                        extraPanel.style.maxHeight = 'none';
-                    }
-                });
+                if (!window.__skillsResizeAttached) {
+                    window.addEventListener('resize', () => {
+                        const toggle = document.getElementById('toggleSkillsBtn');
+                        const panel = document.getElementById('skillsExtraPanel');
+                        if (toggle && panel && toggle.getAttribute('aria-expanded') === 'true') {
+                            panel.style.maxHeight = 'none';
+                        }
+                    });
+                    window.__skillsResizeAttached = true;
+                }
             }
         })();
     </script>
