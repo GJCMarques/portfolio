@@ -258,7 +258,8 @@
     background-color: var(--color-bg-card);
     transform: translateX(-30px);
     opacity: 0;
-    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s, opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+    will-change: transform, opacity;
 }
 
 .accordion-item.active .content-visual {
@@ -272,6 +273,7 @@
     object-fit: cover;
     filter: grayscale(0.1) contrast(1.1);
     transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
 }
 
 .accordion-item.active .content-visual img {
@@ -283,7 +285,8 @@
     flex-direction: column;
     transform: translateX(30px);
     opacity: 0;
-    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s, opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+    will-change: transform, opacity;
 }
 
 .accordion-item.active .content-text {

@@ -86,7 +86,21 @@ window.reinitMain = function() {
         return;
       }
 
-      // 5. Close Dropdowns if clicked outside
+      // 5. Accordion (Serviços)
+      const accordionHeader = e.target.closest('.accordion-header');
+      if (accordionHeader) {
+        const item = accordionHeader.closest('.accordion-item');
+        if (item) {
+          const isActive = item.classList.contains('active');
+          if (!isActive) {
+            document.querySelectorAll('.accordion-item').forEach(other => other.classList.remove('active'));
+            item.classList.add('active');
+          }
+        }
+        return;
+      }
+
+      // 6. Close Dropdowns if clicked outside
       if (!e.target.closest('.custom-dropdown')) {
         document.querySelectorAll('.custom-dropdown.open').forEach(dropdown => {
           dropdown.classList.remove('open');

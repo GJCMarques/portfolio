@@ -849,42 +849,6 @@
     <script src="../assets/js/animations.js"></script>
     <script src="../assets/js/menu.js"></script>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const accordionItems = document.querySelectorAll('.accordion-item');
-
-            accordionItems.forEach(item => {
-                const header = item.querySelector('.accordion-header');
-
-                header.addEventListener('click', () => {
-                    const isActive = item.classList.contains('active');
-
-                    // Se já estiver ativo, não fazemos nada (mantém sempre um aberto)
-                    if (isActive) return;
-
-                    // Fecha todos os outros
-                    accordionItems.forEach(otherItem => {
-                        otherItem.classList.remove('active');
-                    });
-
-                    // Abre o item atual
-                    item.classList.add('active');
-
-                    // NOTA: Se no futuro quiseres reativar o autoajuste de posição ao abrir:
-                    /*
-                    setTimeout(() => {
-                        item.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }, 400);
-                    */
-                });
-            });
-
-            // Set first item active by default (optional, gives immediate visual context)
-            if (accordionItems.length > 0 && !document.querySelector('.accordion-item.active')) {
-                accordionItems[0].classList.add('active');
-            }
-        });
-    </script>
     <script src="../assets/js/animations.js"></script>
     <script src="../assets/js/menu.js"></script>
     <script src="../assets/js/page-transitions.js"></script>
