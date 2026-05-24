@@ -19,6 +19,13 @@
 
     <!-- Home Preloader -->
     <div id="home-preloader">
+        <div class="preloader-stripes">
+            <div class="stripe"></div>
+            <div class="stripe"></div>
+            <div class="stripe"></div>
+            <div class="stripe"></div>
+            <div class="stripe"></div>
+        </div>
         <div class="preloader-wrapper">
             <div class="minimal-loader-container">
                 <svg class="minimal-loader-svg" viewBox="0 0 100 100">
@@ -112,7 +119,7 @@
                                             el.classList.add('is-visible');
                                         });
                                         
-                                        setTimeout(() => preloader.remove(), 1200);
+                                        setTimeout(() => preloader.remove(), 1500);
                                     }, 800); // 800ms for the finishing fade to complete
                                 }, 800); // Wait 800ms to appreciate the 100% and 'Concluído' text
                                 return;
