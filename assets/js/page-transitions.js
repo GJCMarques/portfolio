@@ -199,6 +199,26 @@
       document.body.setAttribute('style', newBody.getAttribute('style'));
     }
 
+    /* ----------------------------------------------------------
+       HOME PRELOADER SUPPRESSION (AJAX navigation back to index)
+       The inline preloader script does NOT re-execute after a DOM
+       swap via innerHTML. We must manually suppress it here.
+    ---------------------------------------------------------- */
+    const preloaderEl = document.getElementById('home-preloader');
+    if (preloaderEl) {
+      // Always hide on AJAX navigation — user already saw it this session
+      // (or would have seen it; in any case, no full page load = no preloader)
+      preloaderEl.classList.add('preloader-instant-hide');
+
+      // Restore scroll (preloader script sets overflow:hidden on body)
+      document.body.style.overflow = '';
+
+      // Trigger hero animations that the preloader script normally fires
+      document.querySelectorAll(
+        '.split-hero-container.fade-up, .hero-text-wrapper.fade-up, .bottom-nav.fade-up'
+      ).forEach(el => el.classList.add('is-visible'));
+    }
+
     /* Scroll to top */
     window.scrollTo(0, 0);
 
@@ -208,6 +228,7 @@
     /* Re-run initialisation scripts */
     reinitScripts();
   }
+
 
   /* ----------------------------------------------------------
      5. STYLESHEET INJECTION
