@@ -2,72 +2,80 @@
 // Main scripts like mobile menu
 
 window.reinitMain = function() {
-  const menuToggle = document.querySelector('.mobile-menu-toggle');
-  const mainNav = document.querySelector('.main-nav');
-  
-  if(menuToggle && mainNav) {
-    // Clean up old listeners by cloning
-    const newMenuToggle = menuToggle.cloneNode(true);
-    menuToggle.parentNode.replaceChild(newMenuToggle, menuToggle);
-    newMenuToggle.addEventListener('click', () => {
-      const isExpanded = newMenuToggle.getAttribute('aria-expanded') === 'true';
-      newMenuToggle.setAttribute('aria-expanded', !isExpanded);
-      mainNav.classList.toggle('is-open');
-    });
-  }
-  
-  // Custom Dropdown Logic
-  const customDropdowns = document.querySelectorAll('.custom-dropdown');
-  
-  if (customDropdowns.length > 0) {
-    customDropdowns.forEach(dropdown => {
-      const trigger = dropdown.querySelector('.dropdown-trigger');
-      if (trigger) {
-        const newTrigger = trigger.cloneNode(true);
-        trigger.parentNode.replaceChild(newTrigger, trigger);
-        newTrigger.addEventListener('click', (e) => {
-          e.stopPropagation(); 
-          customDropdowns.forEach(d => {
+  // ==========================================
+  // EVENT DELEGATION: AJAX SAFE
+  // Estes listeners estão no document, por isso
+  // sobrevivem a mudanças de DOM via AJAX.
+  // ==========================================
+  if (!window.__mainDelegatedListenersAttached) {
+    
+    // Filtros Globais Estado
+    window._globalProjectsFilters = { type: 'all', service: 'all', industry: 'all' };
+
+    document.addEventListener('click', (e) => {
+      
+      // 1. Mobile Menu Toggle
+      const menuToggle = e.target.closest('.mobile-menu-toggle');
+      if (menuToggle) {
+        const mainNav = document.querySelector('.main-nav');
+        if (mainNav) {
+          const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+          menuToggle.setAttribute('aria-expanded', !isExpanded);
+          mainNav.classList.toggle('is-open');
+        }
+        return;
+      }
+
+      // 2. Custom Dropdown Triggers (Abrir/Fechar)
+      const dropdownTrigger = e.target.closest('.dropdown-trigger');
+      if (dropdownTrigger) {
+        const dropdown = dropdownTrigger.closest('.custom-dropdown');
+        if (dropdown) {
+          e.stopPropagation();
+          document.querySelectorAll('.custom-dropdown').forEach(d => {
             if (d !== dropdown) d.classList.remove('open');
           });
           dropdown.classList.toggle('open');
-        });
+        }
+        return;
       }
-    });
-    
-    if (!window.__mainDropdownDocListenersAttached) {
-      document.addEventListener('click', (e) => {
-        document.querySelectorAll('.custom-dropdown').forEach(dropdown => {
-          if (!dropdown.contains(e.target)) {
-            dropdown.classList.remove('open');
-          }
-        });
-      });
-      window.addEventListener('scroll', () => {
-        document.querySelectorAll('.custom-dropdown.open').forEach(dropdown => {
-          dropdown.classList.remove('open');
-        });
-      }, { passive: true });
-      window.__mainDropdownDocListenersAttached = true;
-    }
-  }
-  
-  // View Toggle Logic (List vs Grid)
-  const viewBtns = document.querySelectorAll('.view-btn');
-  const projectsContainer = document.getElementById('projectsContainer');
-  
-  if (viewBtns.length > 0 && projectsContainer) {
-    viewBtns.forEach(btn => {
-      const newBtn = btn.cloneNode(true);
-      btn.parentNode.replaceChild(newBtn, btn);
-      newBtn.addEventListener('click', () => {
-        if (newBtn.classList.contains('active')) return;
-        document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
-        newBtn.classList.add('active');
-        const viewType = newBtn.getAttribute('data-view');
+
+      // 3. Custom Dropdown Items (Selecionar Filtro)
+      const filterItem = e.target.closest('.dropdown-item');
+      if (filterItem) {
+        e.stopPropagation();
+        const dropdown = filterItem.closest('.custom-dropdown');
+        if (!dropdown) return;
         
+        dropdown.querySelectorAll('.dropdown-item').forEach(i => i.classList.remove('active'));
+        filterItem.classList.add('active');
+
+        const group = dropdown.getAttribute('data-filter-group');
+        const label = dropdown.querySelector('.dropdown-label');
+        const valText = filterItem.textContent;
+        const groupLabels = { type: 'Tipo', service: 'Serviços', industry: 'Indústria' };
+        
+        if(groupLabels[group] && label) {
+           label.textContent = `${groupLabels[group]}: ${valText}`;
+        }
+        
+        window._globalProjectsFilters[group] = filterItem.getAttribute('data-value');
+        dropdown.classList.remove('open');
+        applyGlobalFilters(window._globalProjectsFilters);
+        return;
+      }
+
+      // 4. View Toggles (Grid vs List)
+      const viewBtn = e.target.closest('.view-btn');
+      if (viewBtn) {
+        if (viewBtn.classList.contains('active')) return;
+        document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+        viewBtn.classList.add('active');
+        
+        const viewType = viewBtn.getAttribute('data-view');
         const container = document.getElementById('projectsContainer');
         if (!container) return;
+        
         container.style.transition = 'opacity 0.2s ease-out';
         container.style.opacity = '0';
         setTimeout(() => {
@@ -75,87 +83,71 @@ window.reinitMain = function() {
           container.classList.add(`${viewType}-view`);
           container.style.opacity = '1';
         }, 200);
-      });
-    });
-  }
-  
-  // Projects Filtering Logic
-  if (projectsContainer && customDropdowns.length > 0) {
-    const filters = { type: 'all', service: 'all', industry: 'all' };
+        return;
+      }
 
-    customDropdowns.forEach(dropdown => {
-      const group = dropdown.getAttribute('data-filter-group');
-      const label = dropdown.querySelector('.dropdown-label');
-      const items = dropdown.querySelectorAll('.dropdown-item');
-
-      items.forEach(item => {
-        const newItem = item.cloneNode(true);
-        item.parentNode.replaceChild(newItem, item);
-        newItem.addEventListener('click', (e) => {
-          e.stopPropagation();
-          
-          dropdown.querySelectorAll('.dropdown-item').forEach(i => i.classList.remove('active'));
-          newItem.classList.add('active');
-          
-          const valText = newItem.textContent;
-          const groupLabels = { type: 'Tipo', service: 'Serviços', industry: 'Indústria' };
-          
-          if(groupLabels[group] && label) {
-             label.textContent = `${groupLabels[group]}: ${valText}`;
-          }
-          
-          filters[group] = newItem.getAttribute('data-value');
+      // 5. Close Dropdowns if clicked outside
+      if (!e.target.closest('.custom-dropdown')) {
+        document.querySelectorAll('.custom-dropdown.open').forEach(dropdown => {
           dropdown.classList.remove('open');
-          applyFilters(filters);
         });
-      });
+      }
     });
 
-    function applyFilters(currentFilters) {
-      const container = document.getElementById('projectsContainer');
-      if (!container) return;
-      const projectItems = container.querySelectorAll('.dir-project-item');
+    window.addEventListener('scroll', () => {
+      document.querySelectorAll('.custom-dropdown.open').forEach(dropdown => {
+        dropdown.classList.remove('open');
+      });
+    }, { passive: true });
+
+    window.__mainDelegatedListenersAttached = true;
+  }
+
+  // Função Global de Aplicação de Filtros
+  function applyGlobalFilters(currentFilters) {
+    const container = document.getElementById('projectsContainer');
+    if (!container) return;
+    const projectItems = container.querySelectorAll('.dir-project-item');
+    
+    container.style.transition = 'opacity 0.2s ease-out';
+    container.style.opacity = '0';
+    
+    setTimeout(() => {
+      let visibleCount = 0;
       
-      container.style.transition = 'opacity 0.2s ease-out';
-      container.style.opacity = '0';
-      
-      setTimeout(() => {
-        let visibleCount = 0;
+      projectItems.forEach(card => {
+        const tags = Array.from(card.querySelectorAll('.dir-tag')).map(t => t.textContent.toLowerCase().trim());
         
-        projectItems.forEach(card => {
-          const tags = Array.from(card.querySelectorAll('.dir-tag')).map(t => t.textContent.toLowerCase().trim());
-          
-          let typeMatch = true;
-          if (currentFilters.type === 'real' && !tags.includes('caso real')) typeMatch = false;
-          if (currentFilters.type === 'pessoal' && !tags.includes('pessoal')) typeMatch = false;
-          
-          let serviceMatch = true;
-          if (currentFilters.service === 'design' && !tags.includes('design')) serviceMatch = false;
-          if (currentFilters.service === 'frontend' && !tags.includes('frontend') && !tags.includes('front end')) serviceMatch = false;
-          if (currentFilters.service === 'fullstack' && !tags.includes('full stack')) serviceMatch = false;
-          
-          let industryMatch = true;
-          if (currentFilters.industry === 'financa' && !tags.includes('finança')) industryMatch = false;
-          if (currentFilters.industry === 'imobiliario' && !tags.includes('imobiliário')) industryMatch = false;
-          if (currentFilters.industry === 'moda' && !tags.includes('moda & loja')) industryMatch = false;
-          if (currentFilters.industry === 'agencia' && !tags.includes('agência')) industryMatch = false;
-          
-          if (typeMatch && serviceMatch && industryMatch) {
-            card.style.display = 'flex';
-            visibleCount++;
-          } else {
-            card.style.display = 'none';
-          }
-        });
+        let typeMatch = true;
+        if (currentFilters.type === 'real' && !tags.includes('caso real')) typeMatch = false;
+        if (currentFilters.type === 'pessoal' && !tags.includes('pessoal')) typeMatch = false;
         
-        const countDisplay = document.querySelector('.filter-left .count');
-        if(countDisplay) {
-          countDisplay.textContent = `(${visibleCount})`;
+        let serviceMatch = true;
+        if (currentFilters.service === 'design' && !tags.includes('design')) serviceMatch = false;
+        if (currentFilters.service === 'frontend' && !tags.includes('frontend') && !tags.includes('front end')) serviceMatch = false;
+        if (currentFilters.service === 'fullstack' && !tags.includes('full stack')) serviceMatch = false;
+        
+        let industryMatch = true;
+        if (currentFilters.industry === 'financa' && !tags.includes('finança')) industryMatch = false;
+        if (currentFilters.industry === 'imobiliario' && !tags.includes('imobiliário')) industryMatch = false;
+        if (currentFilters.industry === 'moda' && !tags.includes('moda & loja')) industryMatch = false;
+        if (currentFilters.industry === 'agencia' && !tags.includes('agência')) industryMatch = false;
+        
+        if (typeMatch && serviceMatch && industryMatch) {
+          card.style.display = 'flex';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
         }
-        
-        container.style.opacity = '1';
-      }, 200);
-    }
+      });
+      
+      const countDisplay = document.querySelector('.filter-left .count');
+      if(countDisplay) {
+        countDisplay.textContent = `(${visibleCount})`;
+      }
+      
+      container.style.opacity = '1';
+    }, 200);
   }
 
   // Recommendations Carousel Logic
