@@ -93,7 +93,7 @@
         <section class="servicos-hero">
             <div class="hero-content-inner asymmetric-hero">
                 <!-- Text Side (Left) -->
-                <div class="hero-text-side fade-up"
+                <div class="hero-text-side slide-right" id="sobre-hero-text"
                     style="transition-delay: 0.1s; padding-left: 0; padding-right: 4rem;">
                     <span class="editorial-marker">/ Sobre Mim</span>
                     <h1 class="servicos-title">A minha evolução na Informática.</h1>
@@ -108,7 +108,7 @@
                 </div>
 
                 <!-- Image Side (Right) -->
-                <div class="hero-image-side fade-up">
+                <div class="hero-image-side zoom-in" id="sobre-hero-image" style="transition-delay: 0.3s;">
                     <div class="hero-visual-wrapper">
                         <video autoplay loop muted playsinline class="hero-video">
                             <source src="../assets/videos/sobre/fundosobrehero.mp4" type="video/mp4">
@@ -1818,6 +1818,28 @@
             buildIndicators();
             startAutoplay();
         })();
+    </script>
+
+    <!-- Sobre Hero Animation Handler -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const sobreHeroText = document.getElementById("sobre-hero-text");
+            const sobreHeroImage = document.getElementById("sobre-hero-image");
+            
+            if (sobreHeroText || sobreHeroImage) {
+                // Verificar se a transição entre páginas está ativa
+                const overlay = document.getElementById("page-transition-overlay");
+                const isTransitioning = overlay && (overlay.classList.contains("pt-covering") || overlay.classList.contains("pt-revealing"));
+                
+                // Se for navegação por AJAX aguarda a tela destapar (800ms), se for F5 direto arranca rápido (100ms)
+                const delay = isTransitioning ? 800 : 100;
+
+                setTimeout(() => {
+                    if (sobreHeroText) sobreHeroText.classList.add("is-visible");
+                    if (sobreHeroImage) sobreHeroImage.classList.add("is-visible");
+                }, delay);
+            }
+        });
     </script>
 
     <script src="../assets/js/main.js"></script>
