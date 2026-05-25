@@ -350,8 +350,13 @@
     // Immediately show elements that are at the top of the page
     const immediateSelectors = [
       '.split-hero-container.fade-up',
+      '.split-hero-container.hero-fade-up',
       '.hero-text-wrapper.fade-up',
+      '.hero-text-wrapper.hero-fade-up',
       '.bottom-nav.fade-up',
+      '.bottom-nav.hero-fade-up',
+      '.floating-card-wrapper.fade-up',
+      '.floating-card-wrapper.hero-fade-up',
       '.hero-text-side.fade-up',
       '.hero-image-side.fade-up',
       '.header-top.fade-up',
@@ -361,9 +366,11 @@
       '.contact-hero .fade-up',
       '.projetos-hero-section .fade-up'
     ];
-    document.querySelectorAll(immediateSelectors.join(', ')).forEach(el => {
-      el.classList.add('is-visible');
-    });
+    setTimeout(() => {
+      document.querySelectorAll(immediateSelectors.join(', ')).forEach(el => {
+        el.classList.add('is-visible');
+      });
+    }, 200);
 
     // Observer for the rest
     if (!fadeEls.length) return;
