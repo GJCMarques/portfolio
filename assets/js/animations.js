@@ -26,13 +26,11 @@ document.addEventListener('DOMContentLoaded', () => {
       if (entry.isIntersecting) {
         entry.target.classList.add('is-visible');
         
-        // Remove inline transition delay after entry animation finishes
+        // Remove inline and CSS variable transition delays after entry animation finishes
         // This prevents hover animations (like scaling/colors) from lagging
         setTimeout(() => {
-          if (entry.target.style.transitionDelay) {
-            entry.target.style.transitionDelay = '0s';
-          }
-        }, 800);
+          entry.target.style.transitionDelay = '0s';
+        }, 1500);
         
         observer.unobserve(entry.target);
       }

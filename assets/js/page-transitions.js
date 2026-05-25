@@ -404,6 +404,7 @@
     setTimeout(() => {
       document.querySelectorAll(immediateSelectorString).forEach(el => {
         el.classList.add('is-visible');
+        setTimeout(() => el.style.transitionDelay = '0s', 1500);
       });
     }, 600); // 600ms (so hero elements start animating exactly as planned)
 
@@ -413,6 +414,7 @@
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
+          setTimeout(() => entry.target.style.transitionDelay = '0s', 1500);
           obs.unobserve(entry.target);
         }
       });
