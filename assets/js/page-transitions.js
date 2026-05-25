@@ -112,6 +112,9 @@
 
       const html = await response.text();
       fetchedDoc = new DOMParser().parseFromString(html, 'text/html');
+      
+      // Phase 2.5: Preload new CSS during the cover animation
+      preloadStylesheets(fetchedDoc, targetUrl);
     } catch (err) {
       window.location.href = targetUrl;
       return;
@@ -174,8 +177,9 @@
       oldMeta.setAttribute('content', newMeta.getAttribute('content'));
     }
 
-    // Manage CSS: remove previous page's exclusive styles, inject new page's styles
-    manageStylesheets(fetchedDoc, targetUrl);
+    // Manage CSS: remove previous page's exclusive styles
+    // Note: new page's styles were already preloaded during the fetch phase
+    applyAndCleanupStylesheets(fetchedDoc, targetUrl);
 
     // Preserve the overlay element across swap
     const overlay = document.getElementById('page-transition-overlay');
@@ -235,26 +239,7 @@
     return SHARED_CSS.some(name => href.includes(name));
   }
 
-  function manageStylesheets(fetchedDoc, targetUrl) {
-    // Build set of hrefs the NEW page needs (absolute URLs)
-    const newPageHrefs = new Set();
-    fetchedDoc.querySelectorAll('link[rel="stylesheet"]').forEach(link => {
-      const href = link.getAttribute('href');
-      if (!href) return;
-      try {
-        newPageHrefs.add(new URL(href, targetUrl).href);
-      } catch (e) { /* ignore */ }
-    });
-
-    // Remove page-specific CSS files NOT needed by the new page
-    document.querySelectorAll('link[rel="stylesheet"]').forEach(existingLink => {
-      const href = existingLink.href;
-      if (isSharedCss(href)) return;          // never remove shared CSS
-      if (newPageHrefs.has(href)) return;     // new page needs this — keep it
-      existingLink.parentNode.removeChild(existingLink); // remove stale CSS
-    });
-
-    // Now add CSS files the new page needs that aren't loaded yet
+  function preloadStylesheets(fetchedDoc, targetUrl) {
     const currentHrefs = new Set(
       Array.from(document.querySelectorAll('link[rel="stylesheet"]')).map(l => l.href)
     );
@@ -265,14 +250,51 @@
       try {
         const abs = new URL(href, targetUrl).href;
         if (!currentHrefs.has(abs)) {
-          const newLink = document.createElement('link');
-          newLink.rel = 'stylesheet';
-          newLink.href = abs;
-          document.head.appendChild(newLink);
-          currentHrefs.add(abs);
+          const preloadLink = document.createElement('link');
+          preloadLink.rel = 'preload';
+          preloadLink.as = 'style';
+          preloadLink.href = abs;
+          preloadLink.className = 'pt-preload';
+          document.head.appendChild(preloadLink);
         }
       } catch (e) { /* ignore bad hrefs */ }
     });
+  }
+
+  function applyAndCleanupStylesheets(fetchedDoc, targetUrl) {
+    const newPageHrefs = new Set();
+    fetchedDoc.querySelectorAll('link[rel="stylesheet"]').forEach(link => {
+      const href = link.getAttribute('href');
+      if (!href) return;
+      try {
+        newPageHrefs.add(new URL(href, targetUrl).href);
+      } catch (e) { /* ignore */ }
+    });
+
+    const currentHrefs = new Set(
+      Array.from(document.querySelectorAll('link[rel="stylesheet"]')).map(l => l.href)
+    );
+
+    // Add new page's CSS (which was preloaded, so it applies instantly)
+    newPageHrefs.forEach(absHref => {
+      if (!currentHrefs.has(absHref)) {
+        const newLink = document.createElement('link');
+        newLink.rel = 'stylesheet';
+        newLink.href = absHref;
+        document.head.appendChild(newLink);
+      }
+    });
+
+    // Remove page-specific CSS files NOT needed by the new page
+    document.querySelectorAll('link[rel="stylesheet"]').forEach(existingLink => {
+      const href = existingLink.href;
+      if (isSharedCss(href)) return;          // never remove shared CSS
+      if (newPageHrefs.has(href)) return;     // new page needs this — keep it
+      existingLink.parentNode.removeChild(existingLink); // remove stale CSS
+    });
+    
+    // Clean up preload tags
+    document.querySelectorAll('link.pt-preload').forEach(el => el.remove());
   }
 
 
@@ -358,7 +380,9 @@
       '.floating-card-wrapper.fade-up',
       '.floating-card-wrapper.hero-fade-up',
       '.hero-text-side.fade-up',
+      '.hero-text-side.slide-right',
       '.hero-image-side.fade-up',
+      '.hero-image-side.zoom-in',
       '.header-top.fade-up',
       '.servicos-hero .fade-up',
       '.hero-editorial-row.fade-up',
@@ -370,7 +394,7 @@
       document.querySelectorAll(immediateSelectors.join(', ')).forEach(el => {
         el.classList.add('is-visible');
       });
-    }, 200);
+    }, 1200); // 1200ms (matches reveal end)
 
     // Observer for the rest
     if (!fadeEls.length) return;

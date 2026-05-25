@@ -75,17 +75,25 @@
             const navEntries = performance.getEntriesByType("navigation");
             const isReload = navEntries.length > 0 && navEntries[0].type === "reload";
             const hasSeen = sessionStorage.getItem("hasSeenPreloader");
+            const isAjax = document.readyState !== "loading";
+            
+            // Skip preloader if it's an AJAX navigation OR if we've seen it and it's not a direct F5 refresh
+            const skipPreloader = isAjax || (hasSeen && !isReload);
 
-            if (hasSeen && !isReload) {
+            if (skipPreloader) {
                 preloader.classList.add("preloader-instant-hide");
-                // Garantir que a animação da página arranca se o preloader for ignorado
-                window.addEventListener("DOMContentLoaded", () => {
-                    setTimeout(() => {
-                        document.querySelectorAll('.split-hero-container.hero-fade-up, .hero-text-wrapper.hero-fade-up, .bottom-nav.hero-fade-up, .floating-card-wrapper.hero-fade-up').forEach(el => {
-                            el.classList.add('is-visible');
-                        });
-                    }, 100);
-                });
+                
+                if (!isAjax) {
+                    // Garantir que a animação da página arranca se o preloader for ignorado no F5
+                    window.addEventListener("DOMContentLoaded", () => {
+                        setTimeout(() => {
+                            document.querySelectorAll('.split-hero-container.hero-fade-up, .hero-text-wrapper.hero-fade-up, .bottom-nav.hero-fade-up, .floating-card-wrapper.hero-fade-up').forEach(el => {
+                                el.classList.add('is-visible');
+                            });
+                        }, 100);
+                    });
+                }
+                // Se for AJAX, o page-transitions.js já trata de adicionar o .is-visible através do setTimeout
             } else {
                 sessionStorage.setItem("hasSeenPreloader", "true");
                 document.body.style.overflow = "hidden"; // bloquear scroll

@@ -1820,28 +1820,6 @@
         })();
     </script>
 
-    <!-- Sobre Hero Animation Handler -->
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const sobreHeroText = document.getElementById("sobre-hero-text");
-            const sobreHeroImage = document.getElementById("sobre-hero-image");
-            
-            if (sobreHeroText || sobreHeroImage) {
-                // Verificar se a transição entre páginas está ativa
-                const overlay = document.getElementById("page-transition-overlay");
-                const isTransitioning = overlay && (overlay.classList.contains("pt-covering") || overlay.classList.contains("pt-revealing"));
-                
-                // Se for navegação por AJAX aguarda a tela destapar (800ms), se for F5 direto arranca rápido (100ms)
-                const delay = isTransitioning ? 800 : 100;
-
-                setTimeout(() => {
-                    if (sobreHeroText) sobreHeroText.classList.add("is-visible");
-                    if (sobreHeroImage) sobreHeroImage.classList.add("is-visible");
-                }, delay);
-            }
-        });
-    </script>
-
     <script src="../assets/js/main.js"></script>
     <script src="../assets/js/page-transitions.js"></script>
 </body>
