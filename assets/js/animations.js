@@ -6,11 +6,11 @@ if (history.scrollRestoration) {
 }
 
 // 2. Immediate reset
-window.scrollTo(0, 0);
+window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
 
 document.addEventListener('DOMContentLoaded', () => {
   // 3. Reset when DOM is ready
-  window.scrollTo(0, 0);
+  window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
 
   // Observe all entry animations
   const fadeElements = document.querySelectorAll('.fade-up, .slide-right, .zoom-in, .pop-up, .fade-in, .hero-fade-up');

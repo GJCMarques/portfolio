@@ -209,8 +209,12 @@
       document.body.style.overflow = '';
     }
 
-    // Scroll to top
-    window.scrollTo(0, 0);
+    // Scroll to top instantly
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+
+    // Fallback for older browsers
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
 
     // Re-execute all inline scripts from new page
     executeInlineScripts(fetchedDoc.body);
@@ -365,7 +369,6 @@
   }
 
   function reinitAnimations() {
-    window.scrollTo(0, 0);
 
     // Immediately show elements that are at the top of the page
     const immediateSelectors = [
