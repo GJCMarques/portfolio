@@ -12,8 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // 3. Reset when DOM is ready
   window.scrollTo(0, 0);
 
-  // Fade-up Animations Logic
-  const fadeElements = document.querySelectorAll('.fade-up');
+  // Observe all entry animations
+  const fadeElements = document.querySelectorAll('.fade-up, .slide-right, .zoom-in, .pop-up, .fade-in');
   
   const fadeObserverOptions = {
     root: null,
