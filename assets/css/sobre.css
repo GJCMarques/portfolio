@@ -106,8 +106,10 @@
 
 /* Dynamic Animation Delays for AJAX Transitions */
 body.is-ajax {
-    --delay-text: 0.5s;
-    --delay-img: 0.8s;
+    --delay-text-1: 0.30s;
+    --delay-text-2: 0.45s;
+    --delay-text-3: 0.60s;
+    --delay-img: 0.85s;
 }
 
 .about-intro-section {

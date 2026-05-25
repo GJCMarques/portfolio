@@ -367,8 +367,6 @@
   function reinitAnimations() {
     window.scrollTo(0, 0);
 
-    const fadeEls = document.querySelectorAll('.fade-up:not(.is-visible)');
-
     // Immediately show elements that are at the top of the page
     const immediateSelectors = [
       '.split-hero-container.fade-up',
@@ -385,16 +383,26 @@
       '.hero-image-side.zoom-in',
       '.header-top.fade-up',
       '.servicos-hero .fade-up',
+      '.servicos-hero .hero-fade-up',
+      '.servicos-hero .slide-right',
+      '.servicos-hero .zoom-in',
       '.hero-editorial-row.fade-up',
       '.hero-visual-wrapper.fade-up',
       '.contact-hero .fade-up',
       '.projetos-hero-section .fade-up'
     ];
+
+    const allFadeEls = document.querySelectorAll('.fade-up:not(.is-visible), .slide-right:not(.is-visible), .zoom-in:not(.is-visible), .pop-up:not(.is-visible), .fade-in:not(.is-visible), .hero-fade-up:not(.is-visible)');
+    
+    // Filter out immediate elements so the observer doesn't hijack their 600ms delay
+    const immediateSelectorString = immediateSelectors.join(', ');
+    const fadeEls = Array.from(allFadeEls).filter(el => !el.matches(immediateSelectorString));
+
     setTimeout(() => {
-      document.querySelectorAll(immediateSelectors.join(', ')).forEach(el => {
+      document.querySelectorAll(immediateSelectorString).forEach(el => {
         el.classList.add('is-visible');
       });
-    }, 600); // 600ms (so hero elements start animating 0.2s earlier as requested)
+    }, 600); // 600ms (so hero elements start animating exactly as planned)
 
     // Observer for the rest
     if (!fadeEls.length) return;

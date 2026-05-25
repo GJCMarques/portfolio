@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.scrollTo(0, 0);
 
   // Observe all entry animations
-  const fadeElements = document.querySelectorAll('.fade-up, .slide-right, .zoom-in, .pop-up, .fade-in');
+  const fadeElements = document.querySelectorAll('.fade-up, .slide-right, .zoom-in, .pop-up, .fade-in, .hero-fade-up');
   
   const fadeObserverOptions = {
     root: null,
