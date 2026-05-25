@@ -186,6 +186,7 @@
     if (newBodyOverlay) newBodyOverlay.remove();
 
     document.body.innerHTML = newBody.innerHTML;
+    document.body.classList.add('is-ajax');
 
     // Manage CSS AFTER swapping the DOM to prevent double layout-thrashing
     applyAndCleanupStylesheets(fetchedDoc, targetUrl);

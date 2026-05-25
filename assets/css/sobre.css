@@ -104,6 +104,12 @@
     }
 }
 
+/* Dynamic Animation Delays for AJAX Transitions */
+body.is-ajax {
+    --delay-text: 0.5s;
+    --delay-img: 0.8s;
+}
+
 .about-intro-section {
     padding-top: 6rem;
     padding-bottom: 4rem;
