@@ -80,9 +80,11 @@
                 preloader.classList.add("preloader-instant-hide");
                 // Garantir que a animação da página arranca se o preloader for ignorado
                 window.addEventListener("DOMContentLoaded", () => {
-                    document.querySelectorAll('.split-hero-container.fade-up, .hero-text-wrapper.fade-up, .bottom-nav.fade-up').forEach(el => {
-                        el.classList.add('is-visible');
-                    });
+                    setTimeout(() => {
+                        document.querySelectorAll('.split-hero-container.hero-fade-up, .hero-text-wrapper.hero-fade-up, .bottom-nav.hero-fade-up, .floating-card-wrapper.hero-fade-up').forEach(el => {
+                            el.classList.add('is-visible');
+                        });
+                    }, 100);
                 });
             } else {
                 sessionStorage.setItem("hasSeenPreloader", "true");
@@ -137,9 +139,11 @@
                                         document.body.style.overflowY = "auto";
 
                                         // Trigger da landing page hero elements!
-                                        document.querySelectorAll('.split-hero-container.fade-up, .hero-text-wrapper.fade-up, .bottom-nav.fade-up').forEach(el => {
-                                            el.classList.add('is-visible');
-                                        });
+                                        setTimeout(() => {
+                                            document.querySelectorAll('.split-hero-container.hero-fade-up, .hero-text-wrapper.hero-fade-up, .bottom-nav.hero-fade-up, .floating-card-wrapper.hero-fade-up').forEach(el => {
+                                                el.classList.add('is-visible');
+                                            });
+                                        }, 200);
 
                                         setTimeout(() => preloader.remove(), 1500);
                                     }, 800); // 800ms for the finishing fade to complete
@@ -235,7 +239,7 @@
     </aside>
 
     <!-- Split Hero Container -->
-    <main id="top" class="split-hero-container fade-up">
+    <main id="top" class="split-hero-container hero-fade-up">
 
         <!-- Left Side: Content & Navigation -->
         <div class="split-left">
@@ -250,14 +254,14 @@
                 <span class="brand-name">Guilherme Marques</span>
             </a>
 
-            <div class="hero-text-wrapper fade-up" style="transition-delay: 0.2s;">
+            <div class="hero-text-wrapper hero-fade-up" style="transition-delay: 0.2s;">
                 <h1 class="hero-title">Técnico Informático &<br>Web Developer</h1>
                 <p class="hero-desc">Sou Técnico Informático e Web Developer. Desenvolvo websites e soluções digitais
                     robustas, pensadas à medida. Especializo-me na criação de plataformas web para PMEs, mas possuo
                     também um vasto conhecimento em Multimédia e diversas outras áreas da Informática.</p>
             </div>
 
-            <nav class="bottom-nav fade-up" style="transition-delay: 0.4s;">
+            <nav class="bottom-nav hero-fade-up" style="transition-delay: 0.4s;">
                 <a href="sobre/">/ Sobre</a>
                 <a href="projetos/">/ Projetos</a>
                 <a href="servicos/">/ Serviços</a>
@@ -301,7 +305,7 @@
 
         <!-- Centered Floating Card (Dynamic Status) -->
         <div class="floating-card-positioner">
-            <div class="floating-card-wrapper fade-up is-visible" style="transition-delay: 0.6s;">
+            <div class="floating-card-wrapper hero-fade-up" style="transition-delay: 0.6s;">
                 <div class="floating-card dynamic-status-card">
                     <div class="status-header">
                         <div class="location-wrap">
