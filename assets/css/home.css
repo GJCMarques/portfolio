@@ -94,9 +94,7 @@
 }
 
 .floating-card {
-  background: rgba(244, 243, 240, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgb(244, 243, 240);
   padding: 1.5rem;
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-glass);
