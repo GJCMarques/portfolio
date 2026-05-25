@@ -177,10 +177,6 @@
       oldMeta.setAttribute('content', newMeta.getAttribute('content'));
     }
 
-    // Manage CSS: remove previous page's exclusive styles
-    // Note: new page's styles were already preloaded during the fetch phase
-    applyAndCleanupStylesheets(fetchedDoc, targetUrl);
-
     // Preserve the overlay element across swap
     const overlay = document.getElementById('page-transition-overlay');
 
@@ -190,6 +186,9 @@
     if (newBodyOverlay) newBodyOverlay.remove();
 
     document.body.innerHTML = newBody.innerHTML;
+
+    // Manage CSS AFTER swapping the DOM to prevent double layout-thrashing
+    applyAndCleanupStylesheets(fetchedDoc, targetUrl);
 
     // Re-attach overlay
     document.body.appendChild(overlay);
@@ -394,7 +393,7 @@
       document.querySelectorAll(immediateSelectors.join(', ')).forEach(el => {
         el.classList.add('is-visible');
       });
-    }, 1200); // 1200ms (matches reveal end)
+    }, 600); // 600ms (so hero elements start animating 0.2s earlier as requested)
 
     // Observer for the rest
     if (!fadeEls.length) return;
