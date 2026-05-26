@@ -1609,9 +1609,13 @@
 
   /* Reduced Section Paddings for mobile */
   .about-intro-section, 
-  .services-home-section, 
-  .contact-home-section {
+  .services-home-section {
     padding-top: 100px !important;
+    padding-bottom: 100px !important;
+  }
+
+  .contact-home-section {
+    padding-top: 150px !important;
     padding-bottom: 100px !important;
   }
 
