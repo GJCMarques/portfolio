@@ -1081,7 +1081,7 @@ body.is-ajax {
 @media (max-width: 768px) {
     .testimonial-card {
         flex-direction: column;
-        height: auto;
+        height: 100%;
     }
 
     .testimonial-content::after {
