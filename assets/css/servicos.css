@@ -635,16 +635,13 @@ body.is-ajax .servicos-hero .hero-text-side {
     }
     
     .tech-stack {
-        grid-template-columns: 1fr !important;
+        grid-template-columns: repeat(2, 1fr) !important;
         gap: 1rem !important;
     }
 
-    /* Maintain 2 columns for specific accordions (01, 02, 03, 05) with short words */
-    .accordion-item:nth-child(1) .tech-stack,
-    .accordion-item:nth-child(2) .tech-stack,
-    .accordion-item:nth-child(3) .tech-stack,
-    .accordion-item:nth-child(5) .tech-stack {
-        grid-template-columns: repeat(2, 1fr) !important;
+    /* Accordion 04 has longer text, keep 1 column */
+    .accordion-item:nth-child(4) .tech-stack {
+        grid-template-columns: 1fr !important;
     }
 
     .accordion-header {
