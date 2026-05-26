@@ -638,7 +638,7 @@ body.is-ajax .projetos-hero-section .hero-editorial-row {
 
     /* Global 24px lateral padding for main container */
     .projects-directory-section {
-        padding-top: 100px !important;
+        padding-top: 50px !important;
         padding-bottom: 50px !important;
     }
 
