@@ -2047,6 +2047,7 @@ body.is-ajax {
 .about-cta-section {
     padding: 100px 0 !important;
     background-color: var(--color-bg-main);
+    border-bottom: none !important;
 }
 
 .about-cta-container {
@@ -2553,6 +2554,17 @@ body.is-ajax {
     .about-cta-section {
         padding-top: 50px !important;
         padding-bottom: 150px !important;
+        border: none !important;
+        box-shadow: none !important;
+        outline: none !important;
+        margin-bottom: 0 !important;
+    }
+    
+    .about-cta-container {
+        border: none !important;
+        box-shadow: none !important;
+        outline: none !important;
+        margin-bottom: 0 !important;
     }
 
     /* Fix inline children that use hard-coded left/right padding — reset on mobile */
@@ -2561,4 +2573,17 @@ body.is-ajax {
         padding-left: 0 !important;
         padding-right: 0 !important;
     }
+}
+
+/* Force remove any phantom lines between CTA and Footer */
+main {
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.site-footer {
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
 }
