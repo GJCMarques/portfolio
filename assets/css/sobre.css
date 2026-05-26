@@ -2473,7 +2473,7 @@ body.is-ajax {
 @media (max-width: 768px) {
     /* Mobile Specifics */
     .servicos-hero {
-        padding: 6rem 1.5rem 3rem;
+        padding: 8.5rem 1.5rem 3rem; /* Extra top padding to clear the logo */
     }
     
     .servicos-title {
@@ -2490,5 +2490,31 @@ body.is-ajax {
     
     .timeline-header {
         margin-bottom: 3rem;
+    }
+
+    /* Override inline paddings for mobile */
+    .about-intro-section {
+        padding-top: 100px !important;
+        padding-bottom: 50px !important;
+    }
+    
+    .timeline-section,
+    .skills-grid-editorial,
+    .certifications-gallery-section,
+    .languages-soft-skills-section {
+        padding-top: 50px !important;
+        padding-bottom: 50px !important;
+    }
+    
+    .civic-participation-section {
+        padding-top: 150px !important;
+        padding-bottom: 150px !important;
+        margin: 0 !important;
+        border-radius: 0 !important;
+    }
+    
+    .about-cta-section {
+        padding-top: 50px !important;
+        padding-bottom: 150px !important;
     }
 }

@@ -330,6 +330,23 @@ body.nav-active .drawer-footer {
     padding: 5rem 2rem 3.5rem 2rem; /* Generous bottom padding for breathing room */
   }
 
+  .brand-logo-fixed {
+    top: 2rem;
+    left: 1.5rem;
+    max-width: 75%;
+    white-space: nowrap;
+  }
+
+  .brand-logo-fixed .brand-name {
+    font-size: 1.15rem;
+  }
+
+  .brand-logo-fixed .logo-icon svg {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+  }
+
   .menu-trigger {
     top: 1.5rem;
     right: 1.5rem;
