@@ -2497,12 +2497,17 @@ body.is-ajax {
         margin-bottom: 3rem;
     }
 
+    /* Global 24px lateral padding for ALL sections (except hero) */
+    main > section:not(.servicos-hero):not(.about-dark-section):not(.civic-participation-section),
+    main > section:not(.servicos-hero) .container {
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
+    }
+
     /* Override inline paddings for mobile */
     .about-intro-section {
         padding-top: 100px !important;
         padding-bottom: 50px !important;
-        padding-left: 1.5rem !important;  /* 24px lateral padding */
-        padding-right: 1.5rem !important;
     }
     
     .timeline-section,
@@ -2511,8 +2516,6 @@ body.is-ajax {
     .languages-soft-skills-section {
         padding-top: 50px !important;
         padding-bottom: 50px !important;
-        padding-left: 1.5rem !important;
-        padding-right: 1.5rem !important;
     }
     
     .civic-participation-section {
@@ -2527,8 +2530,6 @@ body.is-ajax {
     .about-cta-section {
         padding-top: 50px !important;
         padding-bottom: 150px !important;
-        padding-left: 1.5rem !important;
-        padding-right: 1.5rem !important;
     }
 
     /* Fix inline children that use hard-coded left/right padding — reset on mobile */
