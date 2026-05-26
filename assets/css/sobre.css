@@ -1365,9 +1365,21 @@ body.is-ajax {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.about-dark-section .skills-category-editorial:last-child {
+.about-dark-section .skills-extra-panel .skills-category-editorial:last-child {
     border-bottom: none;
-    /* Remove bottom border on mobile for the last category */
+    /* Remove bottom border on mobile for the last category of the expanded panel */
+}
+
+/* Ensure the last item of the first grid maintains its padding on mobile so it doesn't overlap the border */
+@media (max-width: 768px) {
+    .about-dark-section .skills-grid-editorial:not(.skills-extra-panel .skills-grid-editorial) .skills-category-editorial:last-child {
+        padding-bottom: 2.5rem;
+    }
+    
+    /* Ensure the first item of the expanded panel has top padding on mobile */
+    .skills-extra-panel .skills-category-editorial:first-child {
+        padding-top: 2.5rem;
+    }
 }
 
 @media (min-width: 768px) {
