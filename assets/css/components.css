@@ -495,3 +495,39 @@
     gap: 1.5rem;
   }
 }
+
+@media (max-width: 768px) {
+  /* 1. Remove the <br> line-break in the footer statement on mobile */
+  .footer-statement br {
+    display: none;
+  }
+
+  .footer-statement {
+    font-size: clamp(1.8rem, 8vw, 2.5rem);
+  }
+
+  /* 2. Align Voltar ao Topo to the right */
+  .footer-info-group:has(.back-to-top-btn) {
+    align-items: flex-end;
+    text-align: right;
+    width: 100%;
+  }
+
+  /* 3. Footer nav: inverted pyramid — flex-wrap + center */
+  .footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem 2.5rem;
+    width: 100%;
+  }
+
+  /* Center the entire nav block */
+  .footer-bottom {
+    align-items: center;
+  }
+
+  .footer-copyright {
+    text-align: center;
+  }
+}
