@@ -1560,13 +1560,17 @@
 
   /* Fix overlapping logo */
   .brand-logo {
-    font-size: 1.25rem; /* Smaller font on mobile */
-    max-width: 70%; /* Prevent overlapping with hamburger menu */
+    font-size: 1.15rem; /* Slightly smaller to ensure it fits */
+    max-width: 85%; /* Give it more room */
+    display: flex;
+    align-items: center;
+    white-space: nowrap; /* Prevent "Guilherme Marques" from breaking into 2 lines */
   }
   
   .brand-logo svg {
-    width: 32px; /* Smaller icon on mobile */
-    height: 32px;
+    width: 28px; /* Slightly smaller icon to match */
+    height: 28px;
+    flex-shrink: 0;
   }
 
   .hero-title {
