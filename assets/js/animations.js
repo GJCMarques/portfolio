@@ -13,7 +13,15 @@ document.addEventListener('DOMContentLoaded', () => {
   window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
 
   // Observe all entry animations
-  const fadeElements = document.querySelectorAll('.fade-up, .slide-right, .zoom-in, .pop-up, .fade-in, .hero-fade-up');
+  const allFadeElements = document.querySelectorAll('.fade-up, .slide-right, .zoom-in, .pop-up, .fade-in, .hero-fade-up');
+  
+  // Exclude hero elements from IntersectionObserver IF the preloader is active.
+  // The preloader script will manually trigger these when the loading finishes.
+  let fadeElements = Array.from(allFadeElements);
+  if (document.getElementById('home-preloader')) {
+    const heroSelectors = '.split-hero-container, .hero-text-wrapper, .bottom-nav, .floating-card-wrapper';
+    fadeElements = fadeElements.filter(el => !el.matches(heroSelectors));
+  }
   
   const fadeObserverOptions = {
     root: null,
