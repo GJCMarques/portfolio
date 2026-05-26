@@ -1365,7 +1365,7 @@ body.is-ajax {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.about-dark-section .skills-extra-panel .skills-category-editorial:last-child {
+.about-dark-section .skills-category-editorial:last-child {
     border-bottom: none;
     /* Remove bottom border on mobile for the last category */
 }
@@ -2517,7 +2517,6 @@ body.is-ajax {
     
     .timeline-section,
     .certifications-section,
-    .skills-grid-editorial,
     .certifications-gallery-section,
     .languages-soft-skills-section {
         padding-top: 50px !important;
