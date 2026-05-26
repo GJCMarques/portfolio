@@ -401,3 +401,18 @@
         height: 40vh;
     }
 }
+
+/* =========================================
+   CUSTOM AJAX HERO ANIMATIONS
+========================================= */
+body.is-ajax .contact-hero .header-top {
+    --delay-text-1: 0.40s;
+}
+
+body.is-ajax .contact-hero .hero-editorial-row {
+    --delay-text-2: 0.55s;
+}
+
+body.is-ajax .contact-hero .hero-visual-wrapper {
+    --delay-img: 0.70s;
+}

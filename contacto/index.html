@@ -78,7 +78,7 @@
 
     <div class="contact-page-wrapper">
         <!-- Header (SCROLLS AWAY) -->
-        <header class="header-top fade-up">
+        <header class="header-top hero-fade-up" style="transition-delay: var(--delay-text-1, 0.1s);">
             <a href="../" class="brand-logo" aria-label="Home">
                 <div class="logo-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="none" viewBox="0 0 256 256">
@@ -95,7 +95,7 @@
         <section class="contact-hero">
             <div class="hero-content-inner">
                 <!-- Editorial Split Row -->
-                <div class="hero-editorial-row fade-up">
+                <div class="hero-editorial-row hero-fade-up" style="transition-delay: var(--delay-text-2, 0.25s);">
                     <div class="editorial-left">
                         <span class="editorial-marker">/ Contacto</span>
                     </div>
@@ -104,7 +104,7 @@
                     </div>
                 </div>
 
-                <div class="hero-visual-wrapper fade-up" style="transition-delay: 0.2s;">
+                <div class="hero-visual-wrapper hero-fade-up" style="transition-delay: var(--delay-img, 0.4s);">
                     <video autoplay muted loop playsinline class="hero-video">
                         <source src="../assets/videos/contacto/vidfundocontacto.mp4" type="video/mp4">
                         <img src="../assets/img/contact-hero.png" alt="Minimalist Studio Architecture">
@@ -114,7 +114,7 @@
         </section>
 
         <!-- SECTION 2: MAIN CONTENT & FORM -->
-        <section class="contact-main-section">
+        <section class="contact-main-section stagger-container fade-up">
             <div class="contact-grid">
                 <!-- Left: Editorial Info -->
                 <div class="contact-info-col">
@@ -127,21 +127,21 @@
 
                     <div class="info-details-list">
                         <!-- Email -->
-                        <div class="detail-block fade-up" style="transition-delay: 0.1s;">
+                        <div class="detail-block fade-up">
                             <span class="detail-label">EMAIL</span>
                             <a href="mailto:guilherme.jcmarques@gmail.com"
                                 class="detail-value underline-premium">guilherme.jcmarques@gmail.com</a>
                         </div>
 
                         <!-- Phone -->
-                        <div class="detail-block fade-up" style="transition-delay: 0.2s;">
+                        <div class="detail-block fade-up">
                             <span class="detail-label">TELEFONE</span>
                             <a href="mailto:guilherme.jcmarques@gmail.com?subject=Pedido de Contacto Telefónico"
                                 class="detail-value underline-premium">A pedido por Email</a>
                         </div>
 
                         <!-- Socials -->
-                        <div class="detail-block fade-up" style="transition-delay: 0.3s;">
+                        <div class="detail-block fade-up">
                             <span class="detail-label">REDES SOCIAIS</span>
                             <div class="social-icon-grid">
                                 <a href="https://linkedin.com/in/guilhermemarques" target="_blank"
@@ -163,7 +163,7 @@
                         </div>
 
                         <!-- Location -->
-                        <div class="detail-block fade-up" style="transition-delay: 0.4s;">
+                        <div class="detail-block fade-up">
                             <span class="detail-label">LOCALIZAÇÃO</span>
                             <span class="detail-value">Porto, Portugal</span>
                         </div>
@@ -171,7 +171,7 @@
                 </div>
 
                 <!-- Right: Form -->
-                <div class="form-col fade-up" style="transition-delay: 0.3s;">
+                <div class="form-col fade-up">
                     <span class="form-eyebrow">Formulário de contacto</span>
                     <form class="premium-form" action="#" method="POST">
                         <div class="form-group">
@@ -298,6 +298,7 @@
 
     <script src="../assets/js/animations.js"></script>
     <script src="../assets/js/menu.js"></script>
+    <script src="../assets/js/main.js"></script>
     <script src="../assets/js/page-transitions.js"></script>
 </body>
 
