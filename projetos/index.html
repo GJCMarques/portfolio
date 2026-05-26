@@ -79,46 +79,38 @@
         </div>
     </aside>
 
-    <div class="servicos-page-wrapper">
-        <!-- Header -->
-        <header class="header-top hero-fade-up" style="transition-delay: var(--delay-text-1, 0.1s);">
-            <a href="../" class="brand-logo" aria-label="Home">
-                <div class="logo-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="none" viewBox="0 0 256 256">
-                        <path
-                            d="M 144 256 L 27.598 256 L 144 139.598 Z M 256 207.5 L 200 256 L 200 56 L 0 56 L 48 0 L 256 0 Z M 0 204.402 L 0 112 L 92.402 112 Z"
-                            fill="currentColor"></path>
-                    </svg>
-                </div>
-                <span class="brand-name">Guilherme Marques</span>
-            </a>
-        </header>
+    <a href="../" class="brand-logo-fixed" aria-label="Home">
+        <div class="logo-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="none" viewBox="0 0 256 256">
+                <path
+                    d="M 144 256 L 27.598 256 L 144 139.598 Z M 256 207.5 L 200 256 L 200 56 L 0 56 L 48 0 L 256 0 Z M 0 204.402 L 0 112 L 92.402 112 Z"
+                    fill="currentColor"></path>
+            </svg>
+        </div>
+        <span class="brand-name">Guilherme Marques</span>
+    </a>
 
+    <div class="servicos-page-wrapper">
         <!-- =========================================
              PART 1: PROJECT HERO
         ========================================= -->
-        <section class="projetos-hero-section"
-            style="min-height: 100vh; display: flex; flex-direction: column; padding-top: var(--header-height);">
-            <div class="hero-content-inner"
-                style="flex: 1; display: flex; flex-direction: column; justify-content: space-between; padding-bottom: 2rem;">
+        <section class="projetos-hero-section fade-up">
+            <div class="hero-content-inner">
 
                 <!-- Top Visual (Fills available space) -->
-                <div class="hero-visual-wrapper hero-fade-up"
-                    style="flex: 1; min-height: 0; border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 2rem; position: relative; transition-delay: var(--delay-img, 0.25s);">
-                    <video autoplay loop muted playsinline class="hero-video"
-                        style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
+                <div class="hero-visual-wrapper hero-fade-up" style="transition-delay: var(--delay-img, 0.25s);">
+                    <video autoplay loop muted playsinline class="hero-video">
                         <source src="../assets/videos/projetos/fundohero.mp4" type="video/mp4">
                     </video>
                 </div>
 
                 <!-- Bottom Editorial Row (Anchors to the bottom of the screen) -->
-                <div class="hero-editorial-row hero-fade-up"
-                    style="display: flex; justify-content: space-between; align-items: flex-end; transition-delay: var(--delay-text-2, 0.4s); border-top: none;">
+                <div class="hero-editorial-row hero-fade-up" style="transition-delay: var(--delay-text-2, 0.4s);">
                     <div class="editorial-left">
                         <span class="editorial-marker">/ Projetos</span>
                     </div>
-                    <div class="editorial-right" style="text-align: right;">
-                        <h1 class="contact-title" style="margin: 0; line-height: 0.9;">Portfólio de Trabalhos.</h1>
+                    <div class="editorial-right">
+                        <h1 class="contact-title">Portfólio de Trabalhos.</h1>
                     </div>
                 </div>
 
@@ -331,7 +323,7 @@
         </section>
 
         <!-- CTA Section -->
-        <section class="stagger-container fade-up" style="padding-bottom: 100px;">
+        <section class="stagger-container fade-up projetos-cta-section">
             <div class="container-large">
                 <div class="projects-section-footer fade-up">
                     <div class="footer-bg-single">

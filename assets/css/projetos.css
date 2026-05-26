@@ -1,6 +1,58 @@
 /* Projetos Page Specific Styles */
 
 /* =========================================
+   PROJECTS HERO
+========================================= */
+.projetos-hero-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: var(--header-height) 2.5rem 0;
+}
+
+.projetos-hero-section .hero-content-inner {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 2.5rem;
+    padding-top: 2rem;
+}
+
+.projetos-hero-section .hero-visual-wrapper {
+    flex: 1;
+    min-height: 0;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.projetos-hero-section .hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.projetos-hero-section .hero-editorial-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.projetos-hero-section .contact-title {
+    margin: 0;
+    line-height: 0.9;
+    font-size: clamp(3rem, 6vw, 5rem);
+}
+
+.projetos-hero-section .editorial-right {
+    text-align: right;
+}
+
+/* =========================================
    DIRECTORY FILTER BAR
 ========================================= */
 .directory-filter-bar {
@@ -469,6 +521,7 @@
     .projects-directory-section~section .projects-section-footer {
         padding: 1.5rem 1rem !important;
     }
+
     .projects-directory-section~section .footer-cta-title {
         white-space: normal !important;
     }
@@ -541,4 +594,79 @@ body.is-ajax .projetos-hero-section .hero-visual-wrapper {
 
 body.is-ajax .projetos-hero-section .hero-editorial-row {
     --delay-text-2: 0.70s;
+}
+
+/* =========================================
+   MOBILE RESPONSIVE CONSTRAINTS
+========================================= */
+@media (max-width: 768px) {
+
+    /* Hero Section Parity with Sobre */
+    .projetos-hero-section {
+        padding: 9.125rem 1.5rem 3rem !important;
+        /* Just enough to clear the logo (6rem top + 3.125rem height) */
+        min-height: auto !important;
+    }
+
+    .projetos-hero-section .hero-content-inner {
+        margin-top: 2rem;
+        padding-top: 0;
+        padding-bottom: 0;
+        flex: none;
+        /* remove flex stretch to let it be auto height */
+    }
+
+    .projetos-hero-section .hero-visual-wrapper {
+        height: 50vh !important;
+        /* Fixed height for video on mobile */
+        flex: none;
+    }
+
+    .projetos-hero-section .hero-editorial-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+
+    .projetos-hero-section .editorial-right {
+        text-align: left !important;
+    }
+
+    .projetos-hero-section .contact-title {
+        font-size: clamp(2.5rem, 10vw, 3rem) !important;
+    }
+
+    /* Global 24px lateral padding for main container */
+    .projects-directory-section {
+        padding-top: 100px !important;
+        padding-bottom: 50px !important;
+    }
+
+    .projects-directory-section .container-large {
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
+    }
+
+    /* Fix directory title on mobile */
+    .filter-left .directory-title {
+        font-size: 1.2rem;
+    }
+
+    /* CTA Section Mobile Parity */
+    .projetos-cta-section {
+        padding-bottom: 150px !important;
+        padding-top: 50px !important;
+        border: none !important;
+        box-shadow: none !important;
+        outline: none !important;
+        position: relative !important;
+        z-index: 10 !important;
+    }
+}
+
+/* =========================================
+   PROJECTS CTA SECTION
+========================================= */
+.projetos-cta-section {
+    padding-bottom: 100px;
 }
