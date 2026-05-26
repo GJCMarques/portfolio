@@ -327,12 +327,55 @@ body.nav-active .drawer-footer {
 @media (max-width: 768px) {
   .side-drawer {
     width: 100%;
-    padding: 6rem 2rem 2rem 2rem;
+    padding: 5rem 2rem 3.5rem 2rem; /* Generous bottom padding for breathing room */
   }
+
   .menu-trigger {
     top: 1.5rem;
     right: 1.5rem;
     width: 50px;
     height: 50px;
+  }
+
+  /* Drawer nav: reduce bottom margin to free space for footer */
+  .drawer-item {
+    margin-bottom: 1.5rem;
+  }
+
+  /* Drawer footer: stack vertically, center social icons */
+  .drawer-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    padding-top: 2rem;
+  }
+
+  /* Email stays on one line, no wrapping */
+  .drawer-contact {
+    width: 100%;
+  }
+
+  .drawer-contact h4 {
+    font-size: 0.9rem;  /* Bigger "Vamos Conversar?" label */
+    margin-bottom: 1rem;
+    letter-spacing: 0.2em;
+  }
+
+  .drawer-contact a {
+    white-space: nowrap;
+    font-size: 1.25rem; /* Bigger email */
+    font-weight: 600;
+  }
+
+  /* Social icons: own row, centered, slightly larger */
+  .drawer-social {
+    width: 100%;
+    justify-content: center;
+    gap: 2.5rem;
+  }
+
+  .drawer-social img {
+    width: 22px;
+    height: 22px;
   }
 }
