@@ -352,7 +352,7 @@
     }
 
     .contact-hero {
-        padding: 9.125rem 1.5rem 3rem !important;
+        padding: 12rem 1.5rem 3rem !important;
     }
 
     .contact-main-section {
@@ -372,7 +372,7 @@
     }
 
     .hero-visual-wrapper {
-        height: 40vh;
+        height: 457.5px !important;
     }
 }
 
