@@ -1609,11 +1609,15 @@
 
   /* Reduced Section Paddings for mobile */
   .about-intro-section, 
-  .featured-projects-section,
   .services-home-section, 
   .contact-home-section {
     padding-top: 100px !important;
     padding-bottom: 100px !important;
+  }
+
+  .featured-projects-section {
+    padding-top: 100px !important;
+    padding-bottom: 150px !important;
   }
 
   .projects-heading {
