@@ -1343,6 +1343,11 @@
   transition: transform 0.9s cubic-bezier(0.85, 0, 0.15, 1);
 }
 
+/* Fix mobile sub-pixel 1px gaps by forcing a 1px overlap */
+.preloader-stripes .stripe + .stripe {
+  margin-top: -1px;
+}
+
 #home-preloader.preloader-hidden .preloader-stripes .stripe {
   transform: scaleX(0);
 }
