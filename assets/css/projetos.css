@@ -231,8 +231,18 @@
 
     .filter-right {
         width: 100%;
-        justify-content: flex-start;
+        flex-direction: column;
+        align-items: stretch;
         gap: 0.75rem;
+    }
+    
+    .custom-dropdown {
+        width: 100%;
+    }
+    
+    .dropdown-trigger {
+        width: 100%;
+        justify-content: space-between;
     }
 
     .filter-divider {
@@ -240,8 +250,11 @@
     }
 
     .view-toggles {
-        margin-left: auto;
-        /* Push view toggles to right on mobile */
+        margin-left: 0;
+        margin-top: 0.5rem;
+        justify-content: center;
+        align-self: center;
+        width: 100%;
     }
 }
 
@@ -497,6 +510,37 @@
     .projects-container.list-view .dir-year,
     .projects-container.list-view .dir-action {
         display: none;
+    }
+
+    /* Fix Grid View on Mobile (Show 2 items per row but compact) */
+    .projects-container.grid-view {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .projects-container.grid-view .dir-project-item {
+        padding: 1rem;
+        border-radius: 16px;
+        gap: 1rem;
+    }
+
+    .projects-container.grid-view .dir-thumb {
+        height: 150px;
+        border-radius: 12px;
+    }
+    
+    .projects-container.grid-view .dir-title {
+        font-size: 1.1rem;
+    }
+    
+    .projects-container.grid-view .dir-desc {
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+    
+    .projects-container.grid-view .dir-tag {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.5rem;
     }
 }
 
