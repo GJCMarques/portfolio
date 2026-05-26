@@ -2510,10 +2510,6 @@ body.is-ajax {
         font-size: clamp(2.2rem, 8vw, 3rem);
     }
 
-    .skills-grid-editorial {
-        margin-top: 0 !important;
-    }
-
     /* Global 24px lateral padding for ALL sections (except hero) */
     main > section:not(.servicos-hero):not(.about-dark-section):not(.civic-participation-section),
     main > section:not(.servicos-hero) .container {
