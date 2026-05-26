@@ -544,6 +544,8 @@
     gap: 2.5rem;
     margin-top: 4rem;
     padding-top: 2rem;
+    align-items: center;
+    text-align: center;
   }
 
   .milestone-label {
@@ -553,6 +555,11 @@
   .milestones-grid {
     grid-template-columns: 1fr;
     gap: 3rem;
+    width: 100%;
+  }
+
+  .milestone-item {
+    align-items: center;
   }
 }
 
