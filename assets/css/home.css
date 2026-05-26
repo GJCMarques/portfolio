@@ -558,8 +558,19 @@
     width: 100%;
   }
 
-  .milestone-item {
+  .milestone-item:nth-child(1) {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .milestone-item:nth-child(2) {
     align-items: center;
+    text-align: center;
+  }
+
+  .milestone-item:nth-child(3) {
+    align-items: flex-end;
+    text-align: right;
   }
 }
 
