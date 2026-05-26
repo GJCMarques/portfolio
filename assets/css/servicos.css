@@ -577,3 +577,18 @@
 .services-minimal-section {
     display: none;
 }
+
+/* =========================================
+   CUSTOM AJAX HERO ANIMATIONS
+========================================= */
+body.is-ajax .servicos-hero .header-top {
+    --delay-text-1: 0.40s;
+}
+
+body.is-ajax .servicos-hero .hero-image-side {
+    --delay-img: 0.55s;
+}
+
+body.is-ajax .servicos-hero .hero-text-side {
+    --delay-text-2: 0.70s;
+}
