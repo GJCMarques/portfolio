@@ -92,6 +92,10 @@
     align-items: center; /* Center content vertically */
 }
 
+.contact-grid > * {
+    min-width: 0; /* Previne que os itens do grid causem overflow horizontal */
+}
+
 /* Info Column Styling */
 .info-eyebrow {
     font-size: 18px;
@@ -373,6 +377,17 @@
 
     .hero-visual-wrapper {
         height: 457.5px !important;
+    }
+
+    .submit-btn-premium {
+        padding: 0.5rem 0.5rem 0.5rem 1.25rem;
+        gap: 0.75rem;
+        font-size: 0.85rem;
+    }
+
+    .submit-btn-premium .btn-icon-circle {
+        width: 40px;
+        height: 40px;
     }
 }
 
