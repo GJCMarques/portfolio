@@ -5,24 +5,6 @@
     min-height: 100vh;
 }
 
-/* Header standard alignment */
-.header-top {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 4rem 4.5rem;
-    z-index: 100;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    pointer-events: none;
-}
-
-.header-top .brand-logo {
-    pointer-events: auto;
-}
-
 /* =========================================
    PART 1: CONTACT-STYLE HERO (ASYMMETRIC)
 ========================================= */
@@ -104,6 +86,11 @@
         flex-direction: column;
         align-items: flex-start;
         text-align: left;
+    }
+    
+    .hero-image-side {
+        flex: none;
+        width: 100%;
     }
 
     .hero-visual-wrapper {
@@ -581,7 +568,7 @@
 /* =========================================
    CUSTOM AJAX HERO ANIMATIONS
 ========================================= */
-body.is-ajax .servicos-hero .header-top {
+body.is-ajax .servicos-page-wrapper .brand-logo-fixed {
     --delay-text-1: 0.40s;
 }
 
@@ -591,4 +578,82 @@ body.is-ajax .servicos-hero .hero-image-side {
 
 body.is-ajax .servicos-hero .hero-text-side {
     --delay-text-2: 0.70s;
+}
+
+/* =========================================
+   MOBILE RESPONSIVE CONSTRAINTS
+========================================= */
+@media (max-width: 768px) {
+    /* Hero Section Parity with Sobre */
+    .servicos-hero {
+        padding: 12rem 1.5rem 3rem !important; /* Increased padding to clear logo and add gap */
+        min-height: auto !important;
+    }
+
+    .servicos-hero .hero-text-side {
+        padding-left: 0 !important;
+        gap: 1.5rem;
+    }
+
+    .servicos-hero .hero-visual-wrapper {
+        height: 50vh !important;
+    }
+    
+    .servicos-hero .asymmetric-hero {
+        gap: 2rem !important;
+        flex-direction: column !important;
+    }
+    
+    .servicos-hero .hero-image-side {
+        flex: none !important;
+        width: 100% !important;
+    }
+
+    .servicos-title {
+        font-size: clamp(3rem, 10vw, 4rem) !important;
+        line-height: 1 !important;
+    }
+
+    /* Adjust paddings for sections */
+    .services-accordion-section,
+    .work-process-section,
+    .services-bento-section {
+        padding: 4rem 1.5rem !important;
+    }
+    
+    .process-step {
+        padding: 2.5rem 1.5rem !important;
+    }
+
+    /* Accordion mobile adjustments */
+    .content-inner {
+        padding: 1rem 0 !important;
+    }
+    
+    .content-visual {
+        height: 250px !important;
+    }
+    
+    .tech-stack {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+
+    .accordion-header {
+        align-items: flex-start !important;
+    }
+    
+    .service-title {
+        font-size: 1.5rem !important;
+    }
+    
+    .accordion-icon {
+        width: 32px !important;
+        height: 32px !important;
+    }
+    
+    .accordion-icon svg {
+        width: 16px !important;
+        height: 16px !important;
+    }
 }
