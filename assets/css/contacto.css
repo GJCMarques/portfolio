@@ -7,29 +7,7 @@
     background-color: var(--color-bg-main);
 }
 
-/* Header behavior as requested - SCROLLS AWAY */
-.header-top {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 4rem 4.5rem;
-    /* Horizontal 4.5rem to match landing page left padding */
-    z-index: 100;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    pointer-events: none;
-}
-
-.header-top .brand-logo {
-    pointer-events: auto;
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: -0.05em;
-    color: var(--color-text-main);
-    transition: transform var(--transition-medium);
-}
+/* Header behavior is now global (brand-logo-fixed) */
 
 /* --- CONTACT HERO SECTION --- */
 .contact-hero {
@@ -374,15 +352,11 @@
     }
 
     .contact-hero {
-        padding: 12rem 2.5rem 4rem;
+        padding: 9.125rem 1.5rem 3rem !important;
     }
 
     .contact-main-section {
-        padding: 6rem 2.5rem;
-    }
-
-    .header-top {
-        padding: 2.5rem;
+        padding: 6rem 1.5rem !important;
     }
 }
 
@@ -394,7 +368,7 @@
     }
 
     .form-col {
-        padding: 2.5rem;
+        padding: 2rem 1.5rem !important;
     }
 
     .hero-visual-wrapper {
@@ -405,7 +379,7 @@
 /* =========================================
    CUSTOM AJAX HERO ANIMATIONS
 ========================================= */
-body.is-ajax .contact-hero .header-top {
+body.is-ajax .contact-page-wrapper .brand-logo-fixed {
     --delay-text-1: 0.40s;
 }
 
