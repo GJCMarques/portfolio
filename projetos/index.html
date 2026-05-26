@@ -81,7 +81,7 @@
 
     <div class="servicos-page-wrapper">
         <!-- Header -->
-        <header class="header-top fade-up">
+        <header class="header-top hero-fade-up" style="transition-delay: var(--delay-text-1, 0.1s);">
             <a href="../" class="brand-logo" aria-label="Home">
                 <div class="logo-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="none" viewBox="0 0 256 256">
@@ -103,8 +103,8 @@
                 style="flex: 1; display: flex; flex-direction: column; justify-content: space-between; padding-bottom: 2rem;">
 
                 <!-- Top Visual (Fills available space) -->
-                <div class="hero-visual-wrapper fade-up"
-                    style="flex: 1; min-height: 0; border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 2rem; position: relative;">
+                <div class="hero-visual-wrapper hero-fade-up"
+                    style="flex: 1; min-height: 0; border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 2rem; position: relative; transition-delay: var(--delay-img, 0.25s);">
                     <video autoplay loop muted playsinline class="hero-video"
                         style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
                         <source src="../assets/videos/projetos/fundohero.mp4" type="video/mp4">
@@ -112,8 +112,8 @@
                 </div>
 
                 <!-- Bottom Editorial Row (Anchors to the bottom of the screen) -->
-                <div class="hero-editorial-row fade-up"
-                    style="display: flex; justify-content: space-between; align-items: flex-end; transition-delay: 0.2s; border-top: none;">
+                <div class="hero-editorial-row hero-fade-up"
+                    style="display: flex; justify-content: space-between; align-items: flex-end; transition-delay: var(--delay-text-2, 0.4s); border-top: none;">
                     <div class="editorial-left">
                         <span class="editorial-marker">/ Projetos</span>
                     </div>
@@ -128,7 +128,7 @@
         <!-- =========================================
              PART 2: PROJECTS DIRECTORY
         ========================================= -->
-        <section class="projects-directory-section section" id="directory"
+        <section class="projects-directory-section section stagger-container fade-up" id="directory"
             style="padding-top: 150px; padding-bottom: 100px;">
             <div class="container-large">
 
@@ -249,7 +249,7 @@
                     </a>
 
                     <!-- Project 2 -->
-                    <a href="#" class="dir-project-item fade-up" style="transition-delay: 0.1s;">
+                    <a href="#" class="dir-project-item fade-up">
                         <div class="dir-thumb">
                             <img src="../assets/img/real-estate.png" alt="Plataforma Imobiliária">
                         </div>
@@ -275,7 +275,7 @@
                     </a>
 
                     <!-- Project 3 -->
-                    <a href="#" class="dir-project-item fade-up" style="transition-delay: 0.2s;">
+                    <a href="#" class="dir-project-item fade-up">
                         <div class="dir-thumb">
                             <img src="../assets/img/hero-3.png" alt="E-commerce Minimalista">
                         </div>
@@ -301,7 +301,7 @@
                     </a>
 
                     <!-- Project 4 -->
-                    <a href="#" class="dir-project-item fade-up" style="transition-delay: 0.3s;">
+                    <a href="#" class="dir-project-item fade-up">
                         <div class="dir-thumb">
                             <img src="../assets/img/hero-5.png" alt="Identidade Agência">
                         </div>
@@ -331,7 +331,7 @@
         </section>
 
         <!-- CTA Section -->
-        <section style="padding-bottom: 100px;">
+        <section class="stagger-container fade-up" style="padding-bottom: 100px;">
             <div class="container-large">
                 <div class="projects-section-footer fade-up">
                     <div class="footer-bg-single">
