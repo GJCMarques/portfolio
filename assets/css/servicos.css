@@ -641,6 +641,12 @@ body.is-ajax .servicos-hero .hero-text-side {
 
     .accordion-header {
         align-items: flex-start !important;
+        gap: 1.5rem;
+    }
+    
+    .header-left {
+        gap: 1.5rem !important;
+        align-items: flex-start !important;
     }
     
     .service-title {
@@ -650,10 +656,15 @@ body.is-ajax .servicos-hero .hero-text-side {
     .accordion-icon {
         width: 32px !important;
         height: 32px !important;
+        flex-shrink: 0;
     }
     
     .accordion-icon svg {
         width: 16px !important;
         height: 16px !important;
+    }
+    
+    .accordion-item.active .accordion-content {
+        max-height: 2500px !important; /* Allow more height for many tools on mobile */
     }
 }
