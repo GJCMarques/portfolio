@@ -1632,9 +1632,13 @@
     font-size: clamp(2rem, 8vw, 3rem);
   }
 
+  .intro-link-wrapper {
+    width: 100%;
+  }
+
   .contact-btns-group {
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
     width: 100%;
     gap: 1.5rem;
   }
