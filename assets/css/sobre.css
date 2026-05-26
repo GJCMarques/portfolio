@@ -2403,3 +2403,92 @@ body.is-ajax {
         margin-bottom: 1rem;
     }
 }
+
+/* ==========================================================================
+   GLOBAL RESPONSIVENESS FOR SOBRE PAGE
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+    /* 1. Hero Section */
+    .servicos-hero {
+        padding: 8rem 2.5rem 4rem; /* Top padding increased to avoid overlap with menu */
+        min-height: auto;
+    }
+    
+    .asymmetric-hero {
+        flex-direction: column !important;
+        gap: 3rem;
+    }
+    
+    .hero-text-side {
+        padding-right: 0 !important;
+        width: 100%;
+    }
+    
+    .hero-image-side {
+        width: 100%;
+        margin-top: 2rem;
+    }
+    
+    .hero-visual-wrapper {
+        height: 50vh !important;
+        width: 100%;
+    }
+    
+    .servicos-title {
+        font-size: clamp(3rem, 7vw, 4rem) !important;
+        line-height: 1.1 !important;
+    }
+
+    /* 2. Intro Section */
+    .about-intro-section > div {
+        flex-direction: column !important;
+        gap: 3rem !important;
+    }
+    
+    .about-typography {
+        padding-left: 0 !important;
+        flex: 1 1 auto !important;
+    }
+    
+    .about-intro-section img {
+        width: 100% !important;
+        max-width: 100% !important;
+        aspect-ratio: auto !important;
+        flex: 1 1 auto !important;
+    }
+
+    /* 3. Core Values Bento */
+    .core-values-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* 4. Stats grid */
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Mobile Specifics */
+    .servicos-hero {
+        padding: 6rem 1.5rem 3rem;
+    }
+    
+    .servicos-title {
+        font-size: clamp(2.5rem, 10vw, 3rem) !important;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title-editorial {
+        font-size: clamp(2.2rem, 8vw, 3rem);
+    }
+    
+    .timeline-header {
+        margin-bottom: 3rem;
+    }
+}
