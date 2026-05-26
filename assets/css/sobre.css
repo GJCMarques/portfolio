@@ -2489,12 +2489,13 @@ body.is-ajax {
         grid-template-columns: 1fr;
     }
 
-    .section-title-editorial {
-        font-size: clamp(2.2rem, 8vw, 3rem);
-    }
-    
     .timeline-header {
-        margin-bottom: 3rem;
+        margin-bottom: 0 !important;
+    }
+
+    .section-title-editorial {
+        margin-top: 0 !important;
+        font-size: clamp(2.2rem, 8vw, 3rem);
     }
 
     /* Global 24px lateral padding for ALL sections (except hero) */
