@@ -2473,7 +2473,12 @@ body.is-ajax {
 @media (max-width: 768px) {
     /* Mobile Specifics */
     .servicos-hero {
-        padding: 11.125rem 1.5rem 3rem; /* Top padding calculated as: 6rem (logo top) + 3.125rem (logo height 50px) + 2rem (gap) = 11.125rem */
+        padding: 9.125rem 1.5rem 3rem; /* Just enough to clear the logo (6rem top + 3.125rem height) */
+    }
+
+    /* Exact 2rem gap between the logo bottom and the first text element */
+    .servicos-hero .editorial-marker {
+        margin-top: 2rem;
     }
     
     .servicos-title {
