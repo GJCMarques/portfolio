@@ -2509,6 +2509,11 @@ body.is-ajax {
         margin-top: 0 !important;
         font-size: clamp(2.2rem, 8vw, 3rem);
     }
+    
+    /* Prevent modal title from overlapping the close button */
+    .cert-header-modal {
+        padding-right: 3rem;
+    }
 
     /* Global 24px lateral padding for ALL sections (except hero) */
     main > section:not(.servicos-hero):not(.about-dark-section):not(.civic-participation-section),
