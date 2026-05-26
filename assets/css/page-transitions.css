@@ -26,6 +26,11 @@
   will-change: transform;
 }
 
+/* Fix mobile sub-pixel 1px gaps by forcing a 1px overlap */
+#page-transition-overlay .pt-stripe + .pt-stripe {
+  margin-top: -1px;
+}
+
 /* Alternate transform origins (right/left) — identical to preloader */
 #page-transition-overlay .pt-stripe:nth-child(1) { transform-origin: left;  }
 #page-transition-overlay .pt-stripe:nth-child(2) { transform-origin: right; }
