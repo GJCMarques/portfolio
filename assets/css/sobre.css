@@ -2501,6 +2501,8 @@ body.is-ajax {
     .about-intro-section {
         padding-top: 100px !important;
         padding-bottom: 50px !important;
+        padding-left: 1.5rem !important;  /* 24px lateral padding */
+        padding-right: 1.5rem !important;
     }
     
     .timeline-section,
@@ -2509,11 +2511,15 @@ body.is-ajax {
     .languages-soft-skills-section {
         padding-top: 50px !important;
         padding-bottom: 50px !important;
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
     }
     
     .civic-participation-section {
         padding-top: 150px !important;
         padding-bottom: 150px !important;
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
         margin: 0 !important;
         border-radius: 0 !important;
     }
@@ -2521,5 +2527,14 @@ body.is-ajax {
     .about-cta-section {
         padding-top: 50px !important;
         padding-bottom: 150px !important;
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
+    }
+
+    /* Fix inline children that use hard-coded left/right padding — reset on mobile */
+    .about-intro-section > div,
+    .about-intro-section .about-typography {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
     }
 }
