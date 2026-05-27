@@ -1486,6 +1486,71 @@
   }
 }
 
+/* LAPTOP & DESKTOP RESPONSIVE ADJUSTMENTS */
+@media (max-width: 1600px) {
+  .split-left {
+    padding: 2.5rem 0 2.5rem 2.5rem;
+  }
+  .brand-logo {
+    font-size: 1.5rem;
+  }
+  .hero-title {
+    font-size: clamp(2.9rem, 4.6vw, 4.8rem); /* Just a tiny bit larger */
+    margin-bottom: 1rem;
+    max-width: 95%;
+  }
+  .hero-desc {
+    font-size: 1.2rem; /* Just a tiny bit larger */
+    max-width: 85%; 
+    margin-bottom: 1rem;
+  }
+  .bottom-nav {
+    gap: 0.75rem; 
+  }
+  .bottom-nav a {
+    font-size: 1.5rem; /* Original size */
+  }
+  .floating-card-positioner {
+    width: 400px; /* Wider (comprimento) */
+    bottom: 2rem;
+  }
+  .dynamic-status-card {
+    padding: 1.25rem; /* Reverted to not increase height */
+    gap: 1rem;
+    min-height: auto;
+  }
+  .status-icon-wrapper {
+    width: 42px;
+    height: 42px;
+    font-size: 1.25rem;
+  }
+  .status-title {
+    font-size: 1.05rem;
+  }
+  .status-msg {
+    font-size: 0.85rem;
+  }
+  .container, .container-large {
+    padding-left: 64px;
+    padding-right: 64px;
+  }
+}
+@media (max-width: 1200px) {
+  .split-left {
+    padding: 1.5rem 0 1.5rem 1.5rem;
+  }
+  .hero-title {
+    font-size: clamp(1.6rem, 2.5vw, 2.25rem);
+  }
+  .hero-desc {
+    font-size: 0.85rem;
+    max-width: 80%;
+  }
+  .floating-card-positioner {
+    width: 280px;
+    bottom: 1.5rem;
+  }
+}
 /* ==========================================================================
    GLOBAL RESPONSIVENESS FOR LANDING PAGE
    ========================================================================== */
@@ -1679,71 +1744,6 @@
   .secondary-btn {
     width: 100%;
     text-align: center;
-  }
-}
-/* LAPTOP & DESKTOP RESPONSIVE ADJUSTMENTS */
-@media (max-width: 1600px) {
-  .split-left {
-    padding: 2.5rem 0 2.5rem 2.5rem;
-  }
-  .brand-logo {
-    font-size: 1.5rem;
-  }
-  .hero-title {
-    font-size: clamp(2.9rem, 4.6vw, 4.8rem); /* Just a tiny bit larger */
-    margin-bottom: 1rem;
-    max-width: 95%;
-  }
-  .hero-desc {
-    font-size: 1.2rem; /* Just a tiny bit larger */
-    max-width: 85%; 
-    margin-bottom: 1rem;
-  }
-  .bottom-nav {
-    gap: 0.75rem; 
-  }
-  .bottom-nav a {
-    font-size: 1.5rem; /* Original size */
-  }
-  .floating-card-positioner {
-    width: 400px; /* Wider (comprimento) */
-    bottom: 2rem;
-  }
-  .dynamic-status-card {
-    padding: 1.25rem; /* Reverted to not increase height */
-    gap: 1rem;
-    min-height: auto;
-  }
-  .status-icon-wrapper {
-    width: 42px;
-    height: 42px;
-    font-size: 1.25rem;
-  }
-  .status-title {
-    font-size: 1.05rem;
-  }
-  .status-msg {
-    font-size: 0.85rem;
-  }
-  .container, .container-large {
-    padding-left: 64px;
-    padding-right: 64px;
-  }
-}
-@media (max-width: 1200px) {
-  .split-left {
-    padding: 1.5rem 0 1.5rem 1.5rem;
-  }
-  .hero-title {
-    font-size: clamp(1.6rem, 2.5vw, 2.25rem);
-  }
-  .hero-desc {
-    font-size: 0.85rem;
-    max-width: 80%;
-  }
-  .floating-card-positioner {
-    width: 280px;
-    bottom: 1.5rem;
   }
 }
 
