@@ -326,7 +326,7 @@ body.nav-active .drawer-footer {
 /* Responsive for Laptops / Smaller Heights */
 @media (max-width: 1600px), (max-height: 900px) {
   .side-drawer {
-    width: 500px; /* Reduzido o comprimento */
+    width: 580px; /* Reduzido o comprimento */
     padding: 5rem 3.5rem 3rem 4rem;
   }
   .drawer-item {
@@ -336,19 +336,8 @@ body.nav-active .drawer-footer {
     font-size: clamp(2.5rem, 4vw, 3.5rem); /* Mantém o peso visual */
   }
   
-  /* Stack footer vertically */
   .drawer-footer {
     padding-top: 1.5rem;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.5rem;
-  }
-  .drawer-contact {
-    width: 100%;
-  }
-  .drawer-social {
-    width: 100%;
-    justify-content: center;
   }
   .drawer-social img,
   .drawer-social svg {
@@ -359,7 +348,7 @@ body.nav-active .drawer-footer {
 
 @media (max-width: 1200px), (max-height: 750px) {
   .side-drawer {
-    width: 420px; /* Ainda mais reduzido para ecrãs menores */
+    width: 500px; /* Ainda mais reduzido para ecrãs menores */
     padding: 4rem 3rem 2.5rem 3rem;
   }
   .drawer-item {
