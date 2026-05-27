@@ -75,6 +75,18 @@
     border-radius: var(--radius-lg);
     position: relative;
     background-color: var(--color-bg-card);
+    background: linear-gradient(90deg, var(--color-bg-card) 25%, rgba(0, 0, 0, 0.03) 50%, var(--color-bg-card) 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 2s infinite ease-in-out;
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
 }
 
 .hero-video {
