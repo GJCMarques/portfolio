@@ -1,1 +1,1 @@
-na section formacao academica coloca o titulo e subtitulo com o mesmo CSS de tipografia tamanho espacamento que as restantes sections abaixo para estar tudo dentro do norma. Tira tambem o 04 
+Falta Responsive para Portatil.
