@@ -1689,6 +1689,10 @@
   .hero-title {
     font-size: clamp(2.5rem, 4.5vw, 4.5rem);
   }
+  .container, .container-large {
+    padding-left: 64px;
+    padding-right: 64px;
+  }
 }
 @media (max-width: 1200px) {
   .split-left {
@@ -1698,4 +1702,10 @@
     width: 360px;
     bottom: 2rem;
   }
+}
+
+/* Home Page specific container padding (32px / 2rem) */
+.page-home section .container {
+    padding-left: 32px;
+    padding-right: 32px;
 }
