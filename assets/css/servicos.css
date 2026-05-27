@@ -180,7 +180,7 @@
    PART 3: EDITORIAL ACCORDION
 ========================================= */
 .services-accordion-section {
-    padding: 100px 4.5rem;
+    padding: 100px 64px;
     background-color: var(--color-bg-main);
 }
 
