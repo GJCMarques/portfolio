@@ -122,6 +122,13 @@
     .hero-description p {
         font-size: 1.15rem;
     }
+
+    /* Global 64px lateral padding for ALL sections */
+    main > section:not(.servicos-hero):not(.about-dark-section):not(.civic-participation-section),
+    main > section:not(.servicos-hero) .container {
+        padding-left: 64px !important;
+        padding-right: 64px !important;
+    }
 }
 
 @media (max-width: 1200px) {
