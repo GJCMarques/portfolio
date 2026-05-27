@@ -74,15 +74,33 @@
 }
 
 .hero-visual-wrapper {
+    width: 100%;
+    height: 75vh;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+}
+
 /* LAPTOP & DESKTOP RESPONSIVE ADJUSTMENTS */
 @media (max-width: 1600px) {
-    .servicos-hero { padding: 9rem 64px 3rem; }
-    .asymmetric-hero { gap: calc(3rem + 64px); }
-    .hero-image-side { flex: 0 0 380px; }
-    .servicos-title { font-size: clamp(3rem, 5vw, 64px); line-height: 1.1; }
-    
+    .servicos-hero {
+        padding: 9rem 64px 3rem;
+    }
+
+    .asymmetric-hero {
+        gap: calc(3rem + 64px);
+    }
+
+    .hero-image-side {
+        flex: 0 0 380px;
+    }
+
+    .servicos-title {
+        font-size: clamp(3rem, 5vw, 64px);
+        line-height: 1.1;
+    }
+
     /* Global 64px lateral padding for ALL sections */
-    main > section,
+    main>section,
     .services-accordion,
     .services-bento-section,
     .work-process-section,
@@ -91,16 +109,41 @@
         padding-right: 64px !important;
     }
 }
+
 @media (max-width: 1440px) {
-    .process-grid, .faq-grid { gap: 4rem; }
+
+    .process-grid,
+    .faq-grid {
+        gap: 4rem;
+    }
 }
+
 @media (max-width: 1200px) {
-    .servicos-hero { padding: 8rem 64px 3rem; }
-    .asymmetric-hero { gap: calc(2rem + 64px); }
-    .hero-image-side { flex: 0 0 320px; }
-    .servicos-title { font-size: clamp(2.5rem, 4.5vw, 48px); line-height: 1.1; }
-    .hero-description { font-size: 1rem; }
-    .process-grid, .faq-grid { gap: 2.5rem; }
+    .servicos-hero {
+        padding: 8rem 64px 3rem;
+    }
+
+    .asymmetric-hero {
+        gap: calc(2rem + 64px);
+    }
+
+    .hero-image-side {
+        flex: 0 0 320px;
+    }
+
+    .servicos-title {
+        font-size: clamp(2.5rem, 4.5vw, 48px);
+        line-height: 1.1;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+    }
+
+    .process-grid,
+    .faq-grid {
+        gap: 2.5rem;
+    }
 }
 
 @media (max-width: 1024px) {
@@ -109,8 +152,7 @@
         align-items: flex-start;
         text-align: left;
     }
-    }
-    
+
     .hero-image-side {
         flex: none;
         width: 100%;
@@ -607,9 +649,21 @@ body.is-ajax .servicos-hero .hero-text-side {
    MOBILE RESPONSIVE CONSTRAINTS
 ========================================= */
 @media (max-width: 768px) {
+
+    /* Reset lateral padding injected by laptop overrides */
+    main>section,
+    .services-accordion,
+    .services-bento-section,
+    .work-process-section,
+    .faq-section {
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
+    }
+
     /* Hero Section Parity with Sobre */
     .servicos-hero {
-        padding: 12rem 1.5rem 3rem !important; /* Increased padding to clear logo and add gap */
+        padding: 12rem 1.5rem 3rem !important;
+        /* Increased padding to clear logo and add gap */
         min-height: auto !important;
     }
 
@@ -621,12 +675,12 @@ body.is-ajax .servicos-hero .hero-text-side {
     .servicos-hero .hero-visual-wrapper {
         height: 50vh !important;
     }
-    
+
     .servicos-hero .asymmetric-hero {
         gap: 2rem !important;
         flex-direction: column !important;
     }
-    
+
     .servicos-hero .hero-image-side {
         flex: none !important;
         width: 100% !important;
@@ -643,7 +697,7 @@ body.is-ajax .servicos-hero .hero-text-side {
     .services-bento-section {
         padding: 4rem 1.5rem !important;
     }
-    
+
     .process-step {
         padding: 2.5rem 1.5rem !important;
     }
@@ -652,11 +706,11 @@ body.is-ajax .servicos-hero .hero-text-side {
     .content-inner {
         padding: 1rem 0 !important;
     }
-    
+
     .content-visual {
         height: 250px !important;
     }
-    
+
     .tech-stack {
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 1rem !important;
@@ -671,56 +725,29 @@ body.is-ajax .servicos-hero .hero-text-side {
         align-items: flex-start !important;
         gap: 1.5rem;
     }
-    
+
     .header-left {
         gap: 1.5rem !important;
         align-items: flex-start !important;
     }
-    
+
     .service-title {
         font-size: 1.5rem !important;
     }
-    
+
     .accordion-icon {
         width: 32px !important;
         height: 32px !important;
         flex-shrink: 0;
     }
-    
+
     .accordion-icon svg {
         width: 16px !important;
         height: 16px !important;
     }
-    
+
     .accordion-item.active .accordion-content {
-        max-height: 2500px !important; /* Allow more height for many tools on mobile */
+        max-height: 2500px !important;
+        /* Allow more height for many tools on mobile */
     }
-}
-/* LAPTOP & DESKTOP RESPONSIVE ADJUSTMENTS */
-@media (max-width: 1600px) {
-    .servicos-hero { padding: 9rem 64px 3rem; }
-    .asymmetric-hero { gap: calc(3rem + 64px); }
-    .hero-image-side { flex: 0 0 380px; }
-    .servicos-title { font-size: clamp(3rem, 5vw, 64px); line-height: 1.1; }
-    
-    /* Global 64px lateral padding for ALL sections */
-    main > section,
-    .services-accordion,
-    .services-bento-section,
-    .work-process-section,
-    .faq-section {
-        padding-left: 64px !important;
-        padding-right: 64px !important;
-    }
-}
-@media (max-width: 1440px) {
-    .process-grid, .faq-grid { gap: 4rem; }
-}
-@media (max-width: 1200px) {
-    .servicos-hero { padding: 8rem 64px 3rem; }
-    .asymmetric-hero { gap: calc(2rem + 64px); }
-    .hero-image-side { flex: 0 0 320px; }
-    .servicos-title { font-size: clamp(2.5rem, 4.5vw, 48px); line-height: 1.1; }
-    .hero-description { font-size: 1rem; }
-    .process-grid, .faq-grid { gap: 2.5rem; }
 }

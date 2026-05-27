@@ -1711,6 +1711,11 @@
 
 @media (max-width: 768px) {
   /* Mobile Specifics */
+  .container, .container-large {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+  }
+  
   .split-left {
     padding: 6rem 1.5rem 4rem;
     gap: 2rem; /* Ensure spacing between logo, text, and nav */

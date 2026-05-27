@@ -223,6 +223,7 @@
 }
 
 /* Responsiveness */
+
 /* LAPTOP & DESKTOP RESPONSIVE ADJUSTMENTS */
 @media (max-width: 1600px) {
     .projetos-hero-section { 
@@ -258,6 +259,7 @@
     .projetos-grid { gap: 3rem; }
     .projetos-hero-section .contact-title { font-size: clamp(2rem, 3.5vw, 3rem); } /* Título ainda mais pequeno para ecrãs menores */
 }
+
 
 @media (max-width: 992px) {
     .directory-filter-bar {
@@ -685,6 +687,12 @@ body.is-ajax .projetos-hero-section .hero-editorial-row {
    MOBILE RESPONSIVE CONSTRAINTS
 ========================================= */
 @media (max-width: 768px) {
+    /* Reset lateral padding injected by laptop overrides */
+    main > section,
+    main > section .container-large {
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
+    }
 
     /* Hero Section Parity with Sobre */
     .projetos-hero-section {
