@@ -405,3 +405,15 @@ body.is-ajax .contact-hero .hero-editorial-row {
 body.is-ajax .contact-hero .hero-visual-wrapper {
     --delay-img: 0.70s;
 }
+/* LAPTOP & DESKTOP RESPONSIVE ADJUSTMENTS */
+@media (max-width: 1440px) {
+    .contact-main-section { padding: 8rem 3rem; }
+    .contact-grid { gap: 4rem; }
+    .contact-title { font-size: 72px; line-height: 80px; }
+    .form-col { padding: 3rem; }
+}
+@media (max-width: 1200px) {
+    .contact-main-section { padding: 6rem 2rem; }
+    .contact-title { font-size: 60px; line-height: 66px; }
+    .contact-grid { gap: 3rem; }
+}

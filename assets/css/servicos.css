@@ -673,3 +673,15 @@ body.is-ajax .servicos-hero .hero-text-side {
         max-height: 2500px !important; /* Allow more height for many tools on mobile */
     }
 }
+/* LAPTOP & DESKTOP RESPONSIVE ADJUSTMENTS */
+@media (max-width: 1440px) {
+    .servicos-hero { padding: 9rem 3rem 3rem; }
+    .asymmetric-hero { gap: 3rem; }
+    .servicos-title { font-size: 72px; line-height: 80px; }
+    .process-grid, .faq-grid { gap: 4rem; }
+}
+@media (max-width: 1200px) {
+    .servicos-hero { padding: 8rem 2rem 3rem; }
+    .servicos-title { font-size: 60px; line-height: 66px; }
+    .process-grid, .faq-grid { gap: 2.5rem; }
+}

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nome do Projeto | Guilherme Marques</title>
+    <link rel="icon" type="image/svg+xml" href="../../assets/img/logo.svg">
+
+    <link rel="stylesheet" href="../../assets/css/fonts.css">
+    <link rel="stylesheet" href="../../assets/css/variables.css">
+    <link rel="stylesheet" href="../../assets/css/global.css">
+    <link rel="stylesheet" href="../../assets/css/menu.css">
+    <link rel="stylesheet" href="../../assets/css/animations.css">
+    <link rel="stylesheet" href="../../assets/css/components.css">
+    <link rel="stylesheet" href="../../assets/css/projeto-template.css">
+    <link rel="stylesheet" href="../../assets/css/page-transitions.css">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://portfolio-nqj.pages.dev/projetos/template/">
+    <meta property="og:title" content="Nome do Projeto | Guilherme Marques">
+    <meta property="og:description" content="Caso de Estudo: Nome do Projeto. Desenvolvido por Guilherme Marques.">
+    <meta property="og:image" content="https://portfolio-nqj.pages.dev/assets/img/cardimagem.png">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://portfolio-nqj.pages.dev/projetos/template/">
+    <meta property="twitter:title" content="Nome do Projeto | Guilherme Marques">
+    <meta property="twitter:description" content="Caso de Estudo: Nome do Projeto. Desenvolvido por Guilherme Marques.">
+    <meta property="twitter:image" content="https://portfolio-nqj.pages.dev/assets/img/cardimagem.png">
+</head>
+
+<body style="overflow-x: hidden;">
+
+    <!-- Menu Trigger -->
+    <button id="menuTrigger" class="menu-trigger" aria-label="Toggle Menu" aria-expanded="false">
+        <div class="trigger-icon">
+            <div class="trigger-line top"></div>
+            <div class="trigger-line bottom"></div>
+        </div>
+    </button>
+
+    <!-- Side Drawer Overlay -->
+    <div id="drawerOverlay" class="drawer-overlay"></div>
+
+    <!-- Side Drawer Menu -->
+    <aside id="sideDrawer" class="side-drawer" role="dialog" aria-modal="true" aria-label="Menu Principal">
+        <nav class="drawer-nav">
+            <ul class="drawer-list">
+                <li class="drawer-item">
+                    <a href="../../" class="drawer-link"><span class="item-num">01</span> INÍCIO <span class="arrow">→</span></a>
+                </li>
+                <li class="drawer-item">
+                    <a href="../../sobre/" class="drawer-link"><span class="item-num">02</span> SOBRE <span class="arrow">→</span></a>
+                </li>
+                <li class="drawer-item">
+                    <a href="../../projetos/" class="drawer-link active"><span class="item-num">03</span> PROJETOS <span class="arrow">→</span></a>
+                </li>
+                <li class="drawer-item">
+                    <a href="../../servicos/" class="drawer-link"><span class="item-num">04</span> SERVIÇOS <span class="arrow">→</span></a>
+                </li>
+                <li class="drawer-item">
+                    <a href="../../contacto/" class="drawer-link"><span class="item-num">05</span> CONTACTO <span class="arrow">→</span></a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="drawer-footer">
+            <div class="drawer-contact">
+                <h4>Vamos Conversar?</h4>
+                <a href="mailto:guilherme.jcmarques@gmail.com">guilherme.jcmarques@gmail.com</a>
+            </div>
+            <div class="drawer-social">
+                <a href="https://www.linkedin.com/in/gjcmarques/" target="_blank" aria-label="LinkedIn">
+                    <img src="../../assets/img/linkedin.svg" alt="LinkedIn">
+                </a>
+                <a href="https://github.com/GJCMarques" target="_blank" aria-label="GitHub">
+                    <img src="../../assets/img/github.svg" alt="GitHub">
+                </a>
+                <a href="https://dribbble.com/guilherme-jcmarques" target="_blank" aria-label="Dribbble">
+                    <img src="../../assets/img/dribbble.svg" alt="Dribbble">
+                </a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Brand Logo -->
+    <a href="../../" class="brand-logo-fixed" aria-label="Home">
+        <div class="logo-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="none" viewBox="0 0 256 256">
+                <path d="M 144 256 L 27.598 256 L 144 139.598 Z M 256 207.5 L 200 256 L 200 56 L 0 56 L 48 0 L 256 0 Z M 0 204.402 L 0 112 L 92.402 112 Z" fill="currentColor"></path>
+            </svg>
+        </div>
+        <span class="brand-name">Guilherme Marques</span>
+    </a>
+
+    <!-- Page Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="projeto-detail-hero section stagger-container fade-up">
+            <div class="projeto-hero-content">
+                <div class="projeto-header">
+                    <div class="projeto-meta fade-up" style="--stagger-index: 0">
+                        <span>CLIENTE EXPLO / 2026</span>
+                        <span>WEB DESIGN & DEVELOPMENT</span>
+                    </div>
+                    <h1 class="projeto-title fade-up" style="--stagger-index: 1">O Nome do Projeto Incrível.</h1>
+                </div>
+                
+                <div class="projeto-cover fade-up" style="--stagger-index: 2">
+                    <!-- Substituir src por imagem do projeto -->
+                    <!-- Para video: <video autoplay loop muted playsinline preload="auto" src="..."></video> -->
+                    <div style="width:100%; height:100%; background:linear-gradient(45deg, #1A1A18, #333); display:flex; align-items:center; justify-content:center;">
+                        <span style="color: rgba(255,255,255,0.2); font-size: 2rem;">[ IMAGEM OU VÍDEO DE CAPA ]</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Overview Section -->
+        <section class="projeto-overview-section container stagger-container fade-up">
+            <div class="overview-grid">
+                <!-- Sidebar Info -->
+                <div class="overview-sidebar fade-up" style="--stagger-index: 0">
+                    <div class="overview-info-block">
+                        <h4>Cliente</h4>
+                        <p>Empresa XPTO</p>
+                    </div>
+                    <div class="overview-info-block">
+                        <h4>Papel</h4>
+                        <p>Web Designer / Front-End Developer</p>
+                    </div>
+                    <div class="overview-info-block">
+                        <h4>Tecnologias</h4>
+                        <p>HTML, CSS, JavaScript, GSAP</p>
+                    </div>
+                    <div class="overview-info-block">
+                        <h4>Website</h4>
+                        <a href="#" target="_blank" style="text-decoration: underline; color: var(--color-text-main);">Visitar Live Site ↗</a>
+                    </div>
+                </div>
+
+                <!-- Main Content -->
+                <div class="overview-content fade-up" style="--stagger-index: 1">
+                    <h2>O Desafio</h2>
+                    <p>
+                        A Empresa XPTO precisava de modernizar a sua presença digital para competir no mercado internacional. O website anterior era lento, difícil de navegar e não refletia a qualidade premium dos seus serviços.
+                    </p>
+                    <p>
+                        O objetivo principal foi criar uma arquitetura de informação clara, aliada a um design disruptivo, responsivo e altamente otimizado para motores de busca e conversão de leads. A performance foi um fator crítico na tomada de decisões técnicas.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Showcase / Gallery -->
+        <section class="projeto-gallery-section container stagger-container fade-up">
+            <div class="masonry-grid">
+                <!-- Item 1 (Full width) -->
+                <div class="masonry-item full-width fade-up" style="--stagger-index: 0">
+                    <div style="width:100%; height:600px; background:#ddd; display:flex; align-items:center; justify-content:center;">
+                        <span style="color: #999; font-size: 1.5rem;">[ IMAGEM FULL-WIDTH 1 ]</span>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="masonry-item fade-up" style="--stagger-index: 1">
+                    <div style="width:100%; height:500px; background:#e6e6e6; display:flex; align-items:center; justify-content:center;">
+                        <span style="color: #999; font-size: 1.5rem;">[ IMAGEM 50% 1 ]</span>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="masonry-item fade-up" style="--stagger-index: 2">
+                    <div style="width:100%; height:500px; background:#ccc; display:flex; align-items:center; justify-content:center;">
+                        <span style="color: #999; font-size: 1.5rem;">[ IMAGEM 50% 2 ]</span>
+                    </div>
+                </div>
+                
+                <!-- Item 4 (Full width) -->
+                <div class="masonry-item full-width fade-up" style="--stagger-index: 3">
+                    <div style="width:100%; height:600px; background:#ddd; display:flex; align-items:center; justify-content:center;">
+                        <span style="color: #999; font-size: 1.5rem;">[ IMAGEM FULL-WIDTH 2 ]</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section class="projeto-overview-section container stagger-container fade-up" style="border-bottom: none; padding-top: 4rem;">
+            <div class="overview-grid">
+                <div class="overview-sidebar fade-up" style="--stagger-index: 0">
+                    <div class="overview-info-block">
+                        <h4>Impacto</h4>
+                        <p>+150% Leads Mensais</p>
+                        <p>-40% Tempo de Carregamento</p>
+                    </div>
+                </div>
+                <div class="overview-content fade-up" style="--stagger-index: 1">
+                    <h2>O Resultado</h2>
+                    <p>
+                        A nova plataforma resultou num aumento exponencial de conversões. A identidade visual premium foi muito elogiada pelos clientes da marca, solidificando a sua posição no mercado. Em termos técnicos, a otimização de assets e código garantiu pontuações de +95 no Google Lighthouse.
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Next Project Footer -->
+        <!-- O link href deve apontar para o próximo projeto -->
+        <a href="../../projetos/template/" class="next-project-section" aria-label="Próximo Projeto">
+            <span class="next-label">Próximo Projeto</span>
+            <h2 class="next-title">Nome do Próximo →</h2>
+        </a>
+
+    </main>
+
+    <!-- Overlay Global para Efeitos -->
+    <div id="global-overlay"></div>
+
+    <script src="../../assets/js/cursor.js"></script>
+    <script src="../../assets/js/menu.js"></script>
+    <script src="../../assets/js/animations.js"></script>
+    <script src="../../assets/js/page-transitions.js"></script>
+</body>
+
+</html>

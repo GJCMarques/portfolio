@@ -1681,3 +1681,21 @@
     text-align: center;
   }
 }
+/* LAPTOP & DESKTOP RESPONSIVE ADJUSTMENTS */
+@media (max-width: 1440px) {
+  .split-left {
+    padding: 3rem 0 3rem 3rem;
+  }
+  .hero-title {
+    font-size: clamp(2.5rem, 4.5vw, 4.5rem);
+  }
+}
+@media (max-width: 1200px) {
+  .split-left {
+    padding: 2.5rem 0 2.5rem 2.5rem;
+  }
+  .floating-card-positioner {
+    width: 360px;
+    bottom: 2rem;
+  }
+}
