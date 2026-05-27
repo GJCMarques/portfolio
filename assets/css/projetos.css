@@ -223,6 +223,42 @@
 }
 
 /* Responsiveness */
+/* LAPTOP & DESKTOP RESPONSIVE ADJUSTMENTS */
+@media (max-width: 1600px) {
+    .projetos-hero-section { 
+        padding: var(--header-height) 64px 0; 
+    }
+    .projetos-hero-section .hero-content-inner {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+    .projetos-hero-section .hero-visual-wrapper {
+        min-height: 55vh; /* Evita que a imagem fique muito achatada em ecrãs baixos */
+        margin-bottom: 1.5rem;
+    }
+    .projetos-hero-section .contact-title { 
+        font-size: clamp(2.5rem, 4.5vw, 3.8rem); /* Título visivelmente mais pequeno */
+    }
+    
+    /* Global 64px lateral padding for ALL sections */
+    main > section,
+    main > section .container-large {
+        padding-left: 64px !important;
+        padding-right: 64px !important;
+    }
+}
+
+@media (max-width: 1440px) {
+    .projetos-grid { gap: 4rem; padding-bottom: 8rem; }
+}
+
+@media (max-width: 1200px) {
+    .projetos-hero-section { padding: var(--header-height) 64px 0; }
+    .projetos-hero-section .hero-visual-wrapper { min-height: 50vh; }
+    .projetos-grid { gap: 3rem; }
+    .projetos-hero-section .contact-title { font-size: clamp(2rem, 3.5vw, 3rem); } /* Título ainda mais pequeno para ecrãs menores */
+}
+
 @media (max-width: 992px) {
     .directory-filter-bar {
         flex-direction: column;
@@ -719,38 +755,4 @@ body.is-ajax .projetos-hero-section .hero-editorial-row {
 .projetos-cta-section {
     padding-bottom: 100px;
 }
-/* LAPTOP & DESKTOP RESPONSIVE ADJUSTMENTS */
-@media (max-width: 1600px) {
-    .projetos-hero-section { 
-        padding: var(--header-height) 64px 0; 
-    }
-    .projetos-hero-section .hero-content-inner {
-        padding-top: 1.5rem;
-        padding-bottom: 1.5rem;
-    }
-    .projetos-hero-section .hero-visual-wrapper {
-        min-height: 55vh; /* Evita que a imagem fique muito achatada em ecrãs baixos */
-        margin-bottom: 1.5rem;
-    }
-    .projetos-hero-section .contact-title { 
-        font-size: clamp(2.5rem, 4.5vw, 3.8rem); /* Título visivelmente mais pequeno */
-    }
-    
-    /* Global 64px lateral padding for ALL sections */
-    main > section,
-    main > section .container-large {
-        padding-left: 64px !important;
-        padding-right: 64px !important;
-    }
-}
 
-@media (max-width: 1440px) {
-    .projetos-grid { gap: 4rem; padding-bottom: 8rem; }
-}
-
-@media (max-width: 1200px) {
-    .projetos-hero-section { padding: var(--header-height) 64px 0; }
-    .projetos-hero-section .hero-visual-wrapper { min-height: 50vh; }
-    .projetos-grid { gap: 3rem; }
-    .projetos-hero-section .contact-title { font-size: clamp(2rem, 3.5vw, 3rem); } /* Título ainda mais pequeno para ecrãs menores */
-}

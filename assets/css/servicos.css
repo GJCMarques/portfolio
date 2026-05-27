@@ -74,10 +74,33 @@
 }
 
 .hero-visual-wrapper {
-    width: 100%;
-    height: 75vh;
-    overflow: hidden;
-    border-radius: var(--radius-lg);
+/* LAPTOP & DESKTOP RESPONSIVE ADJUSTMENTS */
+@media (max-width: 1600px) {
+    .servicos-hero { padding: 9rem 64px 3rem; }
+    .asymmetric-hero { gap: calc(3rem + 64px); }
+    .hero-image-side { flex: 0 0 380px; }
+    .servicos-title { font-size: clamp(3rem, 5vw, 64px); line-height: 1.1; }
+    
+    /* Global 64px lateral padding for ALL sections */
+    main > section,
+    .services-accordion,
+    .services-bento-section,
+    .work-process-section,
+    .faq-section {
+        padding-left: 64px !important;
+        padding-right: 64px !important;
+    }
+}
+@media (max-width: 1440px) {
+    .process-grid, .faq-grid { gap: 4rem; }
+}
+@media (max-width: 1200px) {
+    .servicos-hero { padding: 8rem 64px 3rem; }
+    .asymmetric-hero { gap: calc(2rem + 64px); }
+    .hero-image-side { flex: 0 0 320px; }
+    .servicos-title { font-size: clamp(2.5rem, 4.5vw, 48px); line-height: 1.1; }
+    .hero-description { font-size: 1rem; }
+    .process-grid, .faq-grid { gap: 2.5rem; }
 }
 
 @media (max-width: 1024px) {
@@ -85,6 +108,7 @@
         flex-direction: column;
         align-items: flex-start;
         text-align: left;
+    }
     }
     
     .hero-image-side {
