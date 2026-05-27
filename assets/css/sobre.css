@@ -7,7 +7,7 @@
 ========================================= */
 .servicos-hero {
     min-height: 100vh;
-    padding: 12rem 4.5rem 4rem;
+    padding: 12rem 64px 4rem;
     background-color: var(--color-bg-main);
     display: flex;
     flex-direction: column;
@@ -84,6 +84,7 @@
     0% {
         background-position: 200% 0;
     }
+
     100% {
         background-position: -200% 0;
     }
@@ -102,6 +103,47 @@
     object-fit: cover;
     filter: grayscale(20%);
     transition: filter 0.5s var(--ease-out-expo);
+}
+
+@media (max-width: 1600px) {
+    .servicos-hero {
+        padding: 9rem 64px 3rem;
+    }
+
+    .hero-image-side {
+        flex: 0 0 400px;
+    }
+
+    .servicos-title {
+        font-size: clamp(3rem, 5vw, 64px);
+        line-height: 1.1;
+    }
+
+    .hero-description p {
+        font-size: 1.15rem;
+    }
+}
+
+@media (max-width: 1200px) {
+    .servicos-hero {
+        padding: 7rem 2rem 2rem;
+    }
+
+    .asymmetric-hero {
+        gap: 2.5rem;
+    }
+
+    .hero-image-side {
+        flex: 0 0 340px;
+    }
+
+    .servicos-title {
+        font-size: clamp(2.5rem, 4.5vw, 48px);
+    }
+
+    .hero-description p {
+        font-size: 1rem;
+    }
 }
 
 @media (max-width: 1024px) {
@@ -2615,16 +2657,42 @@ main {
     box-shadow: none !important;
     outline: none !important;
 }
+
 /* LAPTOP & DESKTOP RESPONSIVE ADJUSTMENTS */
 @media (max-width: 1440px) {
-    .servicos-hero { padding: 9rem 3rem 3rem; }
-    .asymmetric-hero { gap: 3rem; }
-    .servicos-title { font-size: 72px; line-height: 80px; }
-    .hero-description p { font-size: 18px; }
-    .about-bio-grid { gap: 4rem; }
+    .servicos-hero {
+        padding: 9rem 64px 3rem;
+    }
+
+    .asymmetric-hero {
+        gap: 3rem;
+    }
+
+    .servicos-title {
+        font-size: 72px;
+        line-height: 80px;
+    }
+
+    .hero-description p {
+        font-size: 18px;
+    }
+
+    .about-bio-grid {
+        gap: 4rem;
+    }
 }
+
 @media (max-width: 1200px) {
-    .servicos-hero { padding: 8rem 2rem 3rem; }
-    .servicos-title { font-size: 60px; line-height: 66px; }
-    .hero-image-side { flex: 0 0 400px; }
+    .servicos-hero {
+        padding: 8rem 64px 3rem;
+    }
+
+    .servicos-title {
+        font-size: 60px;
+        line-height: 66px;
+    }
+
+    .hero-image-side {
+        flex: 0 0 400px;
+    }
 }
