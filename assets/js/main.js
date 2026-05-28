@@ -145,10 +145,12 @@ window.reinitMain = function() {
         if (currentFilters.service === 'fullstack' && !tags.includes('full stack')) serviceMatch = false;
         
         let industryMatch = true;
-        if (currentFilters.industry === 'financa' && !tags.includes('finança')) industryMatch = false;
-        if (currentFilters.industry === 'imobiliario' && !tags.includes('imobiliário')) industryMatch = false;
-        if (currentFilters.industry === 'moda' && !tags.includes('moda & loja')) industryMatch = false;
-        if (currentFilters.industry === 'agencia' && !tags.includes('agência')) industryMatch = false;
+        if (currentFilters.industry === 'financas' && !tags.includes('finanças')) industryMatch = false;
+        if (currentFilters.industry === 'educacao' && !tags.includes('educação')) industryMatch = false;
+        if (currentFilters.industry === 'retalho' && !tags.includes('retalho')) industryMatch = false;
+        if (currentFilters.industry === 'eventos' && !tags.includes('eventos')) industryMatch = false;
+        if (currentFilters.industry === 'portfolio' && !tags.includes('portfólio')) industryMatch = false;
+        if (currentFilters.industry === 'alojamento' && !tags.includes('alojamento')) industryMatch = false;
         
         if (typeMatch && serviceMatch && industryMatch) {
           card.style.display = 'flex';
