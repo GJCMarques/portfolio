@@ -467,8 +467,9 @@
 .projects-container.grid-view .dir-thumb {
     width: 100%;
     height: 380px;
-    border-radius: 24px;
+    border-radius: 8px;
     margin-bottom: 0;
+    overflow: hidden;
 }
 
 .projects-container.grid-view .dir-info {
@@ -569,7 +570,7 @@
 
     .projects-container.grid-view .dir-thumb {
         height: 150px;
-        border-radius: 12px;
+        border-radius: 8px;
     }
     
     .projects-container.grid-view .dir-title {
