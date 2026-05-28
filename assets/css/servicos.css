@@ -672,6 +672,10 @@ body.is-ajax .servicos-hero .hero-text-side {
         gap: 1.5rem;
     }
 
+    .servicos-hero .hero-description {
+        font-size: 20px !important;
+    }
+
     .servicos-hero .hero-visual-wrapper {
         height: 50vh !important;
     }

@@ -2600,6 +2600,10 @@ body.is-ajax {
         font-size: clamp(2.5rem, 10vw, 3rem) !important;
     }
 
+    .hero-description p {
+        font-size: 20px !important;
+    }
+
     .container-large {
         padding-left: 0 !important;
         padding-right: 0 !important;
