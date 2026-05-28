@@ -5,7 +5,7 @@ path = "assets/img/projetos/expolivecapa.png"
 out_path = "assets/img/projetos/expolivecapa.webp"
 
 try:
-    print("Starting conversion for Expolive with quality 98...")
+    print("Starting conversion for updated Expolive image with quality 99...")
     img = Image.open(path)
     
     max_width = 2560
@@ -14,8 +14,8 @@ try:
         new_size = (int(img.size[0] * ratio), int(img.size[1] * ratio))
         img = img.resize(new_size, Image.LANCZOS)
     
-    # Save with 98 quality 
-    img.save(out_path, format="WEBP", quality=98)
+    # Save with 99 quality to hit the ~800-900 KB mark
+    img.save(out_path, format="WEBP", quality=99)
     
     size_kb = os.path.getsize(out_path) / 1024
     print(f"Success: Compressed to WebP. New size: {size_kb:.2f} KB")
