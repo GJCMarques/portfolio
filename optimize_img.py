@@ -1,11 +1,11 @@
 from PIL import Image
 import os
 
-path = "assets/img/projetos/tecncoolcapa.png"
-out_path = "assets/img/projetos/tecncoolcapa.webp"
+path = "assets/img/projetos/cristalcapitalcapa.png"
+out_path = "assets/img/projetos/cristalcapitalcapa.webp"
 
 try:
-    print("Starting conversion for Tec N Cool (lossless)...")
+    print("Starting conversion for Cristal Capital (lossless)...")
     img = Image.open(path)
     
     # Save as lossless WebP to preserve exact original quality and size
