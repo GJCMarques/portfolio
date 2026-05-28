@@ -18,13 +18,15 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://portfolio-nqj.pages.dev/">
     <meta property="og:title" content="Guilherme Marques | Início">
-    <meta property="og:description" content="Técnico de Informática e Arquiteto de Experiências Digitais. Construo websites premium de alto desempenho para destacar e elevar o seu negócio no mundo digital.">
+    <meta property="og:description"
+        content="Técnico de Informática e Arquiteto de Experiências Digitais. Construo websites premium de alto desempenho para destacar e elevar o seu negócio no mundo digital.">
     <meta property="og:image" content="https://portfolio-nqj.pages.dev/assets/img/cardimagem.png">
 
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://portfolio-nqj.pages.dev/">
     <meta property="twitter:title" content="Guilherme Marques | Início">
-    <meta property="twitter:description" content="Técnico de Informática e Arquiteto de Experiências Digitais. Construo websites premium de alto desempenho para destacar e elevar o seu negócio no mundo digital.">
+    <meta property="twitter:description"
+        content="Técnico de Informática e Arquiteto de Experiências Digitais. Construo websites premium de alto desempenho para destacar e elevar o seu negócio no mundo digital.">
     <meta property="twitter:image" content="https://portfolio-nqj.pages.dev/assets/img/cardimagem.png">
 </head>
 
@@ -88,13 +90,13 @@
             const isReload = navEntries.length > 0 && navEntries[0].type === "reload";
             const hasSeen = sessionStorage.getItem("hasSeenPreloader");
             const isAjax = document.readyState !== "loading";
-            
+
             // Skip preloader if it's an AJAX navigation OR if we've seen it and it's not a direct F5 refresh
             const skipPreloader = isAjax || (hasSeen && !isReload);
 
             if (skipPreloader) {
                 preloader.classList.add("preloader-instant-hide");
-                
+
                 if (!isAjax) {
                     // Garantir que a animação da página arranca se o preloader for ignorado no F5
                     window.addEventListener("DOMContentLoaded", () => {
@@ -436,7 +438,8 @@
             <!-- Header -->
             <div class="projects-header">
                 <h2 class="projects-heading slide-right">02 / PROJETOS EM DESTAQUE</h2>
-                <p class="projects-subheading fade-in" style="transition-delay: 0.1s;">Uma seleção de projetos pessoais e casos reais desenvolvidos com foco no
+                <p class="projects-subheading fade-in" style="transition-delay: 0.1s;">Uma seleção de projetos pessoais
+                    e casos reais desenvolvidos com foco no
                     rigor técnico, design funcional e resultados práticos para empresas e negócios.</p>
             </div>
 
@@ -447,27 +450,29 @@
                 <article class="project-row">
                     <div class="project-img-col zoom-in">
                         <div class="project-img-wrapper">
-                            <img src="assets/img/dashboard.png" alt="Fintech Dashboard" class="project-img">
+                            <img src="assets/img/projetos/cristalterminalcapa.png" alt="Cristal Capital Terminal"
+                                class="project-img">
                         </div>
                     </div>
                     <div class="project-content-col">
                         <div class="project-top-meta slide-right" style="transition-delay: 0.1s;">
-                            <h3 class="project-title">Fintech Dashboard App</h3>
-                            <span class="project-date">10.2023 - 01.2024</span>
+                            <h3 class="project-title">Cristal Capital Terminal</h3>
+                            <span class="project-date">01.2026 - 04.2026</span>
                         </div>
                         <div class="project-details-grid fade-in" style="transition-delay: 0.2s;">
                             <div class="detail-block">
                                 <span class="detail-label">Tipo</span>
-                                <span class="detail-value">Caso Real</span>
+                                <span class="detail-value">Projeto Pessoal</span>
                             </div>
                             <div class="detail-block">
                                 <span class="detail-label">Serviços</span>
-                                <span class="detail-value">Full Stack & Design</span>
+                                <span class="detail-value">UI/UX Design & Full Stack</span>
                             </div>
                             <div class="detail-block full-width">
                                 <span class="detail-label">Descrição</span>
-                                <span class="detail-value">Plataforma financeira focada em visualização de dados
-                                    complexos em tempo real, priorizando a clareza e rapidez de execução.</span>
+                                <span class="detail-value">Terminal financeiro de grau institucional. Combina modelos
+                                    quantitativos de precisão e Inteligência Artificial para análise avançada de
+                                    mercados de ações.</span>
                             </div>
                         </div>
                         <a href="#" class="project-link-btn pop-up" style="transition-delay: 0.3s;">
@@ -633,7 +638,8 @@
                 <!-- Left: Header & Intro -->
                 <div class="services-intro-col">
                     <h2 class="projects-heading slide-right">03 / SERVIÇOS</h2>
-                    <p class="projects-subheading fade-in" style="transition-delay: 0.1s;">Com uma base sólida em informática, o meu foco principal é o
+                    <p class="projects-subheading fade-in" style="transition-delay: 0.1s;">Com uma base sólida em
+                        informática, o meu foco principal é o
                         <strong>Web Development</strong>. No entanto, o meu percurso profissional permite-me atuar
                         em diversas áreas tecnológicas, dando-me assim uma visão 360º para construir, gerir e lançar
                         projetos digitais de forma totalmente independente.
