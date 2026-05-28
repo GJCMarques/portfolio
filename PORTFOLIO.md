@@ -50,31 +50,30 @@ Website completo para um alojamento local em Mogadouro, com sistema de reservas,
 
 
 ### 3. CRISTAL CAPITAL
-> **Plataforma Financeira — Projeto PAP de Excelência**
+> **Plataforma Institucional e de Gestão Financeira — Projeto PAP de Excelência**
 
 **Tipo:** Académico de Excelência (PAP) · Alta complexidade técnica
 
 **Descrição:**
-Projeto de elevada complexidade técnica desenvolvido como PAP (Prova de Aptidão Profissional), com ambição de alcançar distinção máxima. Trata-se de uma plataforma web de gestão financeira construída sobre **Laravel 12**, o framework PHP mais avançado da atualidade, com arquitetura moderna, autenticação robusta e interface sofisticada.
+Projeto de elevada complexidade técnica desenvolvido como PAP (Prova de Aptidão Profissional), concebido para representar uma empresa de *hedge funds* de classe mundial. Conta com um Front-Office de design corporativo de alto luxo, aliado a um sistema Back-End focado na gestão de recursos humanos e contacto com clientes. A plataforma destaca-se pela sua arquitetura extremamente leve e pela integração nativa de Inteligência Artificial para suporte ao utilizador.
 
 **Funcionalidades principais:**
-- Arquitetura MVC completa com **Laravel 12**
-- Autenticação e autorização com **Laravel Sanctum**
-- Integração com **Inertia.js** para experiência de SPA sem perder os benefícios do servidor
-- Ambiente de desenvolvimento containerizado com **Docker** (Laravel Sail)
-- Design system com **Tailwind CSS**
-- Base de dados relacional com migrações versionadas
-- Estrutura preparada para escalabilidade e manutenibilidade a longo prazo
+- Arquitetura de renderização ultra-rápida baseada em componentes modulares PHP
+- Design UI/UX *premium* focado no setor financeiro institucional
+- **Assistente Virtual Inteligente (IA)** integrado nativamente via **ElevenLabs**, gerindo suporte conversacional dinâmico
+- Painel de Back-Office (CMS) desenvolvido à medida para gestão de carreiras, vagas e candidaturas
+- Sistema de comunicações transacionais encriptado com **PHPMailer**
+- Estrutura relacional escalável para expansão futura das áreas de negócio
 
 **Tecnologias utilizadas:**
 
 | Camada | Tecnologias |
 |--------|-------------|
-| Backend | Laravel 12, PHP 8.2+, Composer |
-| Frontend | Inertia.js, Tailwind CSS, JavaScript |
-| Base de Dados | MySQL / SQLite |
-| Autenticação | Laravel Sanctum |
-| DevOps | Docker (Laravel Sail) |
+| Front-Office | HTML5, CSS3, JavaScript Vanilla, Animações Modernas |
+| Back-Office | PHP 8.2+, PHPMailer |
+| Base de Dados | MySQL (Arquitetura Relacional Otimizada) |
+| IA | ElevenLabs Conversational AI Embed |
+| Arquitetura | Modular Nativa (Sem frameworks pesados) |
 
 ---
 
