@@ -1616,12 +1616,6 @@
     white-space: nowrap;
     font-size: 1.35rem;
   }
-  
-  .brand-logo svg {
-    width: 32px;
-    height: 32px;
-    flex-shrink: 0;
-  }
 
   .hero-text-wrapper {
     margin-top: 0; /* Remove negative margin that causes overlap */
