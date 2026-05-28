@@ -1549,7 +1549,7 @@
   }
   .hero-desc {
     font-size: 1.05rem;
-    max-width: 90%;
+    max-width: 100%;
     margin-bottom: 0.75rem;
   }
   .bottom-nav {
@@ -1749,6 +1749,8 @@
 
   .hero-desc {
     font-size: 1.05rem;
+    text-wrap: wrap; /* Override pretty to use full width on mobile */
+    max-width: 100%; /* Override 90% inherited from 1024px */
   }
 
   .bottom-nav {
