@@ -1722,19 +1722,12 @@
     justify-content: flex-start;
   }
 
-  /* Fix overlapping logo */
   .brand-logo {
     font-size: 1.15rem; /* Slightly smaller to ensure it fits */
     max-width: 85%; /* Give it more room */
     display: flex;
     align-items: center;
     white-space: nowrap; /* Prevent "Guilherme Marques" from breaking into 2 lines */
-  }
-  
-  .brand-logo svg {
-    width: 28px; /* Slightly smaller icon to match */
-    height: 28px;
-    flex-shrink: 0;
   }
 
   .hero-title {
