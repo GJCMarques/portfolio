@@ -102,6 +102,28 @@ window.reinitMain = function() {
         }
         return;
       }
+      // 7. Clear Filters
+      const clearBtn = target.closest('#clearFiltersBtn');
+      if (clearBtn) {
+        window._globalProjectsFilters = { type: 'all', service: 'all', industry: 'all' };
+        
+        document.querySelectorAll('.custom-dropdown').forEach(dropdown => {
+          dropdown.querySelectorAll('.dropdown-item').forEach(i => i.classList.remove('active'));
+          const allItem = dropdown.querySelector('.dropdown-item[data-value="all"]');
+          if (allItem) {
+            allItem.classList.add('active');
+            const label = dropdown.querySelector('.dropdown-label');
+            const group = dropdown.getAttribute('data-filter-group');
+            const groupLabels = { type: 'Tipo', service: 'Serviços', industry: 'Indústria' };
+            if (groupLabels[group] && label) {
+               label.textContent = `${groupLabels[group]}: ${allItem.textContent}`;
+            }
+          }
+        });
+        
+        applyGlobalFilters(window._globalProjectsFilters);
+        return;
+      }
 
       // 6. Close Dropdowns if clicked outside
       if (!target.closest('.custom-dropdown')) {
@@ -163,6 +185,11 @@ window.reinitMain = function() {
       const countDisplay = document.querySelector('.filter-left .count');
       if(countDisplay) {
         countDisplay.textContent = `(${visibleCount})`;
+      }
+      
+      const noResultsState = document.getElementById('noResultsState');
+      if (noResultsState) {
+        noResultsState.style.display = visibleCount === 0 ? 'flex' : 'none';
       }
       
       container.style.opacity = '1';

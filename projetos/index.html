@@ -135,7 +135,7 @@
              PART 2: PROJECTS DIRECTORY
         ========================================= -->
         <section class="projects-directory-section section stagger-container fade-up" id="directory"
-            style="padding-top: 150px; padding-bottom: 100px;">
+            style="padding-top: 150px; padding-bottom: 100px; position: relative; z-index: 50;">
             <div class="container-large">
 
                 <!-- Filter Bar -->
@@ -431,7 +431,8 @@
                                     <span class="dir-tag">Design</span>
                                     <span class="dir-tag">Alojamento</span>
                                 </div>
-                                <p class="dir-desc">Plataforma de reservas e e-commerce para alojamento local. Inclui gestão de disponibilidade, faturação e pagamentos online.</p>
+                                <p class="dir-desc">Plataforma de reservas e e-commerce para alojamento local. Inclui
+                                    gestão de disponibilidade, faturação e pagamentos online.</p>
                             </div>
                         </div>
                         <div class="dir-year">2026</div>
@@ -441,6 +442,17 @@
                             </svg>
                         </div>
                     </a>
+
+                    <!-- Empty State -->
+                    <div class="no-results-state" id="noResultsState" style="display: none;">
+                        <div class="no-results-content">
+                            <h3 class="no-results-title">Nenhum resultado encontrado</h3>
+                            <div class="no-results-smile" style="font-size: 2.5rem; margin-bottom: 1rem; color: var(--color-text-muted);">:(</div>
+                            <p class="no-results-desc">Não existem projetos que correspondam a todos os filtros
+                                selecionados.</p>
+                            <button class="no-results-btn" id="clearFiltersBtn">Limpar Filtros</button>
+                        </div>
+                    </div>
 
                 </div>
             </div>
