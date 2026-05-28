@@ -124,13 +124,11 @@
     }
 
     /* Global 64px lateral padding for ALL sections */
-    main > section:not(.servicos-hero):not(.about-dark-section):not(.civic-participation-section),
-    main > section:not(.servicos-hero) .container {
+    main>section:not(.servicos-hero):not(.about-dark-section):not(.civic-participation-section),
+    main>section:not(.servicos-hero) .container {
         padding-left: 64px !important;
         padding-right: 64px !important;
     }
-}
-
 }
 
 /* LAPTOP & DESKTOP RESPONSIVE ADJUSTMENTS */
@@ -922,7 +920,8 @@ body.is-ajax {
     /* Heavy luxury thick but subtle border */
     padding: 3rem 2rem 2rem 2rem;
     border-radius: 2.5rem;
-    overflow: hidden;
+    max-height: 95vh;
+    overflow-y: auto;
     opacity: 0;
     transform: scale(0.92) translateY(40px);
     transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
@@ -2115,7 +2114,7 @@ body.is-ajax {
 
 /* Horizontal / Landscape Layout configuration */
 .modal-horizontal .modal-container {
-    max-width: 820px;
+    max-width: 1000px;
     /* Wider for landscape certificates */
     padding: 3.5rem 2.5rem 2.5rem 2.5rem;
     border-radius: 1.5rem;
@@ -2126,6 +2125,29 @@ body.is-ajax {
     aspect-ratio: 1.414;
     /* A4 Landscape ratio (1 / 0.707) */
     background: rgba(0, 0, 0, 0.02);
+}
+
+/* LAPTOP MODAL RESPONSIVENESS (Width & Height based) */
+@media (max-width: 1440px), (max-height: 900px) {
+    .modal-horizontal .modal-container {
+        max-width: 850px;
+        padding: 2.5rem 2rem 2rem 2rem;
+    }
+    .modal-container {
+        max-width: 440px;
+        padding: 2.5rem 2rem 1.5rem 2rem;
+    }
+}
+
+@media (max-width: 1200px), (max-height: 750px) {
+    .modal-horizontal .modal-container {
+        max-width: 750px;
+        padding: 2rem 1.5rem 1.5rem 1.5rem;
+    }
+    .modal-container {
+        max-width: 380px;
+        padding: 2rem 1.5rem 1.5rem 1.5rem;
+    }
 }
 
 /* ==========================================================================
@@ -2694,4 +2716,3 @@ main {
     box-shadow: none !important;
     outline: none !important;
 }
-
