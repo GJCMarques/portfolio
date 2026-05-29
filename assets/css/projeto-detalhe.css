@@ -157,6 +157,7 @@
 }
 
 /* Gallery Section */
+
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -309,6 +310,10 @@
 }
 
 @media (max-width: 768px) {
+    .projeto-gallery {
+        padding-bottom: 0;
+    }
+    
     .detalhe-meta {
         flex-direction: column;
         align-items: flex-start;
