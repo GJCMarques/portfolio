@@ -389,3 +389,22 @@
     width: 20px;
     height: 20px;
 }
+
+/* GitHub Button with Hover Arrow for Project Details */
+.github-btn-hover .github-arrow {
+    opacity: 0;
+    max-width: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    margin-left: -0.5rem;
+}
+
+.github-btn-hover:hover .github-arrow {
+    opacity: 1;
+    max-width: 20px;
+    transform: translateX(0);
+    margin-left: 0;
+}
