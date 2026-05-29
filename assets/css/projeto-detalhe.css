@@ -275,6 +275,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 .lightbox-content img {
@@ -284,11 +285,19 @@
     border-radius: 8px;
     box-shadow: 0 20px 50px rgba(0,0,0,0.5);
     transform: scale(0.95);
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: zoom-in;
 }
 
 .lightbox-modal.active .lightbox-content img {
     transform: scale(1);
+}
+
+.lightbox-modal.active .lightbox-content img.zoomed-in {
+    cursor: grab;
+}
+.lightbox-modal.active .lightbox-content img.zoomed-in:active {
+    cursor: grabbing;
 }
 
 /* Responsive Overrides */
