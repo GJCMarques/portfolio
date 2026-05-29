@@ -32,7 +32,8 @@
     <meta property="twitter:title" content="Cristal Terminal | Guilherme Marques">
     <meta property="twitter:description"
         content="Terminal financeiro de grau institucional. Combina modelos quantitativos de precisão e Inteligência Artificial para análise avançada de mercados de ações.">
-    <meta property="twitter:image" content="https://portfolio-nqj.pages.dev/assets/img/projetos/cristalterminalcapa.webp">
+    <meta property="twitter:image"
+        content="https://portfolio-nqj.pages.dev/assets/img/projetos/cristalterminalcapa.webp">
 </head>
 
 <body style="overflow-x: hidden;">
@@ -52,19 +53,24 @@
         <nav class="drawer-nav">
             <ul class="drawer-list">
                 <li class="drawer-item">
-                    <a href="../../" class="drawer-link"><span class="item-num">01</span> INÍCIO <span class="arrow">→</span></a>
+                    <a href="../../" class="drawer-link"><span class="item-num">01</span> INÍCIO <span
+                            class="arrow">→</span></a>
                 </li>
                 <li class="drawer-item">
-                    <a href="../../sobre/" class="drawer-link"><span class="item-num">02</span> SOBRE <span class="arrow">→</span></a>
+                    <a href="../../sobre/" class="drawer-link"><span class="item-num">02</span> SOBRE <span
+                            class="arrow">→</span></a>
                 </li>
                 <li class="drawer-item">
-                    <a href="../" class="drawer-link"><span class="item-num">03</span> PROJETOS <span class="arrow">→</span></a>
+                    <a href="../" class="drawer-link"><span class="item-num">03</span> PROJETOS <span
+                            class="arrow">→</span></a>
                 </li>
                 <li class="drawer-item">
-                    <a href="../../servicos/" class="drawer-link"><span class="item-num">04</span> SERVIÇOS <span class="arrow">→</span></a>
+                    <a href="../../servicos/" class="drawer-link"><span class="item-num">04</span> SERVIÇOS <span
+                            class="arrow">→</span></a>
                 </li>
                 <li class="drawer-item">
-                    <a href="../../contacto/" class="drawer-link"><span class="item-num">05</span> CONTACTO <span class="arrow">→</span></a>
+                    <a href="../../contacto/" class="drawer-link"><span class="item-num">05</span> CONTACTO <span
+                            class="arrow">→</span></a>
                 </li>
             </ul>
         </nav>
@@ -107,9 +113,9 @@
             <section class="projeto-detalhe-hero stagger-container fade-up">
                 <div class="container-large">
 
-                    
+
                     <h1 class="detalhe-title fade-up">Cristal Terminal</h1>
-                    
+
                     <div class="detalhe-meta fade-up">
                         <div class="detalhe-tags fade-up">
                             <span class="detalhe-tag">Pessoal</span>
@@ -121,9 +127,11 @@
                     </div>
 
                     <div class="detalhe-cover fade-up">
-                        <img src="../../assets/img/projetos/cristalterminalcapa.webp" alt="Cristal Terminal Capa Principal" class="lightbox-trigger zoomable-cover">
+                        <img src="../../assets/img/projetos/cristalterminalcapa.webp"
+                            alt="Cristal Terminal Capa Principal" class="lightbox-trigger zoomable-cover">
                         <div class="zoom-hint">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
                                 <circle cx="11" cy="11" r="8"></circle>
                                 <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                                 <line x1="11" y1="8" x2="11" y2="14"></line>
@@ -141,14 +149,44 @@
                     <div class="overview-grid">
                         <div class="overview-left fade-up">
                             <h2 class="overview-title">O Desafio</h2>
-                            <p class="overview-desc">O acesso a ferramentas financeiras de elite, como o <em>Bloomberg Terminal</em>, está restrito a instituições com orçamentos milionários, limitando a democratização da análise financeira quantitativa. O desafio que impus a mim mesmo foi ambicioso: <strong>construir um terminal financeiro 100% local e open-source</strong>, capaz de processar dados em tempo real sem depender de infraestruturas cloud dispendiosas ou bases de dados externas complexas.</p>
-                            
-                            <h3 style="font-size: 1.5rem; color: var(--color-text-main); margin: 2rem 0 1rem; font-weight: 600;">A Solução: Cristal Capital</h3>
-                            <p class="overview-desc">O resultado é uma aplicação web moderna (SPA) com uma interface brutalista, escura e profissional, utilizando a tipografia <em>IBM Plex Mono</em> para máxima legibilidade. O terminal engloba <strong>27 vistas de alta precisão</strong>, cruzando dados globais de mercado, análise quantitativa avançada, ecossistemas DeFi e ainda um módulo revolucionário: o <em>Agente Bond</em>, uma Inteligência Artificial local capaz de fazer análises de sentimento.</p>
-                            
-                            <h3 style="font-size: 1.5rem; color: var(--color-text-main); margin: 2rem 0 1rem; font-weight: 600;">O Meu Papel e Decisões de Engenharia</h3>
-                            <p class="overview-desc">Atuei como arquiteto de ponta a ponta, unindo Design de Interfaces e Engenharia Full Stack. Para suportar gráficos ultra-pesados e assegurar a reatividade instantânea, baseei o projeto em <strong>Next.js 15 e React 19</strong>, utilizando o <strong>Zustand 5</strong> para lidar com dezenas de streams de dados em simultâneo. Inovei na persistência de dados ao descartar servidores tradicionais, embutindo um motor <strong>SQLite</strong> que vive e morre localmente com o utilizador, aliado ao motor <em>Ollama / Llama 3</em> injetado diretamente na máquina.</p>
-                            <p class="overview-desc">No que toca à ciência de dados, desenhei um motor de cálculo híbrido. Enquanto as interfaces consomem cálculos leves em <strong>TypeScript</strong> no browser, os processos mais pesados (como a construção de Fronteiras Eficientes e superfícies de volatilidade 3D) delegam o trabalho para rotinas locais em <strong>Python</strong> e simulações pré-compiladas de <strong>C++ para WebAssembly (WASM)</strong>. Esta mescla de linguagens proporciona uma performance de nível institucional, perfeitamente embutida num simples <em>localhost</em>.</p>
+                            <p class="overview-desc">O acesso a ferramentas financeiras de topo, como o <em>Bloomberg
+                                    Terminal</em>, está restrito a instituições com orçamentos milionários, limitando a
+                                democratização da análise financeira quantitativa. O desafio que impus a mim mesmo foi
+                                ambicioso: <strong>construir um terminal financeiro 100% local e open-source</strong>,
+                                capaz de processar dados em tempo real sem depender de infraestruturas cloud
+                                dispendiosas ou bases de dados externas complexas.</p>
+
+                            <h3
+                                style="font-size: 1.5rem; color: var(--color-text-main); margin: 2rem 0 1rem; font-weight: 600;">
+                                A Solução: Cristal Capital</h3>
+                            <p class="overview-desc">O resultado é uma aplicação web moderna (SPA) com uma interface
+                                brutalista, escura e profissional, utilizando a tipografia <em>IBM Plex Mono</em> para
+                                máxima legibilidade, inspirado no design da <em>Terminal Bloomberg</em>. O terminal
+                                engloba <strong>27 vistas de alta precisão</strong>, cruzando dados globais de mercado,
+                                análise quantitativa avançada, ecossistemas DeFi e ainda um módulo revolucionário: o
+                                <em>Agente Bond</em>, uma Inteligência Artificial local capaz de fazer análises de
+                                sentimento.
+                            </p>
+
+                            <h3
+                                style="font-size: 1.5rem; color: var(--color-text-main); margin: 2rem 0 1rem; font-weight: 600;">
+                                O Meu Papel e Decisões de Engenharia</h3>
+                            <p class="overview-desc">Atuei como arquiteto de ponta a ponta, unindo Design de Interfaces
+                                e Engenharia Full Stack. Para suportar gráficos ultra-pesados e assegurar a reatividade
+                                instantânea, baseei o projeto em <strong>Next.js 15 e React 19</strong>, utilizando o
+                                <strong>Zustand 5</strong> para lidar com dezenas de streams de dados em simultâneo.
+                                Inovei na persistência de dados ao descartar servidores tradicionais, embutindo um motor
+                                <strong>SQLite</strong> que vive e morre localmente com o utilizador, aliado ao motor
+                                <em>Ollama / Llama 3</em> injetado diretamente na máquina.
+                            </p>
+                            <p class="overview-desc">No que toca à ciência de dados, desenhei um motor de cálculo
+                                híbrido. Enquanto as interfaces consomem cálculos leves em <strong>TypeScript</strong>
+                                no browser, os processos mais pesados (como a construção de Fronteiras Eficientes e
+                                superfícies de volatilidade 3D) delegam o trabalho para rotinas locais em
+                                <strong>Python</strong> e simulações pré-compiladas de <strong>C++ para WebAssembly
+                                    (WASM)</strong>. Esta mistura de linguagens proporciona uma performance de nível
+                                institucional, perfeitamente embutida num simples <em>localhost</em>.
+                            </p>
                         </div>
                         <div class="overview-right fade-up">
                             <div class="info-block">
@@ -167,12 +205,16 @@
                                 <h3>Backend & Motores</h3>
                                 <p>SQLite, C++ (WASM), Python, Ollama (Llama 3)</p>
                             </div>
-                            
+
                             <div class="info-block" style="margin-top: 2rem;">
                                 <div class="btn-wrapper" style="width: 100%;">
-                                    <a href="https://github.com/GJCMarques/Cristal-Terminal" target="_blank" rel="noopener noreferrer" class="btn btn-dark" style="display: inline-flex; align-items: center; justify-content: center; width: 100%; gap: 0.75rem;">
-                                        <svg viewBox="0 0 24 24" fill="currentColor" stroke="none" width="20" height="20">
-                                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    <a href="https://github.com/GJCMarques/Cristal-Terminal" target="_blank"
+                                        rel="noopener noreferrer" class="btn btn-dark"
+                                        style="display: inline-flex; align-items: center; justify-content: center; width: 100%; gap: 0.75rem;">
+                                        <svg viewBox="0 0 24 24" fill="currentColor" stroke="none" width="20"
+                                            height="20">
+                                            <path
+                                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                                         </svg>
                                         GitHub &rarr;
                                     </a>
@@ -190,38 +232,38 @@
                     <div id="paginatedGallery" class="gallery-grid fade-up">
                         <!-- JS injects items here -->
                     </div>
-                    
+
                     <div class="gallery-pagination fade-up">
                         <div class="pagination-info" id="paginationInfo">1 de 21</div>
                         <div class="pagination-controls">
                             <button id="prevPageBtn" class="pagination-btn" aria-label="Página Anterior">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M15 18l-6-6 6-6"/>
+                                    <path d="M15 18l-6-6 6-6" />
                                 </svg>
                             </button>
                             <button id="nextPageBtn" class="pagination-btn" aria-label="Próxima Página">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M9 18l6-6-6-6"/>
+                                    <path d="M9 18l6-6-6-6" />
                                 </svg>
                             </button>
                         </div>
                     </div>
-                    
+
                     <script>
                         document.addEventListener("DOMContentLoaded", () => {
                             const images = [
                                 '1 - Login.png', '2 - Mercado.png', '3 - Wish List.png', '4 - Livro de Ordens.png', '5.1 - Curvas de Rendimento.png', '5.2 - Curvas de Rendimento.png', '5.3 - Curvas de Rendimento.png', '6 - Heat Map.png', '7 - Bubble Map.png', '8 - Screener.png', '9 - Matrix de Correlacao.png', '10 - Alertas.png', '11.1 - Monitor Macroeconomico.png', '11.2 - Monitor Macroeconomico.png', '11.3 - Monitor Macroeconomico.png', '11.4 - Monitor Macroeconomico.png', '11.5 - Monitor Macroeconomico.png', '11.6 - Monitor Macroeconomico.png', '12 - Calendario.png', '13.1 - Mapa Mundo.png', '13.2 - Mapa Mundo.png', '13.3 - Mapa Mundo.png', '13.4 - Mapa Mundo.png', '13.5 - Mapa Mundo.png', '14 - Crypto.png', '15 - DEFI.png', '16 - Noticias com Sentimentos.png', '17 - IA Terminal.png', '18 - Monitor Global 3d.png', '19.1 Quant.png', '19.2 Quant.png', '19.3 Quant.png', '19.4 Quant.png', '19.5 Quant.png', '19.6 Quant.png', '19.7 Quant.png', '19.8 Quant.png', '19.9 Quant.png', '19.10 Quant.png', '19.11 Quant.png', '19.12 Quant.png', '19.13 Quant.png', '19.14 Quant.png', '19.15 Quant.png', '19.16 Quant.png', '21 - TV Direto.png', '22 - Radio.png', '23 - Chat Institucional.png', '24 - Help Page.png', '25 - Temas.png', '26 - Menu Perfil.png', '27 - Linguas.png', '28 - Menu Botao Direito Rato.png', '29 - Menu de Atalho.png', '30 - Stock Price.png', '31 - Configuracoes Perfil.png', '32 - Configuracoes Perfil.png', '33 - Configuracoes Perfil.png', '34 - Configuracoes Perfil.png', '35 -Painel de Contas Administracao.png', '36 - Painel Controlo Funcionalidades.png', '37 - Painel de MFA.png', '38 - Painel Linha de Comandos.png'
                             ];
-                            
+
                             const itemsPerPage = 3;
                             let currentPage = 1;
                             const totalPages = Math.ceil(images.length / itemsPerPage);
-                            
+
                             const galleryContainer = document.getElementById("paginatedGallery");
                             const infoEl = document.getElementById("paginationInfo");
                             const prevBtn = document.getElementById("prevPageBtn");
                             const nextBtn = document.getElementById("nextPageBtn");
-                            
+
                             // Initialize the grid with permanent containers to prevent layout shift
                             galleryContainer.innerHTML = '';
                             for (let i = 0; i < itemsPerPage; i++) {
@@ -230,32 +272,32 @@
                                 div.innerHTML = `<img src="" alt="" class="lightbox-trigger" style="display: none;">`;
                                 galleryContainer.appendChild(div);
                             }
-                            
+
                             // Bind lightbox once
                             const triggers = galleryContainer.querySelectorAll('.lightbox-trigger');
                             const lightboxModal = document.getElementById('lightboxModal');
                             const lightboxImage = document.getElementById('lightboxImage');
-                            
+
                             triggers.forEach(trigger => {
                                 trigger.addEventListener('click', (e) => {
-                                    if(trigger.style.display === 'none') return;
+                                    if (trigger.style.display === 'none') return;
                                     e.preventDefault();
                                     lightboxImage.src = trigger.src;
                                     lightboxModal.classList.add('active');
                                     document.body.style.overflow = 'hidden';
-                                    
+
                                     const event = new CustomEvent('resetZoom');
                                     document.dispatchEvent(event);
                                 });
                             });
-                            
+
                             function renderPage(page) {
                                 const start = (page - 1) * itemsPerPage;
                                 const end = start + itemsPerPage;
                                 const currentImages = images.slice(start, end);
-                                
+
                                 const galleryItems = galleryContainer.querySelectorAll('.gallery-item');
-                                
+
                                 galleryItems.forEach((item, index) => {
                                     const imgEl = item.querySelector('img');
                                     if (index < currentImages.length) {
@@ -269,26 +311,26 @@
                                         imgEl.src = '';
                                     }
                                 });
-                                
+
                                 infoEl.textContent = `${page} de ${totalPages}`;
                                 prevBtn.disabled = page === 1;
                                 nextBtn.disabled = page === totalPages;
                             }
-                            
+
                             prevBtn.addEventListener('click', () => {
                                 if (currentPage > 1) {
                                     currentPage--;
                                     renderPage(currentPage);
                                 }
                             });
-                            
+
                             nextBtn.addEventListener('click', () => {
                                 if (currentPage < totalPages) {
                                     currentPage++;
                                     renderPage(currentPage);
                                 }
                             });
-                            
+
                             // Initial render
                             renderPage(currentPage);
                         });
@@ -301,7 +343,8 @@
                 <div class="container-large">
                     <div class="projects-section-footer fade-up">
                         <div class="footer-bg-single">
-                            <img src="../../assets/img/projetos/estudascomigocapa.webp" alt="Background CTA" class="bg-video-full" style="object-fit: cover;">
+                            <img src="../../assets/img/projetos/estudascomigocapa.webp" alt="Background CTA"
+                                class="bg-video-full" style="object-fit: cover;">
                         </div>
 
                         <div class="footer-cta-content">
@@ -311,7 +354,8 @@
                                 <a href="../estudas-comigo/" class="btn btn-dark btn-xl"
                                     style="display: inline-flex; align-items: center; gap: 0.75rem;">
                                     Ver Projeto
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        width="20" height="20">
                                         <path d="M5 12h14M12 5l7 7-7 7" />
                                     </svg>
                                 </a>
