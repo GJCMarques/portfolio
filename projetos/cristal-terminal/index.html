@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cristal Terminal | Projetos | Guilherme Marques</title>
+    <link rel="icon" type="image/svg+xml" href="../../assets/img/logo.svg">
+
+    <link rel="stylesheet" href="../../assets/css/fonts.css">
+    <link rel="stylesheet" href="../../assets/css/variables.css">
+    <link rel="stylesheet" href="../../assets/css/global.css">
+    <link rel="stylesheet" href="../../assets/css/menu.css">
+    <link rel="stylesheet" href="../../assets/css/animations.css">
+    <link rel="stylesheet" href="../../assets/css/projetos.css">
+    <link rel="stylesheet" href="../../assets/css/projeto-detalhe.css">
+    <link rel="stylesheet" href="../../assets/css/page-transitions.css">
+</head>
+
+<body style="overflow-x: hidden;">
+    <!-- Menu Trigger -->
+    <button id="menuTrigger" class="menu-trigger" aria-label="Toggle Menu" aria-expanded="false">
+        <div class="trigger-icon">
+            <div class="trigger-line top"></div>
+            <div class="trigger-line bottom"></div>
+        </div>
+    </button>
+
+    <!-- Side Drawer Overlay -->
+    <div id="drawerOverlay" class="drawer-overlay"></div>
+
+    <!-- Side Drawer Menu -->
+    <aside id="sideDrawer" class="side-drawer" role="dialog" aria-modal="true" aria-label="Menu Principal">
+        <nav class="drawer-nav">
+            <ul class="drawer-list">
+                <li class="drawer-item"><a href="../../" class="drawer-link"><span class="item-num">01</span> INÍCIO <span class="arrow">→</span></a></li>
+                <li class="drawer-item"><a href="../../sobre/" class="drawer-link"><span class="item-num">02</span> SOBRE <span class="arrow">→</span></a></li>
+                <li class="drawer-item"><a href="../" class="drawer-link active"><span class="item-num">03</span> PROJETOS <span class="arrow">→</span></a></li>
+                <li class="drawer-item"><a href="../../servicos/" class="drawer-link"><span class="item-num">04</span> SERVIÇOS <span class="arrow">→</span></a></li>
+                <li class="drawer-item"><a href="../../contacto/" class="drawer-link"><span class="item-num">05</span> CONTACTO <span class="arrow">→</span></a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Page Transition Wrapper -->
+    <div class="page-wrapper transition-active">
+
+        <!-- Header Navigation -->
+        <header class="main-header fade-in">
+            <div class="header-container">
+                <a href="../../" class="logo-link" aria-label="Página Inicial">
+                    <img src="../../assets/img/logo.svg" alt="GM Logo" class="header-logo">
+                </a>
+                <a href="../../contacto/" class="header-btn">
+                    Iniciar Projeto
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </a>
+            </div>
+        </header>
+
+        <main id="main-content">
+            <!-- Hero Section -->
+            <section class="projeto-detalhe-hero stagger-container fade-up">
+                <div class="container-large">
+                    <div class="hero-top-nav">
+                        <a href="../" class="back-link">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M19 12H5M12 19l-7-7 7-7"/>
+                            </svg>
+                            Voltar aos Projetos
+                        </a>
+                    </div>
+                    
+                    <h1 class="detalhe-title fade-up">Cristal Terminal</h1>
+                    
+                    <div class="detalhe-meta fade-up">
+                        <div class="detalhe-tags">
+                            <span class="detalhe-tag">Pessoal</span>\n                            <span class="detalhe-tag">Full Stack</span>\n                            <span class="detalhe-tag">Design</span>\n                            <span class="detalhe-tag">Finanças</span>
+                        </div>
+                        <span class="detalhe-year">2026</span>
+                    </div>
+
+                    <div class="detalhe-cover fade-up">
+                        <img src="../../assets/img/projetos/cristalterminalcapa.webp" alt="Cristal Terminal Capa Principal" class="lightbox-trigger zoomable-cover">
+                        <div class="zoom-hint">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                <line x1="11" y1="8" x2="11" y2="14"></line>
+                                <line x1="8" y1="11" x2="14" y2="11"></line>
+                            </svg>
+                            <span>Clique para Ampliar</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Overview Section -->
+            <section class="projeto-overview section stagger-container fade-up">
+                <div class="container-large">
+                    <div class="overview-grid">
+                        <div class="overview-left fade-up">
+                            <h2 class="overview-title">O Desafio</h2>
+                            <p class="overview-desc">Inspirado no Bloomberg Terminal, o Cristal Terminal foi concebido como uma plataforma de análise de mercados para finanças quantitativas de alta precisão. O projeto tira partido de Next.js 15 e React 19 para garantir reatividade extrema num ambiente de Single Page Application, vital para a visualização de gráficos e dashboards pesados.</p>
+                            <p class="overview-desc">Mais informações detalhadas sobre a execução, arquitetura e resultados serão adicionadas futuramente neste espaço.</p>
+                        </div>
+                        <div class="overview-right fade-up">
+                            <div class="info-block">
+                                <h3>Cliente</h3>
+                                <p>Projeto Pessoal</p>
+                            </div>
+                            <div class="info-block">
+                                <h3>Papel (Role)</h3>
+                                <p>Full Stack Developer & UI/UX Designer</p>
+                            </div>
+                            <div class="info-block">
+                                <h3>Tecnologias</h3>
+                                <p>Next.js 15, React 19, Zustand 5, TailwindCSS</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gallery Section -->
+            <section class="projeto-gallery section stagger-container fade-up">
+                <div class="container-large">
+                    <h2 class="section-title-editorial fade-up" style="margin-bottom: 2rem;">Galeria do Projeto</h2>
+                    <div class="gallery-grid fade-up">
+                        
+                        <div class="gallery-item">
+                            <img src="../../assets/img/projetos/cristalterminalcapa.webp" alt="Mockup 1" class="lightbox-trigger">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="../../assets/img/projetos/cristalterminalcapa.webp" alt="Mockup 2" class="lightbox-trigger">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="../../assets/img/projetos/cristalterminalcapa.webp" alt="Mockup 3" class="lightbox-trigger">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Next Project CTA -->
+            <section class="next-project-section fade-up">
+                <a href="../estudas-comigo/" class="next-project-link">
+                    <div class="container-large">
+                        <span class="next-eyebrow">Próximo Projeto</span>
+                        <h2 class="next-title">Explorar Mais Projetos <span class="arrow">→</span></h2>
+                    </div>
+                </a>
+            </section>
+        </main>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightboxModal" class="lightbox-modal">
+        <button class="lightbox-close" aria-label="Fechar Zoom">&times;</button>
+        <div class="lightbox-content">
+            <img id="lightboxImage" src="" alt="Imagem Ampliada">
+        </div>
+    </div>
+
+    <script src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/page-transitions.js"></script>
+    <script src="../../assets/js/lightbox.js"></script>
+</body>
+</html>
