@@ -200,17 +200,112 @@
             <section class="projeto-gallery section stagger-container fade-up">
                 <div class="container-large">
                     <h2 class="section-title-editorial fade-up" style="margin-bottom: 2rem;">Galeria do Projeto</h2>
-                    <div class="gallery-grid fade-up">
-                        <div class="gallery-item">
-                            <img src="../../assets/img/projetos/estudascomigocapa.webp" alt="Mockup 1" class="lightbox-trigger">
-                        </div>
-                        <div class="gallery-item">
-                            <img src="../../assets/img/projetos/estudascomigocapa.webp" alt="Mockup 2" class="lightbox-trigger">
-                        </div>
-                        <div class="gallery-item">
-                            <img src="../../assets/img/projetos/estudascomigocapa.webp" alt="Mockup 3" class="lightbox-trigger">
+                    <div id="paginatedGallery" class="gallery-grid fade-up">
+                        <!-- JS injects items here -->
+                    </div>
+
+                    <div class="gallery-pagination fade-up">
+                        <div class="pagination-info" id="paginationInfo">1 de 5</div>
+                        <div class="pagination-controls">
+                            <button id="prevPageBtn" class="pagination-btn" aria-label="Página Anterior">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 18l-6-6 6-6" />
+                                </svg>
+                            </button>
+                            <button id="nextPageBtn" class="pagination-btn" aria-label="Próxima Página">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 18l6-6-6-6" />
+                                </svg>
+                            </button>
                         </div>
                     </div>
+
+                    <script>
+                        document.addEventListener("DOMContentLoaded", () => {
+                            const images = [
+                                '1.png', '2.png', '3.png', '4.png', '5.png', '6.png', '7.png', '8.png', '9.png', '10.png', '11.png', '12.png', '13.png', '14.png', '15.png'
+                            ];
+
+                            const itemsPerPage = 3;
+                            let currentPage = 1;
+                            const totalPages = Math.ceil(images.length / itemsPerPage);
+
+                            const galleryContainer = document.getElementById("paginatedGallery");
+                            const infoEl = document.getElementById("paginationInfo");
+                            const prevBtn = document.getElementById("prevPageBtn");
+                            const nextBtn = document.getElementById("nextPageBtn");
+
+                            // Initialize the grid with permanent containers to prevent layout shift
+                            galleryContainer.innerHTML = '';
+                            for (let i = 0; i < itemsPerPage; i++) {
+                                const div = document.createElement("div");
+                                div.className = "gallery-item";
+                                div.innerHTML = `<img src="" alt="" class="lightbox-trigger" style="display: none;">`;
+                                galleryContainer.appendChild(div);
+                            }
+
+                            // Bind lightbox once
+                            const triggers = galleryContainer.querySelectorAll('.lightbox-trigger');
+                            const lightboxModal = document.getElementById('lightboxModal');
+                            const lightboxImage = document.getElementById('lightboxImage');
+
+                            triggers.forEach(trigger => {
+                                trigger.addEventListener('click', (e) => {
+                                    if (trigger.style.display === 'none') return;
+                                    e.preventDefault();
+                                    lightboxImage.src = trigger.src;
+                                    lightboxModal.classList.add('active');
+                                    document.body.style.overflow = 'hidden';
+
+                                    const event = new CustomEvent('resetZoom');
+                                    document.dispatchEvent(event);
+                                });
+                            });
+
+                            function renderPage(page) {
+                                const start = (page - 1) * itemsPerPage;
+                                const end = start + itemsPerPage;
+                                const currentImages = images.slice(start, end);
+
+                                const galleryItems = galleryContainer.querySelectorAll('.gallery-item');
+
+                                galleryItems.forEach((item, index) => {
+                                    const imgEl = item.querySelector('img');
+                                    if (index < currentImages.length) {
+                                        const img = currentImages[index];
+                                        const nameWithoutExt = img.replace('.png', '');
+                                        imgEl.src = `../../assets/img/projetos/estudascomigo/${img}`;
+                                        imgEl.alt = nameWithoutExt;
+                                        imgEl.style.display = 'block';
+                                    } else {
+                                        imgEl.style.display = 'none';
+                                        imgEl.src = '';
+                                    }
+                                });
+
+                                infoEl.textContent = `${page} de ${totalPages}`;
+                                prevBtn.disabled = page === 1;
+                                nextBtn.disabled = page === totalPages;
+                            }
+
+                            prevBtn.addEventListener('click', () => {
+                                if (currentPage > 1) {
+                                    currentPage--;
+                                    renderPage(currentPage);
+                                }
+                            });
+
+                            nextBtn.addEventListener('click', () => {
+                                if (currentPage < totalPages) {
+                                    currentPage++;
+                                    renderPage(currentPage);
+                                }
+                            });
+
+                            // Initial render
+                            renderPage(currentPage);
+                        });
+                    </script>
                 </div>
             </section>
 
