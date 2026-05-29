@@ -215,7 +215,7 @@
                 <div class="container-large">
                     <h2 class="section-title-editorial fade-up" style="margin-bottom: 2rem;">O Antes & Depois</h2>
                     
-                    <div id="comparisonWrapper" class="comparison-slider-wrapper fade-up" style="position: relative; border-radius: var(--radius-lg, 12px); overflow: hidden; aspect-ratio: 16/9; background: var(--color-bg-alt, #111); border: 1px solid rgba(255,255,255,0.1); cursor: ew-resize; user-select: none;">
+                    <div id="comparisonWrapper" class="comparison-slider-wrapper fade-up" style="position: relative; border-radius: var(--radius-lg, 12px); overflow: hidden; aspect-ratio: 16/9; background: var(--color-bg-alt, #111); border: 1px solid rgba(255,255,255,0.1); user-select: none;">
                         
                         <!-- Imagem Depois (2026) -> Fica no Fundo -->
                         <div class="img-after" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
@@ -232,7 +232,7 @@
                         <!-- Linha Divisória e Botão -->
                         <div class="slider-handle-line" id="sliderLine" style="position: absolute; top: 0; bottom: 0; left: 50%; width: 3px; background: white; transform: translateX(-50%); pointer-events: none; box-shadow: 0 0 10px rgba(0,0,0,0.5);"></div>
                         
-                        <div class="slider-handle-btn" id="sliderBtn" style="position: absolute; top: 50%; left: 50%; width: 44px; height: 44px; background: white; border-radius: 50%; transform: translate(-50%, -50%); display: flex; align-items: center; justify-content: center; color: #111; box-shadow: 0 4px 15px rgba(0,0,0,0.4); pointer-events: none;">
+                        <div class="slider-handle-btn" id="sliderBtn" style="position: absolute; top: 50%; left: 50%; width: 44px; height: 44px; background: white; border-radius: 50%; transform: translate(-50%, -50%); display: flex; align-items: center; justify-content: center; color: #111; box-shadow: 0 4px 15px rgba(0,0,0,0.4); cursor: ew-resize; pointer-events: auto;">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="20" height="20" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M9 18l-6-6 6-6" />
                                 <path d="M15 18l6-6-6-6" />
@@ -264,8 +264,13 @@
                             sliderBtn.style.left = `${position}%`;
                         };
 
-                        wrapper.addEventListener("mousedown", () => isDragging = true);
-                        wrapper.addEventListener("touchstart", () => isDragging = true);
+                        sliderBtn.addEventListener("mousedown", (e) => {
+                            isDragging = true;
+                            e.preventDefault();
+                        });
+                        sliderBtn.addEventListener("touchstart", (e) => {
+                            isDragging = true;
+                        }, {passive: true});
 
                         window.addEventListener("mouseup", () => isDragging = false);
                         window.addEventListener("touchend", () => isDragging = false);
