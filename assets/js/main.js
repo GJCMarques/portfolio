@@ -148,8 +148,9 @@ window.reinitMain = function() {
     if (!container) return;
     const projectItems = container.querySelectorAll('.dir-project-item');
     
-    container.style.transition = 'opacity 0.2s ease-out';
+    container.style.transition = 'opacity 0.25s ease-out, transform 0.25s ease-out';
     container.style.opacity = '0';
+    container.style.transform = 'translateY(15px)';
     
     setTimeout(() => {
       let visibleCount = 0;
@@ -191,9 +192,11 @@ window.reinitMain = function() {
       if (noResultsState) {
         noResultsState.style.display = visibleCount === 0 ? 'flex' : 'none';
       }
-      
-      container.style.opacity = '1';
-    }, 20);
+      requestAnimationFrame(() => {
+        container.style.opacity = '1';
+        container.style.transform = 'translateY(0)';
+      });
+    }, 250);
   }
 
   // Recommendations Carousel Logic
