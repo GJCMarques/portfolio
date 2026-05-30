@@ -234,20 +234,108 @@
             <section class="projeto-gallery section stagger-container fade-up">
                 <div class="container-large">
                     <h2 class="section-title-editorial fade-up" style="margin-bottom: 2rem;">Galeria do Projeto</h2>
-                    <div class="gallery-grid fade-up">
-                        <div class="gallery-item">
-                            <img src="../../assets/img/projetos/cristalcapitalcapa.webp" alt="Mockup 1"
-                                class="lightbox-trigger">
-                        </div>
-                        <div class="gallery-item">
-                            <img src="../../assets/img/projetos/cristalcapitalcapa.webp" alt="Mockup 2"
-                                class="lightbox-trigger">
-                        </div>
-                        <div class="gallery-item">
-                            <img src="../../assets/img/projetos/cristalcapitalcapa.webp" alt="Mockup 3"
-                                class="lightbox-trigger">
+                    <div id="paginatedGallery" class="gallery-grid fade-up">
+                        <!-- JS injects items here -->
+                    </div>
+
+                    <div class="gallery-pagination fade-up">
+                        <div class="pagination-info" id="paginationInfo">1 de 13</div>
+                        <div class="pagination-controls">
+                            <button id="prevPageBtn" class="pagination-btn" aria-label="Página Anterior">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 18l-6-6 6-6" />
+                                </svg>
+                            </button>
+                            <button id="nextPageBtn" class="pagination-btn" aria-label="Próxima Página">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 18l6-6-6-6" />
+                                </svg>
+                            </button>
                         </div>
                     </div>
+
+                    <script>
+                        (function initGallery() {
+                            const images = [
+                                '1.png', '2.png', '3.png', '4.png', '5.png', '6.png', '7.png', '8.png', '9.png', '10.png',
+                                '11.png', '12.png', '13.png', '14.png', '15.png', '16.png', '17.png', '18.png', '19.png', '20.png',
+                                '21.png', '22.png', '23.png', '24.png', '25.png', '26.png', '27.png', '28.png', '29.png', '30.png',
+                                '31.png', '32.png', '33.png', '34.png', '35.png', '36.png', '37.png', '38.png'
+                            ];
+
+                            const itemsPerPage = 3;
+                            let currentPage = 1;
+                            const totalPages = Math.ceil(images.length / itemsPerPage);
+
+                            const galleryContainer = document.getElementById("paginatedGallery");
+                            const infoEl = document.getElementById("paginationInfo");
+                            const prevBtn = document.getElementById("prevPageBtn");
+                            const nextBtn = document.getElementById("nextPageBtn");
+
+                            // Initialize the grid with permanent containers to prevent layout shift
+                            if (!galleryContainer) return;
+                            galleryContainer.innerHTML = "";
+                            for (let i = 0; i < itemsPerPage; i++) {
+                                const div = document.createElement("div");
+                                div.className = "gallery-item";
+                                div.innerHTML = `<img src="" alt="" class="lightbox-trigger" style="display: none;">`;
+                                galleryContainer.appendChild(div);
+                            }
+
+                            // Bind lightbox once
+                            const triggers = galleryContainer.querySelectorAll('.lightbox-trigger');
+                            const lightboxModal = document.getElementById('lightboxModal');
+                            const lightboxImage = document.getElementById('lightboxImage');
+
+                            triggers.forEach(trigger => {
+                                trigger.addEventListener('click', (e) => {
+                                    if (trigger.style.display === 'none') return;
+                                    e.preventDefault();
+                                    lightboxImage.src = trigger.src;
+                                    lightboxModal.classList.add('active');
+                                    document.body.style.overflow = 'hidden';
+
+                                    const event = new CustomEvent('resetZoom');
+                                    document.dispatchEvent(event);
+                                });
+                            });
+
+                            function renderPage(page) {
+                                const startIndex = (page - 1) * itemsPerPage;
+
+                                const items = galleryContainer.querySelectorAll('.gallery-item');
+                                items.forEach((item, index) => {
+                                    const img = item.querySelector('img');
+                                    // Calculate the index wrapping around if we reach the end of the array
+                                    const imageIndex = (startIndex + index) % images.length;
+                                    
+                                    img.src = `../../assets/img/projetos/cristalcapital/${images[imageIndex]}`;
+                                    img.alt = `Cristal Capital Screenshot ${imageIndex + 1}`;
+                                    img.style.display = 'block';
+                                });
+
+                                infoEl.textContent = `${page} de ${totalPages}`;
+                                prevBtn.disabled = page === 1;
+                                nextBtn.disabled = page === totalPages;
+                            }
+
+                            prevBtn.addEventListener("click", () => {
+                                if (currentPage > 1) {
+                                    currentPage--;
+                                    renderPage(currentPage);
+                                }
+                            });
+
+                            nextBtn.addEventListener("click", () => {
+                                if (currentPage < totalPages) {
+                                    currentPage++;
+                                    renderPage(currentPage);
+                                }
+                            });
+
+                            renderPage(currentPage);
+                        })();
+                    </script>
                 </div>
             </section>
 
