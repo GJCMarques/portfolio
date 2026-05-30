@@ -1,26 +1,28 @@
 /* assets/js/lightbox.js */
 // Lightbox logic for expanding project images
 
-document.addEventListener('DOMContentLoaded', () => {
+window.initLightbox = function() {
     const lightboxModal = document.getElementById('lightboxModal');
     const lightboxImage = document.getElementById('lightboxImage');
-    let isZoomed = false;
-    let isDragging = false;
-    let dragMoved = false;
+    
+    if (!lightboxModal || !lightboxImage) return;
+
+    // Use dataset to store zoom and drag state to avoid closure issues on re-init
+    lightboxModal.dataset.isZoomed = "false";
+    lightboxModal.dataset.isDragging = "false";
+    lightboxModal.dataset.dragMoved = "false";
+    
     let startX, startY;
     let currentTranslateX = 0, currentTranslateY = 0;
     let initialTranslateX = 0, initialTranslateY = 0;
     
-    if (!lightboxModal || !lightboxImage) return;
-    
     // Find all images that should trigger the lightbox
     const triggers = document.querySelectorAll('.lightbox-trigger');
     
+    // Remove old listeners by cloning triggers? No, just assign onclick to avoid duplicates
     triggers.forEach(trigger => {
-        trigger.addEventListener('click', (e) => {
+        trigger.onclick = (e) => {
             e.preventDefault();
-            // If the trigger is an image itself, use its src. 
-            // If it's a container, find the img inside.
             let imgSrc = '';
             if (trigger.tagName === 'IMG') {
                 imgSrc = trigger.src;
@@ -32,35 +34,35 @@ document.addEventListener('DOMContentLoaded', () => {
             if (imgSrc) {
                 lightboxImage.src = imgSrc;
                 lightboxModal.classList.add('active');
-                document.body.style.overflow = 'hidden'; // Prevent scrolling in the background
-                isZoomed = false;
+                document.body.style.overflow = 'hidden';
+                lightboxModal.dataset.isZoomed = "false";
                 lightboxImage.classList.remove('zoomed-in');
                 lightboxImage.style.transform = '';
                 currentTranslateX = 0;
                 currentTranslateY = 0;
             }
-        });
+        };
     });
 
-    lightboxImage.addEventListener('mousedown', (e) => {
-        if (!isZoomed) return;
+    lightboxImage.onmousedown = (e) => {
+        if (lightboxModal.dataset.isZoomed !== "true") return;
         e.preventDefault();
-        isDragging = true;
-        dragMoved = false;
+        lightboxModal.dataset.isDragging = "true";
+        lightboxModal.dataset.dragMoved = "false";
         startX = e.clientX;
         startY = e.clientY;
         initialTranslateX = currentTranslateX;
         initialTranslateY = currentTranslateY;
         lightboxImage.style.transition = 'none';
-    });
+    };
 
     window.addEventListener('mousemove', (e) => {
-        if (!isDragging || !isZoomed) return;
+        if (lightboxModal.dataset.isDragging !== "true" || lightboxModal.dataset.isZoomed !== "true") return;
         const dx = e.clientX - startX;
         const dy = e.clientY - startY;
         
         if (Math.abs(dx) > 5 || Math.abs(dy) > 5) {
-            dragMoved = true;
+            lightboxModal.dataset.dragMoved = "true";
         }
         
         currentTranslateX = initialTranslateX + dx;
@@ -69,22 +71,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     window.addEventListener('mouseup', () => {
-        if (isDragging) {
-            isDragging = false;
+        if (lightboxModal.dataset.isDragging === "true") {
+            lightboxModal.dataset.isDragging = "false";
             lightboxImage.style.transition = 'transform 0.1s ease-out';
         }
     });
 
-    // Toggle zoom on image click
-    lightboxImage.addEventListener('click', (e) => {
+    lightboxImage.onclick = (e) => {
         e.stopPropagation();
-        if (dragMoved) {
-            dragMoved = false;
+        if (lightboxModal.dataset.dragMoved === "true") {
+            lightboxModal.dataset.dragMoved = "false";
             return;
         }
 
-        isZoomed = !isZoomed;
-        if (isZoomed) {
+        const currentlyZoomed = lightboxModal.dataset.isZoomed === "true";
+        lightboxModal.dataset.isZoomed = (!currentlyZoomed).toString();
+        
+        if (!currentlyZoomed) {
             lightboxImage.classList.add('zoomed-in');
             lightboxImage.style.transition = 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
             lightboxImage.style.transform = 'translate(0px, 0px) scale(1.5)';
@@ -97,50 +100,45 @@ document.addEventListener('DOMContentLoaded', () => {
             currentTranslateX = 0;
             currentTranslateY = 0;
         }
-    });
-    
-    // Close logic
-    const closeLightbox = () => {
-        lightboxModal.classList.remove('active');
-        document.body.style.overflow = '';
-        isZoomed = false;
-        lightboxImage.classList.remove('zoomed-in');
-        lightboxImage.style.transform = '';
-        currentTranslateX = 0;
-        currentTranslateY = 0;
-        setTimeout(() => {
-            lightboxImage.src = '';
-        }, 300); // wait for fade out before clearing src
     };
     
-    // Close on clicking the close button
+    // Global close logic
+    window.closeLightbox = () => {
+        const modal = document.getElementById('lightboxModal');
+        const img = document.getElementById('lightboxImage');
+        if (modal) modal.classList.remove('active');
+        document.body.style.overflow = '';
+        if (modal) modal.dataset.isZoomed = "false";
+        if (img) {
+            img.classList.remove('zoomed-in');
+            img.style.transform = '';
+            setTimeout(() => { img.src = ''; }, 300);
+        }
+        currentTranslateX = 0;
+        currentTranslateY = 0;
+    };
+    
     const closeBtn = lightboxModal.querySelector('.lightbox-close');
     if (closeBtn) {
-        // Fix for iOS Safari bug where :active transform (scale) cancels the click event
-        closeBtn.addEventListener('click', (e) => {
+        closeBtn.onclick = (e) => {
             e.preventDefault();
             e.stopPropagation();
-            closeLightbox();
-        });
-        
-        closeBtn.addEventListener('touchend', (e) => {
-            e.preventDefault(); // Prevent ghost clicks
-            e.stopPropagation();
-            closeLightbox();
-        }, { passive: false });
+            window.closeLightbox();
+        };
     }
     
-    // Close on clicking the background (outside the image)
-    lightboxModal.addEventListener('click', (e) => {
+    lightboxModal.onclick = (e) => {
         if (e.target === lightboxModal || e.target.classList.contains('lightbox-content')) {
-            closeLightbox();
+            window.closeLightbox();
         }
-    });
+    };
     
-    // Close on Escape key
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && lightboxModal.classList.contains('active')) {
-            closeLightbox();
+        const modal = document.getElementById('lightboxModal');
+        if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+            window.closeLightbox();
         }
     });
-});
+};
+
+document.addEventListener('DOMContentLoaded', window.initLightbox);
