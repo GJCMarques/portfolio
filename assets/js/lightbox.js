@@ -116,7 +116,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // Close on clicking the close button
     const closeBtn = lightboxModal.querySelector('.lightbox-close');
     if (closeBtn) {
-        closeBtn.addEventListener('click', closeLightbox);
+        // Fix for iOS Safari bug where :active transform (scale) cancels the click event
+        closeBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            closeLightbox();
+        });
+        
+        closeBtn.addEventListener('touchend', (e) => {
+            e.preventDefault(); // Prevent ghost clicks
+            e.stopPropagation();
+            closeLightbox();
+        }, { passive: false });
     }
     
     // Close on clicking the background (outside the image)
