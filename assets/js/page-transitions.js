@@ -366,11 +366,6 @@
     if (typeof window.reinitMain === 'function') {
       window.reinitMain();
     }
-    
-    // ---- Lightbox (re-bind triggers and modal) ----
-    if (typeof window.initLightbox === 'function') {
-      window.initLightbox();
-    }
   }
 
   function reinitAnimations() {

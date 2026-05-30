@@ -1,144 +1,160 @@
 /* assets/js/lightbox.js */
 // Lightbox logic for expanding project images
 
-window.initLightbox = function() {
-    const lightboxModal = document.getElementById('lightboxModal');
-    const lightboxImage = document.getElementById('lightboxImage');
-    
-    if (!lightboxModal || !lightboxImage) return;
+// Global state for drag and zoom
+window._lbCurrentTranslateX = 0;
+window._lbCurrentTranslateY = 0;
+let _lbStartX = 0;
+let _lbStartY = 0;
+let _lbInitialTranslateX = 0;
+let _lbInitialTranslateY = 0;
 
-    // Use dataset to store zoom and drag state to avoid closure issues on re-init
-    lightboxModal.dataset.isZoomed = "false";
-    lightboxModal.dataset.isDragging = "false";
-    lightboxModal.dataset.dragMoved = "false";
-    
-    let startX, startY;
-    let currentTranslateX = 0, currentTranslateY = 0;
-    let initialTranslateX = 0, initialTranslateY = 0;
-    
-    // Find all images that should trigger the lightbox
-    const triggers = document.querySelectorAll('.lightbox-trigger');
-    
-    // Remove old listeners by cloning triggers? No, just assign onclick to avoid duplicates
-    triggers.forEach(trigger => {
-        trigger.onclick = (e) => {
-            e.preventDefault();
-            let imgSrc = '';
-            if (trigger.tagName === 'IMG') {
-                imgSrc = trigger.src;
-            } else {
-                const img = trigger.querySelector('img');
-                if (img) imgSrc = img.src;
-            }
-            
-            if (imgSrc) {
-                lightboxImage.src = imgSrc;
-                lightboxModal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-                lightboxModal.dataset.isZoomed = "false";
-                lightboxImage.classList.remove('zoomed-in');
-                lightboxImage.style.transform = '';
-                currentTranslateX = 0;
-                currentTranslateY = 0;
-            }
-        };
-    });
+// Global close logic
+window.closeLightbox = () => {
+    const modal = document.getElementById('lightboxModal');
+    const img = document.getElementById('lightboxImage');
+    if (modal) modal.classList.remove('active');
+    document.body.style.overflow = '';
+    if (modal) modal.dataset.isZoomed = "false";
+    if (img) {
+        img.classList.remove('zoomed-in');
+        img.style.transform = '';
+        setTimeout(() => { img.src = ''; }, 300);
+    }
+    window._lbCurrentTranslateX = 0;
+    window._lbCurrentTranslateY = 0;
+};
 
-    lightboxImage.onmousedown = (e) => {
-        if (lightboxModal.dataset.isZoomed !== "true") return;
+// Global Event Delegation for Lightbox (AJAX-safe, no binding needed)
+document.addEventListener('click', (e) => {
+    let target = e.target;
+    if (!target || typeof target.closest !== 'function') return;
+
+    const modal = document.getElementById('lightboxModal');
+    const img = document.getElementById('lightboxImage');
+    if (!modal || !img) return;
+
+    // 1. OPEN LIGHTBOX
+    const trigger = target.closest('.lightbox-trigger');
+    if (trigger) {
         e.preventDefault();
-        lightboxModal.dataset.isDragging = "true";
-        lightboxModal.dataset.dragMoved = "false";
-        startX = e.clientX;
-        startY = e.clientY;
-        initialTranslateX = currentTranslateX;
-        initialTranslateY = currentTranslateY;
-        lightboxImage.style.transition = 'none';
-    };
-
-    window.addEventListener('mousemove', (e) => {
-        if (lightboxModal.dataset.isDragging !== "true" || lightboxModal.dataset.isZoomed !== "true") return;
-        const dx = e.clientX - startX;
-        const dy = e.clientY - startY;
-        
-        if (Math.abs(dx) > 5 || Math.abs(dy) > 5) {
-            lightboxModal.dataset.dragMoved = "true";
-        }
-        
-        currentTranslateX = initialTranslateX + dx;
-        currentTranslateY = initialTranslateY + dy;
-        lightboxImage.style.transform = `translate(${currentTranslateX}px, ${currentTranslateY}px) scale(1.5)`;
-    });
-
-    window.addEventListener('mouseup', () => {
-        if (lightboxModal.dataset.isDragging === "true") {
-            lightboxModal.dataset.isDragging = "false";
-            lightboxImage.style.transition = 'transform 0.1s ease-out';
-        }
-    });
-
-    lightboxImage.onclick = (e) => {
-        e.stopPropagation();
-        if (lightboxModal.dataset.dragMoved === "true") {
-            lightboxModal.dataset.dragMoved = "false";
-            return;
-        }
-
-        const currentlyZoomed = lightboxModal.dataset.isZoomed === "true";
-        lightboxModal.dataset.isZoomed = (!currentlyZoomed).toString();
-        
-        if (!currentlyZoomed) {
-            lightboxImage.classList.add('zoomed-in');
-            lightboxImage.style.transition = 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
-            lightboxImage.style.transform = 'translate(0px, 0px) scale(1.5)';
-            currentTranslateX = 0;
-            currentTranslateY = 0;
+        let imgSrc = '';
+        if (trigger.tagName === 'IMG') {
+            imgSrc = trigger.src;
         } else {
-            lightboxImage.classList.remove('zoomed-in');
-            lightboxImage.style.transition = 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
-            lightboxImage.style.transform = '';
-            currentTranslateX = 0;
-            currentTranslateY = 0;
+            const innerImg = trigger.querySelector('img');
+            if (innerImg) imgSrc = innerImg.src;
         }
-    };
-    
-    // Global close logic
-    window.closeLightbox = () => {
-        const modal = document.getElementById('lightboxModal');
-        const img = document.getElementById('lightboxImage');
-        if (modal) modal.classList.remove('active');
-        document.body.style.overflow = '';
-        if (modal) modal.dataset.isZoomed = "false";
-        if (img) {
+        
+        if (imgSrc) {
+            img.src = imgSrc;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            modal.dataset.isZoomed = "false";
+            modal.dataset.isDragging = "false";
+            modal.dataset.dragMoved = "false";
             img.classList.remove('zoomed-in');
             img.style.transform = '';
-            setTimeout(() => { img.src = ''; }, 300);
+            window._lbCurrentTranslateX = 0;
+            window._lbCurrentTranslateY = 0;
         }
-        currentTranslateX = 0;
-        currentTranslateY = 0;
-    };
-    
-    const closeBtn = lightboxModal.querySelector('.lightbox-close');
-    if (closeBtn) {
-        closeBtn.onclick = (e) => {
+        return;
+    }
+
+    // 2. CLOSE LIGHTBOX
+    if (modal.classList.contains('active')) {
+        // If clicked on cross
+        if (target.closest('.lightbox-close')) {
             e.preventDefault();
             e.stopPropagation();
             window.closeLightbox();
-        };
-    }
-    
-    lightboxModal.onclick = (e) => {
-        if (e.target === lightboxModal || e.target.classList.contains('lightbox-content')) {
-            window.closeLightbox();
+            return;
         }
-    };
-    
-    document.addEventListener('keydown', (e) => {
-        const modal = document.getElementById('lightboxModal');
-        if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+        
+        // If clicked on background
+        if (target === modal || target.classList.contains('lightbox-content')) {
             window.closeLightbox();
+            return;
         }
-    });
-};
+        
+        // If clicked on the image to toggle zoom
+        if (target === img) {
+            e.stopPropagation();
+            if (modal.dataset.dragMoved === "true") {
+                modal.dataset.dragMoved = "false";
+                return;
+            }
 
-document.addEventListener('DOMContentLoaded', window.initLightbox);
+            const currentlyZoomed = modal.dataset.isZoomed === "true";
+            modal.dataset.isZoomed = (!currentlyZoomed).toString();
+            
+            if (!currentlyZoomed) {
+                img.classList.add('zoomed-in');
+                img.style.transition = 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+                img.style.transform = 'translate(0px, 0px) scale(1.5)';
+                window._lbCurrentTranslateX = 0;
+                window._lbCurrentTranslateY = 0;
+            } else {
+                img.classList.remove('zoomed-in');
+                img.style.transition = 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+                img.style.transform = '';
+                window._lbCurrentTranslateX = 0;
+                window._lbCurrentTranslateY = 0;
+            }
+        }
+    }
+});
+
+// Drag and Drop Logic for Zoomed Image
+document.addEventListener('mousedown', (e) => {
+    const modal = document.getElementById('lightboxModal');
+    const img = document.getElementById('lightboxImage');
+    if (!modal || !img || !modal.classList.contains('active')) return;
+    
+    if (e.target === img && modal.dataset.isZoomed === "true") {
+        e.preventDefault();
+        modal.dataset.isDragging = "true";
+        modal.dataset.dragMoved = "false";
+        _lbStartX = e.clientX;
+        _lbStartY = e.clientY;
+        _lbInitialTranslateX = window._lbCurrentTranslateX;
+        _lbInitialTranslateY = window._lbCurrentTranslateY;
+        img.style.transition = 'none';
+    }
+});
+
+document.addEventListener('mousemove', (e) => {
+    const modal = document.getElementById('lightboxModal');
+    const img = document.getElementById('lightboxImage');
+    if (!modal || !img) return;
+
+    if (modal.dataset.isDragging === "true" && modal.dataset.isZoomed === "true") {
+        const dx = e.clientX - _lbStartX;
+        const dy = e.clientY - _lbStartY;
+        
+        if (Math.abs(dx) > 5 || Math.abs(dy) > 5) {
+            modal.dataset.dragMoved = "true";
+        }
+        
+        window._lbCurrentTranslateX = _lbInitialTranslateX + dx;
+        window._lbCurrentTranslateY = _lbInitialTranslateY + dy;
+        img.style.transform = `translate(${window._lbCurrentTranslateX}px, ${window._lbCurrentTranslateY}px) scale(1.5)`;
+    }
+});
+
+document.addEventListener('mouseup', () => {
+    const modal = document.getElementById('lightboxModal');
+    const img = document.getElementById('lightboxImage');
+    if (modal && modal.dataset.isDragging === "true") {
+        modal.dataset.isDragging = "false";
+        if (img) img.style.transition = 'transform 0.1s ease-out';
+    }
+});
+
+document.addEventListener('keydown', (e) => {
+    const modal = document.getElementById('lightboxModal');
+    if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+        window.closeLightbox();
+    }
+});
+
