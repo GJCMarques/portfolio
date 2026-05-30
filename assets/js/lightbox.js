@@ -28,6 +28,10 @@ window.closeLightbox = () => {
 // Global Event Delegation for Lightbox (AJAX-safe, no binding needed)
 document.addEventListener('click', (e) => {
     let target = e.target;
+    // On some touch devices, e.target can be the text node itself (like the &times; character).
+    if (target && target.nodeType === 3) {
+        target = target.parentNode;
+    }
     if (!target || typeof target.closest !== 'function') return;
 
     const modal = document.getElementById('lightboxModal');

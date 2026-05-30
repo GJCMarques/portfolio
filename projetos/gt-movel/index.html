@@ -242,7 +242,7 @@
                 </div>
 
                 <script>
-                    document.addEventListener("DOMContentLoaded", () => {
+                    (function initGallery() {
                         const wrapper = document.getElementById("comparisonWrapper");
                         const imgBefore = document.getElementById("imgBefore");
                         const sliderLine = document.getElementById("sliderLine");
@@ -277,7 +277,7 @@
 
                         window.addEventListener("mousemove", moveSlider);
                         window.addEventListener("touchmove", moveSlider, {passive: true});
-                    });
+                    })();
                 </script>
             </section>
 
@@ -306,7 +306,7 @@
                     </div>
 
                     <script>
-                        document.addEventListener("DOMContentLoaded", () => {
+                        (function initGallery() {
                             const images = [
                                 '1.png', '2.png', '3.png', '4.png', '5.png', '6.png', '7.png', '8.png', '9.png', '10.png', '11.png', '12.png', '13.png', '14.png', '1.png'
                             ];
@@ -321,7 +321,8 @@
                             const nextBtn = document.getElementById("nextPageBtn");
 
                             // Initialize the grid with permanent containers to prevent layout shift
-                            galleryContainer.innerHTML = '';
+                            if (!galleryContainer) return;
+                            galleryContainer.innerHTML = "";
                             for (let i = 0; i < itemsPerPage; i++) {
                                 const div = document.createElement("div");
                                 div.className = "gallery-item";
@@ -389,7 +390,7 @@
 
                             // Initial render
                             renderPage(currentPage);
-                        });
+                        })();
                     </script>
                 </div>
             </section>

@@ -260,7 +260,7 @@
                     </div>
 
                     <script>
-                        document.addEventListener("DOMContentLoaded", () => {
+                        (function initGallery() {
                             const images = [
                                 '1 - Login.png', '2 - Mercado.png', '3 - Wish List.png', '4 - Livro de Ordens.png', '5.1 - Curvas de Rendimento.png', '5.2 - Curvas de Rendimento.png', '5.3 - Curvas de Rendimento.png', '6 - Heat Map.png', '7 - Bubble Map.png', '8 - Screener.png', '9 - Matrix de Correlacao.png', '10 - Alertas.png', '11.1 - Monitor Macroeconomico.png', '11.2 - Monitor Macroeconomico.png', '11.3 - Monitor Macroeconomico.png', '11.4 - Monitor Macroeconomico.png', '11.5 - Monitor Macroeconomico.png', '11.6 - Monitor Macroeconomico.png', '12 - Calendario.png', '13.1 - Mapa Mundo.png', '13.2 - Mapa Mundo.png', '13.3 - Mapa Mundo.png', '13.4 - Mapa Mundo.png', '13.5 - Mapa Mundo.png', '14 - Crypto.png', '15 - DEFI.png', '16 - Noticias com Sentimentos.png', '17 - IA Terminal.png', '18 - Monitor Global 3d.png', '19.1 Quant.png', '19.2 Quant.png', '19.3 Quant.png', '19.4 Quant.png', '19.5 Quant.png', '19.6 Quant.png', '19.7 Quant.png', '19.8 Quant.png', '19.9 Quant.png', '19.10 Quant.png', '19.11 Quant.png', '19.12 Quant.png', '19.13 Quant.png', '19.14 Quant.png', '19.15 Quant.png', '19.16 Quant.png', '21 - TV Direto.png', '22 - Radio.png', '23 - Chat Institucional.png', '24 - Help Page.png', '25 - Temas.png', '26 - Menu Perfil.png', '27 - Linguas.png', '28 - Menu Botao Direito Rato.png', '29 - Menu de Atalho.png', '30 - Stock Price.png', '31 - Configuracoes Perfil.png', '32 - Configuracoes Perfil.png', '33 - Configuracoes Perfil.png', '34 - Configuracoes Perfil.png', '35 -Painel de Contas Administracao.png', '36 - Painel Controlo Funcionalidades.png', '37 - Painel de MFA.png', '38 - Painel Linha de Comandos.png'
                             ];
@@ -275,7 +275,8 @@
                             const nextBtn = document.getElementById("nextPageBtn");
 
                             // Initialize the grid with permanent containers to prevent layout shift
-                            galleryContainer.innerHTML = '';
+                            if (!galleryContainer) return;
+                            galleryContainer.innerHTML = "";
                             for (let i = 0; i < itemsPerPage; i++) {
                                 const div = document.createElement("div");
                                 div.className = "gallery-item";
@@ -343,7 +344,7 @@
 
                             // Initial render
                             renderPage(currentPage);
-                        });
+                        })();
                     </script>
                 </div>
             </section>
