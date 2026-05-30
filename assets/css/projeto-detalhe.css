@@ -264,10 +264,13 @@
     z-index: 10000;
     line-height: 1;
     transition: transform 0.3s ease;
+    touch-action: manipulation; /* Prevents double-tap zoom delay */
 }
 
-.lightbox-close:hover {
-    transform: rotate(90deg) scale(1.1);
+@media (hover: hover) {
+    .lightbox-close:hover {
+        transform: rotate(90deg) scale(1.1);
+    }
 }
 
 .lightbox-content {

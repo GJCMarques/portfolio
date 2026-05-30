@@ -41,26 +41,30 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Event Listeners
-    nextBtn.addEventListener('click', showNext);
-    prevBtn.addEventListener('click', showPrev);
+    if (nextBtn) nextBtn.addEventListener('click', showNext);
+    if (prevBtn) prevBtn.addEventListener('click', showPrev);
 
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            updateCarousel(index);
+    if (dots.length > 0) {
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                updateCarousel(index);
+            });
         });
-    });
+    }
 
-    // Auto-advance every 10 seconds
-    if (window.__heroCarouselInterval) clearInterval(window.__heroCarouselInterval);
-    window.__heroCarouselInterval = setInterval(showNext, 10000);
+    if (totalSlides > 0) {
+        // Auto-advance every 10 seconds
+        if (window.__heroCarouselInterval) clearInterval(window.__heroCarouselInterval);
+        window.__heroCarouselInterval = setInterval(showNext, 10000);
 
-    // Pause auto-play on interaction
-    const container = document.querySelector('.split-right');
-    if (container) {
-        container.addEventListener('mouseenter', () => clearInterval(window.__heroCarouselInterval));
-        container.addEventListener('mouseleave', () => {
-            if (window.__heroCarouselInterval) clearInterval(window.__heroCarouselInterval);
-            window.__heroCarouselInterval = setInterval(showNext, 10000);
-        });
+        // Pause auto-play on interaction
+        const container = document.querySelector('.split-right');
+        if (container) {
+            container.addEventListener('mouseenter', () => clearInterval(window.__heroCarouselInterval));
+            container.addEventListener('mouseleave', () => {
+                if (window.__heroCarouselInterval) clearInterval(window.__heroCarouselInterval);
+                window.__heroCarouselInterval = setInterval(showNext, 10000);
+            });
+        }
     }
 });

@@ -95,7 +95,7 @@
             const skipPreloader = isAjax || (hasSeen && !isReload);
 
             if (skipPreloader) {
-                preloader.classList.add("preloader-instant-hide");
+                if (preloader) preloader.classList.add("preloader-instant-hide");
 
                 if (!isAjax) {
                     // Garantir que a animação da página arranca se o preloader for ignorado no F5
@@ -123,7 +123,7 @@
                     let dotsCount = 0;
                     const dotsInterval = setInterval(() => {
                         dotsCount = (dotsCount + 1) % 4;
-                        textEl.innerText = "A carregar" + ".".repeat(dotsCount);
+                        if (textEl) textEl.innerText = "A carregar" + ".".repeat(dotsCount);
                     }, 400);
 
                     // Gerar números aleatórios para um "salto" mais orgânico
@@ -136,8 +136,10 @@
                     ];
 
                     const circumference = 301.59;
-                    circleEl.style.strokeDasharray = circumference;
-                    circleEl.style.strokeDashoffset = circumference;
+                    if (circleEl) {
+                        circleEl.style.strokeDasharray = circumference;
+                        circleEl.style.strokeDashoffset = circumference;
+                    }
 
                     let stepIndex = 0;
                     const intervalTime = 800; // 800ms
@@ -149,14 +151,14 @@
                             if (stepIndex >= steps.length) {
                                 clearInterval(stepInterval);
                                 clearInterval(dotsInterval);
-                                textEl.innerText = "Concluído"; // Opcional: mostrar "Concluído" no final
+                                if (textEl) textEl.innerText = "Concluído"; // Opcional: mostrar "Concluído" no final
                                 setTimeout(() => {
                                     // 1. Fade out the inner elements gracefully
-                                    preloader.classList.add("preloader-finishing");
+                                    if (preloader) preloader.classList.add("preloader-finishing");
 
                                     // 2. Shrink the card and trigger hero animations
                                     setTimeout(() => {
-                                        preloader.classList.add("preloader-hidden");
+                                        if (preloader) preloader.classList.add("preloader-hidden");
                                         document.body.style.overflow = "hidden";
                                         document.body.style.overflowY = "auto";
 
@@ -167,7 +169,7 @@
                                             });
                                         }, 200);
 
-                                        setTimeout(() => preloader.remove(), 1500);
+                                        setTimeout(() => { if (preloader) preloader.remove(); }, 1500);
                                     }, 800); // 800ms for the finishing fade to complete
                                 }, 800); // Wait 800ms to appreciate the 100% and 'Concluído' text
                                 return;
@@ -178,22 +180,24 @@
 
                             if (valStr === "100") {
                                 // Rolar em frente para o segundo '0' no final da lista (índice 10)
-                                col2.style.transform = `translateY(-10em)`;
-                                col3.style.transform = `translateY(-10em)`;
+                                if (col2) col2.style.transform = `translateY(-10em)`;
+                                if (col3) col3.style.transform = `translateY(-10em)`;
 
                                 // Mostrar o 1 suavemente só depois de os 00 chegarem ao sítio
                                 setTimeout(() => {
-                                    col1.style.width = "1ch";
-                                    col1.style.opacity = "1";
+                                    if (col1) {
+                                        col1.style.width = "1ch";
+                                        col1.style.opacity = "1";
+                                    }
                                 }, 800);
                             } else if (valStr.length === 2) {
-                                col2.style.transform = `translateY(-${valStr[0]}em)`;
-                                col3.style.transform = `translateY(-${valStr[1]}em)`;
+                                if (col2) col2.style.transform = `translateY(-${valStr[0]}em)`;
+                                if (col3) col3.style.transform = `translateY(-${valStr[1]}em)`;
                             }
 
                             // Smooth Circle Anim
                             const offset = circumference - (val / 100) * circumference;
-                            circleEl.style.strokeDashoffset = offset;
+                            if (circleEl) circleEl.style.strokeDashoffset = offset;
 
                         }, intervalTime);
                     }, 400);

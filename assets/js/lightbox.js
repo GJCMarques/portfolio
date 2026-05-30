@@ -105,8 +105,8 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// Drag and Drop Logic for Zoomed Image
-document.addEventListener('mousedown', (e) => {
+// Drag and Drop Logic for Zoomed Image (using Pointer Events for both Mouse & Touch)
+document.addEventListener('pointerdown', (e) => {
     const modal = document.getElementById('lightboxModal');
     const img = document.getElementById('lightboxImage');
     if (!modal || !img || !modal.classList.contains('active')) return;
@@ -120,10 +120,11 @@ document.addEventListener('mousedown', (e) => {
         _lbInitialTranslateX = window._lbCurrentTranslateX;
         _lbInitialTranslateY = window._lbCurrentTranslateY;
         img.style.transition = 'none';
+        img.setPointerCapture(e.pointerId);
     }
 });
 
-document.addEventListener('mousemove', (e) => {
+document.addEventListener('pointermove', (e) => {
     const modal = document.getElementById('lightboxModal');
     const img = document.getElementById('lightboxImage');
     if (!modal || !img) return;
@@ -142,14 +143,22 @@ document.addEventListener('mousemove', (e) => {
     }
 });
 
-document.addEventListener('mouseup', () => {
+const stopDrag = (e) => {
     const modal = document.getElementById('lightboxModal');
     const img = document.getElementById('lightboxImage');
     if (modal && modal.dataset.isDragging === "true") {
         modal.dataset.isDragging = "false";
-        if (img) img.style.transition = 'transform 0.1s ease-out';
+        if (img) {
+            img.style.transition = 'transform 0.1s ease-out';
+            if (e && e.pointerId) {
+                try { img.releasePointerCapture(e.pointerId); } catch(err){}
+            }
+        }
     }
-});
+};
+
+document.addEventListener('pointerup', stopDrag);
+document.addEventListener('pointercancel', stopDrag);
 
 document.addEventListener('keydown', (e) => {
     const modal = document.getElementById('lightboxModal');
