@@ -1517,6 +1517,31 @@
   }
 }
 
+/* Fix for ultra-short screens (e.g. 1500x550) */
+@media (max-height: 650px) and (min-width: 1025px) {
+  .split-left {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+  .brand-logo {
+    font-size: 1.25rem;
+  }
+  .hero-title {
+    font-size: clamp(2rem, 5vh, 3rem);
+    margin-bottom: 0.5rem;
+  }
+  .hero-desc {
+    font-size: clamp(0.9rem, 2vh, 1.05rem);
+    margin-bottom: 0.5rem;
+  }
+  .bottom-nav {
+    gap: 0.25rem;
+  }
+  .bottom-nav a {
+    font-size: 1.1rem;
+  }
+}
+
 @media (max-width: 1600px) {
   .split-left {
     padding: 2.5rem 0 2.5rem 2.5rem;
