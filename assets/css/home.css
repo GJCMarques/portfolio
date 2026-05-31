@@ -1487,8 +1487,8 @@
 }
 
 /* LAPTOP & DESKTOP RESPONSIVE ADJUSTMENTS */
-/* Fix for short, wide screens (e.g. 1500x600) to prevent hero text overlapping logo */
-@media (max-height: 750px) and (min-width: 1025px) {
+/* Fix for short, wide screens (e.g. 1366x768, 1440x900, 1500x600) to prevent hero text overlapping logo */
+@media (max-height: 850px) and (min-width: 1025px) {
   .split-left {
     padding-top: 2.5rem;
     padding-bottom: 2.5rem;
