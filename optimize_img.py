@@ -31,5 +31,46 @@ def optimize(path, out_path, target_kb=None):
     except Exception as e:
         print("Error:", e)
 
-optimize("assets/img/projetos/expolivemultimediacapa.png", "assets/img/projetos/expolivemultimediacapa.webp")
-optimize("assets/img/projetos/campanhaautarquicacapa.png", "assets/img/projetos/campanhaautarquicacapa.webp", target_kb=800)
+import re
+import glob
+
+def optimize_all():
+    base_dir = "assets/img/projetos"
+    # Find all numbered pngs in subdirectories
+    search_pattern = os.path.join(base_dir, "**", "[0-9]*.png")
+    png_files = glob.glob(search_pattern, recursive=True)
+    
+    for path in png_files:
+        filename = os.path.basename(path)
+        # Check if it matches exactly digits.png
+        if not re.match(r'^\d+\.png$', filename):
+            continue
+            
+        out_path = path.replace('.png', '.webp')
+        target_kb = 800
+        
+        try:
+            print(f"Converting {path}...")
+            img = Image.open(path)
+            quality = 95
+            img.save(out_path, format="WEBP", quality=quality)
+            size_kb = os.path.getsize(out_path) / 1024
+            
+            while size_kb > target_kb and quality > 60:
+                quality -= 5
+                img.save(out_path, format="WEBP", quality=quality)
+                size_kb = os.path.getsize(out_path) / 1024
+            
+            if size_kb > target_kb:
+                w, h = img.size
+                img = img.resize((int(w*0.8), int(h*0.8)), Image.Resampling.LANCZOS)
+                img.save(out_path, format="WEBP", quality=80)
+                size_kb = os.path.getsize(out_path) / 1024
+                
+            print(f" -> Saved {out_path} ({size_kb:.2f} KB)")
+            # Remove original png to save space
+            os.remove(path)
+        except Exception as e:
+            print(f"Error on {path}: {e}")
+
+optimize_all()
