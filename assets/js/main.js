@@ -174,6 +174,7 @@ window.reinitMain = function() {
         if (currentFilters.industry === 'eventos' && !tags.includes('eventos')) industryMatch = false;
         if (currentFilters.industry === 'portfolio' && !tags.includes('portfólio')) industryMatch = false;
         if (currentFilters.industry === 'alojamento' && !tags.includes('alojamento')) industryMatch = false;
+        if (currentFilters.industry === 'politica' && !tags.includes('política')) industryMatch = false;
         
         if (typeMatch && serviceMatch && industryMatch) {
           card.style.display = 'flex';
