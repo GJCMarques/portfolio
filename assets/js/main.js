@@ -166,6 +166,8 @@ window.reinitMain = function() {
         if (currentFilters.service === 'design' && !tags.includes('design')) serviceMatch = false;
         if (currentFilters.service === 'frontend' && !tags.includes('frontend') && !tags.includes('front end')) serviceMatch = false;
         if (currentFilters.service === 'fullstack' && !tags.includes('full stack')) serviceMatch = false;
+        if (currentFilters.service === 'fotografia' && !tags.includes('fotografia')) serviceMatch = false;
+        if (currentFilters.service === 'multimedia' && !tags.includes('multimédia')) serviceMatch = false;
         
         let industryMatch = true;
         if (currentFilters.industry === 'financas' && !tags.includes('finanças')) industryMatch = false;
