@@ -42,9 +42,7 @@ def optimize_all():
     
     for path in png_files:
         filename = os.path.basename(path)
-        # Check if it matches exactly digits.png
-        if not re.match(r'^\d+\.png$', filename):
-            continue
+        # Removed regex check to allow all pngs
             
         out_path = path.replace('.png', '.webp')
         target_kb = 800
