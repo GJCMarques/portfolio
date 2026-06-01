@@ -18,12 +18,12 @@
 
 Este website não é apenas uma montra para os meus trabalhos; é, por si só, uma demonstração prática do meu nível técnico. 
 
-A arquitetura, o design da interface (UI), as experiências de utilização (UX) e todo o código-fonte foram **100% idealizados e desenvolvidos por mim**, sem qualquer recurso a construtores visuais de websites ou templates pré-feitos. A minha filosofia assenta na harmonia entre a estética e o desempenho técnico.
+A arquitetura, o design da interface (UI), as experiências de utilização (UX) e todo o código-fonte foram **100% arquitetados e desenvolvidos por mim**, sem qualquer recurso a templates pré-feitos. A minha filosofia assenta na harmonia entre a estética e o desempenho técnico.
 
 ## Destaques e Funcionalidades
 
-- **Desenvolvimento "From Scratch"**: Programado de raiz com foco na pureza do código para garantir a máxima performance.
-- **Design de Excelência**: Abordagem visual direcionada para reter a atenção do utilizador através de micro-interações, tipografia moderna e layouts expansivos.
+- **Desenvolvimento "From Scratch"**: Programado de raiz com foco na performance e otimização do código para garantir boa performance.
+- **Design Sofisticado**: Abordagem visual direcionada para reter a atenção do utilizador através de micro-interações, tipografia moderna e layouts expansivos mas direto ao ponto.
 - **Transições SPA (Single Page Application)**: Navegação fluida entre páginas sem carregamentos visíveis, suportada por animações cinematográficas de saída e entrada.
 - **Performance Otimizada**: Utilização integral de recursos visuais no formato `.webp`, otimização de carregamento e renderização através de `Intersection Observers` e minimização do impacto no DOM.
 - **Design Responsivo Extremo**: Totalmente adaptado não só para dispositivos móveis e tablets, mas também desenhado para suportar proporções de ecrã altamente atípicas em computadores, assegurando que a estrutura se mantém intacta em qualquer cenário.
